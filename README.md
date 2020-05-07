@@ -24,6 +24,7 @@ CoinSummer实验室Filecoin资源分享。
   - [Testnet2(V20)](https://github.com/filecoin-project/lotus/issues/839)
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
   - [Testnet3(V25)](https://filecoin-benchmarks.on.fleek.co/)
+  - [Testnet3(V25)](https://github.com/CoinSummer/benchmarks/tree/master/benchmarks)
 - Proof证明文件国内下载
   - [JDCloud(v20)参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
   - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
