@@ -42,7 +42,7 @@ CoinSummer实验室Filecoin资源分享。
   - [相关链接](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1587776730458900)
 
 ## 节点操作
-#### 查看节点信息
+### 查看节点信息
 ```sh
 # 查看本节点所监听的地址:
 lotus net listen
@@ -50,7 +50,7 @@ lotus net listen
 lotus net peers
 ```
 
-#### 手动连接其它节点（命令中的地址为示例地址）
+### 手动连接其它节点（命令中的地址为示例地址）
 ```sh
 lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5ZNSuJZZzHWp2FXDY7ufqGBmUW
 ```
@@ -61,38 +61,38 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 ```
 上述的节点是示例节点，当您在使用该命令的时候，您需要自己去找一个可以使用的节点。
 
-#### 手动设置链的高度
+### 手动设置链的高度
 ```sh
 # 设置高度到9700
 lotus chain sethead --epoch=9700
 ```
 
-#### 编译参数
-##### v25 版本代码的编译命令:
+### 编译参数
+#### v25 版本代码的编译命令:
 ```sh
 env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all
 ```
 特别是针对 AMD 处理器，使用该命令自己编译出来的代码更适合自己的机器。
 
-##### 启用内存最大化参数：
+#### 启用内存最大化参数：
 ```sh
 export FIL_PROOFS_MAXIMIZE_CACHING=1
 ```
 该参数仅针对Testnet3的 32GB 扇区有效。
 
-##### 启用 Log 日志：
+#### 启用 Log 日志：
 ```sh
 export RUST_LOG=Debug
 ```
 运行 miner 之前加入该参数可以在 miner 的日志中查看更详细的输出信息（底层 rust 代码的输出信息），Log 登记从低到高分别有： Trace、Debug、Info、Warn、Error，Trace 输出的信息最详细，Error 输出的信息最少，仅输入错误信息。
 
-#### 修改proof文件路径
+### 修改proof文件路径
 ```sh
 export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v25/
 ```
 
 ## Storage miner操作
-#### 查看扇区状态
+### 查看扇区状态
 ```sh
 # 列举所有扇区信息:
 lotus-storage-miner sectors list
@@ -100,14 +100,14 @@ lotus-storage-miner sectors list
 lotus-storage-miner sectors status --log <SectorID>
 ```
 
-#### 手动修改扇区状态
+### 手动修改扇区状态
 ```sh
 lotus-storage-miner sectors update-state --really-do-it <SectorID> <NewSectorStatus>
 # 例如：手动修改扇区 1 的状态为 FaultedFinal 状态
 lotus-storage-miner sectors update-state --really-do-it 1 FaultedFinal
 ```
 
-#### 更改默认存储路径
+### 更改默认存储路径
 ```sh
 export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
 ```
@@ -121,7 +121,7 @@ export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
   "CanStore": true
 }
 ```
-#### 增加存储路径
+### 增加存储路径
 ```sh
 # 设置数据存储路径，该路径用来存储最终密封好的数据
 # 执行该命令可能需要一点时间等待
@@ -137,7 +137,7 @@ lotus-storage-miner storage attach --seal --init /path/to/fast_cache
 lotus-storage-miner storage list
 ```
 
-#### 赎回已获得的奖励（Testnet3 才需要手动赎回）
+### 赎回已获得的奖励（Testnet3 才需要手动赎回）
 ```sh
 lotus-storage-miner rewards redeem
 lotus-storage-miner rewards list
@@ -145,12 +145,12 @@ lotus-storage-miner rewards list
 赎回之后，可能需要过一段时间才能看到自己钱包的余额增加。
 
 ## Worker操作
-#### Testnet3 查看 Worker 信息
+### Testnet3 查看 Worker 信息
 ```sh
 lotus-storage-miner workers list
 ```
 
-#### Testnet3 启动 worker
+### Testnet3 启动 worker
 ```sh
 lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
