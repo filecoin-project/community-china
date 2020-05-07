@@ -262,6 +262,8 @@ git reset --hard 8c0f2c1ce06
 git pull
 # 这时候就完成代码更新了，并解决代码冲突问题
 # 此时就可以重新编译代码了：
+# 当然，在这之前，你可能需要设置一下 GOLANG 的代理
+# 已经挂了代理的用户可忽略
 env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all bench
 
 ```
