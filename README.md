@@ -148,6 +148,21 @@ lotus-storage-miner storage attach --seal --init /path/to/fast_cache
 lotus-storage-miner storage list
 ```
 
+### 移动存储目录
+默认的存储目录`~/.lotusstorage`可以移动到其他地方。
+移动前最好先停掉daemon和miner。
+移动后，假设新路径为`/path/to/.lotusstorage`，需要手动更改`/path/to/.lotusstorage`目录下`storage.json`中的StoragePaths为新路径：
+```json
+{
+  "StoragePaths": [
+    {
+      "Path": "/path/to/.lotusstorage"
+    }
+  ]
+}
+```
+移动后，重启daemon和miner，miner会重新读取新路径下的所有sector信息。
+
 ### 赎回已获得的奖励（Testnet3 才需要手动赎回）
 ```sh
 lotus-storage-miner rewards redeem
