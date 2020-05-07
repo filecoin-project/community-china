@@ -69,6 +69,15 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 lotus chain sethead --epoch=9700
 ```
 
+### 手动下载proof参数
+```sh
+# export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
+./lotus fetch-params --proving-params 2KiB     # 例如下载 2KiB 扇区对应的 Proof 参数
+./lotus fetch-params --proving-params 16MiB    # 下载 16MiB 扇区对应的 Proof 参数
+./lotus fetch-params --proving-params 32GiB    # 下载 32GiB 扇区对应的 Proof 参数
+```
+[参考](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
+
 ### 编译参数
 #### v25 版本代码的编译命令:
 ```sh
