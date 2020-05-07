@@ -178,6 +178,64 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
+## 常用环境变量
+
+```sh
+# lotus 路径：
+LOTUS_PATH
+# 例如： export LOTUS_PATH=/home/user/nvme_disk/lotus
+
+# miner 路径： 
+LOTUS_STORAGE_PATH
+# 例如： export LOTUS_STORAGE_PATH=/home/user/nvme_disk/lotusstorage
+
+# worker 路径： 
+WORKER_PATH
+# 例如： export WORKER_PATH=/home/user/nvme_disk/lotusworker
+
+# proof 证明参数路径： 
+FIL_PROOFS_PARAMETER_CACHE
+# 例如： export FIL_PROOFS_PARAMETER_CACHE=/home/user/nvme_disk/filecoin-proof-parameters
+
+# 临时文件夹路径： 
+TMPDIR
+# 例如： export TMPDIR=/home/user/nvme_disk/tmp
+
+# 最大化内存参数
+FIL_PROOFS_MAXIMIZE_CACHING
+# 例如： export FIL_PROOFS_MAXIMIZE_CACHING=1
+
+# Rust 日志
+RUST_LOG
+# 例如： export RUST_LOG=Debug
+
+# GPU计算Precommit2
+FIL_PROOFS_USE_GPU_COLUMN_BUILDER
+# 例如： export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
+
+# 源码编译底层库
+FFI_BUILD_FROM_SOURCE
+# 例如： export FFI_BUILD_FROM_SOURCE=1
+
+# GOLANG 代理
+GOPROXY
+# 例如： export GOPROXY=https://goproxy.cn
+
+# 启动小扇区支持
+FIL_USE_SMALL_SECTORS
+# 例如： export FIL_USE_SMALL_SECTORS=true
+
+# 显卡相关
+BELLMAN_CUSTOM_GPU
+# 例如： export BELLMAN_CUSTOM_GPU="GeForce RTX 2080 Ti:4352"
+
+# 下载证明参数代理：
+IPFS_GATEWAY
+# 例如： export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
+
+```
+
+
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
 - lotus sync status时的base和target代表什么？
