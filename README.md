@@ -145,6 +145,13 @@ lotus-storage-miner rewards list
 ```
 赎回之后，可能需要过一段时间才能看到自己钱包的余额增加。
 
+### v26 版本参数中使用GPU计算Precommit2的方法
+运行 miner 之前导出已下环境变量（目前官方还未放出v26参数）：
+```sh
+export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
+```
+[参考](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1588805545137700)
+
 ## Worker操作
 ### Testnet3 查看 Worker 信息
 ```sh
