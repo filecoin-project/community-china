@@ -14,7 +14,7 @@ CoinSummer实验室Filecoin资源分享。
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换Testnet2和Testnet3
   - [Filscan](https://filscan.io/)
   - [1475ipfs](http://testnet3.1475ipfs.com:10300/d/z6FtI92Zz/testnet3?orgId=1&refresh=25s) - 1475团队开发，仅Testnet3
-- [区块同步数据备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet`分支区块同步数据国内下载地址，CoinSummer提供
+- [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet`分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
@@ -25,10 +25,11 @@ CoinSummer实验室Filecoin资源分享。
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
   - [Testnet3(V25)](https://filecoin-benchmarks.on.fleek.co/)
 - Proof证明文件国内下载
-  - [JDCloud(v20)](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
-  - [JDCloud(v25)](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
-  - [CoinSummer(中国专用/v24和v25)](https://filecoin.coinsummer.io/)
-  - [CoinSummer(v25 URL)](https://filecoin.coinsummer.io/v25.txt)
+  - [JDCloud(v20)参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
+  - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
+  - [中国专用v25参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
+  - [中国专用v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
+  - [中国专用v24参数下载](https://filecoin.coinsummer.io/v24.html) - CoinSummer实验室提供
   - [最新版Proofs发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
 - [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
 - [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest
