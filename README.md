@@ -194,6 +194,97 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
+## 常用环境变量
+
+```sh
+# lotus 路径：
+LOTUS_PATH
+# 例如： export LOTUS_PATH=/home/user/nvme_disk/lotus
+
+# miner 路径： 
+LOTUS_STORAGE_PATH
+# 例如： export LOTUS_STORAGE_PATH=/home/user/nvme_disk/lotusstorage
+
+# worker 路径： 
+WORKER_PATH
+# 例如： export WORKER_PATH=/home/user/nvme_disk/lotusworker
+
+# proof 证明参数路径： 
+FIL_PROOFS_PARAMETER_CACHE
+# 例如： export FIL_PROOFS_PARAMETER_CACHE=/home/user/nvme_disk/filecoin-proof-parameters
+
+# 临时文件夹路径： 
+TMPDIR
+# 例如： export TMPDIR=/home/user/nvme_disk/tmp
+
+# 最大化内存参数
+FIL_PROOFS_MAXIMIZE_CACHING
+# 例如： export FIL_PROOFS_MAXIMIZE_CACHING=1
+
+# Rust 日志
+RUST_LOG
+# 例如： export RUST_LOG=Debug
+
+# GPU计算Precommit2
+FIL_PROOFS_USE_GPU_COLUMN_BUILDER
+# 例如： export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
+
+# 源码编译底层库
+FFI_BUILD_FROM_SOURCE
+# 例如： export FFI_BUILD_FROM_SOURCE=1
+
+# GOLANG 代理
+GOPROXY
+# 例如： export GOPROXY=https://goproxy.cn
+
+# 启动小扇区支持
+FIL_USE_SMALL_SECTORS
+# 例如： export FIL_USE_SMALL_SECTORS=true
+
+# 显卡相关
+BELLMAN_CUSTOM_GPU
+# 例如： export BELLMAN_CUSTOM_GPU="GeForce RTX 2080 Ti:4352"
+
+# 下载证明参数代理：
+IPFS_GATEWAY
+# 例如： export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
+
+```
+
+## 解决拉取代码冲突问题（git pull）
+
+如果你在执行 `git pull` 的时候出现类似如下错误（`CONFLICT xxx`），你可以使用以下方法解决该问题：
+
+```sh
+warning: Cannot merge binary files: build/genesis/devnet.car (HEAD vs. 8bea0e02d77a6d36c3fc72746a9b38c7018608e9)
+Auto-merging build/genesis/devnet.car
+CONFLICT (add/add): Merge conflict in build/genesis/devnet.car
+Auto-merging build/bootstrap/bootstrappers.pi
+CONFLICT (content): Merge conflict in build/bootstrap/bootstrappers.pi
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+上述示例来源于从 `interopnet` 分支的 `799f5e5` 版本执行 `git pull` 的时候出现的问题（2020年5月7日），而这个问题在新版的代码中经常会出现，解决这个问题的方法如下（只是其中一个方法，当然还有别的方法）：
+
+```sh
+# 先重置代码，恢复代码到原始状态
+git reset --hard HEAD
+# 再随意的获取一个很久以前的代码版本号： commit ID
+git log -111 | tail | grep -ni "commit "
+# 假设这里拿到的一个 commit ID 是："8c0f2c1ce06"
+# 然后恢复到这个版本
+git reset --hard 8c0f2c1ce06
+# 最后再重新拉取代码
+git pull
+# 这时候就完成代码更新了，并解决代码冲突问题
+# 此时就可以重新编译代码了：
+# 当然，在这之前，你可能需要设置一下 GOLANG 的代理
+# 已经挂了代理的用户可忽略
+env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all bench
+
+```
+
+
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
 - lotus sync status时的base和target代表什么？
