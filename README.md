@@ -1,5 +1,5 @@
 # Filecoin资源分享
-CoinSummer团队Filecoin资源分享。
+CoinSummer实验室Filecoin资源分享。
 
 ## 常用链接
 - [Lotus官方文档](https://docs.lotu.sh/)
