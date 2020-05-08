@@ -172,7 +172,7 @@ lotus-storage-miner storage list
 [API]
 ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 ```
-2. 将远程daemon(192.168.1.100)上`.lotus`目录下的`api`和`token`拷贝到miner机器的`.lotus`目录下；
+2. 将远程daemon(192.168.1.100)上`.lotus`目录下的`api`和`token`拷贝到miner机器(192.168.1.101)的`.lotus`目录下；
 3. 重启miner即可。
 
 ### 赎回已获得的奖励（Testnet3 才需要手动赎回）
