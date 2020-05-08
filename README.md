@@ -1,20 +1,21 @@
-# Filecoin资源分享
-CoinSummer实验室Filecoin资源分享。
+# Filecoin 资源分享
+
+**CoinSummer实验室** Filecoin 资源分享。
 
 ## 常用链接
 - [Lotus官方文档](https://docs.lotu.sh/)
-  - [testnet/3 使用文档](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/join-testnet.md) - 在Github项目的`testnet/3`分支下
+  - [testnet/3 使用文档](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/join-testnet.md) - 在 Github 项目的 `testnet/3` 分支下
   - [搭建Testnet/3的本地测试网](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/local-dev-net.md)
 - 代码下载地址
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
 - 浏览器
-  - [官方浏览器](https://stats.testnet.filecoin.io/) - 按ESC可以选择看Testnet3的数据
-  - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换Testnet2和Testnet3
+  - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
+  - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
   - [Filscan](https://filscan.io/)
-  - [1475ipfs](http://testnet3.1475ipfs.com:10300/d/z6FtI92Zz/testnet3?orgId=1&refresh=25s) - 1475团队开发，仅Testnet3
-- [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet`分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
+  - [1475ipfs](http://testnet3.1475ipfs.com:10300/d/z6FtI92Zz/testnet3?orgId=1&refresh=25s) - 1475团队开发，仅 Testnet3
+- [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet` 分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
@@ -26,13 +27,13 @@ CoinSummer实验室Filecoin资源分享。
   - [Testnet3(V25)](https://filecoin-benchmarks.on.fleek.co/)
   - [Testnet3(V25)](https://github.com/CoinSummer/benchmarks/tree/master/benchmarks)
 - Proof 证明文件国内下载
-  - [JDCloud(v20)参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
-  - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
-  - [中国专用v25参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
-  - [中国专用v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
-  - [中国专用v24参数下载](https://filecoin.coinsummer.io/v24.html) - CoinSummer实验室提供
-  - [最新版Proofs发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
-- [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
+  - [JDCloud(v20) 参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
+  - [JDCloud(v25) 参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) 
+  - [中国专用 v25 参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
+  - [中国专用 v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
+  - [中国专用 v24 参数下载](https://filecoin.coinsummer.io/v24.html) - CoinSummer实验室提供
+  - [最新版 Proofs 发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
+- [Filecoin 经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
 - [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest
 )
 - rust 和 rustup 的安装环境配置（Cargo）
@@ -105,12 +106,12 @@ export RUST_LOG=Debug
 ```
 运行 miner 之前加入该参数可以在 miner 的日志中查看更详细的输出信息（底层 rust 代码的输出信息），Log 登记从低到高分别有： Trace、Debug、Info、Warn、Error，Trace 输出的信息最详细，Error 输出的信息最少，仅输入错误信息。
 
-### 修改 proof 文件路径
+### 修改 Proofs 文件路径
 ```sh
 export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v25/
 ```
 
-## Storage miner操作
+## Storage miner 操作
 ### 查看扇区状态
 ```sh
 # 列举所有扇区信息:
@@ -179,7 +180,7 @@ lotus-storage-miner storage list
 [API]
 ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 ```
-2. 将远程 daemon (192.168.1.100)上 `~/.lotus` 目录下的 `api` 和 `token` 拷贝到 miner 机器(192.168.1.101)的 `~/.lotus` 目录下；
+2. 将远程 daemon (192.168.1.100) 上 `~/.lotus` 目录下的 `api` 和 `token` 拷贝到 miner 机器(192.168.1.101)的 `~/.lotus` 目录下；
 3. 重启 miner 即可。
 
 ### 赎回已获得的奖励（Testnet3 才需要手动赎回）
