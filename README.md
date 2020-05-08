@@ -205,6 +205,26 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
+### Testnet3 集群配置
+1. 修改miner`~/.lotusstorage/config.toml`里面的`ListenAddress`:
+```toml
+[API]
+ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
+RemoteListenAddress = "192.168.1.100:2345"
+```
+2. 配置worker的环境变量
+```sh
+export STORAGE_API_INFO=<TOKEN>:<API>
+```
+TOKEN为`~/.lotusstorage`中的token；
+API为`~/.lotusstorage`中的api；
+
+3. 启动worker
+```sh
+./lotus-seal-worker run --address=192.168.1.222:3456
+```
+需要给worker指定一个四位数的端口。
+
 ## 常用环境变量
 
 ```sh
