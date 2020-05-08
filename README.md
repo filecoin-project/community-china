@@ -182,7 +182,7 @@ lotus-storage-miner rewards list
 ```
 赎回之后，可能需要过一段时间才能看到自己钱包的余额增加。
 
-### v26 版本参数中使用GPU计算Precommit2的方法
+### v26 版本参数中使用 GPU 计算 Precommit2 的方法
 运行 miner 之前导出已下环境变量（目前官方还未放出v26参数）：
 ```sh
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
@@ -200,30 +200,30 @@ lotus-storage-miner workers list
 lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
 启动worker需要注意以下几点：
-- 要给 worker 指定**本机地址**和一个**随机端口（四位数以上）**;
-- `precommit1`、`precommit2` 和`commit`默认是启用的，如果想要禁用，可以设置为 false，例如：
+- 要给 worker 指定**本机地址**和一个**随机端口（至少四位数）**;
+- `precommit1`、`precommit2` 和 `commit` 默认是启用的，如果想要禁用，可以设置为 false，例如：
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
 ### Testnet3 集群配置
-1. 修改miner`~/.lotusstorage/config.toml`里面的`ListenAddress`:
+1. 修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress`:
 ```toml
 [API]
 ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
 RemoteListenAddress = "192.168.1.100:2345"
 ```
-2. 配置worker的环境变量
+2. 配置 worker 的环境变量
 ```sh
 export STORAGE_API_INFO=<TOKEN>:<API>
 ```
-TOKEN为`~/.lotusstorage`中的token；
-API为`~/.lotusstorage`中的api；
+TOKEN 为 `~/.lotusstorage` 中的 token；
+API 为 `~/.lotusstorage` 中的 api；
 
-3. 启动worker
+3. 启动 worker
 ```sh
 ./lotus-seal-worker run --address=192.168.1.222:3456
 ```
-需要给worker指定一个四位数的端口。
+需要给 worker 指定一个四位数的端口。
 
 ## 常用环境变量
 
