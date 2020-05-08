@@ -20,12 +20,12 @@ CoinSummer实验室Filecoin资源分享。
 - 水龙头地址
   - [Testnet2(旧版)](https://faucet.testnet.filecoin.io/)
   - [Testnet3(新版)](http://t01000.miner.interopnet.kittyhawk.wtf)
-- Benchmark数据
+- Benchmark 数据
   - [Testnet2(V20)](https://github.com/filecoin-project/lotus/issues/839)
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
   - [Testnet3(V25)](https://filecoin-benchmarks.on.fleek.co/)
   - [Testnet3(V25)](https://github.com/CoinSummer/benchmarks/tree/master/benchmarks)
-- Proof证明文件国内下载
+- Proof 证明文件国内下载
   - [JDCloud(v20)参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
   - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
   - [中国专用v25参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
@@ -39,9 +39,12 @@ CoinSummer实验室Filecoin资源分享。
   - [官方文档](https://www.rust-lang.org/tools/install)
   - [社区文档](https://learnku.com/docs/rust-lang/2018/ch01-01-installation/4494)
   - [国内免翻墙文档](https://www.cnblogs.com/honyer/p/11877145.html)
-- 使用GPU计算Precommit2
+- 使用 GPU 计算 Precommit2
   - [项目地址](https://github.com/filecoin-project/neptune)
   - [相关链接](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1587776730458900)
+
+
+
 
 ## 节点操作
 ### 查看节点信息
@@ -68,9 +71,9 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 # 设置高度到9700
 lotus chain sethead --epoch=9700
 ```
-节点同步出错时，可下载CoinSummer实验室提供的[国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到的`datastore`目录，替换你本机`~/.lotus`目录下的`datastore`，然后执行上面手动设置链高度的命令(需要daemon启动的情况下)，即可从指定高度进行同步。
+节点同步出错时，可下载 **CoinSummer实验室** 提供的 [国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到的 `datastore` 目录，替换你本机 `~/.lotus` 目录下的 `datastore`，然后执行上面手动设置链高度的命令(需要 daemon 启动的情况下)，即可从指定高度进行同步。
 
-### 手动下载proof参数
+### 手动下载 proof 参数
 ```sh
 # export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 ./lotus fetch-params --proving-params 2KiB     # 例如下载 2KiB 扇区对应的 Proof 参数
@@ -98,7 +101,7 @@ export RUST_LOG=Debug
 ```
 运行 miner 之前加入该参数可以在 miner 的日志中查看更详细的输出信息（底层 rust 代码的输出信息），Log 登记从低到高分别有： Trace、Debug、Info、Warn、Error，Trace 输出的信息最详细，Error 输出的信息最少，仅输入错误信息。
 
-### 修改proof文件路径
+### 修改 proof 文件路径
 ```sh
 export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v25/
 ```
@@ -123,8 +126,8 @@ lotus-storage-miner sectors update-state --really-do-it 1 FaultedFinal
 ```sh
 export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
 ```
-- 默认存储路径是`~/.lotusstorage`，可通过指定`LOTUS_STORAGE_PATH`环境变量来更改；
-- 每个存储路径下都会有`sectorstore.json`配置文件，该文件可以配置该存储路径的用途，比如，是否可以用来存储密封过程中生成的临时文件`"CanSeal": true`， 是否可以用来存储密封好的数据`"CanStore": true`，以及该路径的权重`"Weight": 10`和一唯一标识符：`ID`；
+- 默认存储路径是 `~/.lotusstorage`，可通过指定 `LOTUS_STORAGE_PATH` 环境变量来更改；
+- 每个存储路径下都会有 `sectorstore.json` 配置文件，该文件可以配置该存储路径的用途，比如，是否可以用来存储密封过程中生成的临时文件 `"CanSeal": true`， 是否可以用来存储密封好的数据 `"CanStore": true`，以及该路径的权重 `"Weight": 10` 和一个唯一标识符：`ID`；
 ```json
 {
   "ID": "e59facdc-6a82-418f-a25e-4cbd9165b5de",
@@ -150,9 +153,9 @@ lotus-storage-miner storage list
 ```
 
 ### 移动存储目录
-默认的存储目录`~/.lotusstorage`可以移动到其他地方。
-移动前最好先停掉daemon和miner。
-移动后，假设新路径为`/path/to/.lotusstorage`，需要手动更改`/path/to/.lotusstorage`目录下`storage.json`中的StoragePaths为新路径：
+默认的存储目录 `~/.lotusstorage` 可以移动到其他地方。
+移动前最好先停掉 daemon 和 miner。
+移动后，假设新路径为 `/path/to/.lotusstorage`，需要手动更改 `/path/to/.lotusstorage` 目录下 `storage.json` 中的 `StoragePaths` 为新路径：
 ```json
 {
   "StoragePaths": [
@@ -162,18 +165,18 @@ lotus-storage-miner storage list
   ]
 }
 ```
-移动后，重启daemon和miner，miner会重新读取新路径下的所有sector信息。
+移动后，重启 daemon 和 miner，miner 会重新读取新路径下的所有 sector 信息。
 
-### 使用远程daemon（daemon在其他机器）
-假设daemon在`192.168.1.100`机器上，miner在`192.168.1.101`机器上：
-1. 修改远程daemon(192.168.1.100)上`.lotus/config.toml`中的`ListenAddress`为：
+### 使用远程 daemon（daemon 在其他机器）
+假设daemon在 `192.168.1.100` 机器上，miner在 `192.168.1.101` 机器上：
+1. 修改远程 daemon (192.168.1.100)上 `~/.lotus/config.toml` 中的 `ListenAddress` 为：
 ```toml
 # Default config:
 [API]
 ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 ```
-2. 将远程daemon(192.168.1.100)上`.lotus`目录下的`api`和`token`拷贝到miner机器(192.168.1.101)的`.lotus`目录下；
-3. 重启miner即可。
+2. 将远程 daemon (192.168.1.100)上 `~/.lotus` 目录下的 `api` 和 `token` 拷贝到 miner 机器(192.168.1.101)的 `~/.lotus` 目录下；
+3. 重启 miner 即可。
 
 ### 赎回已获得的奖励（Testnet3 才需要手动赎回）
 ```sh
@@ -201,7 +204,7 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 ```
 启动worker需要注意以下几点：
 - 要给 worker 指定**本机地址**和一个**随机端口（至少四位数）**;
-- `precommit1`、`precommit2` 和 `commit` 默认是启用的，如果想要禁用，可以设置为 false，例如：
+- `precommit1`、`precommit2` 和 `commit` 默认是启用的，如果想要禁用，可以设置为 `false`，例如：
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
