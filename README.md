@@ -164,6 +164,17 @@ lotus-storage-miner storage list
 ```
 移动后，重启daemon和miner，miner会重新读取新路径下的所有sector信息。
 
+### 使用远程daemon（daemon在其他机器）
+假设daemon在`192.168.1.100`机器上，miner在`192.168.1.101`机器上：
+1. 修改远程daemon(192.168.1.100)上`.lotus/config.toml`中的`ListenAddress`为：
+```toml
+# Default config:
+[API]
+ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
+```
+2. 将远程daemon(192.168.1.100)上`.lotus`目录下的`api`和`token`拷贝到miner机器的`.lotus`目录下；
+3. 重启miner即可。
+
 ### 赎回已获得的奖励（Testnet3 才需要手动赎回）
 ```sh
 lotus-storage-miner rewards redeem
