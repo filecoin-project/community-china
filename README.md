@@ -1,26 +1,27 @@
-# Filecoin资源分享
-CoinSummer实验室Filecoin资源分享。
+# Filecoin 资源分享
+
+**CoinSummer实验室** Filecoin 资源分享。
 
 ## 常用链接
 - [Lotus官方文档](https://docs.lotu.sh/)
-  - [testnet/3 使用文档](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/join-testnet.md) - 在Github项目的`testnet/3`分支下
+  - [testnet/3 使用文档](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/join-testnet.md) - 在 Github 项目的 `testnet/3` 分支下
   - [搭建Testnet/3的本地测试网](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/local-dev-net.md)
 - 代码下载地址
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
 - 浏览器
-  - [官方浏览器](https://stats.testnet.filecoin.io/) - 按ESC可以选择看Testnet3的数据
-  - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换Testnet2和Testnet3
+  - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
+  - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
   - [Filscan](https://filscan.io/)
-  - [1475ipfs](http://testnet3.1475ipfs.com:10300/d/z6FtI92Zz/testnet3?orgId=1&refresh=25s) - 1475团队开发，仅Testnet3
-- [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet`分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
+  - [1475ipfs](http://testnet3.1475ipfs.com:10300/d/z6FtI92Zz/testnet3?orgId=1&refresh=25s) - 1475团队开发，仅 Testnet3
+- [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet` 分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
   - [Testnet2(旧版)](https://faucet.testnet.filecoin.io/)
   - [Testnet3(新版)](http://t01000.miner.interopnet.kittyhawk.wtf)
-- Benchmark数据
+- Benchmark 数据
   - [Testnet2(V20)](https://github.com/filecoin-project/lotus/issues/839)
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
   - [Testnet3(V25)](https://filecoin-benchmarks.on.fleek.co/)
@@ -40,9 +41,16 @@ CoinSummer实验室Filecoin资源分享。
   - [官方文档](https://www.rust-lang.org/tools/install)
   - [社区文档](https://learnku.com/docs/rust-lang/2018/ch01-01-installation/4494)
   - [国内免翻墙文档](https://www.cnblogs.com/honyer/p/11877145.html)
-- 使用GPU计算Precommit2
+- 使用 GPU 计算 Precommit2
   - [项目地址](https://github.com/filecoin-project/neptune)
   - [相关链接](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1587776730458900)
+
+- Filecoin Discover
+  - [官方博客（中文版）](https://filecoin.io/zh-cn/blog/intro-filecoin-discover/)
+  - [常见问题](https://store.filecoin-discover.com/pages/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
+  - [硬盘信息（8T 企业级 Seagate 硬盘）](https://www.amazon.com/Seagate-256MB-Cache-3-5-Inch-Enterprise/dp/B07D9625PB/ref=sr_1_3?dchild=1&keywords=exos+seagate+8tb&qid=1588907531&sr=8-3)
+  - [Slack 频道：fil-discover-support](fil-discover-support)
+
 
 ## 节点操作
 ### 查看节点信息
@@ -69,9 +77,9 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 # 设置高度到9700
 lotus chain sethead --epoch=9700
 ```
-节点同步出错时，可下载CoinSummer实验室提供的[国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到的`datastore`目录，替换你本机`~/.lotus`目录下的`datastore`，然后执行上面手动设置链高度的命令(需要daemon启动的情况下)，即可从指定高度进行同步。
+节点同步出错时，可下载 **CoinSummer实验室** 提供的 [国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到的 `datastore` 目录，替换你本机 `~/.lotus` 目录下的 `datastore`，然后执行上面手动设置链高度的命令(需要 daemon 启动的情况下)，即可从指定高度进行同步。
 
-### 手动下载proof参数
+### 手动下载 proof 参数
 ```sh
 # export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 ./lotus fetch-params --proving-params 2KiB     # 例如下载 2KiB 扇区对应的 Proof 参数
@@ -99,12 +107,12 @@ export RUST_LOG=Debug
 ```
 运行 miner 之前加入该参数可以在 miner 的日志中查看更详细的输出信息（底层 rust 代码的输出信息），Log 登记从低到高分别有： Trace、Debug、Info、Warn、Error，Trace 输出的信息最详细，Error 输出的信息最少，仅输入错误信息。
 
-### 修改proof文件路径
+### 修改 Proofs 文件路径
 ```sh
 export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v25/
 ```
 
-## Storage miner操作
+## Storage miner 操作
 ### 查看扇区状态
 ```sh
 # 列举所有扇区信息:
@@ -124,8 +132,8 @@ lotus-storage-miner sectors update-state --really-do-it 1 FaultedFinal
 ```sh
 export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
 ```
-- 默认存储路径是`~/.lotusstorage`，可通过指定`LOTUS_STORAGE_PATH`环境变量来更改；
-- 每个存储路径下都会有`sectorstore.json`配置文件，该文件可以配置该存储路径的用途，比如，是否可以用来存储密封过程中生成的临时文件`"CanSeal": true`， 是否可以用来存储密封好的数据`"CanStore": true`，以及该路径的权重`"Weight": 10`和一唯一标识符：`ID`；
+- 默认存储路径是 `~/.lotusstorage`，可通过指定 `LOTUS_STORAGE_PATH` 环境变量来更改；
+- 每个存储路径下都会有 `sectorstore.json` 配置文件，该文件可以配置该存储路径的用途，比如，是否可以用来存储密封过程中生成的临时文件 `"CanSeal": true`， 是否可以用来存储密封好的数据 `"CanStore": true`，以及该路径的权重 `"Weight": 10` 和一个唯一标识符：`ID`；
 ```json
 {
   "ID": "e59facdc-6a82-418f-a25e-4cbd9165b5de",
@@ -151,9 +159,9 @@ lotus-storage-miner storage list
 ```
 
 ### 移动存储目录
-默认的存储目录`~/.lotusstorage`可以移动到其他地方。
-移动前最好先停掉daemon和miner。
-移动后，假设新路径为`/path/to/.lotusstorage`，需要手动更改`/path/to/.lotusstorage`目录下`storage.json`中的StoragePaths为新路径：
+默认的存储目录 `~/.lotusstorage` 可以移动到其他地方。
+移动前最好先停掉 daemon 和 miner。
+移动后，假设新路径为 `/path/to/.lotusstorage`，需要手动更改 `/path/to/.lotusstorage` 目录下 `storage.json` 中的 `StoragePaths` 为新路径：
 ```json
 {
   "StoragePaths": [
@@ -163,18 +171,18 @@ lotus-storage-miner storage list
   ]
 }
 ```
-移动后，重启daemon和miner，miner会重新读取新路径下的所有sector信息。
+移动后，重启 daemon 和 miner，miner 会重新读取新路径下的所有 sector 信息。
 
-### 使用远程daemon（daemon在其他机器）
-假设daemon在`192.168.1.100`机器上，miner在`192.168.1.101`机器上：
-1. 修改远程daemon(192.168.1.100)上`.lotus/config.toml`中的`ListenAddress`为：
+### 使用远程 daemon（daemon 在其他机器）
+假设daemon在 `192.168.1.100` 机器上，miner在 `192.168.1.101` 机器上：
+1. 修改远程 daemon (192.168.1.100)上 `~/.lotus/config.toml` 中的 `ListenAddress` 为：
 ```toml
 # Default config:
 [API]
 ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 ```
-2. 将远程daemon(192.168.1.100)上`.lotus`目录下的`api`和`token`拷贝到miner机器(192.168.1.101)的`.lotus`目录下；
-3. 重启miner即可。
+2. 将远程 daemon (192.168.1.100) 上 `~/.lotus` 目录下的 `api` 和 `token` 拷贝到 miner 机器(192.168.1.101)的 `~/.lotus` 目录下；
+3. 重启 miner 即可。
 
 ### 赎回已获得的奖励（Testnet3 才需要手动赎回）
 ```sh
@@ -183,7 +191,7 @@ lotus-storage-miner rewards list
 ```
 赎回之后，可能需要过一段时间才能看到自己钱包的余额增加。
 
-### v26 版本参数中使用GPU计算Precommit2的方法
+### v26 版本参数中使用 GPU 计算 Precommit2 的方法
 运行 miner 之前导出已下环境变量（目前官方还未放出v26参数）：
 ```sh
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
@@ -201,30 +209,30 @@ lotus-storage-miner workers list
 lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
 启动worker需要注意以下几点：
-- 要给 worker 指定**本机地址**和一个**随机端口（四位数以上）**;
-- `precommit1`、`precommit2` 和`commit`默认是启用的，如果想要禁用，可以设置为 false，例如：
+- 要给 worker 指定**本机地址**和一个**随机端口（至少四位数）**;
+- `precommit1`、`precommit2` 和 `commit` 默认是启用的，如果想要禁用，可以设置为 `false`，例如：
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
 ### Testnet3 集群配置
-1. 修改miner`~/.lotusstorage/config.toml`里面的`ListenAddress`:
+1. 修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress`:
 ```toml
 [API]
 ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
 RemoteListenAddress = "192.168.1.100:2345"
 ```
-2. 配置worker的环境变量
+2. 配置 worker 的环境变量
 ```sh
 export STORAGE_API_INFO=<TOKEN>:<API>
 ```
-TOKEN为`~/.lotusstorage`中的token；
-API为`~/.lotusstorage`中的api；
+TOKEN 为 `~/.lotusstorage` 中的 token；
+API 为 `~/.lotusstorage` 中的 api；
 
-3. 启动worker
+3. 启动 worker
 ```sh
 ./lotus-seal-worker run --address=192.168.1.222:3456
 ```
-需要给worker指定一个四位数的端口。
+需要给 worker 指定一个四位数的端口。
 
 ## 常用环境变量
 
