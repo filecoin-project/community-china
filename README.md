@@ -28,9 +28,10 @@ CoinSummer实验室Filecoin资源分享。
 - Proof证明文件国内下载
   - [JDCloud(v20)参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
   - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
-  - [中国专用v25参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
-  - [中国专用v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
-  - [中国专用v24参数下载](https://filecoin.coinsummer.io/v24.html) - CoinSummer实验室提供
+  - [国内专用v26参数下载](https://filecoin.coinsummer.io/v26.html) - CoinSummer实验室提供
+    - [国内专用v26 URL地址](https://filecoin.coinsummer.io/v26.txt)
+  - [国内专用v25参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
+    - [国内专用v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
   - [最新版Proofs发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
 - [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
 - [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest
