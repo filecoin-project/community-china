@@ -10,6 +10,7 @@
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
+  - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE新算法
 - 浏览器
   - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
@@ -40,7 +41,6 @@
 - rust 和 rustup 的安装环境配置（Cargo）
   - [官方文档](https://www.rust-lang.org/tools/install)
   - [社区文档](https://learnku.com/docs/rust-lang/2018/ch01-01-installation/4494)
-  - [国内免翻墙文档](https://www.cnblogs.com/honyer/p/11877145.html)
 - 使用 GPU 计算 Precommit2
   - [项目地址](https://github.com/filecoin-project/neptune)
   - [相关链接](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1587776730458900)
@@ -50,7 +50,6 @@
   - [常见问题](https://store.filecoin-discover.com/pages/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
   - [硬盘信息（8T 企业级 Seagate 硬盘）](https://www.amazon.com/Seagate-256MB-Cache-3-5-Inch-Enterprise/dp/B07D9625PB/ref=sr_1_3?dchild=1&keywords=exos+seagate+8tb&qid=1588907531&sr=8-3)
   - [Slack 频道：fil-discover-support](fil-discover-support)
-
 
 ## 节点操作
 ### 查看节点信息
@@ -344,8 +343,6 @@ git checkout interopnet
 git fetch origin
 git reset --hard origin/interopne
 ```
-
-
 
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
