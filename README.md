@@ -108,7 +108,7 @@ export RUST_LOG=Debug
 
 ### 修改 Proofs 文件路径
 ```sh
-export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v25/
+export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ```
 
 ## Storage miner 操作
