@@ -10,6 +10,7 @@
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
+  - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE新算法
 - 浏览器
   - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
@@ -26,20 +27,20 @@
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
   - [Testnet3(V25)](https://filecoin-benchmarks.on.fleek.co/)
   - [Testnet3(V25)](https://github.com/CoinSummer/benchmarks/tree/master/benchmarks)
-- Proof 证明文件国内下载
-  - [JDCloud(v20) 参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
-  - [JDCloud(v25) 参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) 
-  - [中国专用 v25 参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
-  - [中国专用 v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
-  - [中国专用 v24 参数下载](https://filecoin.coinsummer.io/v24.html) - CoinSummer实验室提供
-  - [最新版 Proofs 发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
-- [Filecoin 经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
+- Proof证明文件国内下载
+  - [JDCloud(v20)参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
+  - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
+  - [国内专用v26参数下载](https://filecoin.coinsummer.io/v26.html) - CoinSummer实验室提供
+    - [国内专用v26 URL地址](https://filecoin.coinsummer.io/v26.txt)
+  - [国内专用v25参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
+    - [国内专用v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
+  - [最新版Proofs发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
+- [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
 - [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest
 )
 - rust 和 rustup 的安装环境配置（Cargo）
   - [官方文档](https://www.rust-lang.org/tools/install)
   - [社区文档](https://learnku.com/docs/rust-lang/2018/ch01-01-installation/4494)
-  - [国内免翻墙文档](https://www.cnblogs.com/honyer/p/11877145.html)
 - 使用 GPU 计算 Precommit2
   - [项目地址](https://github.com/filecoin-project/neptune)
   - [相关链接](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1587776730458900)
@@ -50,7 +51,6 @@
   - [硬盘信息（8T 企业级 Seagate 硬盘）](https://www.amazon.com/Seagate-256MB-Cache-3-5-Inch-Enterprise/dp/B07D9625PB/ref=sr_1_3?dchild=1&keywords=exos+seagate+8tb&qid=1588907531&sr=8-3)
   - [Slack 频道：fil-discover-support](fil-discover-support)
   - [Filecoin Discover 商店](https://store.filecoin-discover.com/)
-
 
 ## 节点操作
 ### 查看节点信息
@@ -109,7 +109,7 @@ export RUST_LOG=Debug
 
 ### 修改 Proofs 文件路径
 ```sh
-export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v25/
+export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ```
 
 ## Storage miner 操作
@@ -344,8 +344,6 @@ git checkout interopnet
 git fetch origin
 git reset --hard origin/interopne
 ```
-
-
 
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
