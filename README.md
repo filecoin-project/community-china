@@ -36,8 +36,8 @@
     - [国内专用v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
   - [最新版Proofs发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
 - [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
-- [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest
-)
+- [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest)
+- [测试网第二阶段启动](https://filecoin.io/zh-cn/blog/filecoin-testnet-phase-2-is-here/)
 - rust 和 rustup 的安装环境配置（Cargo）
   - [官方文档](https://www.rust-lang.org/tools/install)
   - [社区文档](https://learnku.com/docs/rust-lang/2018/ch01-01-installation/4494)
