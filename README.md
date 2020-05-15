@@ -49,6 +49,7 @@
   - [常见问题](https://store.filecoin-discover.com/pages/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
   - [硬盘信息（8T 企业级 Seagate 硬盘）](https://www.amazon.com/Seagate-256MB-Cache-3-5-Inch-Enterprise/dp/B07D9625PB/ref=sr_1_3?dchild=1&keywords=exos+seagate+8tb&qid=1588907531&sr=8-3)
   - [Slack 频道：fil-discover-support](fil-discover-support)
+  - [Filecoin Discover 商店](https://store.filecoin-discover.com/)
 
 
 ## 节点操作
