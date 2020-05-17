@@ -52,6 +52,9 @@
   - [Slack 频道：fil-discover-support](fil-discover-support)
   - [Filecoin Discover 商店](https://store.filecoin-discover.com/)
 
+- [本地测试网](https://docs.lotu.sh/en+setup-local-dev-net)
+
+
 ## 节点操作
 ### 查看节点信息
 ```sh
@@ -121,7 +124,7 @@ lotus-storage-miner sectors list
 lotus-storage-miner sectors status --log <SectorID>
 ```
 
-### 手动修改扇区状态
+### 手动修改扇区状态【谨慎操作】
 ```sh
 lotus-storage-miner sectors update-state --really-do-it <SectorID> <NewSectorStatus>
 # 例如：手动修改扇区 1 的状态为 FaultedFinal 状态
@@ -152,7 +155,7 @@ lotus-storage-miner storage attach --store --init /path/to/persistent_storage
 # 执行该命令可能需要一点时间等待
 lotus-storage-miner storage attach --seal --init /path/to/fast_cache
 ```
-以上两个命令都是在启动了 miner 之后才可以执行，是一种动态添加存储路径的方式，非常灵活。 当然还可以在命令中添加权重 --weight=10，默认权重是 10。
+以上两个命令都是在启动了 miner 之后才可以执行，是一种动态添加存储路径的方式，非常灵活。 当然还可以在命令中添加权重 `--weight=10`，默认权重是 `10`。
 执行该命令后，可通过以下命令查看存储列表:
 ```sh
 lotus-storage-miner storage list
@@ -344,6 +347,20 @@ git checkout interopnet
 git fetch origin
 git reset --hard origin/interopne
 ```
+
+## 重置本地测试网环境
+
+如果你在使用本地测试网，发现 lotus daemon 启动不了，或者是 miner 启动不了，或者是其它的问题，这时候，如果你没有别的更好的解决方法，你可以尝试完全清理本地环境，然后再启动 daemon 和 miner， 默认情况下，你需要清理如下的文件或文件夹等：
+```sh
+rm -rf ~/.lotus/
+rm -rf ~/.lotusstorage/
+rm -rf ~/.lotusworker/
+rm -rf ~/.lotus-bench/
+rm -rf ~/.genesis-sectors/
+rm -rf ~/dev.gen
+rm -rf ~/localnet.json
+```
+
 
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
