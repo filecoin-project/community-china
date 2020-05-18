@@ -361,6 +361,12 @@ rm -rf ~/dev.gen
 rm -rf ~/localnet.json
 ```
 
+## GDB 调试 lotus 源码
+
+使用 GDB 调试 lotus 源码（包括上层的 **go** 语言代码和底层的 **rust** 语言代码），你只需要一个 GDB 工具就可以单步调试了，非常方便：
+
+[链接](./GDB_Debug.md)
+
 
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
