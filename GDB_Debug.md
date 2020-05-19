@@ -111,4 +111,15 @@ Makefile 中要把 `bench` 模块加入到 Debug 组，这样的话，我们执�
 
 ### (2). 配置 GDB
 
+Linux 中原生的 GDB 其实是比较难用的，我们一般都会对它做一些增强，使得我们用起来更加顺手，增强的方式一般是给 GDB 添加对应的插件，我们常用的插件包括 [**GEF**](https://github.com/hugsy/gef)、[**Peda**](https://github.com/longld/peda) 等，在这篇文章中，我们使用 **GEF**，当然，你要用啥有你自己决定。
+
+本文中，我对 GEF 做了一些改进，使得我们用起来体验感更好，我自己修改过的 GEF 在 [**这里**](./files/.gdbinit-gef.py)，使用的方式是把这个跟文件下载到你的 home 目录下，然后在 home 目录下执行以下命令使 GEF 生效：
+
+```sh
+echo source "~/.gdbinit-gef.py" >> ~/.gdbinit
+```
+
+## 3. 编译并单步调试
+
+
 
