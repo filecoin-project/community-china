@@ -73,5 +73,42 @@ FFI_BUILD_FROM_SOURCE=1 make clean debug
 
 
 
-## (2). 编译前的准备
+## 2. 编译前的准备
+
+### (1). 编译 Debug 版本代码
+
+经过第一节的修改配置之后，其实已经可以正常编译了，并且使用的是本地的 rust 库代码，可以自己修改 rust 库代码，然后实现一些优化、定制等工作。
+
+但是，我们现在的目的不但是为了能够方便的修改并使用本地的代码，有时候还需要进行运行时的观察、进行动态调试等，这在程序开发过程中是不可获取的一步。因此，我们把这个 rust 库和 lotus 都编译成带符号的可执行文件，也就是 Debug 版本，然后就方便我们动态调试和单步调试。
+
+要把底层的 rust 库和上层的 go 实现的代码编译成 Debug 版本，需要修改以下三个配置文件：
+
+- ~/git/lotus/Makefile
+- ~/git/lotus/extern/filecoin-ffi/install-filcrypto
+- ~/git/lotus/extern/filecoin-ffi/rust/scripts/build-release.sh
+
+#### A. 修改 Makefile 文件
+
+Makefile 中要把 `bench` 模块加入到 Debug 组，这样的话，我们执行 `FFI_BUILD_FROM_SOURCE=1 make clean debug` 命令的时候就能够把 `bench` 程序的 Debug 版本也编译出来（默认 `bench` 程序没有 Debug 版本的），修改结果如下：
+
+![修改 Makefile 文件](./pictures/change_makefile.png)
+
+当然，你也可以在 `2k` 后面加上 `bench` 程序，这样我们就可以编译出 Debug 版本的 `bench` 程序，方便调试。
+
+#### B. 修改 install-filcrypto 文件
+
+这个 install-filcrypto 文件是用来安装底层 rust 库的时候用到的，因此，也需要修改它，让它指向 Debug 版本中的内容，使用 Debug 版本中的底层库来构建上层的 lotus，修改部分如下：
+
+![修改 install-filcrypto 文件](./pictures/change_install_filecrypto.png)
+
+#### C. 修改 build-release.sh 文件
+
+这个文件就涉及到编译底层 rust 库是使用到的编译变量（比如 CFLAG 等），主要是把该文件中的 `--release` 字段去掉，这样编译出来的底层 rust 库就是 Debug 版本的，就带有源代码的符号信息，就可以使用 GDB 来跟住源代码单步调试，修改内容如下：
+
+![修改 build-release.sh 文件](./pictures/change_build_release.png)
+
+好了，通过以上三个文件的修改，现在已经可以编译出一个 Debug 版本的 lotus 和 底层 rust 库了，最后就差一个改进版的 GDB 了。
+
+### (2). 配置 GDB
+
 
