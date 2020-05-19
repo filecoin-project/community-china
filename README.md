@@ -15,7 +15,7 @@
   - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
   - [Filscan](https://filscan.io/)
-  - [1475ipfs](http://testnet3.1475ipfs.com:10300/d/z6FtI92Zz/testnet3?orgId=1&refresh=25s) - 1475团队开发，仅 Testnet3
+  - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475团队开发，仅 Testnet3
 - [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet` 分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
@@ -36,8 +36,8 @@
     - [国内专用v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
   - [最新版Proofs发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
 - [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
-- [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest
-)
+- [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest)
+- [测试网第二阶段启动](https://filecoin.io/zh-cn/blog/filecoin-testnet-phase-2-is-here/)
 - rust 和 rustup 的安装环境配置（Cargo）
   - [官方文档](https://www.rust-lang.org/tools/install)
   - [社区文档](https://learnku.com/docs/rust-lang/2018/ch01-01-installation/4494)
@@ -50,6 +50,10 @@
   - [常见问题](https://store.filecoin-discover.com/pages/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
   - [硬盘信息（8T 企业级 Seagate 硬盘）](https://www.amazon.com/Seagate-256MB-Cache-3-5-Inch-Enterprise/dp/B07D9625PB/ref=sr_1_3?dchild=1&keywords=exos+seagate+8tb&qid=1588907531&sr=8-3)
   - [Slack 频道：fil-discover-support](fil-discover-support)
+  - [Filecoin Discover 商店](https://store.filecoin-discover.com/)
+
+- [本地测试网](https://docs.lotu.sh/en+setup-local-dev-net)
+
 
 ## 节点操作
 ### 查看节点信息
@@ -120,7 +124,7 @@ lotus-storage-miner sectors list
 lotus-storage-miner sectors status --log <SectorID>
 ```
 
-### 手动修改扇区状态
+### 手动修改扇区状态【谨慎操作】
 ```sh
 lotus-storage-miner sectors update-state --really-do-it <SectorID> <NewSectorStatus>
 # 例如：手动修改扇区 1 的状态为 FaultedFinal 状态
@@ -151,7 +155,7 @@ lotus-storage-miner storage attach --store --init /path/to/persistent_storage
 # 执行该命令可能需要一点时间等待
 lotus-storage-miner storage attach --seal --init /path/to/fast_cache
 ```
-以上两个命令都是在启动了 miner 之后才可以执行，是一种动态添加存储路径的方式，非常灵活。 当然还可以在命令中添加权重 --weight=10，默认权重是 10。
+以上两个命令都是在启动了 miner 之后才可以执行，是一种动态添加存储路径的方式，非常灵活。 当然还可以在命令中添加权重 `--weight=10`，默认权重是 `10`。
 执行该命令后，可通过以下命令查看存储列表:
 ```sh
 lotus-storage-miner storage list
@@ -343,6 +347,26 @@ git checkout interopnet
 git fetch origin
 git reset --hard origin/interopne
 ```
+
+## 重置本地测试网环境
+
+如果你在使用本地测试网，发现 lotus daemon 启动不了，或者是 miner 启动不了，或者是其它的问题，这时候，如果你没有别的更好的解决方法，你可以尝试完全清理本地环境，然后再启动 daemon 和 miner， 默认情况下，你需要清理如下的文件或文件夹等：
+```sh
+rm -rf ~/.lotus/
+rm -rf ~/.lotusstorage/
+rm -rf ~/.lotusworker/
+rm -rf ~/.lotus-bench/
+rm -rf ~/.genesis-sectors/
+rm -rf ~/dev.gen
+rm -rf ~/localnet.json
+```
+
+## GDB 调试 lotus 源码
+
+使用 GDB 调试 lotus 源码（包括上层的 **go** 语言代码和底层的 **rust** 语言代码），你只需要一个 GDB 工具就可以单步调试了，非常方便：
+
+[链接](./GDB_Debug.md)
+
 
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
