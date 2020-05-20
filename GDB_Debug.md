@@ -103,17 +103,17 @@ Makefile 中要把 `bench` 模块加入到 Debug 组，这样的话，我们执�
 
 #### C. 修改 build-release.sh 文件
 
-这个文件就涉及到编译底层 rust 库是使用到的编译变量（比如 CFLAG 等），主要是把该文件中的 `--release` 字段去掉，这样编译出来的底层 rust 库就是 Debug 版本的，就带有源代码的符号信息，就可以使用 GDB 来跟住源代码单步调试，修改内容如下：
+这个文件就涉及到编译底层 rust 库是使用到的编译变量（比如 `CFLAG`、 `CXXFLAG`、 `LDFLAG` 等），主要是把该文件中的 `--release` 字段去掉，这样编译出来的底层 rust 库就是 Debug 版本的，就带有源代码的符号信息，就可以使用 **GDB** 来跟住源代码单步调试，修改内容如下：
 
 ![修改 build-release.sh 文件](./pictures/change_build_release.png)
 
-好了，通过以上三个文件的修改，现在已经可以编译出一个 Debug 版本的 lotus 和 底层 rust 库了，最后就差一个改进版的 GDB 了。
+好了，通过以上三个文件的修改，现在已经可以编译出一个 Debug 版本的 lotus 和底层 rust 库了，最后就差一个改进版的 **GDB** 了。
 
 ### (2). 配置 GDB
 
-Linux 中原生的 GDB 其实是比较难用的，我们一般都会对它做一些增强，使得我们用起来更加顺手，增强的方式一般是给 GDB 添加对应的插件，我们常用的插件包括 [**GEF**](https://github.com/hugsy/gef)、[**Peda**](https://github.com/longld/peda) 等，在这篇文章中，我们使用 **GEF**，当然，你要用啥有你自己决定。
+Linux 中原生的 **GDB** 其实是比较难用的，我们一般都会对它做一些增强，使得我们用起来更加顺手，增强的方式一般是给 **GDB** 添加对应的插件，我们常用的插件包括 [**GEF**](https://github.com/hugsy/gef)、[**Peda**](https://github.com/longld/peda) 等，在这篇文章中，我们使用 **GEF**，当然，你要用啥由你自己决定。
 
-本文中，我对 GEF 做了一些改进，使得我们用起来体验感更好，我自己修改过的 GEF 在 [**这里**](./files/.gdbinit-gef.py)，使用的方式是把这个跟文件下载到你的 home 目录下，然后在 home 目录下执行以下命令使 GEF 生效：
+本文中，我对 **GEF** 做了一些改进，使得我们用起来体验感更好，我自己修改过的 **GEF** 在 [**这里**](./files/.gdbinit-gef.py)，使用的方式是把这个跟文件下载到你的 `home` 目录下，然后在 `home` 目录下执行以下命令使 **GEF** 生效：
 
 ```sh
 echo source "~/.gdbinit-gef.py" >> ~/.gdbinit
@@ -121,5 +121,113 @@ echo source "~/.gdbinit-gef.py" >> ~/.gdbinit
 
 ## 3. 编译并单步调试
 
+其实有了上面的步骤，已经可以任意的调试 lotus 了，这一节我们主要关注如何下断点，如何使用 **GDB** 调试上层的 go 代码和底层的 rust 代码。
 
+### (1). 编译 lotus
+
+编译 lotus 很简单，就是一条命令，当然你也可以加上一些参数啥的，比如加上启用 GPU 的参数（`FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1`）之类的，**当然，使用源码编译参数必须要加上的**（`FFI_BUILD_FROM_SOURCE=1`）,否则，编译 lotus 的时候，它就会从网上下载预编译好的底层库文件（**libfilcrypto.a**）。所以，一般用来生成可调试代码的编译命令如下：
+
+```sh
+FFI_BUILD_FROM_SOURCE=1 make clean debug
+```
+
+编译过程中，你就可以看到它使用的是本地 rust 库中的代码，如下图所示：
+
+![编译过程1](./pictures/compile_1.png)
+![编译过程2](./pictures/compile_2.png)
+![编译过程3](./pictures/compile_3.png)
+
+编译好之后，你就可以发现，这些文件的大小是相对比较大的，因为它们包含了大量的调试符号信息，可以方便的让我们使用 **GDB** 调试，如下图所示：
+
+![编译结果](./pictures/result_binary.png)
+
+### (2). 调试 lotus
+
+编译好之后，我们就开始可以调试了，在这里主要演示的是调试 `bench` 程序，并在 go 语言和 rust 语言里面下断点，观察中间结果，单步调试程序运行过程。
+
+#### A. 启动程序并设置参数
+
+首先使用 **GDB** 启动 `bench` 程序，命令很简单，在 lotus 目录中执行：
+
+```sh
+gdb ./bench
+```
+
+然后给 `bench` 程序加上参数，使用如下命令（就是让 `bench` 跑 **2KiB** 的扇区）：
+
+```sh
+set args sealing --sector-size=2KiB
+```
+
+这样就相当于是执行：
+
+```sh
+./bench sealing --sector-size=2KiB
+```
+
+当然，你可以在启动`bench` 程序之前启动 rust 的日志：
+
+```sh
+export RUST_LOG=Trace
+```
+
+总之，启动并配置好参数之后的效果如下所示：
+
+![启动程序](./pictures/start_bench.png)
+
+#### B. 在合适的地方下断点
+
+上述命令指示把程序加载到内存，配置好运行参数信息，程序还没有开始运行，在它运行之前，我们需要给它下几个断点，在我们需要的地方让它停下来，方便我们观察中间结果。
+
+现在，我们在 go 层面给它下一个断点，让它断在执行 `SealPreCommit1()` 函数的地方，这样我们就可以看到准备执行 Pre-commit1 的时候传给这个函数什么参数。Pre-commit1 所在的位置是 `/home/ml/git/lotus/cmd/lotus-bench/main.go` 文件中的第 465 行，如下图所示：
+
+![precommit1](./pictures/precommit1.png)
+
+因此，我们使用如下命令给它在这一行下一个断点：
+
+```sh
+b /home/ml/git/lotus/cmd/lotus-bench/main.go:465
+```
+
+上述命令下断点的方式是其中的一种方式，就是指定某个文件的某一行，`b` 表示 `break` 的意思，就是下断点，如下图所示：
+
+![break_precommit1](./pictures/go_precommit1.png)
+
+在 **go** 语言层面已经下了一个断点了，当然，你想在什么地方下断点都行，下几个也随你，**GDB** 每遇到一个断点就会停下来。接下来我们要在 **rust** 底层库中也下一个断点，下断点的方式和第一个断点一样，我们把断点下载到 **rust** 语言执行 Pre-commit1 操作的地方，也就是在 `seal_pre_commit_phase1()` 函数处，这个函数所在的位置是：`/home/ml/git/rust-fil-proofs/filecoin-proofs/src/api/seal.rs` 的第 43 行，如下图所示：
+
+![break_precommit1](./pictures/rust_precommit1.png)
+
+我们要在这个函数的第一行下一个断点，执行如下命令给它下一个断点：
+
+```sh
+b /home/ml/git/rust-fil-proofs/filecoin-proofs/src/api/seal.rs:58
+```
+
+如下图所示：
+
+![break_rust_precommit1](./pictures/break_rust_precommit1.png)
+
+但是，由于这个 `seal_pre_commit_phase1()` 函数有些小复杂，为了方便小白们迅速找到 Precommit1 真正核心的代码，也就是生成 **11** 层 layer 的地方，我们在这个地方也下一个断点，这个地方就是 `/home/ml/git/rust-fil-proofs/storage-proofs/porep/src/stacked/vanilla/proof.rs` 文件中的 `generate_labels()` 函数，这个函数内部有一个双层嵌套的 `for` 循环，外层 `for` 循环执行 **11** 次，每次生成一层 layer， 内层 `for` 循环执行 **1G** 次（这里说 **1G** 次是针对 **32GB** 扇区的情况，并且所说的 **1G** 次就是： `1024 * 1024 * 1024` 次）。代码如下所示：
+
+![rust_generate_layers](./pictures/generate_layer.png)
+
+当然，这个说生成 **11** 层数据是指对与 **32GB** 扇区的情况，对于 **2KiB** 扇区的话，是不会有这么多层的，然后我们在这个 `generate_labels()` 函数的开头给它下一个断点，就下在 283 行吧，命令如下所示：
+
+```sh
+b /home/ml/git/rust-fil-proofs/storage-proofs/porep/src/stacked/vanilla/proof.rs:283
+```
+
+如下所示：
+
+![break_rust_generate_layers](./pictures/break_generate_layer.png)
+
+断点现在都下好了，下一步就开始可以运行了。
+
+#### C. 开始运行
+
+直接输入 `r` 就开始运行 `bench` 程序了，然后程序就会在 **go** 语言的 `SealPreCommit1()` 函数的地方停下来，如下图所示：
+
+![go语言中停下来](./pictures/stop_at_go.png)
+
+未完。。。。
 
