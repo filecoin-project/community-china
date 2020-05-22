@@ -20,8 +20,7 @@
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
-  - [Testnet2(旧版)](https://faucet.testnet.filecoin.io/)
-  - [Testnet3(新版)](http://t01000.miner.interopnet.kittyhawk.wtf)
+  - [Testnet phase 2](https://faucet.testnet.filecoin.io/)
 - Benchmark 数据
   - [Testnet2(V20)](https://github.com/filecoin-project/lotus/issues/839)
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
