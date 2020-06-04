@@ -15,7 +15,7 @@
   - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
   - [Filscan](https://filscan.io/)
-  - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475团队开发，仅 Testnet3
+  - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
 - [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet` 分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
