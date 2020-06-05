@@ -404,7 +404,7 @@ sudo make install
 
 如果因为编译的时候卡住，症状如下图所示：
 
-![nbvtop效果](./pictures/stuck_in_comiple_for_crate.io.png)
+![更新 crate.io 时卡住](./pictures/stuck_in_comiple_for_crate.io.png)
 
 解决方法：可以试试更改 `crate.io` 的源为国内的源，例如：
 
@@ -431,6 +431,20 @@ registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 ```sh
 export GOPROXY=https://goproxy.cn
 ```
+### go 版本太低的问题
+
+lotus 的 interopnet 分支在编译的时候，如果检测到 go 的版本低于 1.14， 则会编译失败，如下图所示：
+
+![go 版本过低](./pictures/upgrade_go_1.14_version.png)
+
+解决方法，安装新版本的 go：
+
+```sh
+# Ubuntu 20.04 示例
+sudo apt install golang-1.14
+```
+
+
 
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
