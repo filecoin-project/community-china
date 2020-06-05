@@ -398,6 +398,32 @@ sudo make install
 
 ![nbvtop效果](./pictures/nvtop.png)
 
+## 编译相关问题
+
+### crate.io 源的问题
+
+如果因为编译的时候卡住，症状如下图所示：
+
+![nbvtop效果](./pictures/stuck_in_comiple_for_crate.io.png)
+
+解决方法：可以试试更改 `crate.io` 的源为国内的源，例如：
+
+```sh
+# 中科大的源（目前好像出问题了）
+[source.crates-io]
+registry = "https://github.com/rust-lang/crates.io-index"
+replace-with = 'ustc'
+[source.ustc]
+registry = "git://mirrors.ustc.edu.cn/crates.io-index"
+
+# 清华的源（正常使用）
+[source.crates-io]
+replace-with = 'tuna'
+[source.tuna]
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+```
+使用方法：`vi ~/.cargo/config`， 然后把以上中的一个添加进去，重新编译一次即可。
+
 
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
