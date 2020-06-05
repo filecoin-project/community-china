@@ -424,6 +424,13 @@ registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 ```
 使用方法：`vi ~/.cargo/config`， 然后把以上中的一个添加进去，重新编译一次即可。
 
+### GOPROXY 的问题
+
+如果在编译的时候因为下载代码子模块的时候卡住（GO 代码），可能是 GOPROXY 没有设置，此时，设置一下 GOPROXY，然后再重新编译一遍即可：
+
+```sh
+export GOPROXY=https://goproxy.cn
+```
 
 ## 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
