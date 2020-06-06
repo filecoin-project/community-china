@@ -2,7 +2,8 @@
 
 **CoinSummer实验室** Filecoin 资源分享。
 
-## 常用链接
+## 1.常用链接
+
 - [Lotus官方文档](https://docs.lotu.sh/)
   - [testnet/3 使用文档](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/join-testnet.md) - 在 Github 项目的 `testnet/3` 分支下
   - [搭建Testnet/3的本地测试网](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/local-dev-net.md)
@@ -55,9 +56,9 @@
 
 - [本地测试网](https://docs.lotu.sh/en+setup-local-dev-net)
 
-## 新测试网专用（实时更新）
+## 2. 新测试网专用（实时更新）
 
-### New Interop Deployed 【2020-06-06-9:30AM】
+### 2.1 New Interop Deployed 【2020-06-06-9:30AM】
 
 Hey everyone, we have brought back the interopnet for the changes we are working towards deploying during the next testnet reset.
 
@@ -67,7 +68,7 @@ Hey everyone, we have brought back the interopnet for the changes we are working
 
 [**Slack Address**](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1591407039139100)
 
-### 测试网第二阶段启动（重大时刻） 【2020-05-15-6:10AM】
+### 2.2 测试网第二阶段启动（重大时刻） 【2020-05-15-6:10AM】
 
 [**Faucet**](https://faucet.testnet.filecoin.io/) - https://faucet.testnet.filecoin.io/
 
@@ -79,8 +80,9 @@ https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589516324005900
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589519545018500
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 
-## 节点操作
-### 查看节点信息
+## 3. 节点操作
+
+### 3.1 查看节点信息
 ```sh
 # 查看本节点所监听的地址:
 lotus net listen
@@ -88,7 +90,7 @@ lotus net listen
 lotus net peers
 ```
 
-### 手动连接其它节点（命令中的地址为示例地址）
+### 3.2 手动连接其它节点（命令中的地址为示例地址）
 ```sh
 lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5ZNSuJZZzHWp2FXDY7ufqGBmUW
 ```
@@ -99,14 +101,14 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 ```
 上述的节点是示例节点，当您在使用该命令的时候，您需要自己去找一个可以使用的节点。
 
-### 手动设置链的高度
+### 3.3 手动设置链的高度
 ```sh
 # 设置高度到9700
 lotus chain sethead --epoch=9700
 ```
 节点同步出错时，可下载 **CoinSummer实验室** 提供的 [国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到的 `datastore` 目录，替换你本机 `~/.lotus` 目录下的 `datastore`，然后执行上面手动设置链高度的命令(需要 daemon 启动的情况下)，即可从指定高度进行同步。
 
-### 手动下载 proof 参数
+### 3.4 手动下载 proof 参数
 ```sh
 # export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 ./lotus fetch-params --proving-params 2KiB     # 例如下载 2KiB 扇区对应的 Proof 参数
@@ -115,7 +117,7 @@ lotus chain sethead --epoch=9700
 ```
 [参考](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
 
-### 编译参数
+### 3.5 编译参数
 #### v25 版本代码的编译命令:
 ```sh
 env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all
@@ -134,13 +136,14 @@ export RUST_LOG=Debug
 ```
 运行 miner 之前加入该参数可以在 miner 的日志中查看更详细的输出信息（底层 rust 代码的输出信息），Log 登记从低到高分别有： Trace、Debug、Info、Warn、Error，Trace 输出的信息最详细，Error 输出的信息最少，仅输入错误信息。
 
-### 修改 Proofs 文件路径
+### 3.6 修改 Proofs 文件路径
 ```sh
 export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ```
 
-## Storage miner 操作
-### 查看扇区状态
+## 4 Storage miner 操作
+
+### 4.1 查看扇区状态
 ```sh
 # 列举所有扇区信息:
 lotus-storage-miner sectors list
@@ -148,14 +151,14 @@ lotus-storage-miner sectors list
 lotus-storage-miner sectors status --log <SectorID>
 ```
 
-### 手动修改扇区状态【谨慎操作】
+### 4.2 手动修改扇区状态【谨慎操作】
 ```sh
 lotus-storage-miner sectors update-state --really-do-it <SectorID> <NewSectorStatus>
 # 例如：手动修改扇区 1 的状态为 FaultedFinal 状态
 lotus-storage-miner sectors update-state --really-do-it 1 FaultedFinal
 ```
 
-### 更改默认存储路径
+### 4.3 更改默认存储路径
 ```sh
 export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
 ```
@@ -169,7 +172,7 @@ export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
   "CanStore": true
 }
 ```
-### 增加存储路径
+### 4.4 增加存储路径
 ```sh
 # 设置数据存储路径，该路径用来存储最终密封好的数据
 # 执行该命令可能需要一点时间等待
@@ -185,7 +188,7 @@ lotus-storage-miner storage attach --seal --init /path/to/fast_cache
 lotus-storage-miner storage list
 ```
 
-### 移动存储目录
+### 4.5 移动存储目录
 默认的存储目录 `~/.lotusstorage` 可以移动到其他地方。
 移动前最好先停掉 daemon 和 miner。
 移动后，假设新路径为 `/path/to/.lotusstorage`，需要手动更改 `/path/to/.lotusstorage` 目录下 `storage.json` 中的 `StoragePaths` 为新路径：
@@ -200,7 +203,7 @@ lotus-storage-miner storage list
 ```
 移动后，重启 daemon 和 miner，miner 会重新读取新路径下的所有 sector 信息。
 
-### 使用远程 daemon（daemon 在其他机器）
+### 4.6 使用远程 daemon（daemon 在其他机器）
 假设daemon在 `192.168.1.100` 机器上，miner在 `192.168.1.101` 机器上：
 1. 修改远程 daemon (192.168.1.100)上 `~/.lotus/config.toml` 中的 `ListenAddress` 为：
 ```toml
@@ -211,27 +214,27 @@ ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 2. 将远程 daemon (192.168.1.100) 上 `~/.lotus` 目录下的 `api` 和 `token` 拷贝到 miner 机器(192.168.1.101)的 `~/.lotus` 目录下；
 3. 重启 miner 即可。
 
-### 赎回已获得的奖励（Testnet3 才需要手动赎回）
+### 4.7 赎回已获得的奖励（Testnet3 才需要手动赎回）
 ```sh
 lotus-storage-miner rewards redeem
 lotus-storage-miner rewards list
 ```
 赎回之后，可能需要过一段时间才能看到自己钱包的余额增加。
 
-### v26 版本参数中使用 GPU 计算 Precommit2 的方法
+### 4.8 v26 版本参数中使用 GPU 计算 Precommit2 的方法
 运行 miner 之前导出已下环境变量（目前官方还未放出v26参数）：
 ```sh
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 ```
 [参考](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1588805545137700)
 
-## Worker操作
-### Testnet3 查看 Worker 信息
+## 5 Worker操作
+### 5.1 Testnet3 查看 Worker 信息
 ```sh
 lotus-storage-miner workers list
 ```
 
-### Testnet3 启动 worker
+### 5.2 Testnet3 启动 worker
 ```sh
 lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
@@ -241,7 +244,7 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
-### Testnet3 集群配置
+### 5.3 Testnet3 集群配置
 1. 修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress`:
 ```toml
 [API]
@@ -261,7 +264,7 @@ API 为 `~/.lotusstorage` 中的 api；
 ```
 需要给 worker 指定一个四位数的端口。
 
-## 常用环境变量
+## 6 常用环境变量
 
 ```sh
 # lotus 路径：
@@ -318,7 +321,7 @@ IPFS_GATEWAY
 
 ```
 
-## 解决拉取代码冲突问题（git pull）
+## 7. 解决拉取代码冲突问题（git pull）
 
 如果你在执行 `git pull` 的时候出现类似如下错误（`CONFLICT xxx`），你可以使用以下方法解决该问题：
 
@@ -333,7 +336,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 上述示例来源于从 `interopnet` 分支的 `799f5e5` 版本执行 `git pull` 的时候出现的问题（2020年5月7日），而这个问题在新版的代码中经常会出现，解决这个问题的方法如下（只是其中一个方法，当然还有别的方法）：
 
-### 方法一：
+### 7.1 方法一：
 ```sh
 # 先重置代码，恢复代码到原始状态
 git reset --hard HEAD
@@ -351,7 +354,7 @@ git pull
 env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all bench
 ```
 
-### 方法二：
+### 7.2 方法二：
 ```sh
 # 先重置代码，恢复代码到原始状态
 git reset --hard HEAD
@@ -365,14 +368,14 @@ git fetch
 git checkout interopnet
 ```
 
-### 方法三：
+### 7.3 方法三：
 ```sh
 # 如果你没有修改代码，直接执行以下两条命令
 git fetch origin
 git reset --hard origin/interopne
 ```
 
-## 重置本地测试网环境
+## 8 重置本地测试网环境
 
 如果你在使用本地测试网，发现 lotus daemon 启动不了，或者是 miner 启动不了，或者是其它的问题，这时候，如果你没有别的更好的解决方法，你可以尝试完全清理本地环境，然后再启动 daemon 和 miner， 默认情况下，你需要清理如下的文件或文件夹等：
 ```sh
@@ -385,15 +388,15 @@ rm -rf ~/dev.gen
 rm -rf ~/localnet.json
 ```
 
-## GDB 调试 lotus 源码
+## 9 GDB 调试 lotus 源码
 
 使用 GDB 调试 lotus 源码（包括上层的 **go** 语言代码和底层的 **rust** 语言代码），你只需要一个 GDB 工具就可以单步调试了，非常方便：
 
 [链接](./GDB_Debug.md)
 
-## 常用的两个查看系统资源的工具
+## 10 常用的两个查看系统资源的工具
 
-### htop 查看 CPU 和内存等信息
+### 10.1 htop 查看 CPU 和内存等信息
 
 htop 比系统自带的 top 界面更加友好，在 Ubuntu 上安装只需要执行：
 
@@ -405,7 +408,7 @@ sudo apt install htop
 
 ![htop效果](./pictures/htop.png)
 
-### nvtop 查看显卡信息
+### 10.2 nvtop 查看显卡信息
 
 nvtop 比 nvidia-msi 好看多了，但是安装稍微麻烦一些：
 在 Ubuntu 19.04 之后可以直接使用 `sudo apt install nvtop` 安装，否则，你需要执行以下命令安装：
@@ -423,9 +426,9 @@ sudo make install
 
 ![nbvtop效果](./pictures/nvtop.png)
 
-## 编译相关问题
+## 11 编译相关问题
 
-### crate.io 源的问题
+### 11.1 crate.io 源的问题
 
 如果因为编译的时候卡住，症状如下图所示：
 
@@ -449,14 +452,14 @@ registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 ```
 使用方法：`vi ~/.cargo/config`， 然后把以上中的一个添加进去，重新编译一次即可。
 
-### GOPROXY 的问题
+### 11.2 GOPROXY 的问题
 
 如果在编译的时候因为下载代码子模块的时候卡住（GO 代码），可能是 GOPROXY 没有设置，此时，设置一下 GOPROXY，然后再重新编译一遍即可：
 
 ```sh
 export GOPROXY=https://goproxy.cn
 ```
-### go 版本太低的问题
+### 11.3 go 版本太低的问题
 
 lotus 的 interopnet 分支在编译的时候，如果检测到 go 的版本低于 1.14， 则会编译失败，如下图所示：
 
@@ -475,7 +478,7 @@ sudo ln -s /usr/lib/go-1.14/bin/go /usr/bin/go
 
 
 
-## 常见问题(待续)
+## 12 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
 - lotus sync status时的base和target代表什么？
 - lotus sync时的worker是如何工作的？
