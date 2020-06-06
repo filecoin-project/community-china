@@ -364,6 +364,8 @@ git checkout master
 git branch -D interopnet
 # 拉取所有代码
 git fetch
+# 或者拉取 interopnet 分支的代码：
+git fetch origin interopnet:interopnet
 # 再切换到 interopnet 分支
 git checkout interopnet
 ```
@@ -372,7 +374,7 @@ git checkout interopnet
 ```sh
 # 如果你没有修改代码，直接执行以下两条命令
 git fetch origin
-git reset --hard origin/interopne
+git reset --hard origin/interopnet
 ```
 
 ## 8 重置本地测试网环境
