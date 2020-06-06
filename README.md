@@ -16,6 +16,8 @@
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
   - [Filscan](https://filscan.io/)
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
+  - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 6.6 的浏览器）
+  - [interopnet.filscan](https://interopnet.filscan.io/#/) - 官方 interopnet 浏览器
 - [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet` 分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
@@ -53,6 +55,29 @@
 
 - [本地测试网](https://docs.lotu.sh/en+setup-local-dev-net)
 
+## 新测试网专用（实时更新）
+
+### New Interop Deployed 【2020-06-06-9:30AM】
+
+Hey everyone, we have brought back the interopnet for the changes we are working towards deploying during the next testnet reset.
+
+**Branch:** **Deployed code is under branch interopnet (4068c9a); tag interop.6.6**
+
+[**Faucet**](https://t01000.miner.interopnet.kittyhawk.wtf) - https://t01000.miner.interopnet.kittyhawk.wtf
+
+[**Slack Address**](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1591407039139100)
+
+### 测试网第二阶段启动（重大时刻） 【2020-05-15-6:10AM】
+
+[**Faucet**](https://faucet.testnet.filecoin.io/) - https://faucet.testnet.filecoin.io/
+
+[**Slack Address: 2020-05-15-6:10AM**](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300)
+
+Ref:
+
+https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589516324005900
+https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589519545018500
+https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 
 ## 节点操作
 ### 查看节点信息
