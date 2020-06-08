@@ -484,7 +484,7 @@ sudo ln -s /usr/lib/go-1.14/bin/go /usr/bin/go
 
 - CPU： AMD 3970x (32核心64线程)
 - GPU： RTX 2080Ti
-- 内存： 256GB
+- 内存： 256GB (2133MHz)
 - 硬盘： NVMe 1TB * 2
 
 #### CPU+GPU
