@@ -478,9 +478,78 @@ sudo rm /usr/bin/go
 sudo ln -s /usr/lib/go-1.14/bin/go /usr/bin/go
 ```
 
+## 12 Benchmark
 
+### 12.1 v26 版本参数
 
-## 12 常见问题(待续)
+- CPU： AMD 3970x (32核心64线程)
+- GPU： RTX 2080Ti
+- 内存： 256GB
+- 硬盘： NVMe 1TB * 2
+
+#### CPU+GPU
+
+```sh
+# 命令
+t=$(date +%Y_%m_%d_%H_%M_%S)
+FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S bench -t bench_${t} ./bench sealing --sector-size=32GiB --storage-dir=/home/gossip/disk_nvme1/lotus-bench
+
+# 结果
+
+results (v26) (34359738368)
+seal: addPiece: 6m15.3044756s (87.3 MiB/s)
+seal: preCommit phase 1: 4h12m45.246321786s (2.16 MiB/s)
+seal: preCommit phase 2: 33m25.314284805s (16.3 MiB/s)
+seal: commit phase 1: 3.376010315s (9.48 GiB/s)
+seal: commit phase 2: 43m46.504108069s (12.5 MiB/s)
+seal: verify: 30.908086ms
+unseal: 4h10m45.224077903s  (2.18 MiB/s)
+
+generate candidates: 2.716063ms (11.5 TiB/s)
+compute winnnig post proof (cold): 4.727151776s
+compute winnnig post proof (hot): 2.921746828s
+verify winnnig post proof (cold): 72.31729ms
+verify winnnig post proof (hot): 15.464289ms
+
+compute window post proof (cold): 17m16.771668516s
+compute window post proof (hot): 11m34.142457801s
+verify window post proof (cold): 5.157438678s
+verify window post proof (hot): 43.763838ms
+
+```
+
+#### CPU
+
+```sh
+# 命令
+t=$(date +%Y_%m_%d_%H_%M_%S)
+BELLMAN_NO_GPU=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S bench -t bench_${t} ./bench sealing --sector-size=32GiB --no-gpu --storage-dir=/home/gossip/disk_nvme1/lotus-bench
+
+# 结果
+
+results (v26) (34359738368)
+seal: addPiece: 6m18.045655671s (86.7 MiB/s)
+seal: preCommit phase 1: 4h11m2.665760729s (2.18 MiB/s)
+seal: preCommit phase 2: 51m35.998398427s (10.6 MiB/s)
+seal: commit phase 1: 3.2534009s (9.84 GiB/s)
+seal: commit phase 2: 1h19m24.107221673s (6.88 MiB/s)
+seal: verify: 27.802053ms
+unseal: 4h10m25.648494319s  (2.18 MiB/s)
+
+generate candidates: 2.331868ms (13.4 TiB/s)
+compute winnnig post proof (cold): 5.941671756s
+compute winnnig post proof (hot): 4.172625272s
+verify winnnig post proof (cold): 64.764102ms
+verify winnnig post proof (hot): 17.119677ms
+
+compute window post proof (cold): 26m34.328794808s
+compute window post proof (hot): 20m47.199004707s
+verify window post proof (cold): 5.195517605s
+verify window post proof (hot): 46.366221ms
+
+```
+
+## 13 常见问题(待续)
 - Testnet/3 的Actual Power，Byte Power 是什么?
 - lotus sync status时的base和target代表什么？
 - lotus sync时的worker是如何工作的？
