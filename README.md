@@ -58,24 +58,23 @@
 
 ## 2. 新测试网专用（实时更新）
 
-### 2.1 New Interop Deployed 【2020-06-06-9:30AM】
+### 2.1 New Interop Deployed 【2020-06-09-2:46 AM】
 
-Hey everyone, we have brought back the interopnet for the changes we are working towards deploying during the next testnet reset.
+- **Branch:** Deployed code is under branch interopnet (96a5e57); 
 
-**Branch:** **Deployed code is under branch interopnet (4068c9a); tag interop.6.6**
+- **tag:** interop.6.8
 
-[**Faucet**](https://t01000.miner.interopnet.kittyhawk.wtf) - https://t01000.miner.interopnet.kittyhawk.wtf
+- **Faucet:**  https://t01000.miner.interopnet.kittyhawk.wtf
 
-[**Slack Address**](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1591407039139100)
+- **Slack Address:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1591641975206700
 
 ### 2.2 测试网第二阶段启动（重大时刻） 【2020-05-15-6:10AM】
 
-[**Faucet**](https://faucet.testnet.filecoin.io/) - https://faucet.testnet.filecoin.io/
+- **Faucet:** https://faucet.testnet.filecoin.io/
 
-[**Slack Address: 2020-05-15-6:10AM**](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300)
+- **Slack Address:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 
-Ref:
-
+- **Ref:**
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589516324005900
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589519545018500
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
