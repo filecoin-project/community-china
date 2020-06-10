@@ -40,6 +40,9 @@
 - [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
 - [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest)
 - [测试网第二阶段启动](https://filecoin.io/zh-cn/blog/filecoin-testnet-phase-2-is-here/)
+  - [400w FIL 奖励细节（中文版）](https://mp.weixin.qq.com/s?__biz=Mzg4MTExNjkyOQ==&mid=2247483919&idx=1&sn=241b3acf689430cc2c5e755369d7e6c5&chksm=cf6b9061f81c19778cbcd42977e34baaaadd64ede22182e42505c16036af3914a86970e52491&scene=0&xtrack=1&key=f1b12f90bb5fc1cb514641c641f980f4e0a528590145c227c149452dbb24fd449830ffffbb5f451078f03fff992af21229d35fb70cdc79fab576cce7b3862c294699873d5f05b50fb48595dd1995fd4d&ascene=1&uin=Njg4MDE3MzA4&devicetype=Windows+10+x64&version=62090070&lang=zh_CN&exportkey=ATNoZAw6n77M4%2B%2BUU2U%2FtRU%3D&pass_ticket=IvkSwCwfH7pXtFSeVExIcIF9XBhgUOKFBiz3%2B5nQBQcL4pKM45uUkfOevjt1xLrL)
+  - [Slack 上消息发布](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1591727244272500)
+  - [400w FIL 奖励细则（官方博客）](https://filecoin.io/blog/announcing-testnet-incentives/)
 - rust 和 rustup 的安装环境配置（Cargo）
   - [官方文档](https://www.rust-lang.org/tools/install)
   - [社区文档](https://learnku.com/docs/rust-lang/2018/ch01-01-installation/4494)
