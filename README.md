@@ -19,7 +19,6 @@
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
   - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 6.6 的浏览器）
   - [interopnet.filscan](https://interopnet.filscan.io/#/) - 官方 interopnet 浏览器
-- [区块同步数据国内备份](https://filecoin.coinsummer.io/datastore.html) - `interopnet` 分支区块同步数据国内下载地址，CoinSummer实验室提供，[如何使用？](https://github.com/CoinSummer/filecoin#%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E9%93%BE%E7%9A%84%E9%AB%98%E5%BA%A6)
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
@@ -34,8 +33,6 @@
   - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
   <!-- - [国内专用v26参数下载](https://filecoin.coinsummer.io/v26.html) - CoinSummer实验室提供(暂停访问) -->
   - [国内专用v26参数下载](https://shimo.im/docs/C6ggY9xxhvVG3DX8) - 群友 Daniels 提供，白天效果不错，晚上较慢
-  - [国内专用v25参数下载](https://filecoin.coinsummer.io/v25.html) - CoinSummer实验室提供
-    - [国内专用v25 URL地址](https://filecoin.coinsummer.io/v25.txt)
   - [最新版Proofs发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
 - [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
 - [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest)
@@ -550,13 +547,6 @@ verify window post proof (cold): 5.195517605s
 verify window post proof (hot): 46.366221ms
 
 ```
-
-## 13 常见问题(待续)
-- Testnet/3 的Actual Power，Byte Power 是什么?
-- lotus sync status时的base和target代表什么？
-- lotus sync时的worker是如何工作的？
-
-持续更新中，有问题请在Issues中反馈...
 
 > 参考文档
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
