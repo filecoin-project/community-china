@@ -105,7 +105,7 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 # 设置高度到9700
 lotus chain sethead --epoch=9700
 ```
-节点同步出错时，可下载 **CoinSummer实验室** 提供的 [国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到的 `datastore` 目录，替换你本机 `~/.lotus` 目录下的 `datastore`，然后执行上面手动设置链高度的命令(需要 daemon 启动的情况下)，即可从指定高度进行同步。
+节点同步出错时，可下载 **CoinSummer实验室** 提供的 [国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到 `datastore` 目录（包括目录内的所有内容），然后关闭 daemon 进程，关闭后删除你本机 `~/.lotus` 目录下的 `datastore` 目录，再把解压出来的 `datastore` 目录复制到你本机的 `~/.lotus` 目录下，复制完成之后启动 daemon，此时应该可以正常同步了，如果不行，可以试试：执行上面手动设置链高度的命令（需要 daemon 启动的情况下），即可从指定高度进行同步。
 
 ### 3.4 手动下载 proof 参数
 ```sh
