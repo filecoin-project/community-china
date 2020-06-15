@@ -116,7 +116,9 @@ lotus chain sethead --epoch=9700
 ./lotus fetch-params --proving-params 16MiB    # 下载 16MiB 扇区对应的 Proof 参数
 ./lotus fetch-params --proving-params 32GiB    # 下载 32GiB 扇区对应的 Proof 参数
 
-# v27 版本参数
+# v27 版本参数【目前在 next 分支: 2020/06/15】
+git fetch
+git checkout origin/next
 export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 ./lotus fetch-params 32GiB
 ```
