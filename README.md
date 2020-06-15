@@ -56,6 +56,8 @@
 
 - [本地测试网](https://docs.lotu.sh/en+setup-local-dev-net)
 
+- [ZCash 的地址导航栏（带图标，挺好看的）](http://www.ipfs.guide/)
+
 ## 2. 新测试网专用（实时更新）
 
 ### 2.1 New Interop Deployed 【2020-06-09-2:46 AM】
