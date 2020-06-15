@@ -115,6 +115,10 @@ lotus chain sethead --epoch=9700
 ./lotus fetch-params --proving-params 2KiB     # 例如下载 2KiB 扇区对应的 Proof 参数
 ./lotus fetch-params --proving-params 16MiB    # 下载 16MiB 扇区对应的 Proof 参数
 ./lotus fetch-params --proving-params 32GiB    # 下载 32GiB 扇区对应的 Proof 参数
+
+# v27 版本参数
+export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
+./lotus fetch-params 32GiB
 ```
 [参考](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
 
