@@ -127,13 +127,19 @@ export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs
 [参考](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
 
 ### 3.5 编译参数
+
 #### v25 版本代码的编译命令:
 ```sh
 env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all
+```
+特别是针对 AMD 处理器，使用该命令自己编译出来的代码更适合自己的机器。
+
+#### v26/v27 版本代码的编译命令:
+
+```sh
 # 启用 GPU 相关环境变量【Precommit2 的时候可以使用 GPU 计算】
 env RUSTFLAGS="-C target-cpu=native -g" FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1  FFI_BUILD_FROM_SOURCE=1 make clean all bench
 ```
-特别是针对 AMD 处理器，使用该命令自己编译出来的代码更适合自己的机器。
 
 #### 启用内存最大化参数：
 ```sh
