@@ -4,6 +4,8 @@
 
 ## 1.常用链接
 
+- [【群友 ican fly 开源项目】: 矿工监控告警系统](https://github.com/twosson/fil_exporter)
+
 - [Lotus官方文档](https://docs.lotu.sh/)
   - [testnet/3 使用文档](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/join-testnet.md) - 在 Github 项目的 `testnet/3` 分支下
   - [搭建Testnet/3的本地测试网](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/local-dev-net.md)
