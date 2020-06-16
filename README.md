@@ -558,6 +558,45 @@ verify window post proof (hot): 46.366221ms
 
 ```
 
+### 12.2 v27 版本参数【next 分支】
+
+- CPU： AMD 3970x (32核心64线程)
+- GPU： RTX 2080Ti
+- 内存： 256GB (2133MHz)
+- 硬盘： NVMe 1TB * 2
+
+#### CPU+GPU
+
+```sh
+# 命令
+t=$(date +%Y_%m_%d_%H_%M_%S)
+FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S bench -t bench_${t} ./bench sealing --sector-size=32GiB --storage-dir=/home/gossip/disk_nvme1/lotus-bench
+
+# 结果
+
+results (v27) (34359738368)
+seal: addPiece: 10m0.840580268s (54.5 MiB/s)
+seal: preCommit phase 1: 4h11m42.386256191s (2.17 MiB/s)
+seal: preCommit phase 2: 27m5.279700449s (20.2 MiB/s)
+seal: commit phase 1: 2.594602083s (12.3 GiB/s)
+seal: commit phase 2: 50m31.427904703s (10.8 MiB/s)
+seal: verify: 27.388448ms
+unseal: 4h12m40.52388773s  (2.16 MiB/s)
+
+generate candidates: 2.714168ms (11.5 TiB/s)
+compute winnnig post proof (cold): 6.114939733s
+compute winnnig post proof (hot): 5.097337848s
+verify winnnig post proof (cold): 50.41631ms
+verify winnnig post proof (hot): 15.678623ms
+
+compute window post proof (cold): 18m51.79180394s
+compute window post proof (hot): 11m25.783003134s
+verify window post proof (cold): 5.36059116s
+verify window post proof (hot): 47.596046ms
+
+```
+
+
 > 参考文档
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
 - [Lotus Docs](https://docs.lotu.sh/)
