@@ -15,13 +15,13 @@
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
   - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE新算法
 - 浏览器
-  - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
+  - [官方浏览器 stats](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
-  - [Filscan: testnet ](https://filscan.io/)
-    - [Filscan: interopnet ](https://interopnet.filscan.io)
+  - [官方 Filscan: testnet ](https://filscan.io/)
+    - [官方 Filscan: interopnet ](https://interopnet.filscan.io)
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
-  - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 6.6 的浏览器）
-  - [interopnet.filscan](https://interopnet.filscan.io/#/) - 官方 interopnet 浏览器
+  - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 的浏览器）
+
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
