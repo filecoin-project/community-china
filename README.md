@@ -17,7 +17,8 @@
 - 浏览器
   - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
-  - [Filscan](https://filscan.io/)
+  - [Filscan: testnet ](https://filscan.io/)
+    - [Filscan: interopnet ](https://interopnet.filscan.io)
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
   - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 6.6 的浏览器）
   - [interopnet.filscan](https://interopnet.filscan.io/#/) - 官方 interopnet 浏览器
@@ -62,15 +63,15 @@
 
 ## 2. 新测试网专用（实时更新）
 
-### 2.1 New Interop Deployed 【2020-06-09-2:46 AM】
+### 2.1 New Interop Deployed 【2020-06-17-6:14 AM】
 
-- **Branch:** Deployed code is under branch interopnet (96a5e57); 
+- **Branch:** Deployed code is under branch interopnet (bead3bf); 
 
-- **tag:** interop.6.8
+- **tag:** interop.6.16.0
 
 - **Faucet:**  https://t01000.miner.interopnet.kittyhawk.wtf
 
-- **Slack Address:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1591641975206700
+- **Slack Address:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592345686054100
 
 ### 2.2 测试网第二阶段启动（重大时刻） 【2020-05-15-6:10AM】
 
@@ -82,6 +83,11 @@
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589516324005900
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589519545018500
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
+
+- **下次启动时间**：
+  - [**Slack 预告地址**](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592350363063700)
+  - **时间：2020-06-19T00:00:00Z (5pm PDT, 8am CST)**
+  - **发布时间： 2020/06/17 - 7:32 AM**
 
 ## 3. 节点操作
 
