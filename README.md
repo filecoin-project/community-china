@@ -86,7 +86,7 @@ https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 
 - **下次启动时间**：
   - [**Slack 预告地址**](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592350363063700)
-  - **预计启动时间：2020-06-19T00:00:00Z (5pm PDT, 8am CST)： 北京时间：2020/06/20-8:00AM (星期五)**
+  - **预计启动时间：2020-06-19T00:00:00Z (5pm PDT, 8am CST)： 北京时间：2020/06/19-8:00AM (星期五)**
   - **发布时间： 2020/06/17 - 7:32 AM**
 
 ## 3. 节点操作
