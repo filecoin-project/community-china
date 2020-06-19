@@ -473,20 +473,27 @@ sudo make install
 解决方法：可以试试更改 `crate.io` 的源为国内的源，例如：
 
 ```sh
-# 中科大的源（目前好像出问题了）
+# 上海交通大学
 [source.crates-io]
-registry = "https://github.com/rust-lang/crates.io-index"
-replace-with = 'ustc'
-[source.ustc]
-registry = "git://mirrors.ustc.edu.cn/crates.io-index"
+replace-with = 'sjtu'
+[source.sjtu]
+registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"
 
 # 清华的源（正常使用）
 [source.crates-io]
 replace-with = 'tuna'
 [source.tuna]
 registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+
+# rustcc社区
+[source.crates-io]
+replace-with = 'rustcc'
+[source.rustcc]
+registry = "git://crates.rustcc.cn/crates.io-index"
+
 ```
-使用方法：`vi ~/.cargo/config`， 然后把以上中的一个添加进去，重新编译一次即可。
+使用方法：`vi ~/.cargo/config`， 然后把以上中的任意一个添加进去，保存好，然后再重新编译一次即可。
+[参考](https://blog.csdn.net/xiangxianghehe/article/details/105874880)
 
 ### 11.2 GOPROXY 的问题
 
