@@ -86,10 +86,11 @@ https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589516324005900
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589519545018500
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 
-- **下次启动时间**：
-  - [**Slack 预告地址**](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592350363063700)
-  - **预计启动时间：2020-06-19T00:00:00Z (5pm PDT, 8am CST)： 北京时间：2020/06/19-8:00AM (星期五)**
-  - **发布时间： 2020/06/17 - 7:32 AM**
+- **重启时间**：
+  - **Slack 地址：** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592523744190700
+  - **重启时间：** 2020/06/19 - 8:00AM (星期五)
+  - **发布时间：** 2020/06/17 - 7:32 AM
+  - **代码版本：** Master 分支， v0.4.0 版本
 
 ## 3. 节点操作
 
