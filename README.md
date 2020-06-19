@@ -519,6 +519,20 @@ sudo rm /usr/bin/go
 sudo ln -s /usr/lib/go-1.14/bin/go /usr/bin/go
 ```
 
+### 11.4 编译提示 Rustup 1.43.1 版本找不到
+
+在编译最新版的 master 分支分支的时候遇到这个问题（2020年6月19号23点，master 的 commit 是： ffa7be86fe6ee738ab4b095469029b9fac51e090），编译的时候提示找不到 `1.43.1-x86_64-unknown-linux-gnu` ，错误信息如下所示：
+
+![rustup 版本未能找到](./pictures/rustup_version_not_found.png)
+
+解决方法是跳过这个版本，直接使用 `nightly` 的版本，即，替换以下这个文件中的 `1.43.1` 为 `nightly`。
+
+```sh
+echo "nightly" > ./extern/filecoin-ffi/rust/rust-toolchain
+```
+
+然后再重新编译，即可正常编译。
+
 ## 12 Benchmark
 
 ### 12.1 v26 版本参数
