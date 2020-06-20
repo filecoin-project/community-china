@@ -252,6 +252,9 @@ lotus-storage-miner rewards list
 ```sh
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 ```
+
+
+
 [参考](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1588805545137700)
 
 ## 5 Worker操作
@@ -344,6 +347,12 @@ BELLMAN_CUSTOM_GPU
 # 下载证明参数代理：
 IPFS_GATEWAY
 # 例如： export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
+
+# 启用 GPU 计算 Precommit2 中的部分过程
+FIL_PROOFS_USE_GPU_TREE_BUILDER
+FIL_PROOFS_USE_GPU_COLUMN_BUILDER
+# 例如：export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
+# 例如：export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 
 ```
 
