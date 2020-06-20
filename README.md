@@ -4,13 +4,12 @@
 
 ## 1.常用链接
 
-- [【群友 ican fly 开源项目】: 矿工监控告警系统](https://github.com/twosson/fil_exporter)
+- [【群友 ican fly 开源项目】: 矿工监控告警系统（正在开发当中...）](https://github.com/twosson/fil_exporter)
 
 - [Lotus官方文档](https://docs.lotu.sh/)
   - [新的 Filecoin 首页地址](https://filecoin.io/zh-cn/)
   - [新的 Filecoin 文档地址](https://docs.filecoin.io/)
-  - [testnet/3 使用文档](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/join-testnet.md) - 在 Github 项目的 `testnet/3` 分支下
-  - [搭建Testnet/3的本地测试网](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/local-dev-net.md)
+  - [搭建 Testnet本地测试网](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
 - 代码下载地址
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
@@ -147,7 +146,7 @@ env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all
 
 ```sh
 # 启用 GPU 相关环境变量【Precommit2 的时候可以使用 GPU 计算】
-env RUSTFLAGS="-C target-cpu=native -g" FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1  FFI_BUILD_FROM_SOURCE=1 make clean all bench
+env RUSTFLAGS="-C target-cpu=native -g" FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FFI_BUILD_FROM_SOURCE=1 make clean all bench
 ```
 
 #### 启用内存最大化参数：
