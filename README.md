@@ -253,7 +253,17 @@ lotus-storage-miner rewards list
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 ```
 
+### 4.9 启动 miner 参考命令
 
+```sh
+# 注意空格不能少【以下命令是使用 screen 进行后台启动的方式】
+t=$(date +%Y_%m_%d_%H_%M_%S)
+FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S miner -t miner_${t} ./lotus-storage-miner run
+
+# 常规方式
+FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace ./lotus-storage-miner run
+
+```
 
 [参考](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1588805545137700)
 
