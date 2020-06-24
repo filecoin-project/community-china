@@ -275,7 +275,7 @@ lotus-storage-miner workers list
 ```
 ### 5.2 Testnet3 集群配置
 
-**1. 修改 miner**
+**5.2.1. 修改 miner**
 
 修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress` 和 `RemoteListenAddress` ，把这两个变量中的地址都改为 miner 本机的地址:
 ```toml
@@ -283,7 +283,7 @@ lotus-storage-miner workers list
 ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
 RemoteListenAddress = "192.168.1.100:2345"
 ```
-**2. 配置 worker**
+**5.2.2. 配置 worker**
 
 方法一：使用环境变量
 
@@ -299,7 +299,7 @@ API 为 `~/.lotusstorage` 中的 `api`；
 
 在 **启动了 miner 之后**，复制 miner 的 `~/.lotusstorage` 目录中的 `token` 和 `api` 到 worker 中的  `~/.lotusstorage` （worker 中没有这个目录就手动创建一个），然后启动 worker 即可。
 
-**3. 启动 worker**
+**5.2.3. 启动 worker**
 ```sh
 lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
