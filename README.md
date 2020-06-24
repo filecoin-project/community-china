@@ -273,25 +273,17 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 ```sh
 lotus-storage-miner workers list
 ```
+### 5.2 Testnet3 集群配置
 
-### 5.2 Testnet3 启动 worker
-```sh
-lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
-```
-启动worker需要注意以下几点：
-- 要给 worker 指定**本机地址**和一个**随机端口（至少四位数）**;
-- `precommit1`、`precommit2` 和 `commit` 默认是启用的，如果想要禁用，可以设置为 `false`，例如：
-`--precommit1=false`;
-- `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
+**1. 修改 miner**
 
-### 5.3 Testnet3 集群配置
-1. 修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress` 和 `RemoteListenAddress` ，把这两个变量中的地址都改为 miner 本机的地址:
+修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress` 和 `RemoteListenAddress` ，把这两个变量中的地址都改为 miner 本机的地址:
 ```toml
 [API]
 ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
 RemoteListenAddress = "192.168.1.100:2345"
 ```
-2. 配置 worker 的环境变量
+**2. 配置 worker**
 
 方法一：使用环境变量
 
@@ -307,11 +299,16 @@ API 为 `~/.lotusstorage` 中的 `api`；
 
 在 **启动了 miner 之后**，复制 miner 的 `~/.lotusstorage` 目录中的 `token` 和 `api` 到 worker 中的  `~/.lotusstorage` （worker 中没有这个目录就手动创建一个），然后启动 worker 即可。
 
-1. 启动 worker
+**3. 启动 worker**
 ```sh
-./lotus-seal-worker run --address=192.168.1.222:3456
+lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
-需要给 worker 指定一个四位数的端口。
+启动worker需要注意以下几点：
+- 要给 worker 指定**本机地址**和一个**随机端口（至少四位数）**;
+- `precommit1`、`precommit2` 和 `commit` 默认是启用的，如果想要禁用，可以设置为 `false`，例如：
+`--precommit1=false`;
+- `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
+
 
 ## 6 常用环境变量
 
