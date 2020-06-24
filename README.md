@@ -23,6 +23,8 @@
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
   - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 的浏览器）
 
+- [矿工排行榜： Filfox](https://beta.filfox.io/en/ranks)
+
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
