@@ -63,6 +63,8 @@
 - [本地测试网](https://docs.lotu.sh/en+setup-local-dev-net)
 
 - [IPFS.GUIDE 的地址导航栏（带图标，挺好看的）](http://www.ipfs.guide/)
+  
+- [官方挖矿参考文档： mining-hardware-config-v6.pdf](./files/mining-hardware-config-v6.pdf)
 
 ## 2. 新测试网专用（实时更新）
 
