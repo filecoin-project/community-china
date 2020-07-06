@@ -670,6 +670,13 @@ verify window post proof (hot): 47.596046ms
 
 ```
 
+## 13 Scripts
+
+### 13.1 Auto pledge sectors script
+
+[auto_pledge_sector.sh](./scripts/auto_pledge_sector.sh)
+
+
 
 > 参考文档
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
