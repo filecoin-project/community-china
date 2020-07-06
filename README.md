@@ -367,6 +367,10 @@ BELLMAN_CUSTOM_GPU
 IPFS_GATEWAY
 # 例如： export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 
+# Parent cache 参数
+FIL_PROOFS_PARENT_CACHE
+# 例如： export FIL_PROOFS_PARENT_CACHE=/disk/parent_cache
+
 # 启用 GPU 计算 Precommit2 中的部分过程
 FIL_PROOFS_USE_GPU_TREE_BUILDER
 FIL_PROOFS_USE_GPU_COLUMN_BUILDER
