@@ -632,14 +632,14 @@ verify window post proof (hot): 46.366221ms
 
 ```
 
-### 12.2 v27 版本参数【next 分支】
+### 12.2 v27 版本参数
 
 - CPU： AMD 3970x (32核心64线程)
 - GPU： RTX 2080Ti
 - 内存： 256GB (2133MHz)
 - 硬盘： NVMe 1TB * 2
 
-#### CPU+GPU
+#### CPU+GPU【next 分支】
 
 ```sh
 # 命令
@@ -667,6 +667,42 @@ compute window post proof (cold): 18m51.79180394s
 compute window post proof (hot): 11m25.783003134s
 verify window post proof (cold): 5.36059116s
 verify window post proof (hot): 47.596046ms
+
+```
+
+
+#### CPU【master 分支】
+
+```sh
+# 命令
+t=$(date +%Y_%m_%d_%H_%M_%S)
+BELLMAN_NO_GPU=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S bench -t bench_${t} ./bench sealing --sector-size=32GiB --no-gpu --storage-dir=/home/gossip/disk_nvme1/lotus-bench
+
+
+# lotus 版本
+# lotus version 0.4.1+git.9d56dabb
+
+# 结果
+
+results (v27) (34359738368)
+seal: addPiece: 10m10.633126077s (53.7 MiB/s)
+seal: preCommit phase 1: 4h14m22.4235947s (2.15 MiB/s)
+seal: preCommit phase 2: 51m36.998604335s (10.6 MiB/s)
+seal: commit phase 1: 1.151689271s (27.8 GiB/s)
+seal: commit phase 2: 1h36m30.270483546s (5.66 MiB/s)
+seal: verify: 34.083162ms
+unseal: 4h13m10.812170289s  (2.16 MiB/s)
+
+generate candidates: 2.333397ms (13.4 TiB/s)
+compute winnnig post proof (cold): 7.327267683s
+compute winnnig post proof (hot): 6.318365117s
+verify winnnig post proof (cold): 45.298003ms
+verify winnnig post proof (hot): 16.806329ms
+
+compute window post proof (cold): 28m6.99008574s
+compute window post proof (hot): 20m41.201090515s
+verify window post proof (cold): 5.46349285s
+verify window post proof (hot): 37.986216ms
 
 ```
 
