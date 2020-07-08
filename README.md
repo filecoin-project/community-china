@@ -377,6 +377,13 @@ FIL_PROOFS_USE_GPU_COLUMN_BUILDER
 # 例如：export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
 # 例如：export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 
+# 禁用 GPU 参数
+BELLMAN_NO_GPU
+# 例如：export BELLMAN_NO_GPU=1
+# 如果要启用 GPU，则不能让这个环境变量（BELLMAN_NO_GPU）出现在系统的环境变量中（env）
+# 如果它出现在 env 中，则需要使用一下命令取消，（因为设置 export BELLMAN_NO_GPU=0 无效）
+unset BELLMAN_NO_GPU
+
 ```
 
 ## 7. 解决拉取代码冲突问题（git pull）
@@ -609,6 +616,7 @@ verify window post proof (hot): 43.763838ms
 
 ```sh
 # 命令
+# BELLMAN_NO_GPU 环境变量的使用请参考第 6 节的说明
 t=$(date +%Y_%m_%d_%H_%M_%S)
 BELLMAN_NO_GPU=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S bench -t bench_${t} ./bench sealing --sector-size=32GiB --no-gpu --storage-dir=/home/gossip/disk_nvme1/lotus-bench
 
@@ -679,6 +687,7 @@ verify window post proof (hot): 47.596046ms
 
 ```sh
 # 命令
+# BELLMAN_NO_GPU 环境变量的使用请参考第 6 节的说明
 t=$(date +%Y_%m_%d_%H_%M_%S)
 BELLMAN_NO_GPU=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S bench -t bench_${t} ./bench sealing --sector-size=32GiB --no-gpu --storage-dir=/home/gossip/disk_nvme1/lotus-bench
 
