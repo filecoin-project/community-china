@@ -381,7 +381,8 @@ FIL_PROOFS_USE_GPU_COLUMN_BUILDER
 BELLMAN_NO_GPU
 # 例如：export BELLMAN_NO_GPU=1
 # 如果要启用 GPU，则不能让这个环境变量（BELLMAN_NO_GPU）出现在系统的环境变量中（env）
-# 如果它出现在 env 中，则需要使用一下命令取消，（因为设置 export BELLMAN_NO_GPU=0 无效）
+# 如果它出现在 env 中，则需要使用以下命令取消，
+#（因为设置 export BELLMAN_NO_GPU=0 无效）：
 unset BELLMAN_NO_GPU
 
 ```
