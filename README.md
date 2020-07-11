@@ -101,6 +101,9 @@ https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 - **代码版本：**  ntwk-butterfly 分支，ntwk-butterfly-7.10.0 版本
 - **支持扇区：**    [512MiB, 32GiB, 64GiB]
 - **Conensus Miner Min Power：**  [1GiB]
+- **Slack 地址：** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1594351253402500
+- **Ref:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1594355443409700
+
 
 ## 3. 节点操作
 
