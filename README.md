@@ -95,6 +95,13 @@ https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
   - **发布时间：** 2020/06/17 - 7:32 AM
   - **代码版本：** Master 分支， v0.4.0 版本
 
+### 2.3 ButterFly 网络(蝴蝶网络)
+
+- **Dashboard：** https://stats.butterfly.fildev.network/
+- **代码版本：**  ntwk-butterfly 分支，ntwk-butterfly-7.10.0 版本
+- **支持扇区：**    [512MiB, 32GiB, 64GiB]
+- **Conensus Miner Min Power：**  [1GiB]
+
 ## 3. 节点操作
 
 ### 3.1 查看节点信息
