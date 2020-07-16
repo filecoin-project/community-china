@@ -5,7 +5,6 @@
 ## 1.常用链接
 
 - [【群友 ican fly 开源项目】: 矿工监控告警系统（正在开发当中...）](https://github.com/twosson/fil_exporter)
-
 - [Lotus官方文档](https://docs.lotu.sh/)
   - [新的 Filecoin 首页地址](https://filecoin.io/zh-cn/)
   - [新的 Filecoin 文档地址](https://docs.filecoin.io/)
@@ -28,15 +27,15 @@
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
-  - [Testnet phase 2](https://faucet.testnet.filecoin.io/)
+  - [Testnet phase 3](https://faucet.testnet.filecoin.io/)
   - [Interopnet](https://t01000.miner.interopnet.kittyhawk.wtf/)
+  - [ButterFly](https://faucet.butterfly.fildev.network/)
 - Benchmark 数据
   - [Testnet2(V20)](https://github.com/filecoin-project/lotus/issues/839)
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
   - [Testnet3(V25)](https://filecoin-benchmarks.on.fleek.co/)
   - [Testnet3(V25)](https://github.com/CoinSummer/benchmarks/tree/master/benchmarks)
 - Proof证明文件国内下载
-  - [JDCloud(v20)参数下载](https://s3.cn-south-1.jdcloud-oss.com/proof-parameters/filecoin-proof-parameters-v20.tar.gz)
   - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
   <!-- - [国内专用v26参数下载](https://filecoin.coinsummer.io/v26.html) - CoinSummer实验室提供(暂停访问) -->
   - [国内专用v26参数下载](https://shimo.im/docs/C6ggY9xxhvVG3DX8) - 群友 Daniels 提供，白天效果不错，晚上较慢
