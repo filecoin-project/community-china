@@ -4,21 +4,27 @@
 
 ## 1.常用链接
 
+- [【群友 ican fly 开源项目】: 矿工监控告警系统（正在开发当中...）](https://github.com/twosson/fil_exporter)
+
 - [Lotus官方文档](https://docs.lotu.sh/)
-  - [testnet/3 使用文档](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/join-testnet.md) - 在 Github 项目的 `testnet/3` 分支下
-  - [搭建Testnet/3的本地测试网](https://github.com/filecoin-project/lotus/blob/testnet/3/documentation/en/local-dev-net.md)
+  - [新的 Filecoin 首页地址](https://filecoin.io/zh-cn/)
+  - [新的 Filecoin 文档地址](https://docs.filecoin.io/)
+  - [搭建 Testnet本地测试网](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
 - 代码下载地址
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
   - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE新算法
 - 浏览器
-  - [官方浏览器](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
+  - [官方浏览器 stats](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
-  - [Filscan](https://filscan.io/)
+  - [官方 Filscan: testnet ](https://filscan.io/)
+    - [官方 Filscan: interopnet ](https://interopnet.filscan.io)
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
-  - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 6.6 的浏览器）
-  - [interopnet.filscan](https://interopnet.filscan.io/#/) - 官方 interopnet 浏览器
+  - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 的浏览器）
+
+- [矿工排行榜： Filfox](https://beta.filfox.io/en/ranks)
+
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
@@ -38,7 +44,7 @@
 - [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
 - [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest)
 - [测试网第二阶段启动](https://filecoin.io/zh-cn/blog/filecoin-testnet-phase-2-is-here/)
-  - [400w FIL 奖励细节（中文版）](https://mp.weixin.qq.com/s?__biz=Mzg4MTExNjkyOQ==&mid=2247483919&idx=1&sn=241b3acf689430cc2c5e755369d7e6c5&chksm=cf6b9061f81c19778cbcd42977e34baaaadd64ede22182e42505c16036af3914a86970e52491&scene=0&xtrack=1&key=f1b12f90bb5fc1cb514641c641f980f4e0a528590145c227c149452dbb24fd449830ffffbb5f451078f03fff992af21229d35fb70cdc79fab576cce7b3862c294699873d5f05b50fb48595dd1995fd4d&ascene=1&uin=Njg4MDE3MzA4&devicetype=Windows+10+x64&version=62090070&lang=zh_CN&exportkey=ATNoZAw6n77M4%2B%2BUU2U%2FtRU%3D&pass_ticket=IvkSwCwfH7pXtFSeVExIcIF9XBhgUOKFBiz3%2B5nQBQcL4pKM45uUkfOevjt1xLrL)
+  - [400w FIL 奖励细节（中文版）](https://filecoin.io/zh-cn/blog/announcing-testnet-incentives/)
   - [Slack 上消息发布](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1591727244272500)
   - [400w FIL 奖励细则（官方博客）](https://filecoin.io/blog/announcing-testnet-incentives/)
 - rust 和 rustup 的安装环境配置（Cargo）
@@ -58,18 +64,20 @@
 - [本地测试网](https://docs.lotu.sh/en+setup-local-dev-net)
 
 - [IPFS.GUIDE 的地址导航栏（带图标，挺好看的）](http://www.ipfs.guide/)
+  
+- [官方挖矿参考文档： mining-hardware-config-v6.pdf](./files/mining-hardware-config-v6.pdf)
 
 ## 2. 新测试网专用（实时更新）
 
-### 2.1 New Interop Deployed 【2020-06-09-2:46 AM】
+### 2.1 New Interop Deployed 【2020-06-17-6:14 AM】
 
-- **Branch:** Deployed code is under branch interopnet (96a5e57); 
+- **Branch:** Deployed code is under branch interopnet (bead3bf); 
 
-- **tag:** interop.6.8
+- **tag:** interop.6.16.0
 
 - **Faucet:**  https://t01000.miner.interopnet.kittyhawk.wtf
 
-- **Slack Address:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1591641975206700
+- **Slack Address:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592345686054100
 
 ### 2.2 测试网第二阶段启动（重大时刻） 【2020-05-15-6:10AM】
 
@@ -81,6 +89,22 @@
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589516324005900
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589519545018500
 https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
+
+- **重启时间**：
+  - **Slack 地址：** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592523744190700
+  - **重启时间：** 2020/06/19 - 8:00AM (星期五)
+  - **发布时间：** 2020/06/17 - 7:32 AM
+  - **代码版本：** Master 分支， v0.4.0 版本
+
+### 2.3 ButterFly 网络(蝴蝶网络)
+
+- **Dashboard：** https://stats.butterfly.fildev.network/
+- **代码版本：**  ntwk-butterfly 分支，ntwk-butterfly-7.10.0 版本
+- **支持扇区：**    [512MiB, 32GiB, 64GiB]
+- **Conensus Miner Min Power：**  [1GiB]
+- **Slack 地址：** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1594351253402500
+- **Ref:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1594355443409700
+
 
 ## 3. 节点操作
 
@@ -126,13 +150,19 @@ export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs
 [参考](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
 
 ### 3.5 编译参数
+
 #### v25 版本代码的编译命令:
 ```sh
 env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all
-# 启用 GPU 相关环境变量【Precommit2 的时候可以使用 GPU 计算】
-env RUSTFLAGS="-C target-cpu=native -g" FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1  FFI_BUILD_FROM_SOURCE=1 make clean all bench
 ```
 特别是针对 AMD 处理器，使用该命令自己编译出来的代码更适合自己的机器。
+
+#### v26/v27 版本代码的编译命令:
+
+```sh
+# 启用 GPU 相关环境变量【Precommit2 的时候可以使用 GPU 计算】
+env RUSTFLAGS="-C target-cpu=native -g" FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FFI_BUILD_FROM_SOURCE=1 make clean all bench
+```
 
 #### 启用内存最大化参数：
 ```sh
@@ -236,6 +266,19 @@ lotus-storage-miner rewards list
 ```sh
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 ```
+
+### 4.9 启动 miner 参考命令
+
+```sh
+# 注意空格不能少【以下命令是使用 screen 进行后台启动的方式】
+t=$(date +%Y_%m_%d_%H_%M_%S)
+FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S miner -t miner_${t} ./lotus-storage-miner run
+
+# 常规方式
+FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace ./lotus-storage-miner run
+
+```
+
 [参考](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1588805545137700)
 
 ## 5 Worker操作
@@ -243,8 +286,33 @@ export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 ```sh
 lotus-storage-miner workers list
 ```
+### 5.2 Testnet3 集群配置
 
-### 5.2 Testnet3 启动 worker
+**5.2.1. 修改 miner**
+
+修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress` 和 `RemoteListenAddress` ，把这两个变量中的地址都改为 miner 本机的地址:
+```toml
+[API]
+ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
+RemoteListenAddress = "192.168.1.100:2345"
+```
+**5.2.2. 配置 worker**
+
+方法一：使用环境变量
+
+```sh
+export STORAGE_API_INFO=<TOKEN>:<API>
+```
+TOKEN 为 `~/.lotusstorage` 中的 `token`；
+API 为 `~/.lotusstorage` 中的 `api`；
+
+注意：启动 miner 之后再查看这两个的值。
+
+**方法二：直接复制文件**
+
+在 **启动了 miner 之后**，复制 miner 的 `~/.lotusstorage` 目录中的 `token` 和 `api` 到 worker 中的  `~/.lotusstorage` （worker 中没有这个目录就手动创建一个），然后启动 worker 即可。
+
+**5.2.3. 启动 worker**
 ```sh
 lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
@@ -254,25 +322,6 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
-### 5.3 Testnet3 集群配置
-1. 修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress`:
-```toml
-[API]
-ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
-RemoteListenAddress = "192.168.1.100:2345"
-```
-2. 配置 worker 的环境变量
-```sh
-export STORAGE_API_INFO=<TOKEN>:<API>
-```
-TOKEN 为 `~/.lotusstorage` 中的 token；
-API 为 `~/.lotusstorage` 中的 api；
-
-3. 启动 worker
-```sh
-./lotus-seal-worker run --address=192.168.1.222:3456
-```
-需要给 worker 指定一个四位数的端口。
 
 ## 6 常用环境变量
 
@@ -328,6 +377,24 @@ BELLMAN_CUSTOM_GPU
 # 下载证明参数代理：
 IPFS_GATEWAY
 # 例如： export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
+
+# Parent cache 参数
+FIL_PROOFS_PARENT_CACHE
+# 例如： export FIL_PROOFS_PARENT_CACHE=/disk/parent_cache
+
+# 启用 GPU 计算 Precommit2 中的部分过程
+FIL_PROOFS_USE_GPU_TREE_BUILDER
+FIL_PROOFS_USE_GPU_COLUMN_BUILDER
+# 例如：export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
+# 例如：export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
+
+# 禁用 GPU 参数
+BELLMAN_NO_GPU
+# 例如：export BELLMAN_NO_GPU=1
+# 如果要启用 GPU，则不能让这个环境变量（BELLMAN_NO_GPU）出现在系统的环境变量中（env）
+# 如果它出现在 env 中，则需要使用以下命令取消，
+#（因为设置 export BELLMAN_NO_GPU=0 无效）：
+unset BELLMAN_NO_GPU
 
 ```
 
@@ -391,6 +458,8 @@ git reset --hard origin/interopnet
 
 如果你在使用本地测试网，发现 lotus daemon 启动不了，或者是 miner 启动不了，或者是其它的问题，这时候，如果你没有别的更好的解决方法，你可以尝试完全清理本地环境，然后再启动 daemon 和 miner， 默认情况下，你需要清理如下的文件或文件夹等：
 ```sh
+# 如果 daemon 一直同步不了，也可以试试这个方法，很多情况下可以解决同步问题
+# 此外，处理前请检查环境变量，比如，是否修改了默认的 ~/.lotus 目录的位置
 rm -rf ~/.lotus/
 rm -rf ~/.lotusstorage/
 rm -rf ~/.lotusworker/
@@ -398,6 +467,12 @@ rm -rf ~/.lotus-bench/
 rm -rf ~/.genesis-sectors/
 rm -rf ~/dev.gen
 rm -rf ~/localnet.json
+```
+
+如果是同步不了，还建议清空 `FIL_PROOFS_MAXIMIZE_CACHING` 环境变量，最近不少人因为在 `.bashrc` 中加入这个环境变量导致无法同步，原因未知：
+
+```sh
+unset FIL_PROOFS_MAXIMIZE_CACHING
 ```
 
 ## 9 GDB 调试 lotus 源码
@@ -449,20 +524,27 @@ sudo make install
 解决方法：可以试试更改 `crate.io` 的源为国内的源，例如：
 
 ```sh
-# 中科大的源（目前好像出问题了）
+# 上海交通大学
 [source.crates-io]
-registry = "https://github.com/rust-lang/crates.io-index"
-replace-with = 'ustc'
-[source.ustc]
-registry = "git://mirrors.ustc.edu.cn/crates.io-index"
+replace-with = 'sjtu'
+[source.sjtu]
+registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"
 
 # 清华的源（正常使用）
 [source.crates-io]
 replace-with = 'tuna'
 [source.tuna]
 registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+
+# rustcc社区
+[source.crates-io]
+replace-with = 'rustcc'
+[source.rustcc]
+registry = "git://crates.rustcc.cn/crates.io-index"
+
 ```
-使用方法：`vi ~/.cargo/config`， 然后把以上中的一个添加进去，重新编译一次即可。
+使用方法：`vi ~/.cargo/config`， 然后把以上中的任意一个添加进去，保存好，然后再重新编译一次即可。
+[参考](https://blog.csdn.net/xiangxianghehe/article/details/105874880)
 
 ### 11.2 GOPROXY 的问题
 
@@ -487,6 +569,20 @@ sudo rm /usr/bin/go
 # 让它链接到新版本的 go 可执行文件中
 sudo ln -s /usr/lib/go-1.14/bin/go /usr/bin/go
 ```
+
+### 11.4 编译提示 Rustup 1.43.1 版本找不到
+
+在编译最新版的 master 分支分支的时候遇到这个问题（2020年6月19号23点，master 的 commit 是： ffa7be86fe6ee738ab4b095469029b9fac51e090），编译的时候提示找不到 `1.43.1-x86_64-unknown-linux-gnu` ，错误信息如下所示：
+
+![rustup 版本未能找到](./pictures/rustup_version_not_found.png)
+
+解决方法是跳过这个版本，直接使用 `nightly` 的版本，即，替换以下这个文件中的 `1.43.1` 为 `nightly`。
+
+```sh
+echo "nightly" > ./extern/filecoin-ffi/rust/rust-toolchain
+```
+
+然后再重新编译，即可正常编译。
 
 ## 12 Benchmark
 
@@ -532,6 +628,7 @@ verify window post proof (hot): 43.763838ms
 
 ```sh
 # 命令
+# BELLMAN_NO_GPU 环境变量的使用请参考第 6 节的说明
 t=$(date +%Y_%m_%d_%H_%M_%S)
 BELLMAN_NO_GPU=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S bench -t bench_${t} ./bench sealing --sector-size=32GiB --no-gpu --storage-dir=/home/gossip/disk_nvme1/lotus-bench
 
@@ -559,14 +656,14 @@ verify window post proof (hot): 46.366221ms
 
 ```
 
-### 12.2 v27 版本参数【next 分支】
+### 12.2 v27 版本参数
 
 - CPU： AMD 3970x (32核心64线程)
 - GPU： RTX 2080Ti
 - 内存： 256GB (2133MHz)
 - 硬盘： NVMe 1TB * 2
 
-#### CPU+GPU
+#### CPU+GPU【next 分支】
 
 ```sh
 # 命令
@@ -596,6 +693,52 @@ verify window post proof (cold): 5.36059116s
 verify window post proof (hot): 47.596046ms
 
 ```
+
+
+#### CPU【master 分支】
+
+```sh
+# 命令
+# BELLMAN_NO_GPU 环境变量的使用请参考第 6 节的说明
+t=$(date +%Y_%m_%d_%H_%M_%S)
+BELLMAN_NO_GPU=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S bench -t bench_${t} ./bench sealing --sector-size=32GiB --no-gpu --storage-dir=/home/gossip/disk_nvme1/lotus-bench
+
+
+# lotus 版本
+# lotus version 0.4.1+git.9d56dabb
+
+# 结果
+
+results (v27) (34359738368)
+seal: addPiece: 10m10.633126077s (53.7 MiB/s)
+seal: preCommit phase 1: 4h14m22.4235947s (2.15 MiB/s)
+seal: preCommit phase 2: 51m36.998604335s (10.6 MiB/s)
+seal: commit phase 1: 1.151689271s (27.8 GiB/s)
+seal: commit phase 2: 1h36m30.270483546s (5.66 MiB/s)
+seal: verify: 34.083162ms
+unseal: 4h13m10.812170289s  (2.16 MiB/s)
+
+generate candidates: 2.333397ms (13.4 TiB/s)
+compute winnnig post proof (cold): 7.327267683s
+compute winnnig post proof (hot): 6.318365117s
+verify winnnig post proof (cold): 45.298003ms
+verify winnnig post proof (hot): 16.806329ms
+
+compute window post proof (cold): 28m6.99008574s
+compute window post proof (hot): 20m41.201090515s
+verify window post proof (cold): 5.46349285s
+verify window post proof (hot): 37.986216ms
+
+```
+
+## 13 Scripts
+
+### 13.1 Auto pledge sectors script
+
+脚本中默认每 15 分钟添加一个扇区，总共添加 2000 个扇区（你可以自己修改），此外，使用次脚本你需要手动指定 lotus 的路径，即：脚本中的 `lotus_path` 参数。
+
+[auto_pledge_sector.sh](./scripts/auto_pledge_sector.sh)
+
 
 
 > 参考文档

@@ -20,6 +20,17 @@ git clone https://github.com/filecoin-project/rust-filecoin-proofs-api.git
 
 ![三个项目的代码目录](./pictures/project.png)
 
+#### A. 代码版本说明
+
+本教程所使用的代码版本信息如下所示：
+
+- **lotus** version 0.3.0'+git9a0d0511.dirty'
+- **lotus 分支**： `master:9a0d0511c7`
+- **rust-filecoin-proofs-api** ： `master:8b2ebea2fa2`
+- **rust-fil-proofs** ： `master:30a60520657`
+
+代码版本不是很重要，不同的代码版本都是可以调试的，只是下断点的时候需要注意一下，其它没有什么需要特别注意的。
+
 
 ### (2). 配置源代码
 
