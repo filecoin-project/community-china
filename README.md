@@ -104,6 +104,27 @@ https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 - **Slack 地址：** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1594351253402500
 - **Ref:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1594355443409700
 
+### 2.4 Calibration 网络
+
+- **Faucet:** https://faucet.calibration.fildev.network/
+- **Dashboard：** https://stats.calibration.fildev.network/
+- **代码版本：**  ntwk-calibration 分支，ntwk-calibration-7.21.0 版本
+- **支持扇区：**    [512MiB, 32GiB, 64GiB]
+- **Conensus Miner Min Power：**  [2TiB]
+- **Slack 地址：** https://gateway.ipfs.io/ipfs/QmPV2LJZhow2MjbRCQDuDUXT1yzGRaUCnqz8CSpxb8f8FA
+- **启动时间:** 2020/07/21 - 9:14 AM
+
+```sh
+# Bootstrap Peers
+/dns4/bootstrap-0.calibration.fildev.network/tcp/1347/p2p/12D3KooWNuf9PDjBXNGXmcaEqCf3VEzA8B3XNvnWffBeYf1G1tNH
+/dns4/bootstrap-1.calibration.fildev.network/tcp/1347/p2p/12D3KooWJ9jowdi7CRBRbv4BW7SDRtMLvLsA8qZ8YPuQYLRzBHHe
+/dns4/bootstrap-2.calibration.fildev.network/tcp/1347/p2p/12D3KooWLtVpF7u36Y9tv7BLod9YJs37jEJt9zP5Yjzh3bU3yH3n
+/dns4/bootstrap-3.calibration.fildev.network/tcp/1347/p2p/12D3KooWHQmn7r4Feyi6UDuCKgDCiuenJusP3LR2HHR73Dt6KjZi
+```
+
+如果创建矿工不成功，可以尝试使用水龙头发送 FIL 到自己的钱包，然后手动创建矿工，参考：
+
+https://filecoinproject.slack.com/archives/C017CCH1MHB/p1595328938085700?thread_ts=1595301873.056200&cid=C017CCH1MHB
 
 ## 3. 节点操作
 
