@@ -20,7 +20,7 @@
   - [官方 Filscan: testnet ](https://filscan.io/)
     - [官方 Filscan: interopnet ](https://interopnet.filscan.io)
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
-  - [FilFox](https://interopnet.filfox.io/) - 6Block 团队 （interopnet 的浏览器）
+  - [FilFox](https://calibration.filfox.io/) - 6Block 团队 （Testnet+Calibration 的浏览器）
 
 - [矿工排行榜： Filfox](https://beta.filfox.io/en/ranks)
 
@@ -30,6 +30,7 @@
   - [Testnet phase 3](https://faucet.testnet.filecoin.io/)
   - [Interopnet](https://t01000.miner.interopnet.kittyhawk.wtf/)
   - [ButterFly](https://faucet.butterfly.fildev.network/)
+  - [Calibration](https://faucet.calibration.fildev.network/)
 - Benchmark 数据
   - [Testnet2(V20)](https://github.com/filecoin-project/lotus/issues/839)
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
@@ -113,7 +114,7 @@ https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 - **Conensus Miner Min Power：**  [2TiB]
 - **Slack 地址：** https://gateway.ipfs.io/ipfs/QmPV2LJZhow2MjbRCQDuDUXT1yzGRaUCnqz8CSpxb8f8FA
 - **启动时间:** 2020/07/21 - 9:14 AM
-
+- **第二层重置**  2020/07/24 - 12:18 PM [参考](https://filecoinproject.slack.com/archives/C017CCH1MHB/p1595564296258000)
 ```sh
 # Bootstrap Peers
 /dns4/bootstrap-0.calibration.fildev.network/tcp/1347/p2p/12D3KooWNuf9PDjBXNGXmcaEqCf3VEzA8B3XNvnWffBeYf1G1tNH
