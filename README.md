@@ -109,18 +109,19 @@ https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 
 - **Faucet:** https://faucet.calibration.fildev.network/
 - **Dashboard：** https://stats.calibration.fildev.network/
-- **代码版本：**  ntwk-calibration 分支，ntwk-calibration-7.21.0 版本
-- **支持扇区：**    [512MiB, 32GiB, 64GiB]
-- **Conensus Miner Min Power：**  [2TiB]
+- **代码版本：** ntwk-calibration 分支，ntwk-calibration-7.21.0 版本
+- **支持扇区：** [512MiB, 32GiB, 64GiB]
+- **Conensus Miner Min Power：**  [2GiB]
 - **Slack 地址：** https://gateway.ipfs.io/ipfs/QmPV2LJZhow2MjbRCQDuDUXT1yzGRaUCnqz8CSpxb8f8FA
 - **启动时间:** 2020/07/21 - 9:14 AM
-- **第二层重置**  2020/07/24 - 12:18 PM [参考](https://filecoinproject.slack.com/archives/C017CCH1MHB/p1595564296258000)
+- **第二次重置** 2020/07/24 - 12:18 PM [参考](https://filecoinproject.slack.com/archives/C017CCH1MHB/p1595564296258000)
+- **第三次重置**
 ```sh
 # Bootstrap Peers
-/dns4/bootstrap-0.calibration.fildev.network/tcp/1347/p2p/12D3KooWNuf9PDjBXNGXmcaEqCf3VEzA8B3XNvnWffBeYf1G1tNH
-/dns4/bootstrap-1.calibration.fildev.network/tcp/1347/p2p/12D3KooWJ9jowdi7CRBRbv4BW7SDRtMLvLsA8qZ8YPuQYLRzBHHe
-/dns4/bootstrap-2.calibration.fildev.network/tcp/1347/p2p/12D3KooWLtVpF7u36Y9tv7BLod9YJs37jEJt9zP5Yjzh3bU3yH3n
-/dns4/bootstrap-3.calibration.fildev.network/tcp/1347/p2p/12D3KooWHQmn7r4Feyi6UDuCKgDCiuenJusP3LR2HHR73Dt6KjZi
+/dns4/bootstrap-1.calibration.fildev.network/tcp/1347/p2p/12D3KooWQAKmfoAQBDwyaruE1bfFsuekttD974arrkB4G4ZKWk6r
+/dns4/bootstrap-0.calibration.fildev.network/tcp/1347/p2p/12D3KooWCoZZ9gExszHaNLoLXhW7DJa3dDZXjGgHELxwhqxoKJUQ
+/dns4/bootstrap-2.calibration.fildev.network/tcp/1347/p2p/12D3KooWKRNgz3a8RyxLFa1gihdFHMG6rPKuEFnSwmzk4GTo2TC1
+/dns4/bootstrap-3.calibration.fildev.network/tcp/1347/p2p/12D3KooWJt4zgPL8B2cMoCLDQ6MPpMKH62ZjgvvPmrfDBLWpggKG
 ```
 
 如果创建矿工不成功，可以尝试使用水龙头发送 FIL 到自己的钱包，然后手动创建矿工，参考：
@@ -343,8 +344,81 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
+## 6 Deal操作
+### 6.1 Deal配置
+以下例子中，假设Miner所在网络的公网IP为`123.123.73.123`，Miner的内网IP为`10.4.0.100`。
+#### (1) Miner公网IP配置
+修改`$LOTUS_STORAGE_PATH/config.toml`文件中的以下内容：
+- 将`ListenAddresses`中的ipv4端口改为内网监听的端口(自己指定一个固定端口，例如1024)；
+- 将`AnnounceAddresses`中的IP改为Miner所在网络的公网IP(例子中为：123.123.73.123)，端口改为公网监听端口。
+```sh
+[Libp2p]
+ListenAddresses = ["/ip4/0.0.0.0/tcp/1024", "/ip6/::/tcp/0"]
+AnnounceAddresses = ["/ip4/123.123.73.123/tcp/10240"]
+```
+#### (2) 设置端口转发规则
+编辑系统的`/etc/sysctl.conf`文件(以Ubuntu为例)，将`net.ipv4.ip_forward=1`前面的#注释去掉，保存文件，然后执行`sudo sysctl -p`使其生效。
+在Miner所在网络中，添加以下端口转发规则，将外网的10240端口映射到内网的1024端口。
+```sh
+sudo iptables -t nat -A PREROUTING -p tcp -m tcp --dport 10240 -j DNAT --to-destination 10.4.0.100:1024
+```
+其中`10.4.0.100`为Miner的内网IP。
 
-## 6 常用环境变量
+#### (3) 设置multiaddress
+这里的multiaddress即为上面第(1)步中配置的`AnnounceAddresses`的地址，有多个就添加多个。
+```sh
+lotus-miner actor set-addrs /ip4/123.123.73.123/tcp/10240
+```
+设置完等待消息确认后，可以通过以下命令查看结果:
+```sh
+lotus state miner-info [t0xxxx]
+```
+#### (4) 设置Miner连接的节点
+执行以下命令查看Miner连接的节点:
+```sh
+lotus-miner net peers
+```
+如果返回的结果很少(只有本地一个节点)，需要手动连接节点：
+```sh
+lotus-miner net connect /dns4/bootstrap-1.calibration.fildev.network/tcp/1347/p2p/12D3KooWQAKmfoAQBDwyaruE1bfFsuekttD974arrkB4G4ZKWk6r
+lotus-miner net connect /dns4/bootstrap-0.calibration.fildev.network/tcp/1347/p2p/12D3KooWCoZZ9gExszHaNLoLXhW7DJa3dDZXjGgHELxwhqxoKJUQ
+lotus-miner net connect /dns4/bootstrap-2.calibration.fildev.network/tcp/1347/p2p/12D3KooWKRNgz3a8RyxLFa1gihdFHMG6rPKuEFnSwmzk4GTo2TC1
+lotus-miner net connect /dns4/bootstrap-3.calibration.fildev.network/tcp/1347/p2p/12D3KooWJt4zgPL8B2cMoCLDQ6MPpMKH62ZjgvvPmrfDBLWpggKG
+```
+连接成功后会有`connect 12D3KooWQAKmfoAQBDwyaruE1bfFsuekttD974arrkB4G4ZKWk6r: success`这样的返回。
+执行上面的操作后，再次执行`lotus-miner net peers`，应该就能看到不少节点了。
+
+#### (5) 检查配置
+- 首先通过官方提供的[Ping工具](https://ping.eu/ping)看看能否ping通自己Miner的公网IP；
+- 其次，通过[[Port-chk](https://ping.eu/port-chk/)]查看自己Miner的公网端口是否开放；
+- `telnet 123.123.73.123 10240`(注意替换成自己的IP和端口)看看是否返回`/multistream/1.0.0`。
+
+### 6.2 Deal常用操作
+```sh
+# query ask
+lotus client query-ask [t0xxxx]
+
+# 查看本地导入的文件
+lotus client local
+
+# 导入文件，需要在daemon所在机器上操作
+lotus client import /path/filename
+
+# 发送订单
+lotus client deal [CID] [miner_id] 0.0000000005 622080
+
+# 查看deals列表
+lotus client list-deals
+
+# Miner查看订单列表
+lotus-miner storage-deals list
+```
+
+### 6.3 Deal常见问题
+**(1) 我已经接单成功了，但是在官方的[dashboard](https://calibration.spacerace.filecoin.io/)上看不到？**
+官方的dashboard更新比较慢，一般需要半天到一天时间，才能到自己的信息。
+
+## 7 常用环境变量
 
 ```sh
 # lotus 路径：
@@ -419,7 +493,7 @@ unset BELLMAN_NO_GPU
 
 ```
 
-## 7. 解决拉取代码冲突问题（git pull）
+## 8. 解决拉取代码冲突问题（git pull）
 
 如果你在执行 `git pull` 的时候出现类似如下错误（`CONFLICT xxx`），你可以使用以下方法解决该问题：
 
@@ -475,7 +549,7 @@ git fetch origin
 git reset --hard origin/interopnet
 ```
 
-## 8 重置本地测试网环境
+## 9. 重置本地测试网环境
 
 如果你在使用本地测试网，发现 lotus daemon 启动不了，或者是 miner 启动不了，或者是其它的问题，这时候，如果你没有别的更好的解决方法，你可以尝试完全清理本地环境，然后再启动 daemon 和 miner， 默认情况下，你需要清理如下的文件或文件夹等：
 ```sh
@@ -496,15 +570,15 @@ rm -rf ~/localnet.json
 unset FIL_PROOFS_MAXIMIZE_CACHING
 ```
 
-## 9 GDB 调试 lotus 源码
+## 10. GDB 调试 lotus 源码
 
 使用 GDB 调试 lotus 源码（包括上层的 **go** 语言代码和底层的 **rust** 语言代码），你只需要一个 GDB 工具就可以单步调试了，非常方便：
 
 [链接](./GDB_Debug.md)
 
-## 10 常用的两个查看系统资源的工具
+## 11. 常用的两个查看系统资源的工具
 
-### 10.1 htop 查看 CPU 和内存等信息
+### 11.1 htop 查看 CPU 和内存等信息
 
 htop 比系统自带的 top 界面更加友好，在 Ubuntu 上安装只需要执行：
 
@@ -516,7 +590,7 @@ sudo apt install htop
 
 ![htop效果](./pictures/htop.png)
 
-### 10.2 nvtop 查看显卡信息
+### 11.2 nvtop 查看显卡信息
 
 nvtop 比 nvidia-msi 好看多了，但是安装稍微麻烦一些：
 在 Ubuntu 19.04 之后可以直接使用 `sudo apt install nvtop` 安装，否则，你需要执行以下命令安装：
@@ -534,9 +608,9 @@ sudo make install
 
 ![nbvtop效果](./pictures/nvtop.png)
 
-## 11 编译相关问题
+## 12 编译相关问题
 
-### 11.1 crate.io 源的问题
+### 12.1 crate.io 源的问题
 
 如果因为编译的时候卡住，症状如下图所示：
 
@@ -567,14 +641,14 @@ registry = "git://crates.rustcc.cn/crates.io-index"
 使用方法：`vi ~/.cargo/config`， 然后把以上中的任意一个添加进去，保存好，然后再重新编译一次即可。
 [参考](https://blog.csdn.net/xiangxianghehe/article/details/105874880)
 
-### 11.2 GOPROXY 的问题
+### 12.2 GOPROXY 的问题
 
 如果在编译的时候因为下载代码子模块的时候卡住（GO 代码），可能是 GOPROXY 没有设置，此时，设置一下 GOPROXY，然后再重新编译一遍即可：
 
 ```sh
 export GOPROXY=https://goproxy.cn
 ```
-### 11.3 go 版本太低的问题
+### 12.3 go 版本太低的问题
 
 lotus 的 interopnet 分支在编译的时候，如果检测到 go 的版本低于 1.14， 则会编译失败，如下图所示：
 
@@ -591,7 +665,7 @@ sudo rm /usr/bin/go
 sudo ln -s /usr/lib/go-1.14/bin/go /usr/bin/go
 ```
 
-### 11.4 编译提示 Rustup 1.43.1 版本找不到
+### 12.4 编译提示 Rustup 1.43.1 版本找不到
 
 在编译最新版的 master 分支分支的时候遇到这个问题（2020年6月19号23点，master 的 commit 是： ffa7be86fe6ee738ab4b095469029b9fac51e090），编译的时候提示找不到 `1.43.1-x86_64-unknown-linux-gnu` ，错误信息如下所示：
 
@@ -605,9 +679,9 @@ echo "nightly" > ./extern/filecoin-ffi/rust/rust-toolchain
 
 然后再重新编译，即可正常编译。
 
-## 12 Benchmark
+## 13 Benchmark
 
-### 12.1 v26 版本参数
+### 13.1 v26 版本参数
 
 - CPU： AMD 3970x (32核心64线程)
 - GPU： RTX 2080Ti
@@ -677,7 +751,7 @@ verify window post proof (hot): 46.366221ms
 
 ```
 
-### 12.2 v27 版本参数
+### 13.2 v27 版本参数
 
 - CPU： AMD 3970x (32核心64线程)
 - GPU： RTX 2080Ti
@@ -752,16 +826,16 @@ verify window post proof (hot): 37.986216ms
 
 ```
 
-## 13 Scripts
+## 14 Scripts
 
-### 13.1 Auto pledge sectors script
+### 14.1 Auto pledge sectors script
 
 脚本中默认每 15 分钟添加一个扇区，总共添加 2000 个扇区（你可以自己修改），此外，使用次脚本你需要手动指定 lotus 的路径，即：脚本中的 `lotus_path` 参数。
 
 [auto_pledge_sector.sh](./scripts/auto_pledge_sector.sh)
 
 
-
 > 参考文档
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
 - [Lotus Docs](https://docs.lotu.sh/)
+- [Improving connectivity](https://docs.filecoin.io/mine/connectivity/)
