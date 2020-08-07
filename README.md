@@ -433,7 +433,7 @@ lotus-miner storage-deals list
 ```
 
 ### 6.4 Deal常见问题
-**(1) 我已经接单成功了，但是在官方的[dashboard](https://calibration.spacerace.filecoin.io/)上看不到？**
+**(1) 我已经接单成功了，但是在官方的[dashboard](https://calibration.spacerace.filecoin.io/)上看不到？**  
 官方的dashboard更新比较慢，一般需要半天到一天时间，才能到自己的信息。
 
 ## 7 常用环境变量
