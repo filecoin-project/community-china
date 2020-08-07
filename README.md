@@ -388,7 +388,7 @@ lotus-miner net connect /dns4/bootstrap-3.calibration.fildev.network/tcp/1347/p2
 如果Miner机器没有公网IP，就需要在边缘网络设备(如路由器，或有公网IP和端口转发服务的服务器)上做公网IP和端口向内网IP和端口的转发，假设公网IP为`123.123.73.123`，Miner的内网IP为`10.4.0.100`。
 #### (1) MinerIP配置
 修改`$LOTUS_STORAGE_PATH/config.toml`文件中的以下内容：
-- 将`ListenAddresses`中的IP改为`123.123.73.123`，端口自己指定一个固定端口，例如`1024`；
+- 将`ListenAddresses`中的端口改为自己指定一个固定端口，例如`1024`；
 - 将`AnnounceAddresses`中的IP改为Miner所在网络的公网IP(例子中为：123.123.73.123)，端口改为公网监听端口，例如`10240`。
 ```sh
 [Libp2p]
