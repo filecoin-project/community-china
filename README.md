@@ -352,7 +352,7 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 - 将`ListenAddresses`中的IP改为`123.123.73.123`（即公网IP地址），端口自己指定一个固定端口，例如`1024`；
 ```sh
 [Libp2p]
-ListenAddresses = ["/ip4/0.0.0.0/tcp/1024", "/ip6/::/tcp/0"]
+ListenAddresses = ["/ip4/123.123.73.123/tcp/1024", "/ip6/::/tcp/0"]
 ```
 配置修改以后，重启Miner。
 #### (2) 设置multiaddress
