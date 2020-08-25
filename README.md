@@ -835,7 +835,7 @@ verify window post proof (hot): 37.986216ms
 
 [auto_pledge_sector.sh](./scripts/auto_pledge_sector.sh)
 
-## 14 Filecoin 中文交流群
+## 15 Filecoin 中文交流群
 
 Filecoin 中文交流-1群（目前已满人）, Filecoin 中文交流-2群（目前还有空位）
 
