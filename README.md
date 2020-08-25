@@ -72,7 +72,7 @@
 
 - **Branch:** master
 
-- **tag:**  当前 v0.5.1, 已更新 [v0.5.2](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598326372298200) (但是 [daemon 会崩溃](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598335033355300))
+- **tag:**  当前 v0.5.1, 已更新 [v0.5.2](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598326372298200) (但是 [daemon 会崩溃](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598335033355300)), 最新 [v0.5.3](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598335719366700)
 
 - **水龙头:**  https://spacerace.faucet.glif.io/
 
@@ -80,7 +80,7 @@
 
 - **Slack 宣布地址:** https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598299269304500
 
-- **浏览器：**：  [【官方 Stats】](https://spacerace.filecoin.io/), [【Filscan】](https://filscan.io/#/mining?type=0), [【Filfox】](https://filfox.info/zh), 
+- **浏览器：**：  [【官方 Stats】](https://spacerace.filecoin.io/), [【Filscan】](https://filscan.io/#/mining?type=0), [【Filfox】](https://filfox.info/zh),  [【Filscout】](https://filscout.io/en/), [【Filblock】](http://filblock.io/#/), [【IPFS.GUIDE】](http://www.ipfs.guide/)
 
 ### 2.1 参数下载
 
