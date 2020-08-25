@@ -67,66 +67,22 @@
   
 - [官方挖矿参考文档： mining-hardware-config-v6.pdf](./files/mining-hardware-config-v6.pdf)
 
-## 2. 新测试网专用（实时更新）
 
-### 2.1 New Interop Deployed 【2020-06-17-6:14 AM】
+## 2. SpaceRace 专用（实时更新）
 
-- **Branch:** Deployed code is under branch interopnet (bead3bf); 
+- **Branch:** master
 
-- **tag:** interop.6.16.0
+- **tag:**  当前 v0.5.1, 后续 [v0.5.2](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598311083074900) (需要更新代码，重启 daemon)
 
-- **Faucet:**  https://t01000.miner.interopnet.kittyhawk.wtf
+- **水龙头:**  https://spacerace.faucet.glif.io/
 
-- **Slack Address:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592345686054100
+- **矿工联通性检查:** https://spacerace.filecoin.io/check
 
-### 2.2 测试网第二阶段启动（重大时刻） 【2020-05-15-6:10AM】
+- **Slack 宣布地址:** https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598299269304500
 
-- **Faucet:** https://faucet.testnet.filecoin.io/
+- **浏览器：**：  [未知](https://spacerace.filecoin.io/), [Filscan](https://filscan.io/#/mining?type=0), [Filfox](https://filfox.info/zh), 
 
-- **Slack Address:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
 
-- **Ref:**
-https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589516324005900
-https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589519545018500
-https://filecoinproject.slack.com/archives/CPFTWMY7N/p1589494237352300
-
-- **重启时间**：
-  - **Slack 地址：** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1592523744190700
-  - **重启时间：** 2020/06/19 - 8:00AM (星期五)
-  - **发布时间：** 2020/06/17 - 7:32 AM
-  - **代码版本：** Master 分支， v0.4.0 版本
-
-### 2.3 ButterFly 网络(蝴蝶网络)
-
-- **Dashboard：** https://stats.butterfly.fildev.network/
-- **代码版本：**  ntwk-butterfly 分支，ntwk-butterfly-7.10.0 版本
-- **支持扇区：**    [512MiB, 32GiB, 64GiB]
-- **Conensus Miner Min Power：**  [1GiB]
-- **Slack 地址：** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1594351253402500
-- **Ref:** https://filecoinproject.slack.com/archives/CPFTWMY7N/p1594355443409700
-
-### 2.4 Calibration 网络
-
-- **Faucet:** https://faucet.calibration.fildev.network/
-- **Dashboard：** https://stats.calibration.fildev.network/
-- **代码版本：** ntwk-calibration 分支，ntwk-calibration-7.21.0 版本
-- **支持扇区：** [512MiB, 32GiB, 64GiB]
-- **Conensus Miner Min Power：**  [2GiB]
-- **Slack 地址：** https://gateway.ipfs.io/ipfs/QmPV2LJZhow2MjbRCQDuDUXT1yzGRaUCnqz8CSpxb8f8FA
-- **启动时间:** 2020/07/21 - 9:14 AM
-- **第二次重置** 2020/07/24 - 12:18 PM [参考](https://filecoinproject.slack.com/archives/C017CCH1MHB/p1595564296258000)
-- **第三次重置**
-```sh
-# Bootstrap Peers
-/dns4/bootstrap-1.calibration.fildev.network/tcp/1347/p2p/12D3KooWQAKmfoAQBDwyaruE1bfFsuekttD974arrkB4G4ZKWk6r
-/dns4/bootstrap-0.calibration.fildev.network/tcp/1347/p2p/12D3KooWCoZZ9gExszHaNLoLXhW7DJa3dDZXjGgHELxwhqxoKJUQ
-/dns4/bootstrap-2.calibration.fildev.network/tcp/1347/p2p/12D3KooWKRNgz3a8RyxLFa1gihdFHMG6rPKuEFnSwmzk4GTo2TC1
-/dns4/bootstrap-3.calibration.fildev.network/tcp/1347/p2p/12D3KooWJt4zgPL8B2cMoCLDQ6MPpMKH62ZjgvvPmrfDBLWpggKG
-```
-
-如果创建矿工不成功，可以尝试使用水龙头发送 FIL 到自己的钱包，然后手动创建矿工，参考：
-
-https://filecoinproject.slack.com/archives/C017CCH1MHB/p1595328938085700?thread_ts=1595301873.056200&cid=C017CCH1MHB
 
 ## 3. 节点操作
 
