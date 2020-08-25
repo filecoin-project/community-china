@@ -80,7 +80,7 @@
 
 - **Slack 宣布地址:** https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598299269304500
 
-- **浏览器：**：  [未知](https://spacerace.filecoin.io/), [Filscan](https://filscan.io/#/mining?type=0), [Filfox](https://filfox.info/zh), 
+- **浏览器：**：  [【官方 Stats】](https://spacerace.filecoin.io/), [【Filscan】](https://filscan.io/#/mining?type=0), [【Filfox】](https://filfox.info/zh), 
 
 ### 2.1 参数下载
 
@@ -91,6 +91,13 @@
 export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/
 ./lotus fetch-params 32GiB
 ```
+
+### 2.2 官方文档
+
+- [SpaceRace 说明](https://docs.filecoin.io/mine/spacerace/#structure-and-rules)
+- [SpaceRace 常见问题](https://docs.filecoin.io/mine/spacerace/#frequently-asked-questions)
+
+
 
 
 ## 3. 节点操作
