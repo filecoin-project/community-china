@@ -835,6 +835,15 @@ verify window post proof (hot): 37.986216ms
 
 [auto_pledge_sector.sh](./scripts/auto_pledge_sector.sh)
 
+## 14 Filecoin 中文交流群
+
+Filecoin 中文交流-1群（目前已满人）, Filecoin 中文交流-2群（目前还有空位）
+
+![Filecoin 中文交流-1群（目前已满人）](./pictures/wechat_group_01.png)
+
+![Filecoin 中文交流-2群](./pictures/wechat_group_02.png)
+
+
 
 > 参考文档
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
