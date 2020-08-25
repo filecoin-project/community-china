@@ -72,7 +72,7 @@
 
 - **Branch:** master
 
-- **tag:**  当前 v0.5.1, 后续 [v0.5.2](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598311083074900) (需要更新代码，重启 daemon)
+- **tag:**  当前 v0.5.1, 已更新 [v0.5.2](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598326372298200) (但是 [daemon 会崩溃](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598335033355300))
 
 - **水龙头:**  https://spacerace.faucet.glif.io/
 
