@@ -82,6 +82,15 @@
 
 - **浏览器：**：  [未知](https://spacerace.filecoin.io/), [Filscan](https://filscan.io/#/mining?type=0), [Filfox](https://filfox.info/zh), 
 
+### 2.1 参数下载
+
+使用 JDCloud 下载 32GB 的证明参数：
+
+```
+# v28 版本的参数
+export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/
+./lotus fetch-params 32GiB
+```
 
 
 ## 3. 节点操作
