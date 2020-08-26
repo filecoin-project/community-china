@@ -82,7 +82,7 @@
 
 - **浏览器：**：  [【官方 Stats】](https://spacerace.filecoin.io/), [【Filscan】](https://filscan.io/#/mining?type=0), [【Filfox】](https://filfox.info/zh),  [【Filscout】](https://filscout.io/en/), [【Filblock】](http://filblock.io/#/), [【IPFS.GUIDE】](http://www.ipfs.guide/)
 
-### 2.0 宋江历险记
+### 2.0 宋江 vs. Why
 
 (1). [2020/08/21: 【宋江之 Filecoin Discover 硬盘拷问】](https://filecoinproject.slack.com/archives/CEHTVSEG6/p1597979257139500)
 
