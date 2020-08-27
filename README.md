@@ -343,7 +343,7 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 
 ## 6 Deal操作
 ### 6.1 Deal配置 - Miner有公网IP
-假设Miner的公网IP为`123.123.73.123`，Miner的内网IP为`10.4.0.100`。
+假设Miner的公网IP为`123.123.73.123`，内网IP为`10.4.0.100`。
 #### (1) MinerIP配置
 修改`$LOTUS_STORAGE_PATH/config.toml`文件中的以下内容：
 - 将`ListenAddresses`中的IP改为`123.123.73.123`（即公网IP地址），端口自己指定一个固定端口，例如`1024`；
@@ -353,7 +353,7 @@ ListenAddresses = ["/ip4/123.123.73.123/tcp/1024", "/ip6/::/tcp/0"]
 ```
 配置修改以后，重启Miner。
 #### (2) 设置multiaddress
-这里的multiaddress即为上面第(1)步中配置的`AnnounceAddresses`的地址，有多个就添加多个。
+这里的multiaddress即为上面第(1)步中配置的`ListenAddresses`的地址。
 ```sh
 lotus-miner actor set-addrs /ip4/123.123.73.123/tcp/1024
 ```
@@ -373,10 +373,22 @@ lotus-miner net connect /dns4/bootstrap-0.calibration.fildev.network/tcp/1347/p2
 lotus-miner net connect /dns4/bootstrap-2.calibration.fildev.network/tcp/1347/p2p/12D3KooWKRNgz3a8RyxLFa1gihdFHMG6rPKuEFnSwmzk4GTo2TC1
 lotus-miner net connect /dns4/bootstrap-3.calibration.fildev.network/tcp/1347/p2p/12D3KooWJt4zgPL8B2cMoCLDQ6MPpMKH62ZjgvvPmrfDBLWpggKG
 ```
+**注意：上面连接的地址，需要替换成Louts项目`/build/bootstrappers.pi`文件中的地址**
 连接成功后会有`connect 12D3KooWQAKmfoAQBDwyaruE1bfFsuekttD974arrkB4G4ZKWk6r: success`这样的返回。
 执行上面的操作后，再次执行`lotus-miner net peers`，应该就能看到不少节点了。
 
-#### (4) 检查配置
+#### (4) 太空竞赛订单过滤
+太空竞赛可以配置Miner只接收官方机器人的订单[参考官方文档](https://docs.filecoin.io/mine/spacerace/#how-do-i-prioritize-deals-from-competition-bots)，将`$LOTUS_STORAGE_PATH/config.toml`文件中的：
+```sh
+[Dealmaking]
+#  Filter = ""
+```
+改为：
+```sh
+Filter = "jq -e '.Proposal.Client == \"t1nslxql4pck5pq7hddlzym3orxlx35wkepzjkm3i\" or .Proposal.Client == \"t1stghxhdp2w53dym2nz2jtbpk6ccd4l2lxgmezlq\" or .Proposal.Client == \"t1mcr5xkgv4jdl3rnz77outn6xbmygb55vdejgbfi\" or .Proposal.Client == \"t1qiqdbbmrdalbntnuapriirduvxu5ltsc5mhy7si\" '"
+```
+
+#### (5) 检查配置
 - 首先通过官方提供的[Ping工具](https://ping.eu/ping)看看能否ping通自己Miner的公网IP；
 - 其次，通过[[Port-chk](https://ping.eu/port-chk/)]查看自己Miner的公网端口是否开放；
 - `telnet 123.123.73.123 1024`(注意替换成自己的IP和端口)看看是否返回`/multistream/1.0.0`。
@@ -425,8 +437,11 @@ lotus client deal [CID] [miner_id] 0.0000000005 622080
 # 查看deals列表
 lotus client list-deals
 
-# Miner查看订单列表
+# Miner查看存储订单列表
 lotus-miner storage-deals list
+
+# Miner查看检索订单列表
+lotus-miner retrieval-deals list
 ```
 
 ### 6.4 Deal常见问题
