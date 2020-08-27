@@ -5,15 +5,18 @@
 ## 1.常用链接
 
 - [【群友 ican fly 开源项目】: 矿工监控告警系统（正在开发当中...）](https://github.com/twosson/fil_exporter)
-- [Lotus官方文档](https://docs.lotu.sh/)
-  - [新的 Filecoin 首页地址](https://filecoin.io/zh-cn/)
-  - [新的 Filecoin 文档地址](https://docs.filecoin.io/)
+- Lotus官方文档
+  - [旧版文档](https://docs.lotu.sh/)
+  - [新版文档](https://docs.filecoin.io/)
+  - [新版文档【中文版】](https://filecoin.io/zh-cn/)
   - [搭建 Testnet本地测试网](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
+  - [SpaceRace 文档](https://docs.filecoin.io/mine/spacerace/#structure-and-rules)
+  - [SpaceRace 奖励说明](https://filecoin.io/zh-cn/blog/welcome-to-space-race/)
 - 代码下载地址
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
-  - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE新算法
+  - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE 新算法
 - 浏览器
   - [官方浏览器 stats](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
