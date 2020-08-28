@@ -70,6 +70,10 @@
   
 - [官方挖矿参考文档： mining-hardware-config-v6.pdf](./files/mining-hardware-config-v6.pdf)
 
+- Filecoin 经济模型
+  - [官方博客](https://filecoin.io/blog/introducing-the-filecoin-economy/)
+  - [中文版](https://filecoin.io/zh-cn/2020-engineering-filecoins-economy-zh-cn.pdf)
+
 
 ## 2. SpaceRace 专用（实时更新）
 
