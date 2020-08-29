@@ -79,7 +79,7 @@
 
 - **Branch:** master
 
-- **tag:**  最新：2020/08/26 - 8:55 AM [【v0.5.4】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598403354362700)
+- **tag:**  最新：2020/08/29 - 10:05 AM [【v0.5.6】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1598677450325600)， v0.5.5 夭折了
 
 - **水龙头:**  https://spacerace.faucet.glif.io/
 
