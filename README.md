@@ -90,6 +90,7 @@
 - **tag:** 最新：2020/09/26 - 3:20 PM [【v0.8.0】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1601104808044000)
 - **版本更新要求：** 强制更新
 - **链同步数快照：**[【Spacerace_pruned_stateroots_snapshot_latest.car】](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car)，[参考](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600634972357500)
+- **填表取币：**[【Miner Reimbursement Form】](https://docs.google.com/forms/d/e/1FAIpQLSfOGA5JLCohZj3RtCvEm1B--XmGScVUfpvEwGaknNwBBt3MQA/viewform)
 - **博客：**
   - [【Announcing Space Race 2】](https://filecoin.io/blog/space-race-2/), [中文：【推出第二轮太空竞赛】](https://filecoin.io/zh-cn/blog/space-race-2/)
   - [【Announcing Space Race 2: Slingshot】](https://filecoin.io/blog/announcing-sr2-slingshot/)
