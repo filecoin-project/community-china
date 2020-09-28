@@ -21,13 +21,13 @@
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
-  - [rust-filecoin-proofs-api](https://github.com/filecoin-project/rust-filecoin-proofs-api)
-  - [filecoin-ffi](https://github.com/filecoin-project/filecoin-ffi)
+  - [Rust-filecoin-proofs-api](https://github.com/filecoin-project/rust-filecoin-proofs-api)
+  - [Filecoin-ffi](https://github.com/filecoin-project/filecoin-ffi)
   - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE 新算法
 - 浏览器
   - [官方浏览器 stats](https://stats.testnet.filecoin.io/) - **官方**
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发
-  - [官方 Filscan: testnet ](https://filscan.io/)
+  - [官方 Filscan](https://filscan.io/)
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发
   - [FilFox](https://filfox.info/zh) - 6Block 团队
   - [Filplorer](https://filplorer.com/) - 未知
@@ -46,6 +46,7 @@
   - [Testnet3(V24)](https://github.com/filecoin-project/lotus/issues/1475)
   - [Testnet3(V25)](https://filecoin-benchmarks.on.fleek.co/)
   - [Testnet3(V25)](https://github.com/CoinSummer/benchmarks/tree/master/benchmarks)
+  - [V26/V27 测试结果见文末](./README.md)
 - Proof证明文件国内下载
   - [JDCloud(v25)参数下载](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `env IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
   <!-- - [国内专用v26参数下载](https://filecoin.coinsummer.io/v26.html) - CoinSummer实验室提供(暂停访问) -->
