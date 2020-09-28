@@ -190,11 +190,20 @@ export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs
 
 ### 4.5 编译参数
 
-#### v25 版本代码的编译命令:
+#### v28 版本代码的编译命令:
+
+源码编译底层 rust 库的命令：
+
 ```sh
-env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all
+FFI_BUILD_FROM_SOURCE=1 make clean all lotus-bench
 ```
-特别是针对 AMD 处理器，使用该命令自己编译出来的代码更适合自己的机器。
+
+对于 Intel 的机器，可能由于兼容性原因，需要添加相应的参数：
+
+```sh
+FFI_BUILD_FROM_SOURCE=1 CGO_CFLAGS="-D__BLST_PORTABLE__" make clean all lotus-bench
+```
+
 
 #### v26/v27 版本代码的编译命令:
 
