@@ -25,12 +25,12 @@
   - [filecoin-ffi](https://github.com/filecoin-project/filecoin-ffi)
   - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE 新算法
 - 浏览器
-  - [官方浏览器 stats](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
-  - [Filscout](https://filscout.io/en/) - 星际联盟团队开发，可切换 Testnet2 和 Testnet3
+  - [官方浏览器 stats](https://stats.testnet.filecoin.io/) - **官方**
+  - [Filscout](https://filscout.io/en/) - 星际联盟团队开发
   - [官方 Filscan: testnet ](https://filscan.io/)
-    - [官方 Filscan: interopnet ](https://interopnet.filscan.io)
-  - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发【**强烈推荐**】
-  - [FilFox](https://calibration.filfox.io/) - 6Block 团队 （Testnet+Calibration 的浏览器）
+  - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发
+  - [FilFox](https://filfox.info/zh) - 6Block 团队
+  - [Filplorer](https://filplorer.com/) - 未知
 
 - [矿工排行榜： Filfox](https://beta.filfox.io/en/ranks)
 
