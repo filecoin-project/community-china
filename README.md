@@ -198,10 +198,10 @@ export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs
 FFI_BUILD_FROM_SOURCE=1 make clean all lotus-bench
 ```
 
-对于 Intel 的机器，可能由于兼容性原因，需要添加相应的参数：
+对于 Intel 的机器，可能由于兼容性原因（比如，执行过程中出现非法指令： `illegal instruction`），需要添加相应的参数：
 
 ```sh
-FFI_BUILD_FROM_SOURCE=1 CGO_CFLAGS="-D__BLST_PORTABLE__" make clean all lotus-bench
+FFI_BUILD_FROM_SOURCE=1 CGO_CFLAGS="-O -D__BLST_PORTABLE__" make clean all lotus-bench
 ```
 
 
