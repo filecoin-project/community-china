@@ -5,8 +5,9 @@
 ## 1.常用链接
 
 
-- 主网
+- 主网相关
   - [【Announcing Mainnet Ignition & Liftoff】](https://filecoin.io/blog/mainnet-ignition/), [中文版：【发布主网点火和启动阶段】](https://filecoin.io/zh-cn/blog/mainnet-ignition/)
+  - 
 
 - [【群友 ican fly 开源项目】: 矿工监控告警系统（正在开发当中...）](https://github.com/twosson/fil_exporter)
 - Lotus官方文档
@@ -20,6 +21,8 @@
   - [Lotus](https://github.com/filecoin-project/lotus)
   - [Go-filecoin](https://github.com/filecoin-project/go-filecoin)
   - [Rust-fil-proof](https://github.com/filecoin-project/rust-fil-proofs)
+  - [rust-filecoin-proofs-api](https://github.com/filecoin-project/rust-filecoin-proofs-api)
+  - [filecoin-ffi](https://github.com/filecoin-project/filecoin-ffi)
   - [Rust-fil-nse-gpu](https://github.com/filecoin-project/rust-fil-nse-gpu) - NSE 新算法
 - 浏览器
   - [官方浏览器 stats](https://stats.testnet.filecoin.io/) - 按 ESC 可以选择看 Testnet3 的数据
@@ -81,8 +84,12 @@
 
 ## 2. SpaceRace2 专用
 
-
-
+- **Branch:** master
+- **tag:** 最新：2020/09/26 - 3:20 PM [【v0.8.0】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1601104808044000)
+- **版本更新要求：** 强制更新
+- 博客：
+  - [【Announcing Space Race 2】](https://filecoin.io/blog/space-race-2/), [中文：【推出第二轮太空竞赛】](https://filecoin.io/zh-cn/blog/space-race-2/)
+  - [【Announcing Space Race 2: Slingshot】](https://filecoin.io/blog/announcing-sr2-slingshot/)
 
 ## 3. SpaceRace 专用
 
