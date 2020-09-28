@@ -1,8 +1,12 @@
 # Filecoin 资源分享
 
-**CoinSummer实验室** Filecoin 资源分享。
+**CoinSummer 实验室** Filecoin 资源分享。
 
 ## 1.常用链接
+
+
+- 主网
+  - [【Announcing Mainnet Ignition & Liftoff】](https://filecoin.io/blog/mainnet-ignition/), [中文版：【发布主网点火和启动阶段】](https://filecoin.io/zh-cn/blog/mainnet-ignition/)
 
 - [【群友 ican fly 开源项目】: 矿工监控告警系统（正在开发当中...）](https://github.com/twosson/fil_exporter)
 - Lotus官方文档
@@ -75,7 +79,12 @@
   - [中文版](https://filecoin.io/zh-cn/2020-engineering-filecoins-economy-zh-cn.pdf)
 
 
-## 2. SpaceRace 专用（实时更新）
+## 2. SpaceRace2 专用
+
+
+
+
+## 3. SpaceRace 专用
 
 - **Branch:** master
 
@@ -89,7 +98,7 @@
 
 - **浏览器：**：  [【官方 Stats】](https://spacerace.filecoin.io/), [【Filscan】](https://filscan.io/#/mining?type=0), [【Filfox】](https://filfox.info/zh),  [【Filscout】](https://filscout.io/en/), [【Filblock】](http://filblock.io/#/), [【IPFS.GUIDE】](http://www.ipfs.guide/)
 
-### 2.0 宋江 vs. Why
+### 3.0 宋江 vs. Why
 
 (1). [2020/08/21: 【宋江之 Filecoin Discover 硬盘拷问】](https://filecoinproject.slack.com/archives/CEHTVSEG6/p1597979257139500)
 
@@ -100,7 +109,7 @@
 (4). [2020/08/25: 【宋江之 Filecoin 网络容易受攻击】](https://filecoinproject.slack.com/archives/CEHTVSEG6/p1598343307062300)
 
 
-### 2.1 参数下载
+### 3.1 参数下载
 
 使用 JDCloud 下载 32GB 的证明参数：
 
@@ -110,12 +119,12 @@ export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/
 ./lotus fetch-params 32GiB
 ```
 
-### 2.2 官方文档
+### 3.2 官方文档
 
 - [SpaceRace 说明](https://docs.filecoin.io/mine/spacerace/#structure-and-rules)
 - [SpaceRace 常见问题](https://docs.filecoin.io/mine/spacerace/#frequently-asked-questions)
 
-### 2.3 自己创建矿工
+### 3.3 自己创建矿工
 
 如果水龙头无法创建矿工，可以取一些 FIL 币，那可以自己在本地创建矿工：
 
@@ -129,9 +138,9 @@ export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/
 
 注： 创建矿工一般不支持指定 actor 地址，既： t01000, t01001,t1002 等，也就是说，init 命令中的 `--actor t01xxx` 是不可用的。
 
-## 3. 节点操作
+## 4. 节点操作
 
-### 3.1 查看节点信息
+### 4.1 查看节点信息
 ```sh
 # 查看本节点所监听的地址:
 lotus net listen
@@ -139,7 +148,7 @@ lotus net listen
 lotus net peers
 ```
 
-### 3.2 手动连接其它节点（命令中的地址为示例地址）
+### 4.2 手动连接其它节点（命令中的地址为示例地址）
 ```sh
 lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5ZNSuJZZzHWp2FXDY7ufqGBmUW
 ```
@@ -150,14 +159,14 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 ```
 上述的节点是示例节点，当您在使用该命令的时候，您需要自己去找一个可以使用的节点。
 
-### 3.3 手动设置链的高度
+### 4.3 手动设置链的高度
 ```sh
 # 设置高度到9700
 lotus chain sethead --epoch=9700
 ```
 节点同步出错时，可下载 **CoinSummer实验室** 提供的 [国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到 `datastore` 目录（包括目录内的所有内容），然后关闭 daemon 进程，关闭后删除你本机 `~/.lotus` 目录下的 `datastore` 目录，再把解压出来的 `datastore` 目录复制到你本机的 `~/.lotus` 目录下，复制完成之后启动 daemon，此时应该可以正常同步了，如果不行，可以试试：执行上面手动设置链高度的命令（需要 daemon 启动的情况下），即可从指定高度进行同步。
 
-### 3.4 手动下载 proof 参数
+### 4.4 手动下载 proof 参数
 ```sh
 # export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 ./lotus fetch-params --proving-params 2KiB     # 例如下载 2KiB 扇区对应的 Proof 参数
@@ -172,7 +181,7 @@ export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs
 ```
 [参考](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
 
-### 3.5 编译参数
+### 4.5 编译参数
 
 #### v25 版本代码的编译命令:
 ```sh
@@ -199,14 +208,14 @@ export RUST_LOG=Debug
 ```
 运行 miner 之前加入该参数可以在 miner 的日志中查看更详细的输出信息（底层 rust 代码的输出信息），Log 登记从低到高分别有： Trace、Debug、Info、Warn、Error，Trace 输出的信息最详细，Error 输出的信息最少，仅输入错误信息。
 
-### 3.6 修改 Proofs 文件路径
+### 4.6 修改 Proofs 文件路径
 ```sh
 export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ```
 
-## 4 Storage miner 操作
+## 5 Storage miner 操作
 
-### 4.1 查看扇区状态
+### 5.1 查看扇区状态
 ```sh
 # 列举所有扇区信息:
 lotus-storage-miner sectors list
@@ -214,14 +223,14 @@ lotus-storage-miner sectors list
 lotus-storage-miner sectors status --log <SectorID>
 ```
 
-### 4.2 手动修改扇区状态【谨慎操作】
+### 5.2 手动修改扇区状态【谨慎操作】
 ```sh
 lotus-storage-miner sectors update-state --really-do-it <SectorID> <NewSectorStatus>
 # 例如：手动修改扇区 1 的状态为 FaultedFinal 状态
 lotus-storage-miner sectors update-state --really-do-it 1 FaultedFinal
 ```
 
-### 4.3 更改默认存储路径
+### 5.3 更改默认存储路径
 ```sh
 export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
 ```
@@ -235,7 +244,7 @@ export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
   "CanStore": true
 }
 ```
-### 4.4 增加存储路径
+### 5.4 增加存储路径
 ```sh
 # 设置数据存储路径，该路径用来存储最终密封好的数据
 # 执行该命令可能需要一点时间等待
@@ -251,7 +260,7 @@ lotus-storage-miner storage attach --seal --init /path/to/fast_cache
 lotus-storage-miner storage list
 ```
 
-### 4.5 移动存储目录
+### 5.5 移动存储目录
 默认的存储目录 `~/.lotusstorage` 可以移动到其他地方。
 移动前最好先停掉 daemon 和 miner。
 移动后，假设新路径为 `/path/to/.lotusstorage`，需要手动更改 `/path/to/.lotusstorage` 目录下 `storage.json` 中的 `StoragePaths` 为新路径：
@@ -266,7 +275,7 @@ lotus-storage-miner storage list
 ```
 移动后，重启 daemon 和 miner，miner 会重新读取新路径下的所有 sector 信息。
 
-### 4.6 使用远程 daemon（daemon 在其他机器）
+### 5.6 使用远程 daemon（daemon 在其他机器）
 假设daemon在 `192.168.1.100` 机器上，miner在 `192.168.1.101` 机器上：
 1. 修改远程 daemon (192.168.1.100)上 `~/.lotus/config.toml` 中的 `ListenAddress` 为：
 ```toml
@@ -277,20 +286,20 @@ ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 2. 将远程 daemon (192.168.1.100) 上 `~/.lotus` 目录下的 `api` 和 `token` 拷贝到 miner 机器(192.168.1.101)的 `~/.lotus` 目录下；
 3. 重启 miner 即可。
 
-### 4.7 赎回已获得的奖励（Testnet3 才需要手动赎回）
+### 5.7 赎回已获得的奖励（Testnet3 才需要手动赎回）
 ```sh
 lotus-storage-miner rewards redeem
 lotus-storage-miner rewards list
 ```
 赎回之后，可能需要过一段时间才能看到自己钱包的余额增加。
 
-### 4.8 v26 版本参数中使用 GPU 计算 Precommit2 的方法
+### 5.8 v26 版本参数中使用 GPU 计算 Precommit2 的方法
 运行 miner 之前导出已下环境变量（目前官方还未放出v26参数）：
 ```sh
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 ```
 
-### 4.9 启动 miner 参考命令
+### 5.9 启动 miner 参考命令
 
 ```sh
 # 注意空格不能少【以下命令是使用 screen 进行后台启动的方式】
@@ -304,14 +313,14 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 
 [参考](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1588805545137700)
 
-## 5 Worker操作
-### 5.1 Testnet3 查看 Worker 信息
+## 6 Worker操作
+### 6.1 Testnet3 查看 Worker 信息
 ```sh
 lotus-storage-miner workers list
 ```
-### 5.2 Testnet3 集群配置
+### 6.2 Testnet3 集群配置
 
-**5.2.1. 修改 miner**
+**6.2.1. 修改 miner**
 
 修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress` 和 `RemoteListenAddress` ，把这两个变量中的地址都改为 miner 本机的地址:
 ```toml
@@ -319,7 +328,7 @@ lotus-storage-miner workers list
 ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
 RemoteListenAddress = "192.168.1.100:2345"
 ```
-**5.2.2. 配置 worker**
+**6.2.2. 配置 worker**
 
 方法一：使用环境变量
 
@@ -335,7 +344,7 @@ API 为 `~/.lotusstorage` 中的 `api`；
 
 在 **启动了 miner 之后**，复制 miner 的 `~/.lotusstorage` 目录中的 `token` 和 `api` 到 worker 中的  `~/.lotusstorage` （worker 中没有这个目录就手动创建一个），然后启动 worker 即可。
 
-**5.2.3. 启动 worker**
+**6.2.3. 启动 worker**
 ```sh
 lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
@@ -345,8 +354,8 @@ lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommi
 `--precommit1=false`;
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
-## 6 Deal操作
-### 6.1 Deal配置 - Miner有公网IP
+## 7 Deal操作
+### 7.1 Deal配置 - Miner有公网IP
 假设Miner的公网IP为`123.123.73.123`，内网IP为`10.4.0.100`。
 #### (1) MinerIP配置
 修改`$LOTUS_STORAGE_PATH/config.toml`文件中的以下内容：
@@ -397,7 +406,7 @@ Filter = "jq -e '.Proposal.Client == \"t1nslxql4pck5pq7hddlzym3orxlx35wkepzjkm3i
 - 其次，通过[[Port-chk](https://ping.eu/port-chk/)]查看自己Miner的公网端口是否开放；
 - `telnet 123.123.73.123 1024`(注意替换成自己的IP和端口)看看是否返回`/multistream/1.0.0`。
 
-### 6.2 Deal配置 - Miner无公网IP
+### 7.2 Deal配置 - Miner无公网IP
 如果Miner机器没有公网IP，就需要在边缘网络设备(如路由器，或有公网IP和端口转发服务的服务器)上做公网IP和端口向内网IP和端口的转发，假设公网IP为`123.123.73.123`，Miner的内网IP为`10.4.0.100`。
 #### (1) MinerIP配置
 修改`$LOTUS_STORAGE_PATH/config.toml`文件中的以下内容：
@@ -424,7 +433,7 @@ sudo iptables -t nat -A PREROUTING -p tcp -m tcp --dport 10240 -j DNAT --to-dest
 #### (4) 设置Miner连接的节点
 参照6.1中的设置Miner连接的节点。
 
-### 6.3 Deal常用操作
+### 7.3 Deal常用操作
 ```sh
 # query ask
 lotus client query-ask [t0xxxx]
@@ -448,11 +457,11 @@ lotus-miner storage-deals list
 lotus-miner retrieval-deals list
 ```
 
-### 6.4 Deal常见问题
+### 7.4 Deal常见问题
 **(1) 我已经接单成功了，但是在官方的[dashboard](https://calibration.spacerace.filecoin.io/)上看不到？**  
 官方的dashboard更新比较慢，一般需要半天到一天时间，才能看到自己的信息。
 
-## 7 常用环境变量
+## 8 常用环境变量
 
 ```sh
 # lotus 路径：
@@ -527,7 +536,7 @@ unset BELLMAN_NO_GPU
 
 ```
 
-## 8. 解决拉取代码冲突问题（git pull）
+## 9. 解决拉取代码冲突问题（git pull）
 
 如果你在执行 `git pull` 的时候出现类似如下错误（`CONFLICT xxx`），你可以使用以下方法解决该问题：
 
@@ -542,7 +551,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 上述示例来源于从 `interopnet` 分支的 `799f5e5` 版本执行 `git pull` 的时候出现的问题（2020年5月7日），而这个问题在新版的代码中经常会出现，解决这个问题的方法如下（只是其中一个方法，当然还有别的方法）：
 
-### 7.1 方法一：
+### 9.1 方法一：
 ```sh
 # 先重置代码，恢复代码到原始状态
 git reset --hard HEAD
@@ -560,7 +569,7 @@ git pull
 env RUSTFLAGS="-C target-cpu=native -g" FFI_BUILD_FROM_SOURCE=1 make clean all bench
 ```
 
-### 7.2 方法二：
+### 9.2 方法二：
 ```sh
 # 先重置代码，恢复代码到原始状态
 git reset --hard HEAD
@@ -576,14 +585,14 @@ git fetch origin interopnet:interopnet
 git checkout interopnet
 ```
 
-### 7.3 方法三：
+### 9.3 方法三：
 ```sh
 # 如果你没有修改代码，直接执行以下两条命令
 git fetch origin
 git reset --hard origin/interopnet
 ```
 
-## 9. 重置本地测试网环境
+## 10. 重置本地测试网环境
 
 如果你在使用本地测试网，发现 lotus daemon 启动不了，或者是 miner 启动不了，或者是其它的问题，这时候，如果你没有别的更好的解决方法，你可以尝试完全清理本地环境，然后再启动 daemon 和 miner， 默认情况下，你需要清理如下的文件或文件夹等：
 ```sh
@@ -604,15 +613,15 @@ rm -rf ~/localnet.json
 unset FIL_PROOFS_MAXIMIZE_CACHING
 ```
 
-## 10. GDB 调试 lotus 源码
+## 11. GDB 调试 lotus 源码
 
 使用 GDB 调试 lotus 源码（包括上层的 **go** 语言代码和底层的 **rust** 语言代码），你只需要一个 GDB 工具就可以单步调试了，非常方便：
 
 [链接](./GDB_Debug.md)
 
-## 11. 常用的两个查看系统资源的工具
+## 12. 常用的两个查看系统资源的工具
 
-### 11.1 htop 查看 CPU 和内存等信息
+### 12.1 htop 查看 CPU 和内存等信息
 
 htop 比系统自带的 top 界面更加友好，在 Ubuntu 上安装只需要执行：
 
@@ -624,7 +633,7 @@ sudo apt install htop
 
 ![htop效果](./pictures/htop.png)
 
-### 11.2 nvtop 查看显卡信息
+### 12.2 nvtop 查看显卡信息
 
 nvtop 比 nvidia-msi 好看多了，但是安装稍微麻烦一些：
 在 Ubuntu 19.04 之后可以直接使用 `sudo apt install nvtop` 安装，否则，你需要执行以下命令安装：
