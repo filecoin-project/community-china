@@ -555,6 +555,9 @@ BELLMAN_NO_GPU
 #（因为设置 export BELLMAN_NO_GPU=0 无效）：
 unset BELLMAN_NO_GPU
 
+# AMD 3970x 2h10m 跑完 P1 环境变量
+FIL_PROOFS_USE_MULTICORE_SDR=1
+
 ```
 
 ## 9. 解决拉取代码冲突问题（git pull）
