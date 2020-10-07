@@ -757,6 +757,47 @@ echo "nightly" > ./extern/filecoin-ffi/rust/rust-toolchain
 
 然后再重新编译，即可正常编译。
 
+### 12.5 Intel 机器 【SIGILL: illegal instruction】
+
+使用 Intel （老）机器，调试本地测试网测试 2KiB 扇区，执行 `lotus-seed` 命令的时候出现程序崩溃现象：
+
+```sh
+./lotus-seed genesis add-miner localnet.json ~/.genesis-sectors/pre-seal-t01000.json
+```
+错误信息大致如下所示：
+
+```sh
+SIGILL: illegal instruction
+PC=0xe910af m=4 sigcode=2
+
+goroutine 0 [idle]:
+runtime: unknown pc 0xe910af
+stack: frame={sp:0x7efc33ec4830, fp:0x0} stack=[0x7efc336c4ec8,0x7efc33ec4ac8)
+00007efc33ec4730:  0000000003ed46a0  000000000063e394 <path/filepath.walkSymlinks+660> 
+00007efc33ec4740:  0000000000000000  0000000000000000 
+00007efc33ec4750:  0000000000000000  0000000000000000 
+......
+goroutine 1 [syscall]:
+runtime.cgocall(0xe7a700, 0xc0009b77c8, 0x6cb501)
+	/usr/lib/go-1.14/src/runtime/cgocall.go:133 +0x5b fp=0xc0009b7798 sp=0xc0009b7760 pc=0x51b75b
+github.com/supranational/blst/bindings/go._Cfunc_blst_keygen(0xc000156320, 0xc0001562c0, 0x20, 0x0, 0x0)
+	_cgo_gotypes.go:298 +0x45 fp=0xc0009b77c8 sp=0xc0009b7798 pc=0xe61505
+github.com/supranational/blst/bindings/go.KeyGen(0xc0001562c0, 0x20, 0x20, 0x0, 0x0, 0x0, 0x6882897a)
+	/home/ml/filecoin/official/lotus/extern/fil-blst/blst/bindings/go/blst.go:79 +0x96 fp=0xc0009b7808 sp=0xc0009b77c8 pc=0xe63596
+github.com/filecoin-project/lotus/lib/sigs/bls.blsSigner.GenPrivate(0xc000542468, 0xc39cc8db33e69201, 0xc300000000000008, 0x0, 0xc000542460)
+	/home/ml/filecoin/official/lotus/lib/sigs/bls/init.go:32 +0xeb fp=0xc0009b7868 sp=0xc0009b7808 pc=0xe6c98b
+......
+```
+
+**解决方法：** 编译的时候加上参数 `CGO_CFLAGS="-D__BLST_PORTABLE__"`：
+
+```sh
+FFI_BUILD_FROM_SOURCE=1 CGO_CFLAGS="-D__BLST_PORTABLE__" make clean debug
+```
+
+参考：[【lotus/issues/4059】](https://github.com/filecoin-project/lotus/issues/4059)
+
+
 ## 13 Benchmark
 
 ### 13.1 v26 版本参数
