@@ -334,6 +334,15 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 
 ```
 
+### 5.10 余额体现
+
+```sh
+# 从 【Available】 中提取 10 个 FIL 到 【Miner Balance】 中
+./lotus-miner actor withdraw 10
+```
+
+
+
 [参考](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1588805545137700)
 
 ## 6 Worker操作
