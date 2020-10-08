@@ -697,13 +697,13 @@ sudo make install
 解决方法：可以试试更改 `crate.io` 的源为国内的源，例如：
 
 ```sh
-# 上海交通大学
+# 上海交通大学（正常使用）
 [source.crates-io]
 replace-with = 'sjtu'
 [source.sjtu]
 registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"
 
-# 清华的源（正常使用）
+# 清华的源（失效）
 [source.crates-io]
 replace-with = 'tuna'
 [source.tuna]
@@ -831,7 +831,7 @@ sudo apt install clang
 # 然后再重新编译
 FFI_BUILD_FROM_SOURCE=1 make all
 ```
-
+参考：[【lotus/issues/3826】](https://github.com/filecoin-project/lotus/issues/3826)
 
 ## 13 Benchmark
 
