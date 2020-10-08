@@ -236,6 +236,21 @@ export RUST_LOG=Debug
 export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ```
 
+### 4.7 导入导出同步数据：
+
+```sh
+# 导出同步数据
+./lotus chain export --recent-stateroots=900 --skip-old-msgs snapshot.car
+# 导入同步数据
+./lotus daemon --import-snapshot snapshot.car
+```
+
+[【官方 4GB 左右的快照】](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car)
+
+参考：[【快速同步数据】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600187096118400)， [【官方文档：Chain sync】](https://github.com/filecoin-project/filecoin-docs/blob/master/docs/get-started/lotus/installation.md#chain-sync)
+
+
+
 ## 5 Storage miner 操作
 
 ### 5.1 查看扇区状态
