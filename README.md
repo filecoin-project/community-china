@@ -1019,7 +1019,7 @@ Filecoin 中文交流-1群（目前已满人）, Filecoin 中文交流-2群（�
 
 $ 1 FIL = 10^{9} nanoFIL = 10^{18} attoFIL $
 
-
+参考：[【go-humanize】](https://github.com/dustin/go-humanize/blob/master/si.go#L10)
 
 
 
