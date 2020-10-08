@@ -797,6 +797,41 @@ FFI_BUILD_FROM_SOURCE=1 CGO_CFLAGS="-D__BLST_PORTABLE__" make clean debug
 
 参考：[【lotus/issues/4059】](https://github.com/filecoin-project/lotus/issues/4059)
 
+### 12.6 编译错误：Unable to find libclang
+
+新版的 lotus 需要用到 clang 编译器来编译部分底层的代码，因此，如果系统上没有安装 clang 的话，在编译 lotus 的时候就会报错，错误信息如下所示：
+
+```sh
+cargo:rustc-link-lib=stdc++
+cargo:warning=couldn't execute `llvm-config --prefix` (error: No such file or directory (os error 2))
+cargo:warning=set the LLVM_CONFIG_PATH environment variable to the full path to a valid `llvm-config` executable (including the executable itself)
+
+--- stderr
+thread 'main' panicked at 'Unable to find libclang: "couldn\'t find any valid shared libraries matching: [\'libclang.so\', \'libclang-*.so\', \'libclang.so.*\', \'libclang-*.so.*\'], set the `LIBCLANG_PATH` environment variable to a path where one of these files can be found (invalid: [])"', /home/ml/.cargo/registry/src/mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd/bindgen-0.54.0/src/lib.rs:1959:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+warning: build failed, waiting for other jobs to finish...
+error: build failed
++ rm -f /tmp/tmp.npUjYGfyHa
+Makefile:11: recipe for target '.install-filcrypto' failed
+make[1]: *** [.install-filcrypto] Error 101
+make[1]: Leaving directory '/home/ml/filecoin/official/lotus/extern/filecoin-ffi'
+```
+
+**解决方法：** 编译之前先安装 clang：
+
+```sh
+# 安装 clang
+sudo apt install clang
+# 或者
+# sudo apt install clang-10
+# 出问题可以试一下（在 Ubuntu 18.04 上安装 clang-10 的时候可能会需要加上【--fix-missing】参数）：
+# sudo apt install clang-10 --fix-missing
+
+# 然后再重新编译
+FFI_BUILD_FROM_SOURCE=1 make all
+```
+
 
 ## 13 Benchmark
 
