@@ -354,6 +354,8 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 ```sh
 # 从 【Available】 中提取 10 个 FIL 到 【Miner Balance】 中
 ./lotus-miner actor withdraw 10
+# 从 【Miner Balance】 中发送 10 个 FIL 到 【Available】 中（假设 minerID 是 t01000 ）
+./lotus send t01000 10
 ```
 
 
