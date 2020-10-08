@@ -349,7 +349,7 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 
 ```
 
-### 5.10 余额体现
+### 5.10 FIL 余额操作
 
 ```sh
 # 从 【Available】 中提取 10 个 FIL 到 【Miner Balance】 中
