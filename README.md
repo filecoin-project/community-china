@@ -1017,7 +1017,7 @@ Filecoin 中文交流-1群（目前已满人）, Filecoin 中文交流-2群（�
 
 ### 16.1 币单位转换
 
-$ 1 FIL = 10^{9} nanoFIL = 10^{18} autoFIL $
+$ 1 FIL = 10^{9} nanoFIL = 10^{18} attoFIL $
 
 
 
