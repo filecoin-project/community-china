@@ -1013,9 +1013,17 @@ Filecoin 中文交流-1群（目前已满人）, Filecoin 中文交流-2群（�
 
 ![Filecoin 中文交流-2群](./pictures/wechat_group_02.png)
 
+## 16 其它
+
+### 16.1 币单位转换
+
+$ 1 FIL = 10^{9} nanoFIL = 10^{18} autoFIL $
 
 
-> 参考文档
+
+
+
+### 16.2 参考文档
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
 - [Lotus Docs](https://docs.lotu.sh/)
 - [Improving connectivity](https://docs.filecoin.io/mine/connectivity/)
