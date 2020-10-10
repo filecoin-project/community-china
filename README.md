@@ -239,15 +239,17 @@ export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ### 4.7 导入导出同步数据：
 
 ```sh
-# 导出同步数据
+# 导出同步数据（去除无用的消息，保证导出的 car 文件很小）
 ./lotus chain export --recent-stateroots=900 --skip-old-msgs snapshot.car
-# 导入同步数据
+# 这样导出的话，导出的 car 文件会很大（文件中保存了历史消息）
+# ./lotus chain export snapshot.car
+# 导入同步数据（在此之前保证 .lotus 目录中的内容是空的）
 ./lotus daemon --import-snapshot snapshot.car
 ```
 
-[【官方 4GB 左右的快照】](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car)
+[【官方 5GB 左右的快照】](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car)
 
-参考：[【快速同步数据】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600187096118400)， [【官方文档：Chain sync】](https://github.com/filecoin-project/filecoin-docs/blob/master/docs/get-started/lotus/installation.md#chain-sync)
+参考：[【快速同步数据】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600187096118400)， [【官方文档：Chain sync】](https://github.com/filecoin-project/filecoin-docs/blob/master/docs/get-started/lotus/installation.md#chain-sync)，[【官方文档：create-a-snapshot】](https://docs.filecoin.io/get-started/lotus/chain-snapshots/#create-a-snapshot)
 
 
 
