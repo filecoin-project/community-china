@@ -261,23 +261,23 @@ export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ### 5.1 查看扇区状态
 ```sh
 # 列举所有扇区信息:
-lotus-storage-miner sectors list
+lotus-miner sectors list
 # 查看某个扇区的历史状态
-lotus-storage-miner sectors status --log <SectorID>
+lotus-miner sectors status --log <SectorID>
 ```
 
 ### 5.2 手动修改扇区状态【谨慎操作】
 ```sh
-lotus-storage-miner sectors update-state --really-do-it <SectorID> <NewSectorStatus>
+lotus-miner sectors update-state --really-do-it <SectorID> <NewSectorStatus>
 # 例如：手动修改扇区 1 的状态为 FaultedFinal 状态
-lotus-storage-miner sectors update-state --really-do-it 1 FaultedFinal
+lotus-miner sectors update-state --really-do-it 1 FaultedFinal
 ```
 
 ### 5.3 更改默认存储路径
 ```sh
-export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
+export LOTUS_STORAGE_PATH="/path/to/.lotusminer"
 ```
-- 默认存储路径是 `~/.lotusstorage`，可通过指定 `LOTUS_STORAGE_PATH` 环境变量来更改；
+- 默认存储路径是 `~/.lotusminer`，可通过指定 `LOTUS_STORAGE_PATH` 环境变量来更改；
 - 每个存储路径下都会有 `sectorstore.json` 配置文件，该文件可以配置该存储路径的用途，比如，是否可以用来存储密封过程中生成的临时文件 `"CanSeal": true`， 是否可以用来存储密封好的数据 `"CanStore": true`，以及该路径的权重 `"Weight": 10` 和一个唯一标识符：`ID`；
 ```json
 {
@@ -291,27 +291,27 @@ export LOTUS_STORAGE_PATH="/path/to/.lotusstorage"
 ```sh
 # 设置数据存储路径，该路径用来存储最终密封好的数据
 # 执行该命令可能需要一点时间等待
-lotus-storage-miner storage attach --store --init /path/to/persistent_storage
+lotus-miner storage attach --store --init /path/to/persistent_storage
 
 # 设置密封扇区的存储路径，密封完成之后该路径下的数据会被自动清空，相当于临时目录
 # 执行该命令可能需要一点时间等待
-lotus-storage-miner storage attach --seal --init /path/to/fast_cache
+lotus-miner storage attach --seal --init /path/to/fast_cache
 ```
 以上两个命令都是在启动了 miner 之后才可以执行，是一种动态添加存储路径的方式，非常灵活。 当然还可以在命令中添加权重 `--weight=10`，默认权重是 `10`。
 执行该命令后，可通过以下命令查看存储列表:
 ```sh
-lotus-storage-miner storage list
+lotus-miner storage list
 ```
 
 ### 5.5 移动存储目录
-默认的存储目录 `~/.lotusstorage` 可以移动到其他地方。
+默认的存储目录 `~/.lotusminer` 可以移动到其他地方。
 移动前最好先停掉 daemon 和 miner。
-移动后，假设新路径为 `/path/to/.lotusstorage`，需要手动更改 `/path/to/.lotusstorage` 目录下 `storage.json` 中的 `StoragePaths` 为新路径：
+移动后，假设新路径为 `/path/to/.lotusminer`，需要手动更改 `/path/to/.lotusminer` 目录下 `storage.json` 中的 `StoragePaths` 为新路径：
 ```json
 {
   "StoragePaths": [
     {
-      "Path": "/path/to/.lotusstorage"
+      "Path": "/path/to/.lotusminer"
     }
   ]
 }
@@ -331,8 +331,8 @@ ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 
 ### 5.7 赎回已获得的奖励（Testnet3 才需要手动赎回）
 ```sh
-lotus-storage-miner rewards redeem
-lotus-storage-miner rewards list
+lotus-miner rewards redeem
+lotus-miner rewards list
 ```
 赎回之后，可能需要过一段时间才能看到自己钱包的余额增加。
 
@@ -347,10 +347,10 @@ export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
 ```sh
 # 注意空格不能少【以下命令是使用 screen 进行后台启动的方式】
 t=$(date +%Y_%m_%d_%H_%M_%S)
-FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S miner -t miner_${t} ./lotus-storage-miner run
+FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace screen -L -S miner -t miner_${t} ./lotus-miner run
 
 # 常规方式
-FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace ./lotus-storage-miner run
+FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_MAXIMIZE_CACHING=1 RUST_LOG=Trace ./lotus-miner run
 
 ```
 
@@ -370,13 +370,13 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 ## 6 Worker操作
 ### 6.1 Testnet3 查看 Worker 信息
 ```sh
-lotus-storage-miner workers list
+lotus-miner workers list
 ```
 ### 6.2 Testnet3 集群配置
 
 **6.2.1. 修改 miner**
 
-修改 miner `~/.lotusstorage/config.toml` 里面的 `ListenAddress` 和 `RemoteListenAddress` ，把这两个变量中的地址都改为 miner 本机的地址:
+修改 miner `~/.lotusminer/config.toml` 里面的 `ListenAddress` 和 `RemoteListenAddress` ，把这两个变量中的地址都改为 miner 本机的地址:
 ```toml
 [API]
 ListenAddress = "/ip4/192.168.1.100/tcp/2345/http"
@@ -389,14 +389,14 @@ RemoteListenAddress = "192.168.1.100:2345"
 ```sh
 export STORAGE_API_INFO=<TOKEN>:<API>
 ```
-TOKEN 为 `~/.lotusstorage` 中的 `token`；
-API 为 `~/.lotusstorage` 中的 `api`；
+TOKEN 为 `~/.lotusminer` 中的 `token`；
+API 为 `~/.lotusminer` 中的 `api`；
 
 注意：启动 miner 之后再查看这两个的值。
 
 **方法二：直接复制文件**
 
-在 **启动了 miner 之后**，复制 miner 的 `~/.lotusstorage` 目录中的 `token` 和 `api` 到 worker 中的  `~/.lotusstorage` （worker 中没有这个目录就手动创建一个），然后启动 worker 即可。
+在 **启动了 miner 之后**，复制 miner 的 `~/.lotusminer` 目录中的 `token` 和 `api` 到 worker 中的  `~/.lotusminer` （worker 中没有这个目录就手动创建一个），然后启动 worker 即可。
 
 **6.2.3. 启动 worker**
 ```sh
@@ -524,7 +524,7 @@ LOTUS_PATH
 
 # miner 路径： 
 LOTUS_STORAGE_PATH
-# 例如： export LOTUS_STORAGE_PATH=/home/user/nvme_disk/lotusstorage
+# 例如： export LOTUS_STORAGE_PATH=/home/user/nvme_disk/lotusminer
 
 # worker 路径： 
 WORKER_PATH
@@ -656,7 +656,7 @@ git reset --hard origin/interopnet
 # 如果 daemon 一直同步不了，也可以试试这个方法，很多情况下可以解决同步问题
 # 此外，处理前请检查环境变量，比如，是否修改了默认的 ~/.lotus 目录的位置
 rm -rf ~/.lotus/
-rm -rf ~/.lotusstorage/
+rm -rf ~/.lotusminer/
 rm -rf ~/.lotusworker/
 rm -rf ~/.lotus-bench/
 rm -rf ~/.genesis-sectors/
