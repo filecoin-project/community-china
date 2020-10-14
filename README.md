@@ -400,7 +400,10 @@ API 为 `~/.lotusminer` 中的 `api`；
 
 **6.2.3. 启动 worker**
 ```sh
-lotus-seal-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
+lotus-worker run --address=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
+
+# 新版改用 --listen=xxx
+lotus-worker run --listen=192.168.1.201:2333 --precommit1=false --precommit2=true --commit=true
 ```
 启动worker需要注意以下几点：
 - 要给 worker 指定**本机地址**和一个**随机端口（至少四位数）**;
