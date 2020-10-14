@@ -99,6 +99,7 @@
   - [【Announcing Space Race 2】](https://filecoin.io/blog/space-race-2/), [中文：【推出第二轮太空竞赛】](https://filecoin.io/zh-cn/blog/space-race-2/)
   - [【Announcing Space Race 2: Slingshot】](https://filecoin.io/blog/announcing-sr2-slingshot/)
   - [【Space Race 2 - Slingshot 注意事项】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1601061393028300)
+  - [【sling shot 主页】](https://slingshot.filecoin.io/)
 
 ## 3. SpaceRace 专用
 
