@@ -13,7 +13,7 @@
   - [【主网出块最低算力要求：10 TiB】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1602584811072400)
   - [【Coinlist 地址】](https://coinlist.co/)
   - [【Gate.io 地址】](https://www.gate.io/)
-  - [【Filecoin Token 模型】](https://spec.filecoin.io/#section-systems.filecoin_token.token)
+  - [【Filecoin Token 经济模型】](https://spec.filecoin.io/#section-systems.filecoin_token.token)
 
 - [Miner 重启的时机的选择](https://docs.filecoin.io/mine/lotus/miner-lifecycle/#ensuring-proofs-for-the-current-deadline-have-been-sent)
 
