@@ -888,13 +888,13 @@ ulimit -SHn 65535
 
 # 永久修改（重新登录或重启生效）: 
 # 把文件 /etc/systemd/user.conf  和 /etc/systemd/system.conf 中的字段修改如下：
-DefaultLimitNOFILE=65535
+DefaultLimitN OFILE=65535
 # 并修改 /etc/security/limits.conf 文件，添加如下内容：
 * hard nofile 65535
 * soft nofile 65535
 ```
 
-Ref: [【解决Too many open files问题】](https://blog.csdn.net/zgaoq/article/details/81911860)
+Ref: [【解决Too many open files问题】](https://blog.csdn.net/zgaoq/article/details/81911860)、[【Too many open files的四种解决办法】](https://www.cnblogs.com/huaweicloud/p/11861475.html)
 
 ## 13 Benchmark
 
