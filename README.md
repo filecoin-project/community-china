@@ -890,7 +890,7 @@ ulimit -SHn 65535
 
 # 永久修改（重新登录或重启生效）: 
 # 把文件 /etc/systemd/user.conf  和 /etc/systemd/system.conf 中的字段修改如下：
-DefaultLimitN OFILE=65535
+DefaultLimitNOFILE=65535
 # 并修改 /etc/security/limits.conf 文件，添加如下内容：
 * hard nofile 65535
 * soft nofile 65535
