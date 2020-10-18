@@ -14,6 +14,8 @@
   - [【Coinlist 地址】](https://coinlist.co/)
   - [【Gate.io 地址】](https://www.gate.io/)
   - [【Filecoin Token 经济模型】](https://spec.filecoin.io/#section-systems.filecoin_token.token)
+  - [【FIP-0004 草案 -- 已通过】](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0004.md)
+  - [【FIP-0004 草案的讨论】](https://github.com/filecoin-project/FIPs/issues/14#issuecomment-711091308)
 
 - [Miner 重启的时机的选择](https://docs.filecoin.io/mine/lotus/miner-lifecycle/#ensuring-proofs-for-the-current-deadline-have-been-sent)
 
