@@ -862,6 +862,25 @@ FFI_BUILD_FROM_SOURCE=1 make all
 ```
 参考：[【lotus/issues/3826】](https://github.com/filecoin-project/lotus/issues/3826)
 
+
+### 12.7 Ulimit 问题：Too many open files (os error 24)
+
+miner 在运行过程中可能会出现这个错误 `Too many open files (os error 24)`， 导致程序退出，解决的方法就是设置系统中最大允许的文件打开数量：
+
+```sh
+# 查看当前值：
+ulimit -a | grep -ni "open"
+# 临时修改为 65535 （只对当前 Shell 有用）：
+ulimit -n 65535
+# 永久修改: 
+# 把文件 /etc/systemd/user.conf  和 /etc/systemd/system.conf 中的字段修改如下：
+DefaultLimitNOFILE=65535
+# 并修改 /etc/security/limits.conf 文件，添加如下内容：
+* hard nofile 65535
+* soft nofile 65535
+```
+
+
 ## 13 Benchmark
 
 ### 13.1 v26 版本参数
