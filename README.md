@@ -13,6 +13,7 @@
   - [【主网出块最低算力要求：10 TiB】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1602584811072400)
   - [【Coinlist 地址】](https://coinlist.co/)
   - [【Gate.io 地址】](https://www.gate.io/)
+  - [【AICoin 地址】](https://www.aicoin.cn/)
   - [【Filecoin Token 经济模型】](https://spec.filecoin.io/#section-systems.filecoin_token.token)
   - [【FIP-0004 草案 -- 已通过】](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0004.md)
   - [【FIP-0004 草案的讨论】](https://github.com/filecoin-project/FIPs/issues/14#issuecomment-711091308)
