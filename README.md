@@ -256,9 +256,9 @@ export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ./lotus daemon --import-snapshot snapshot.car
 ```
 
-[【官方 5GB 左右的快照】](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car)
+[【官方 5GB 左右的快照】](https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car)，先手动下载好这个 `car` 文件，然后在一个干净的 `.lotus` 目录中导入即可，记得在做任何操作之前先备份数据（**至少需要备份好钱包私钥**：参考 【16.2】 小节）。
 
-参考：[【快速同步数据】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600187096118400)， [【官方文档：Chain sync】](https://github.com/filecoin-project/filecoin-docs/blob/master/docs/get-started/lotus/installation.md#chain-sync)，[【官方文档：create-a-snapshot】](https://docs.filecoin.io/get-started/lotus/chain-snapshots/#create-a-snapshot)
+参考：[【快速同步数据：Slack】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600187096118400)， [【官方文档：Chain sync】](https://github.com/filecoin-project/filecoin-docs/blob/master/docs/get-started/lotus/installation.md#chain-sync)，[【官方文档：create-a-snapshot】](https://docs.filecoin.io/get-started/lotus/chain-snapshots/#create-a-snapshot)
 
 
 
