@@ -1,12 +1,12 @@
 #########################################################################
 # File Name: auto_pledge_sector.sh
-# Author: ml
-# mail: ml@ml.com
+# Author: tears
+# mail: tears@tears.com
 # Created Time: Wed 25 Mar 2020 06:47:41 PM CST
 #########################################################################
 #!/bin/bash
 
-lotus_path="/home/cs/filecoin/lotus"
+lotus_path="/home/tears/filecoin/official/lotus"
 
 # Colorefull print
 function green_print()
@@ -44,8 +44,8 @@ do
     t=$(date +%Y_%m_%d_%H_%M)
     blue_print "[${t}]:"
     blue_print2 "[${idx}] pledge a sector!"
-    blue_print "${lotus_path}/lotus-storage-miner sectors pledge"
-    ${lotus_path}/lotus-storage-miner sectors pledge
+    blue_print "${lotus_path}/lotus-miner sectors pledge"
+    ${lotus_path}/lotus-miner sectors pledge
     blue_print2 "Waitting ${tm} minutes..."
     
     echo -e ""
