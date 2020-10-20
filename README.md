@@ -11,13 +11,15 @@
   - [【Why 宣布 2 小时做完 P1 的 Slack 地址】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600281207439900)
   - [【2 小时 P1 代码解读：来自 #星想法#】](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487317&idx=1&sn=ec5df63004c2d8d3b4816feaaa8a95fd&chksm=fe131e45c96497537cfc69533af2ce1d22b9ee971bc1c82f887c158c791b253e53d830a5722e&mpshare=1&scene=1&srcid=0927obVQHNI3ZXwCREJasfsE&sharer_sharetime=1601188872855&sharer_shareid=467d38d146bef855f0bc3f95686dafdd&key=7adf10a6617c63152da1b75a8bd251853b8a8588847b2579cda2a5c0338e2825281bff6df0b42d2b1c388b892936da600bb032d3d3b51fe0d1cbd96543f8b8c6b1d928e15029b791d809fcdc1fca85c81b536f27531b16b881217b642db5f79915626a0fbeaf1e46e18ada2d3157b5d4ff4312ad87d7f36440f27b23f89215d9&ascene=1&uin=Njg4MDE3MzA4&devicetype=Windows+10+x64&version=62090529&lang=zh_CN&exportkey=AUULtqfytNT5kNex6k%2F0Omo%3D&pass_ticket=2b%2FdHSGnuSTk4Ns5v6uDNutMyGCf%2FTw0%2B4oCzXQgEDDVjfHGCJZ8KWSv%2FW0d%2FRkQ&wx_header=0)
   - [【主网出块最低算力要求：10 TiB】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1602584811072400)
+  - [【Filecoin Token 经济模型】](https://spec.filecoin.io/#section-systems.filecoin_token.token)
+  - [【FIP-0004 草案 -- 已通过】](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0004.md)
+  - [【FIP-0004 草案的讨论】](https://github.com/filecoin-project/FIPs/issues/14#issuecomment-711091308)
+
+- 实时币价查看网站
   - [【Coinlist 地址】](https://coinlist.co/)
   - [【Gate.io 地址】](https://www.gate.io/)
   - [【Gatecn.io 地址】](https://www.gatecn.io/)
   - [【AICoin 地址】](https://www.aicoin.cn/)
-  - [【Filecoin Token 经济模型】](https://spec.filecoin.io/#section-systems.filecoin_token.token)
-  - [【FIP-0004 草案 -- 已通过】](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0004.md)
-  - [【FIP-0004 草案的讨论】](https://github.com/filecoin-project/FIPs/issues/14#issuecomment-711091308)
 
 - [Miner 重启的时机的选择](https://docs.filecoin.io/mine/lotus/miner-lifecycle/#ensuring-proofs-for-the-current-deadline-have-been-sent)
 
