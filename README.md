@@ -112,7 +112,9 @@
 - [FileStar Project Litepaper 文曲星项目 白皮书初稿](https://github.com/filestar-project/litepaper)
   - [Filecoin分叉项目FileStar文曲星发布白皮书，拟构建Web3物理基础设施](https://www.panewslab.com/wap/zh/articledetails/1603174008447211.html)
 - [filecash](https://github.com/filecash)
+  - [FILCASH 上线大会总结](https://www.jianshu.com/p/e3fe823bafdd)
   - [从FIL诞生讲起，为何分叉反成「众望所归」？](https://www.minerbbs.com/37500-1-1.html)
+
 
 ### 2.3 SpaceRace2 专用
 
