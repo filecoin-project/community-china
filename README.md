@@ -404,6 +404,16 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 
 [参考](https://docs.filecoin.io/mine/lotus/sector-pledging/#upgrading-pledged-sectors)
 
+### 5.12 移除扇区操作
+
+如何扇区出现问题，或者不想要某个扇区，可以把该扇区删除：
+
+```sh
+./lotus-miner sectors remove --really-do-it <sector id> Removed
+./lotus-miner sectors remove --really-do-it <sector id> Removing
+```
+
+
 ## 6 Worker操作
 ### 6.1 Testnet3 查看 Worker 信息
 ```sh
