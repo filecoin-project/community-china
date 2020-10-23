@@ -110,6 +110,7 @@
 ### 2.2 宣称分叉
 
 - [FileStar Project Litepaper 文曲星项目 白皮书初稿](https://github.com/filestar-project/litepaper)
+  - [filestar.net](https://filestar.net/zh)
   - [Filecoin分叉项目FileStar文曲星发布白皮书，拟构建Web3物理基础设施](https://www.panewslab.com/wap/zh/articledetails/1603174008447211.html)
 - [filecash](https://github.com/filecash)
   - [FILCASH 上线大会总结](https://www.jianshu.com/p/e3fe823bafdd)
