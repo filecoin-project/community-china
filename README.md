@@ -135,15 +135,17 @@
 
 ### 2.4 主网上线后依然可用的测试网
 
-**网络列表：**
+由于某些需求，主网上线之后，官方依然保留测试网，用于测试：
 
-- [目录](https://network.filecoin.io/)
+- [网络列表](https://network.filecoin.io/)
   - [【Butterfly】](https://network.filecoin.io/#butterfly) : 
     For core implementers testing new code. This network suffers frequent resets and is not recommended for most users.
   - [【Calibration】](https://network.filecoin.io/#calibration) : 
     Calibration is the primary live testing network. It is used to evaluate Filecoin at meaningful scale via testing, benchmarking, and optimizations. It is recommended for most prospective miners and app developers.
   - [【Nerpa】](https://network.filecoin.io/#nerpa) :
     For app developers looking to do small-scale testing. Has small sector sizes and reduced proofs parameters, so sealing takes ~25 minutes.
+
+[【主网在这】](https://network.filecoin.io/#mainnet)
 
 
 ## 3. SpaceRace 专用
