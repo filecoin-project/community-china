@@ -5,6 +5,7 @@
 ## 1.常用链接
 
 - 主网相关
+  - [【如何加入主网？】](https://network.filecoin.io/#mainnet)
   - [【2020/10/15 23:00 : 主网正式上线】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1602773642166700)
   - [【Announcing Mainnet Ignition & Liftoff】](https://filecoin.io/blog/mainnet-ignition/), [中文版：【发布主网点火和启动阶段】](https://filecoin.io/zh-cn/blog/mainnet-ignition/)
   - [【Why 宣布 2 小时做完 P1 的 Slack 地址】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600281207439900)
@@ -130,6 +131,20 @@
   - [【Announcing Space Race 2: Slingshot】](https://filecoin.io/blog/announcing-sr2-slingshot/)
   - [【Space Race 2 - Slingshot 注意事项】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1601061393028300)
   - [【sling shot 主页】](https://slingshot.filecoin.io/)
+
+
+### 2.4 主网上线后依然可用的测试网
+
+**网络列表：**
+
+- [目录](https://network.filecoin.io/)
+  - [【Butterfly】](https://network.filecoin.io/#butterfly) : 
+    For core implementers testing new code. This network suffers frequent resets and is not recommended for most users.
+  - [【Calibration】](https://network.filecoin.io/#calibration) : 
+    Calibration is the primary live testing network. It is used to evaluate Filecoin at meaningful scale via testing, benchmarking, and optimizations. It is recommended for most prospective miners and app developers.
+  - [【Nerpa】](https://network.filecoin.io/#nerpa) :
+    For app developers looking to do small-scale testing. Has small sector sizes and reduced proofs parameters, so sealing takes ~25 minutes.
+
 
 ## 3. SpaceRace 专用
 
