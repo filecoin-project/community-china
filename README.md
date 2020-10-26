@@ -980,6 +980,19 @@ DefaultLimitNOFILE=65535
 
 Ref: [【解决Too many open files问题】](https://blog.csdn.net/zgaoq/article/details/81911860)、[【Too many open files的四种解决办法】](https://www.cnblogs.com/huaweicloud/p/11861475.html)
 
+### 12.8 daemon 无法启动时恢复钱包密钥的方法
+
+由于某种原因，可能由于 `.lotus` 目录下的某些文件损坏导致 `lotus daemon` 无法启动，此时，最关键的还是要先把钱包的密钥导出来备份好（如果之前有备份的话就可以不用往下看了），导出的方法如下所示：
+
+假设出故障的机器叫做 `机器A`，新的机器叫做 `机器B`：
+
+- (1). 在 `机器B` 上启动一个干净的 `daemon` 进程（同一台机器上也行，但是要保证有一个新的 `.lotus` 目录，和旧 `.lotus` 目录不能冲突），启动之后，`daemon` 会自动创建一个新的 `.lotus` 目录
+- (2). 关闭 `机器B` 上的 `daemon` 进程，删除 `机器B` 上的 `.lotus` 目录中的 `token` 文件和 `keystore` 文件夹。
+- (3). 拷贝 `机器A` 上的 `.lotus` 目录中的 `token` 文件和 `keystore` 文件夹到 `机器B` 的 `.lotus` 目录中
+- (4). 再次启动 `机器B` 中的 daemon，此时就可以在 `机器B` 中正常的导出钱包地址了
+
+
+
 ## 13 Benchmark
 
 ### 13.1 v26 版本参数
