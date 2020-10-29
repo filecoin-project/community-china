@@ -294,6 +294,8 @@ export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 # 这样导出的话，导出的 car 文件会很大（文件中保存了历史消息）
 # ./lotus chain export snapshot.car
 # 导入同步数据（在此之前保证 .lotus 目录中的内容是空的）
+# 导入数据之后， daemon 默认自动启动，
+# 如果不想在导入数据之后启动 daemon，可以加上参数 --halt-after-import
 ./lotus daemon --import-snapshot snapshot.car
 ```
 
