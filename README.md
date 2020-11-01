@@ -993,6 +993,14 @@ Ref: [【解决Too many open files问题】](https://blog.csdn.net/zgaoq/article
 - (3). 拷贝 `机器A` 上的 `.lotus` 目录中的 `token` 文件和 `keystore` 文件夹到 `机器B` 的 `.lotus` 目录中
 - (4). 再次启动 `机器B` 中的 daemon，此时就可以在 `机器B` 中正常的导出钱包地址了
 
+### 12.9 链同步错误：block was from the future
+
+同步链错误，由于本机的时间与网络时间不同步导致，解决方法如下所示：
+
+```sh
+# 同步本机时间
+ntpdate ntp.aliyun.com
+```
 
 
 ## 13 Benchmark
