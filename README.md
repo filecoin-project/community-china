@@ -553,9 +553,9 @@ sudo iptables -t nat -A PREROUTING -p tcp -m tcp --dport 10240 -j DNAT --to-dest
 其中`10.4.0.100`为Miner的内网IP。
 
 #### (3) 设置multiaddress
-参照6.1中的设置multiaddress。
+参照7.1中的设置multiaddress。
 #### (4) 设置Miner连接的节点
-参照6.1中的设置Miner连接的节点。
+参照7.1中的设置Miner连接的节点。
 
 ### 7.3 Deal常用操作
 ```sh
