@@ -119,6 +119,8 @@
   - [FILCASH 上线大会总结](https://www.jianshu.com/p/e3fe823bafdd)
   - [从FIL诞生讲起，为何分叉反成「众望所归」？](https://www.minerbbs.com/37500-1-1.html)
 - [Filvision](https://github.com/filecoin-vision/)
+  - [Filecoin Vision 宣言](https://github.com/filecoin-vision/manifesto)
+  - [github: filecoin-vision](https://github.com/filecoin-vision/lotus)
   - [Filecoin主网未上线分叉已来：《Filecoin Vision 宣言》](https://www.jinse.com/news/blockchain/829082.html)
   - [Filecoin能否真的分叉？](https://www.sohu.com/a/420603504_120635680)
 
