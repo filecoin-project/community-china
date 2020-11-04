@@ -14,6 +14,7 @@
   - [【Filecoin Token 经济模型】](https://spec.filecoin.io/#section-systems.filecoin_token.token)
   - [【FIP-0004 草案 -- 已通过】](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0004.md)
   - [【FIP-0004 草案的讨论】](https://github.com/filecoin-project/FIPs/issues/14#issuecomment-711091308)
+  - [【Filecoin基线标准调整： 1EB -> 2.5EB （来自原力区的解读）】](https://mp.weixin.qq.com/s?__biz=MzU4Mzk2Mzc3Mg==&mid=2247501447&idx=1&sn=63e2dc271e49f7e435c80a1a28fd79f8&chksm=fda38394cad40a8247ed217e23fc295cd7598d6a0e55e176dba9faf3781c83ab488da0c5d677&mpshare=1&scene=1&srcid=1020nkJFPqgsS7xhEvd4gn46&sharer_sharetime=1603207486701&sharer_shareid=55a0eb6b664d6eb2b20ee28e1fa010cb&key=a151f3f6b92bc94d06c83345b63b7e6505f607e33fda670db6f8dd5d8c571b0e6e620667574018e7afc9e141556434c9c2ca38a8ad6776f31d6ba258aa67ada3414b54f790f0dba8eea4c0fd29b752276604d727dd114e28943c12acc7f45cf4339a3d3a2b0b3f1aad7d1fa844d1de4c8b114e54bd681fd109e2565bf2761e53&ascene=1&uin=Njg4MDE3MzA4&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AeANr1bcntLaFOvWOyGltl4%3D&pass_ticket=smRz8iUM1C93CVyjEKwSttkqd6J2StzjpprXRW%2B0IyybK2xkzyjf1xdbSJsDsm%2Fu&wx_header=0)
 
 - [Lotus网络(Calibration, Nerpa, Mainnet, Butterfly)](https://network.filecoin.io/)
 
