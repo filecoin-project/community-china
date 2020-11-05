@@ -1017,6 +1017,17 @@ sudo apt install hwloc libhwloc-dev
 ```
 [参考](https://github.com/daschl/hwloc-rs/issues/23) 
 
+### 12.11 编译错误：git@github.com: Permission denied (publickey)
+
+给自己的 github 添加一对公私钥就可以了，生成公私钥对的命令参考如下，生成之后，你还需要把公钥复制到 github 账号的 `SSH Keys` 中（这步需要在网页上操作），默认生成的公钥名称是 `id_rsa.pub`, 私钥名称是 `id_rsa`，私钥放在你的 `~/.ssh` 文件夹中即可，公钥上传到 github 服务器中：
+
+```sh
+# 生成公私钥对，带 .pub 后缀的文件是公钥，是需要上传到 github 上面的
+# 命令中 【your_email@email.com】 输入你的 github 账号
+ssh-keygen -t rsa -C "your_email@email.com"
+```
+
+[参考](https://blog.csdn.net/fenghuibian/article/details/73350890)
 
 ## 13 Benchmark
 
