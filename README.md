@@ -1007,6 +1007,16 @@ Ref: [【解决Too many open files问题】](https://blog.csdn.net/zgaoq/article
 ntpdate ntp.aliyun.com
 ```
 
+### 12.10 编译错误：/usr/bin/ld: cannot find -lhwloc
+
+hwloc 是获取 CPU 硬件信息的有用工具，lotus 需要使用到这个工具，安装一下就可以：
+
+```sh
+# Ubuntu 上的解决方法：
+sudo apt install hwloc libhwloc-dev
+```
+[参考](https://github.com/daschl/hwloc-rs/issues/23) 
+
 
 ## 13 Benchmark
 
