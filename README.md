@@ -1029,6 +1029,24 @@ ssh-keygen -t rsa -C "your_email@email.com"
 
 [参考](https://blog.csdn.net/fenghuibian/article/details/73350890)
 
+### 12.12 同步错误：Error: chain contained block marked previously as bad
+
+例如，当前链同步的高度是 6100，但是同步的时候出现某个块是坏块，因此，会导致同步失败，失败信息如下所示：
+
+```sh
+Error: chain linked to block marked previously as bad ([bafy2bzacedwp2ciwsjirnxc5gdtehddjurpp7qijzal32su7ob5vh4ons2sm2],
+```
+
+解决方法：先把高度往前调一些（比如，当前高度在 6100， 往前调到 6000），然后再手动标记某些坏块：
+
+```sh
+lotus chain sethead --epoch 6000
+# 重启一下 daemon
+lotus sync mark-bad bafy2bzacedwp2ciwsjirnxc5gdtehddjurpp7qijzal32su7ob5vh4ons2sm2
+```
+
+[参考](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1593170480169100)
+
 ## 13 Benchmark
 
 ### 13.1 v26 版本参数
