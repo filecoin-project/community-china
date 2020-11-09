@@ -964,6 +964,11 @@ ulimit -Hn 65535
 # 可同时修改 soft 和 hard 的值：
 ulimit -SHn 65535
 
+# 针对正在运行中的miner进程，可以通过以下命令修改：
+prlimit --pid <PID> --nofile=65535:65535
+# 通过以下命令查看修改：
+cat /proc/<PID>/limits
+
 # 永久修改（重新登录或重启生效）: 
 # 把文件 /etc/systemd/user.conf  和 /etc/systemd/system.conf 中的字段修改如下：
 DefaultLimitNOFILE=65535
