@@ -259,19 +259,11 @@ FFI_BUILD_FROM_SOURCE=1 make clean all lotus-bench
 FFI_BUILD_FROM_SOURCE=1 CGO_CFLAGS="-O -D__BLST_PORTABLE__" make clean all lotus-bench
 ```
 
-
-#### v26/v27 版本代码的编译命令:
-
-```sh
-# 启用 GPU 相关环境变量【Precommit2 的时候可以使用 GPU 计算】
-env RUSTFLAGS="-C target-cpu=native -g" FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FFI_BUILD_FROM_SOURCE=1 make clean all bench
-```
-
 #### 启用内存最大化参数：
 ```sh
 export FIL_PROOFS_MAXIMIZE_CACHING=1
 ```
-该参数仅针对Testnet3的 32GB 扇区有效。
+该参数仅针对 32GB 扇区有效。
 
 #### 启用 Log 日志：
 ```sh
@@ -281,7 +273,7 @@ export RUST_LOG=Debug
 
 ### 4.5 修改 Proofs 文件路径
 ```sh
-export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
+export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v28/
 ```
 
 ### 4.6 导入导出同步数据：
@@ -430,11 +422,11 @@ lotus-miner proving terminate --sectors xxx,xxx,xxx
 该命令将会发送一条消息，一次性删除错误扇区(注意：会扣币)。
 
 ## 6 Worker操作
-### 6.1 Testnet3 查看 Worker 信息
+### 6.1 查看 Worker 列表
 ```sh
-lotus-miner workers list
+lotus-miner sealing workers
 ```
-### 6.2 Testnet3 集群配置
+### 6.2 集群配置
 
 **6.2.1. 修改 miner**
 
