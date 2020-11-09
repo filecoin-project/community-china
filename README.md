@@ -412,8 +412,7 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 如何扇区出现问题，或者不想要某个扇区，可以把该扇区删除：
 
 ```sh
-./lotus-miner sectors remove --really-do-it <sector id> Removed
-./lotus-miner sectors remove --really-do-it <sector id> Removing
+./lotus-miner sectors remove --really-do-it <sector id>
 ```
 
 ### 5.11 移除时空证明失败的扇区
