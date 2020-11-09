@@ -228,14 +228,7 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 ```
 上述的节点是示例节点，当您在使用该命令的时候，您需要自己去找一个可以使用的节点。
 
-### 4.3 手动设置链的高度
-```sh
-# 设置高度到9700
-lotus chain sethead --epoch=9700
-```
-节点同步出错时，可下载 **CoinSummer实验室** 提供的 [国内节点备份](https://filecoin.coinsummer.io/datastore.html)，将下载后的文件解压得到 `datastore` 目录（包括目录内的所有内容），然后关闭 daemon 进程，关闭后删除你本机 `~/.lotus` 目录下的 `datastore` 目录，再把解压出来的 `datastore` 目录复制到你本机的 `~/.lotus` 目录下，复制完成之后启动 daemon，此时应该可以正常同步了，如果不行，可以试试：执行上面手动设置链高度的命令（需要 daemon 启动的情况下），即可从指定高度进行同步。
-
-### 4.4 手动下载 proof 参数
+### 4.3 手动下载 proof 参数
 ```sh
 # export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 ./lotus fetch-params --proving-params 2KiB     # 例如下载 2KiB 扇区对应的 Proof 参数
@@ -250,7 +243,7 @@ export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs
 ```
 [参考](https://github.com/filecoin-project/lotus/blob/master/documentation/en/local-dev-net.md)
 
-### 4.5 编译参数
+### 4.4 编译参数
 
 #### v28 版本代码的编译命令:
 
@@ -286,12 +279,12 @@ export RUST_LOG=Debug
 ```
 运行 miner 之前加入该参数可以在 miner 的日志中查看更详细的输出信息（底层 rust 代码的输出信息），Log 登记从低到高分别有： Trace、Debug、Info、Warn、Error，Trace 输出的信息最详细，Error 输出的信息最少，仅输入错误信息。
 
-### 4.6 修改 Proofs 文件路径
+### 4.5 修改 Proofs 文件路径
 ```sh
 export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 ```
 
-### 4.7 导入导出同步数据：
+### 4.6 导入导出同步数据：
 
 ```sh
 # 导出同步数据（去除无用的消息，保证导出的 car 文件很小）
@@ -307,8 +300,6 @@ export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v26/
 [【官方 5GB 左右的快照】](https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car)，先手动下载好这个 `car` 文件，然后在一个干净的 `.lotus` 目录中导入即可，记得在做任何操作之前先备份数据（**至少需要备份好钱包私钥**：参考 【16.2】 小节）。
 
 参考：[【快速同步数据：Slack】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600187096118400)， [【官方文档：Chain sync】](https://github.com/filecoin-project/filecoin-docs/blob/master/docs/get-started/lotus/installation.md#chain-sync)，[【官方文档：create-a-snapshot】](https://docs.filecoin.io/get-started/lotus/chain-snapshots/#create-a-snapshot)
-
-
 
 ## 5 Storage miner 操作
 
@@ -585,10 +576,6 @@ lotus-miner storage-deals list
 # Miner查看检索订单列表
 lotus-miner retrieval-deals list
 ```
-
-### 7.4 Deal常见问题
-**(1) 我已经接单成功了，但是在官方的[dashboard](https://calibration.spacerace.filecoin.io/)上看不到？**  
-官方的dashboard更新比较慢，一般需要半天到一天时间，才能看到自己的信息。
 
 ## 8 常用环境变量
 
