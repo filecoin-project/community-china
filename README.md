@@ -374,20 +374,7 @@ ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 2. 将远程 daemon (192.168.1.100) 上 `~/.lotus` 目录下的 `api` 和 `token` 拷贝到 miner 机器(192.168.1.101)的 `~/.lotus` 目录下；
 3. 重启 miner 即可。
 
-### 5.7 赎回已获得的奖励（Testnet3 才需要手动赎回）
-```sh
-lotus-miner rewards redeem
-lotus-miner rewards list
-```
-赎回之后，可能需要过一段时间才能看到自己钱包的余额增加。
-
-### 5.8 v26 版本参数中使用 GPU 计算 Precommit2 的方法
-运行 miner 之前导出已下环境变量（目前官方还未放出v26参数）：
-```sh
-export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1
-```
-
-### 5.9 启动 miner 参考命令
+### 5.7 启动 miner 参考命令
 
 ```sh
 # 注意空格不能少【以下命令是使用 screen 进行后台启动的方式】
@@ -399,7 +386,7 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 
 ```
 
-### 5.10 FIL 余额操作
+### 5.8 FIL 余额操作
 
 ```sh
 # 从 【Available】 中提取 10 个 FIL 到 【Worker Balance】 中
@@ -410,7 +397,7 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 
 [参考](https://filecoinproject.slack.com/archives/CEGB67XJ8/p1588805545137700)
 
-### 5.11 更新扇区操作
+### 5.9 更新扇区操作
 
 原来使用 pledge 命令质押的扇区是垃圾扇区，里面的数据都是垃圾数据，为了让这些扇区能够存储有效数据，可以把这些扇区标记为可存储有效数据的扇区：
 
@@ -420,7 +407,7 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 
 [参考](https://docs.filecoin.io/mine/lotus/sector-pledging/#upgrading-pledged-sectors)
 
-### 5.12 移除扇区操作
+### 5.10 移除扇区操作
 
 如何扇区出现问题，或者不想要某个扇区，可以把该扇区删除：
 
@@ -429,7 +416,7 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 ./lotus-miner sectors remove --really-do-it <sector id> Removing
 ```
 
-### 5.13 移除时空证明失败的扇区
+### 5.11 移除时空证明失败的扇区
 
 由于误删、调度错乱等各种原因，导致扇区已提交到了链上，但时空证明失败的问题，可以合并1475-IPFS提供的方案，一次性删除链上失败的扇区。
 
