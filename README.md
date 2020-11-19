@@ -419,7 +419,7 @@ make lotus-shed
 # 删除链上错误的扇区
 lotus-shed sectors terminate --really-do-it [sectorNum1 sectorNum2 ...]
 ```
-该命令将会发送一条消息，一次性删除错误扇区(注意：会扣币，目前一个扇区大约扣0.09个FIL)。
+该命令将会发送一条消息，一次性删除错误扇区(注意：会扣币，目前一个扇区大约扣0.1个FIL)。
 
 ## 6 Worker操作
 ### 6.1 查看 Worker 列表
