@@ -410,17 +410,16 @@ FIL_PROOFS_USE_GPU_TREE_BUILDER=1 FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 FIL_PROOFS
 
 ### 5.11 移除时空证明失败的扇区
 
-由于误删、调度错乱等各种原因，导致扇区已提交到了链上，但时空证明失败的问题，可以合并1475-IPFS提供的方案，一次性删除链上失败的扇区。
-
-[代码地址](https://github.com/1475-IPFS/lotus/commit/023cec4d7fa438bceda331dbcc046f7a094ecfc4)
-
-在lotus目录下执行：`git cherry-pick 023cec4d7fa438bceda331dbcc046f7a094ecfc4`即可将该commit合并到自己的代码中，然后重新编译，运行:
+由于误删、调度错乱等各种原因，导致扇区已提交到了链上，但时空证明失败的问题，可以使用`lotus-shed`，一次性删除链上失败的扇区。
 
 ```sh
+# 编译 lotus-shed
+make lotus-shed
+
 # 删除链上错误的扇区
-lotus-miner proving terminate --sectors xxx,xxx,xxx
+lotus-shed sectors terminate --really-do-it [sectorNum1 sectorNum2 ...]
 ```
-该命令将会发送一条消息，一次性删除错误扇区(注意：会扣币)。
+该命令将会发送一条消息，一次性删除错误扇区(注意：会扣币，目前一个扇区大约扣0.09个FIL)。
 
 ## 6 Worker操作
 ### 6.1 查看 Worker 列表
