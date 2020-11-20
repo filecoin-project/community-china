@@ -1030,6 +1030,30 @@ lotus sync mark-bad bafy2bzacedwp2ciwsjirnxc5gdtehddjurpp7qijzal32su7ob5vh4ons2s
 
 [参考](https://filecoinproject.slack.com/archives/CPFTWMY7N/p1593170480169100)
 
+### 12.13 编译 lotus 1.2.1 失败：Update Golang to version to at least 1.15.5
+
+最新版 `lotus-v1.2.1` 需要使用最新版的 `golang` (`golang-1.15.5`) 来编译，否则会如下错误：
+
+```sh
+Makefile:10: Your Golang version is go 1.15.2
+Makefile:11: *** Update Golang to version to at least 1.15.5.  Stop.
+```
+
+目前在 `Ubuntu 20.04` 上可以直接使用 `apt` 安装最新版的 `golang` （安装新版 `golang` 之前最好先卸载旧版的，否则可能会出问题），如果是使用 `Ubuntu 18.04`，则需要手动下载 `golang` 手动安装：
+
+- 下载地址：[【https://golang.org/dl/】](https://golang.org/dl/)， 或者[【go1.15.5.linux-amd64.tar.gz】](https://golang.org/dl/go1.15.5.linux-amd64.tar.gz)，
+
+- 安装方式：[【https://golang.org/doc/install#install】](https://golang.org/doc/install#install)
+
+安装参考命令：
+
+```sh
+tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz
+vi ~/.bashrc
+# 在 ~/.bashrc 文件的末尾加上： export PATH=$PATH:/usr/local/go/bin
+source ~/.bashrc
+```
+
 ## 13 Benchmark
 
 ### 13.1 v26 版本参数
