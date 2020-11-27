@@ -1201,6 +1201,37 @@ verify window post proof (hot): 37.986216ms
 
 ```
 
+### 13.3  v28 版本参数
+
+- CPU： AMD 3970x (32核心64线程)
+- GPU： RTX 2080Ti
+- 内存： 256GB (2133MHz)
+- 硬盘： NVMe 1TB * 2
+- 时间：2020/11/26
+- 其它： 多线程 P1 + GPU P2
+
+```sh
+results (v28) SectorSize:(34359738368), SectorNumber:(1)
+seal: addPiece: 10m48.240241696s (50.55 MiB/s)
+seal: preCommit phase 1: 2h22m21.760639531s (3.836 MiB/s)
+seal: preCommit phase 2: 24m51.560433206s (21.97 MiB/s)
+seal: commit phase 1: 1.140462976s (28.06 GiB/s)
+seal: commit phase 2: 47m29.898859543s (11.5 MiB/s)
+seal: verify: 8.01946ms
+
+generate candidates: 853.599µs (36.61 TiB/s)
+compute winning post proof (cold): 2.128980727s
+compute winning post proof (hot): 1.78541416s
+verify winning post proof (cold): 61.022724ms
+verify winning post proof (hot): 4.231715ms
+
+compute window post proof (cold): 5m48.192993009s
+compute window post proof (hot): 5m28.177627942s
+verify window post proof (cold): 6.493587214s
+verify window post proof (hot): 10.944523ms
+```
+
+
 ## 14 Scripts
 
 ### 14.1 Auto pledge sectors script
