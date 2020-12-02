@@ -5,6 +5,8 @@
 ## 1.常用链接
 
 - 主网相关
+  - [【主网概览：Spacegap】](https://spacegap.github.io/)
+  - [【Filecoin 入门：Get Started on Filecoin】](https://docs.filecoin.io/get-started/)
   - [【如何加入主网？】](https://network.filecoin.io/#mainnet)
   - [【2020/10/15 23:00 : 主网正式上线】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1602773642166700)
   - [【Announcing Mainnet Ignition & Liftoff】](https://filecoin.io/blog/mainnet-ignition/), [中文版：【发布主网点火和启动阶段】](https://filecoin.io/zh-cn/blog/mainnet-ignition/)
@@ -15,6 +17,7 @@
   - [【FIP-0004 草案 -- 已通过】](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0004.md)
   - [【FIP-0004 草案的讨论】](https://github.com/filecoin-project/FIPs/issues/14#issuecomment-711091308)
   - [【Filecoin基线标准调整： 1EB -> 2.5EB （来自原力区的解读）】](https://mp.weixin.qq.com/s?__biz=MzU4Mzk2Mzc3Mg==&mid=2247501447&idx=1&sn=63e2dc271e49f7e435c80a1a28fd79f8&chksm=fda38394cad40a8247ed217e23fc295cd7598d6a0e55e176dba9faf3781c83ab488da0c5d677&mpshare=1&scene=1&srcid=1020nkJFPqgsS7xhEvd4gn46&sharer_sharetime=1603207486701&sharer_shareid=55a0eb6b664d6eb2b20ee28e1fa010cb&key=a151f3f6b92bc94d06c83345b63b7e6505f607e33fda670db6f8dd5d8c571b0e6e620667574018e7afc9e141556434c9c2ca38a8ad6776f31d6ba258aa67ada3414b54f790f0dba8eea4c0fd29b752276604d727dd114e28943c12acc7f45cf4339a3d3a2b0b3f1aad7d1fa844d1de4c8b114e54bd681fd109e2565bf2761e53&ascene=1&uin=Njg4MDE3MzA4&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AeANr1bcntLaFOvWOyGltl4%3D&pass_ticket=smRz8iUM1C93CVyjEKwSttkqd6J2StzjpprXRW%2B0IyybK2xkzyjf1xdbSJsDsm%2Fu&wx_header=0)
+  - [【协议实验室在Filecoin经济中的参与】](https://protocol.ai/blog/pl-participation-in-the-filecoin-economy/)
 
 - [Lotus网络(Calibration, Nerpa, Mainnet, Butterfly)](https://network.filecoin.io/)
 
@@ -55,9 +58,6 @@
 - [Filecoin官方博客](https://filecoin.io/blog/)
 - [Lotus Specification 设计文档](https://filecoin-project.github.io/specs/)
 - 水龙头地址
-  - [Testnet phase 3](https://faucet.testnet.filecoin.io/)
-  - [Interopnet](https://t01000.miner.interopnet.kittyhawk.wtf/)
-  - [ButterFly](https://faucet.butterfly.fildev.network/)
   - [Calibration](https://faucet.calibration.fildev.network/)
 - Benchmark 数据
   - [Testnet2(V20)](https://github.com/filecoin-project/lotus/issues/839)
@@ -125,18 +125,8 @@
   - [Filecoin主网未上线分叉已来：《Filecoin Vision 宣言》](https://www.jinse.com/news/blockchain/829082.html)
   - [Filecoin能否真的分叉？](https://www.sohu.com/a/420603504_120635680)
 
-### 2.3 SpaceRace2 专用
+### 2.3 SpaceRace2 专用【已废弃】
 
-- **Branch:** master
-- **tag:** 最新：2020/09/26 - 3:20 PM [【v0.8.0】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1601104808044000)
-- **版本更新要求：** 强制更新
-- **链同步数快照：**[【Spacerace_pruned_stateroots_snapshot_latest.car】](https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car)，[参考](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600634972357500)
-- **填表取币：**[【Miner Reimbursement Form】](https://docs.google.com/forms/d/e/1FAIpQLSfOGA5JLCohZj3RtCvEm1B--XmGScVUfpvEwGaknNwBBt3MQA/viewform)
-- **博客：**
-  - [【Announcing Space Race 2】](https://filecoin.io/blog/space-race-2/), [中文：【推出第二轮太空竞赛】](https://filecoin.io/zh-cn/blog/space-race-2/)
-  - [【Announcing Space Race 2: Slingshot】](https://filecoin.io/blog/announcing-sr2-slingshot/)
-  - [【Space Race 2 - Slingshot 注意事项】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1601061393028300)
-  - [【sling shot 主页】](https://slingshot.filecoin.io/)
 
 
 ### 2.4 主网上线后依然可用的测试网
@@ -154,30 +144,7 @@
 [【主网在这】](https://network.filecoin.io/#mainnet)
 
 
-## 3. SpaceRace 专用
-
-- **Branch:** master
-
-- **tag:**  最新：2020/08/29 - 10:05 AM [【v0.5.6】](https://filecoinproject.slack.com/archives/C019UFEACBT/p1598677450325600)， v0.5.5 夭折了
-
-- **水龙头:**  https://spacerace.faucet.glif.io/
-
-- **矿工联通性检查:** https://spacerace.filecoin.io/check
-
-- **Slack 宣布地址:** https://filecoinproject.slack.com/archives/C0179RNEMU4/p1598299269304500
-
-- **浏览器：**：  [【官方 Stats】](https://spacerace.filecoin.io/), [【Filscan】](https://filscan.io/#/mining?type=0), [【Filfox】](https://filfox.info/zh),  [【Filscout】](https://filscout.io/en/), [【Filblock】](http://filblock.io/#/), [【IPFS.GUIDE】](http://www.ipfs.guide/)
-
-### 3.0 宋江 vs. Why
-
-(1). [2020/08/21: 【宋江之 Filecoin Discover 硬盘拷问】](https://filecoinproject.slack.com/archives/CEHTVSEG6/p1597979257139500)
-
-(2). [2020/08/21: 【宋江之 硬盘与数据探讨】](https://filecoinproject.slack.com/archives/CEHTVSEG6/p1598014788198600)
-
-(3). [2020/08/22: 【宋江之 Filecoin 灵魂拷问】](https://filecoinproject.slack.com/archives/CEHTVSEG6/p1598056632223700)
-
-(4). [2020/08/25: 【宋江之 Filecoin 网络容易受攻击】](https://filecoinproject.slack.com/archives/CEHTVSEG6/p1598343307062300)
-
+## 3. SpaceRace 专用【已废弃】
 
 ### 3.1 参数下载
 
