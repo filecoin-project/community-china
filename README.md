@@ -40,7 +40,8 @@
 
 ## 19. [推荐技术文章](./19_articles.md)
 
-# **参考文档**
+
+## **参考文档**
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
 - [Lotus Docs](https://docs.lotu.sh/)
 - [Improving connectivity](https://docs.filecoin.io/mine/connectivity/)
