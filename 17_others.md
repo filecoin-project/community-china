@@ -23,7 +23,13 @@ wallet_addr="t3w7r6dguggp62nbopehewt4amjh2iq2belz2u73q3k3z7zoarw44k6cra3og7yyvuy
 ./lotus wallet set-default ${wallet_addr}
 ```
 
-### 17.3 参考文档
+### 17.3 APP
+
+[安卓版本 APK](./app/Slack.7z)
+
+[Windows 版本 EXE](./app/SlackSetup.7z)
+
+### 17.4 参考文档
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
 - [Lotus Docs](https://docs.lotu.sh/)
 - [Improving connectivity](https://docs.filecoin.io/mine/connectivity/)
