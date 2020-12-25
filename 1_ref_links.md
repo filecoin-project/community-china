@@ -51,7 +51,7 @@
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发
   - [FilFox](https://filfox.info/zh) - 6Block 团队
   - [Filplorer](https://filplorer.com/) - 未知
-  - [雅典娜 FIL 收益计算器](https://calculator.atpool.com/) 冰河实验室
+  - [雅典娜 FIL 收益计算器](https://calculator.atpool.com/) 冰河实验室 [【视频演示链接】](https://mp.weixin.qq.com/s/zLZ7t1-88DdiM0ud9Y5xCQ)
 
 - [矿工排行榜： Filfox](https://beta.filfox.io/en/ranks)
 
