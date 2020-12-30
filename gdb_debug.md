@@ -130,11 +130,11 @@ git checkout storage-proofs-v5.4.0
 
 #### A. 修改 Makefile 文件
 
-Makefile 中要把 `bench` 模块加入到 Debug 组，这样的话，我们执行 `FFI_BUILD_FROM_SOURCE=1 make clean debug` 命令的时候就能够把 `bench` 程序的 Debug 版本也编译出来（默认 `bench` 程序没有 Debug 版本的），修改结果如下：
+Makefile 中要把 `lotus-bench` 模块加入到 Debug 组和 2k 组，这样的话，我们执行 `FFI_BUILD_FROM_SOURCE=1 make clean debug` 或者 `FFI_BUILD_FROM_SOURCE=1 make clean 2k` 命令的时候就能够把 `lotus-bench` 程序的 Debug 版本也编译出来（默认 `lotus-bench` 程序没有 Debug 版本的），修改结果如下：
 
 ![修改 Makefile 文件](./pictures/change_makefile.png)
 
-当然，你也可以在 `2k` 后面加上 `bench` 程序，这样我们就可以编译出 Debug 版本的 `bench` 程序，方便调试。
+这样我们就可以编译出 Debug 版本的 `lotus-bench` 程序，方便调试。
 
 #### B. 修改 install-filcrypto 文件
 
@@ -184,17 +184,17 @@ FFI_BUILD_FROM_SOURCE=1 make clean debug
 
 ### (2). 调试 lotus
 
-编译好之后，我们就开始可以调试了，在这里主要演示的是调试 `bench` 程序，并在 go 语言和 rust 语言里面下断点，观察中间结果，单步调试程序运行过程。
+编译好之后，我们就开始可以调试了，在这里主要演示的是调试 `lotus-bench` 程序，并在 go 语言和 rust 语言里面下断点，观察中间结果，单步调试程序运行过程。
 
 #### A. 启动程序并设置参数
 
-首先使用 **GDB** 启动 `bench` 程序，命令很简单，在 lotus 目录中执行：
+首先使用 **GDB** 启动 `lotus-bench` 程序，命令很简单，在 lotus 目录中执行：
 
 ```sh
-gdb ./bench
+gdb ./lotus-bench
 ```
 
-然后给 `bench` 程序加上参数，使用如下命令（就是让 `bench` 跑 **2KiB** 的扇区）：
+然后给 `lotus-bench` 程序加上参数，使用如下命令（就是让 `lotus-bench` 跑 **2KiB** 的扇区）：
 
 ```sh
 set args sealing --sector-size=2KiB
@@ -203,10 +203,10 @@ set args sealing --sector-size=2KiB
 这样就相当于是执行：
 
 ```sh
-./bench sealing --sector-size=2KiB
+./lotus-bench sealing --sector-size=2KiB
 ```
 
-当然，你可以在启动 `bench` 程序之前启动 rust 的日志：
+当然，你可以在启动 `lotus-bench` 程序之前启动 rust 的日志（要在同一个终端中启用）：
 
 ```sh
 export RUST_LOG=Trace
@@ -220,62 +220,62 @@ export RUST_LOG=Trace
 
 上述命令只是把程序加载到内存，配置好运行参数信息，程序还没有开始运行，在它运行之前，我们需要给它下几个断点，在我们需要的地方让它停下来，方便我们观察中间结果。
 
-现在，我们在 go 层面给它下一个断点，让它断在执行 `SealPreCommit1()` 函数的地方，这样我们就可以看到准备执行 **Pre-Commit1** 的时候传给这个函数的参数信息。**Pre-Commit1** 所在的位置是 `/home/ml/git/lotus/cmd/lotus-bench/main.go` 文件中的第 **465** 行，如下图所示：
+现在，我们在 go 层面给它下一个断点，让它断在执行 `SealPreCommit1()` 函数的地方，这样我们就可以看到准备执行 **Pre-Commit1** 的时候传给这个函数的参数信息。**Pre-Commit1** 所在的位置是 `/home/ml/git/lotus/cmd/lotus-bench/main.go` 文件中的第 **552** 行，如下图所示：
 
 ![precommit1](./pictures/precommit1.png)
 
 因此，我们使用如下命令给它在这一行下一个断点：
 
 ```sh
-b /home/ml/git/lotus/cmd/lotus-bench/main.go:465
+b /home/ml/git/lotus/cmd/lotus-bench/main.go:552
 ```
 
 上述命令下断点的方式只是其中的一种方式，就是指定某个文件的某一行，`b` 表示 `break` 的意思，就是下断点，如下图所示：
 
 ![break_precommit1](./pictures/go_precommit1.png)
 
-在 **go** 语言层面已经下了一个断点了，当然，你想在什么地方下断点都行，下几个也随你，**GDB** 每遇到一个断点就会停下来。接下来我们要在 **rust** 底层库中也下一个断点，下断点的方式和第一个断点一样，我们把断点下载到 **rust** 语言执行 **Pre-Commit1** 操作的地方，也就是在 `seal_pre_commit_phase1()` 函数处，这个函数所在的位置是：`/home/ml/git/rust-fil-proofs/filecoin-proofs/src/api/seal.rs` 的第 **43** 行，如下图所示：
+在 **go** 语言层面已经下了一个断点了，当然，你想在什么地方下断点都行，下几个也随你，**GDB** 每遇到一个断点就会停下来。接下来我们要在 **rust** 底层库中也下一个断点，下断点的方式和第一个断点一样，我们把断点下载到 **rust** 语言执行 **PreCommit1** 操作的地方，也就是在 `seal_pre_commit_phase1()` 函数处，这个函数所在的位置是：`/home/ml/git/rust-fil-proofs/filecoin-proofs/src/api/seal.rs` 的第 **44** 行，如下图所示：
 
 ![break_precommit1](./pictures/rust_precommit1.png)
 
 我们要在这个函数的第一行下一个断点，执行如下命令给它下一个断点：
 
 ```sh
-b /home/ml/git/rust-fil-proofs/filecoin-proofs/src/api/seal.rs:58
+b /home/ml/git/rust-fil-proofs/filecoin-proofs/src/api/seal.rs:59
 ```
 
 如下图所示：
 
 ![break_rust_precommit1](./pictures/break_rust_precommit1.png)
 
-但是，由于这个 `seal_pre_commit_phase1()` 函数有些小复杂，为了方便小白们迅速找到 **Pre-Commit1** 真正核心的代码，也就是生成 **11** 层 **layer** 的地方，我们在另一个地方也下一个断点，那就是 `/home/ml/git/rust-fil-proofs/storage-proofs/porep/src/stacked/vanilla/proof.rs` 文件中的 `generate_labels()` 函数，这个函数内部有一个双层嵌套的 `for` 循环，外层 `for` 循环执行 **11** 次，每次生成一层 **layer**， 内层 `for` 循环执行 **1G** 次（这里说 **1G** 次是针对 **32GB** 扇区的情况，并且所说的 **1G** 次就是： `1024 * 1024 * 1024` 次）。代码如下所示：
+但是，由于这个 `seal_pre_commit_phase1()` 函数有些小复杂，为了方便小白们迅速找到 **PreCommit1** 真正核心的代码，也就是生成 **11** 层 **layers** 的地方，我们在另一个地方也下一个断点，那就是 `/home/ml/git/rust-fil-proofs/storage-proofs/porep/src/stacked/vanilla/proof.rs` 文件中的 `generate_labels_for_encoding()` 函数，现在这个版本的代码，有两种方式实现 **PreCommit1**，一种是多线程的方式，另一种是单线程的方式，多线程方式的会更快一些，单线程方式代码简洁些，我们就以单线程方式为例，而 `generate_labels_for_encoding()` 函数就是一个选择函数，用于选择多线程实现还是单线程实现，如下所示：
+
+![P1实现方式选择器](./pictures/P1_mode_selection.png)
+
+我们进入到 `create_label::single::create_labels_for_encoding` 函数，这个函数内部有一个双层嵌套的 `for` 循环，外层 `for` 循环执行 **11** 次，每次生成一层 **layer**， 内层 `for` 循环执行 **1G** 次（这里说 **1G** 次是针对 **32GB** 扇区的情况，并且所说的 **1G** 次就是： `1024 * 1024 * 1024` 次）。代码如下所示：
 
 ![rust_generate_layers](./pictures/generate_layer.png)
 
-当然，这个说生成 **11** 层数据是指对与 **32GB** 扇区的情况，对于 **2KiB** 扇区的话，是不会有这么多层的，然后我们在这个 `generate_labels()` 函数的开头给它下一个断点，就下在 **283** 行吧，命令如下所示：
+当然，这个说生成 **11** 层数据是指对与 **32GB** 扇区的情况，对于 **2KiB** 扇区的话，是不会有这么多层的，然后我们在这个 `create_labels_for_encoding()` 函数的开头给它下一个断点，就下在 **29** 行吧，命令如下所示：
 
 ```sh
-b /home/ml/git/rust-fil-proofs/storage-proofs/porep/src/stacked/vanilla/proof.rs:283
+b /home/ml/git/rust-fil-proofs/storage-proofs/porep/src/stacked/vanilla/create_label/single.rs:29
 ```
-
-如下所示：
-
-![break_rust_generate_layers](./pictures/break_generate_layer.png)
 
 断点现在都下好了，下一步就开始可以运行了。
 
 #### C. 开始运行
 
-直接输入 `r` （就是 `run` 的意思）就开始运行 `bench` 程序了，然后程序就会在 **go** 语言的 `SealPreCommit1()` 函数的地方停下来，如下图所示：
+直接输入 `r` （就是 `run` 的意思）就开始运行 `lotus-bench` 程序了，然后程序就会在 **go** 语言的 `SealPreCommit1()` 函数的地方停下来，如下图所示：
 
 ![go语言中停下来](./pictures/stop_at_go.png)
 
-此时，就可以使用 `p` 命令查看各种变量的信息了，例如，如果我们想要看传入到 `SealPreCommit1()` 函数的 `sid`、 `ticket` 和 `pieces` 变量，就可以使用如下命令查看：
+此时，就可以使用 `p` 命令查看各种变量的信息了，例如，如果我们想要看传入到 `SealPreCommit1()` 函数的 `sid`、 `ticket` 和 `piece` 变量，就可以使用如下命令查看：
 
 ```sh
 p sid
-p sid
-p pieces
+p ticket
+p piece
 ```
 
 如下图所示：
