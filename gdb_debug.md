@@ -130,7 +130,7 @@ git checkout storage-proofs-v5.4.0
 
 #### A. 修改 Makefile 文件
 
-Makefile 中要把 `lotus-bench` 模块加入到 Debug 组和 2k 组，这样的话，我们执行 `FFI_BUILD_FROM_SOURCE=1 make clean debug` 或者 `FFI_BUILD_FROM_SOURCE=1 make clean 2k` 命令的时候就能够把 `lotus-bench` 程序的 Debug 版本也编译出来（默认 `lotus-bench` 程序没有 Debug 版本的），修改结果如下：
+Makefile 中要把 `lotus-bench` 模块加入到 Debug 组和 2k 组，这样的话，我们执行 `FFI_BUILD_FROM_SOURCE=1 make clean debug` 或者 `FFI_BUILD_FROM_SOURCE=1 make clean 2k` 命令的时候就能够把 `lotus-bench` 程序的 Debug 版本也编译出来（默认 `lotus-bench` 程序没有 Debug 版本的）；同时，还需要把 `-gcflags "-N -l"` 加到 `GOFLAGS`，使得调试 go 层面的代码的时候更方便，修改结果如下：
 
 ![修改 Makefile 文件](./pictures/change_makefile.png)
 
