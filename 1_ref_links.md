@@ -21,11 +21,13 @@
 - [【封装 32GB 扇区所需硬件消耗情况评估】](https://docs.filecoin.io/mine/hardware-requirements/#specific-operation-requirements)
 - [Lotus网络(Calibration, Nerpa, Mainnet, Butterfly)](https://network.filecoin.io/)
 
-- 实时币价查看网站
+- 实时币价查看网站、钱包
   - [【Coinlist 地址】](https://coinlist.co/)
   - [【Gate.io 地址】](https://www.gate.io/)
   - [【Gatecn.io 地址】](https://www.gatecn.io/)
   - [【AICoin 地址】](https://www.aicoin.cn/)
+  - [【火币】](https://www.huobi.be/zh-cn/)
+  - [【ImToken】](https://www.token.im/)
 
 - [Miner 重启的时机的选择](https://docs.filecoin.io/mine/lotus/miner-lifecycle/#ensuring-proofs-for-the-current-deadline-have-been-sent)
 - 【群友项目】
