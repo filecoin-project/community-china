@@ -529,7 +529,171 @@ ml@ml:~/git/lotus/extern/filecoin-ffi$
 
 ## 4. Debug 版代码调试 Bellperson 库
 
-TODO
+使用 `Debug` 版本编译好 `lotus` 代码之后，就可以使用 `gdb` 调试了， `gdb` 调试基础教程可查看 [【使用 GDB 调试 lotus 代码】](./gdb_debug.md) ，现在简单看一下本地调试 bellperson 的方法吧：
+
+### 4.1 启动调试
+
+```sh
+export RUST_LOG=Trace
+gdb ./lotus-bench
+set args sealing --sector-size=2KiB --only-commit2=true --commit2-input=c2-input.data
+```
+
+如下所示：
+
+![启动调试 Bellperson 代码](./pictures/bellperson_start.png)
+
+这里调试的时候，我修改了 `lotus-bench` 的代码，使它可以直接复用以前 `C1` 输出的结果继续进行测试，也就是每次调试的时候，就不需要经历 `AP` -> `P1` -> `P2` -> `C1` 的过程了，而是直接从文件中读取 `C1` 的输入数据（在这里是 `c2_input.data` 文件）。
+
+
+### 4.2 下断点并运行查看变量信息
+
+然后直接在 bellperson 库中下一个断点，如下所示：
+
+![在 Bellperson 库中下断点1](./pictures/bellperson_breakpoint_1.png)
+
+![在 Bellperson 库中下断点2](./pictures/bellperson_breakpoint_2.png)
+
+使用 `r` 命令开始执行，并执行到断点处自动停下：
+
+![开始运行代码](./pictures/bellperson_run.png)
+
+断点段下来之后，就可以查看变量信息了：
+
+![查看 Bellperson 库中的变量信息](./pictures/bellperson_info.png)
+
+
+### 4.3 定制化修改 lotus-bench
+
+只需要修改 `./cmd/lotus-bench/main.go` 文件即可， `diff` 信息如下所示：
+
+```git diff
+ml@ml:~/git/lotus$ git diff cmd/lotus-bench/main.go
+diff --git a/cmd/lotus-bench/main.go b/cmd/lotus-bench/main.go
+index b246aedbb..57608158a 100644
+--- a/cmd/lotus-bench/main.go
++++ b/cmd/lotus-bench/main.go
+@@ -151,6 +151,14 @@ var sealBenchCmd = &cli.Command{
+                        Name:  "skip-commit2",
+                        Usage: "skip the commit2 (snark) portion of the benchmark",
+                },
++               &cli.BoolFlag{
++                       Name:  "only-commit2",
++                       Usage: "Only bench the commit2 (snark) portion of the benchmark",
++               },
++               &cli.StringFlag{
++                       Name:  "commit2-input",
++                       Usage: "Commit2 input data",
++               },
+                &cli.BoolFlag{
+                        Name:  "skip-unseal",
+                        Usage: "skip the unseal portion of the benchmark",
+@@ -264,16 +272,35 @@ var sealBenchCmd = &cli.Command{
+                var sealedSectors []saproof2.SectorInfo
+ 
+                if robench == "" {
+-                       var err error
+-                       parCfg := ParCfg{
+-                               PreCommit1: c.Int("parallel"),
+-                               PreCommit2: 1,
+-                               Commit:     1,
+-                       }
+-                       sealTimings, sealedSectors, err = runSeals(sb, sbfs, sectorNumber, parCfg, mid, sectorSize, []byte(c.String("ticket-preimage")), c.String("save-commit2-input"), skipc2, c.Bool("skip-unseal"))
+-                       if err != nil {
+-                               return xerrors.Errorf("failed to run seals: %w", err)
++
++                       if !c.Bool("only-commit2") {
++                               var err error
++                               parCfg := ParCfg{
++                                       PreCommit1: c.Int("parallel"),
++                                       PreCommit2: 1,
++                                       Commit:     1,
++                               }
++                               sealTimings, sealedSectors, err = runSeals(sb, sbfs, sectorNumber, parCfg, mid, sectorSize, []byte(c.String("ticket-preimage")), c.String("save-commit2-input"), skipc2, c.Bool("skip-unseal"))
++                               if err != nil {
++                                       return xerrors.Errorf("failed to run seals: %w", err)
++                               }
++
++                       } else {
++                               // We only run Commit2 phase
++                               var err error
++                               parCfg := ParCfg{
++                                       PreCommit1: c.Int("parallel"),
++                                       PreCommit2: 1,
++                                       Commit:     1,
++                               }
++                               var c2in = c.String("commit2-input")
++                               sealTimings, sealedSectors, err = runCommit2(sb, sbfs, c.Int("num-sectors"), parCfg, mid, sectorSize, []byte(c.String("ticket-preimage")), c2in)
++                               if err != nil {
++                                       return xerrors.Errorf("failed to run seals: %w", err)
++                               }
++                               return nil
+                        }
++
+                } else {
+                        // TODO: implement sbfs.List() and use that for all cases (preexisting sectorbuilder or not)
+ 
+@@ -772,6 +799,39 @@ var proveCmd = &cli.Command{
+        },
+ }
+ 
++func runCommit2(sb *ffiwrapper.Sealer, sbfs *basicfs.Provider, numSectors int, par ParCfg, mid abi.ActorID, sectorSize abi.SectorSize, ticketPreimage []byte, saveC2inp string) ([]SealingResult, []saproof2.SectorInfo, error) {
++
++       sealTimings := make([]SealingResult, numSectors)
++       sealedSectors := make([]saproof2.SectorInfo, numSectors)
++
++       sid := storage.SectorRef{
++               ID: abi.SectorID{
++                       Miner:  mid,
++                       Number: 0,
++               },
++               ProofType: spt(sectorSize),
++       }
++
++       commit2Start := time.Now()
++
++       // Reand previously-saved Commit1 output data
++       b, err := ioutil.ReadFile(saveC2inp)
++       if err != nil {
++               log.Warnf("Read precommit1 output failed: %+v", err)
++       }
++       var c2in Commit2In
++       err = json.Unmarshal(b, &c2in)
++       c1o := c2in.Phase1Out
++       sb.SealCommit2(context.TODO(), sid, c1o)
++
++       commit2End := time.Now()
++
++       log.Warnf("MAILONG: start time %+v", commit2Start)
++       log.Warnf("MAILONG: end   time %+v", commit2End)
++
++       return sealTimings, sealedSectors, nil
++}
++
+ func bps(sectorSize abi.SectorSize, sectorNum int, d time.Duration) string {
+        bdata := new(big.Int).SetUint64(uint64(sectorSize))
+        bdata = bdata.Mul(bdata, big.NewInt(int64(sectorNum)))
+ml@ml:~/git/lotus$ 
+
+```
+
+修改好之后，重新编译，此时的编译不需要编译底层的 rust 代码，只更新了上层的 go 代码，因此编译命令无需 clean，如下所示：
+
+```sh
+FFI_BUILD_FROM_SOURCE=1 make debug
+```
+
+生成一份 `C2` 的输入数据，以后可重复使用：
+
+```sh
+RUST_LOG=Trace ./lotus-bench sealing --sector-size=2KiB --save-commit2-input=c2-input.data
+```
+
+只测试 `C2` ：
+
+```sh
+RUST_LOG=Trace ./lotus-bench sealing --sector-size=2KiB --only-commit2=true --commit2-input=c2-input.data
+```
 
 ## 5. 结束
 
