@@ -28,4 +28,11 @@
 - [start_daemon.sh](./scripts/start_daemon.sh)
 - [start_miner.sh](./scripts/start_miner.sh)
 
+### 11.3 本地编译 Bellperson 库
+
+本教程适用于需要修改 bellperson 代码的朋友：
+
+[【本地编译 Bellperson 库代码】](./build_bellperson.md)
+
+
 ## [回目录](./README.md)

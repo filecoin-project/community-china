@@ -527,7 +527,11 @@ ml@ml:~/git/lotus/extern/filecoin-ffi$
 详细信息请参考：
 [【使用 GDB 调试 lotus 代码】](./gdb_debug.md) 
 
-## 4. 结束
+## 4. Debug 版代码调试 Bellperson 库
+
+TODO
+
+## 5. 结束
 
 如有任何问题，欢迎到 [【Filecoin技术交流群】](./15_weixin_groups.md) 交流。
 
