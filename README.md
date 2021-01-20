@@ -1290,7 +1290,7 @@ Swap:         2.0Gi       1.2Gi       795Mi
 **Filecoin 中文交流群** 是目前国内最友好的 Filecoin 技术交流群，
 也是全球最大的、最活跃的 Filecoin 技术交流社区，
 欢迎广大 Filecoin 爱好者加入我们的技术交流群。
-进群请加微信：**max-yu-666**
+进群请加微信：**max-yu-666** 【微信群管理员】
 
 <img src="https://user-images.githubusercontent.com/1715211/97078045-9c787480-161b-11eb-89ab-54d73fcea9d5.jpg" width="200" height="200" />
 
