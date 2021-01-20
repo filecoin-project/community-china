@@ -2,7 +2,7 @@
 
 **CoinSummer 实验室** Filecoin 资源分享目录
 
-## 1. [常用链接](./1_ref_links.md)
+## 1. 常用链接
 
 - 主网相关
   - [【主网概览：Spacegap】](https://spacegap.github.io/)
@@ -105,7 +105,7 @@
   - [中文版](https://filecoin.io/zh-cn/2020-engineering-filecoins-economy-zh-cn.pdf)
 
 
-## 2. [主网](./2_mainnet.md)
+## 2. 主网
 
 
 - [【Filecoin基线标准调整，矿工收益影响几何？ --  IPFS原力区】](https://mp.weixin.qq.com/s?__biz=MzU4Mzk2Mzc3Mg==&mid=2247501447&idx=1&sn=63e2dc271e49f7e435c80a1a28fd79f8&chksm=fda38394cad40a8247ed217e23fc295cd7598d6a0e55e176dba9faf3781c83ab488da0c5d677&mpshare=1&scene=1&srcid=1020nkJFPqgsS7xhEvd4gn46&sharer_sharetime=1603207486701&sharer_shareid=55a0eb6b664d6eb2b20ee28e1fa010cb&key=fdd054e9602c88a6238f19a0836803b0fd9b4dfe9d322e7e0c67089549c42aa497a0f216322a0eb1909fab98021658f05dcd056e4b8bff8538f9273139d155495b4452d4456a3f3fda39575cb877bd848651d70a1f9b0e5667b2b77ca16950e01207422f34137395920e0eafbe8ee41e8653e46825bc73e3b5da63fd4d876196&ascene=1&uin=Njg4MDE3MzA4&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AY%2Fvc21LpsL3R2pes6P4K3o%3D&pass_ticket=TFnj1pD7tykPCIgDGuKYZcdOfaIfb0u%2FvZfbW6ChLakoFcIM9lRZRv3xBvKW0StG&wx_header=0)
@@ -149,7 +149,7 @@
 [【主网在这】](https://network.filecoin.io/#mainnet)
 
 
-## 3. [SpaceRace 专用【已废弃】](./3_space_race.md)
+## 3. SpaceRace 专用【已废弃】
 
 
 ### 3.1 参数下载
@@ -182,7 +182,7 @@ export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/
 注： 创建矿工一般不支持指定 actor 地址，既： t01000, t01001,t1002 等，也就是说，init 命令中的 `--actor t01xxx` 是不可用的。
 
 
-## 4. [节点操作](./4_lotus_op.md)
+## 4. 节点操作
 
 
 ### 4.1 查看节点信息
@@ -270,7 +270,7 @@ export FIL_PROOFS_PARAMETER_CACHE=/path/to/proof_params/v28/
 参考：[【快速同步数据：Slack】](https://filecoinproject.slack.com/archives/C0179RNEMU4/p1600187096118400)， [【官方文档：Chain sync】](https://github.com/filecoin-project/filecoin-docs/blob/master/docs/get-started/lotus/installation.md#chain-sync)，[【官方文档：create-a-snapshot】](https://docs.filecoin.io/get-started/lotus/chain-snapshots/#create-a-snapshot)
 
 
-## 5. [Storage miner 操作](./5_miner_op.md)
+## 5. Storage miner 操作
 
 
 ### 5.1 查看扇区状态
@@ -400,7 +400,7 @@ lotus-shed sectors terminate --really-do-it [sectorNum1 sectorNum2 ...]
 
 
 
-## 6. [Worker操作](./6_worker_op.md)
+## 6. Worker 操作
 
 ### 6.1 查看 Worker 列表
 ```sh
@@ -446,7 +446,7 @@ lotus-worker run --listen=192.168.1.201:2333 --precommit1=false --precommit2=tru
 - `commit` 参数是配置 `commit2` 的，`commit1` 无法在 Worker 中启用。
 
 
-## 7. [Deal操作](./7_deal_op.md)
+## 7. Deal 操作
 
 ### 7.1 Deal配置 - Miner有公网IP
 假设Miner的公网IP为`123.123.73.123`，内网IP为`10.4.0.100`。
@@ -551,7 +551,7 @@ lotus-miner retrieval-deals list
 ```
 
 
-## 8. [常用环境变量](./8_envs.md)
+## 8. 常用环境变量
 
 
 ```sh
@@ -631,7 +631,7 @@ FIL_PROOFS_USE_MULTICORE_SDR=1
 ```
 
 
-## 9. [解决拉取代码冲突问题（git pull）](./9_pull_errors.md)
+## 9. 解决拉取代码冲突问题（git pull）
 
 
 如果你在执行 `git pull` 的时候出现类似如下错误（`CONFLICT xxx`），你可以使用以下方法解决该问题：
@@ -690,7 +690,7 @@ git reset --hard origin/interopnet
 
 
 
-## 10. [重置本地测试网环境](./10_local_net.md)
+## 10. 重置本地测试网环境
 
 
 如果你在使用本地测试网，发现 lotus daemon 启动不了，或者是 miner 启动不了，或者是其它的问题，这时候，如果你没有别的更好的解决方法，你可以尝试完全清理本地环境，然后再启动 daemon 和 miner， 默认情况下，你需要清理如下的文件或文件夹等：
@@ -713,7 +713,7 @@ unset FIL_PROOFS_MAXIMIZE_CACHING
 ```
 
 
-## 11. [GDB 调试 lotus 源码](./11_gdb_debug.md)
+## 11. GDB 调试 lotus 源码
 
 
 ### 11.1 GDB 调试 lotus 源码
@@ -750,7 +750,7 @@ unset FIL_PROOFS_MAXIMIZE_CACHING
 
 
 
-## 12. [编译相关问题](./12_build.md)
+## 12. 编译相关问题
 
 
 
@@ -1023,7 +1023,7 @@ source ~/.bashrc
 ```
 
 
-## 13. [Benchmark](./13_benchmarks.md)
+## 13. Benchmark
 
 
 ### 13.1 v26 版本参数
@@ -1273,7 +1273,7 @@ Swap:         2.0Gi       1.2Gi       795Mi
 注： 统计数据可能不是非常准确。
 
 
-## 14. [Scripts](./14_scripts.md)
+## 14. 一些简单的脚本
 
 
 ### 14.1 Auto pledge sectors script
@@ -1284,7 +1284,7 @@ Swap:         2.0Gi       1.2Gi       795Mi
 
 
 
-## 15. [Filecoin 中文交流群](./15_weixin_groups.md)
+## 15. Filecoin 中文交流群
 
 
 **Filecoin 中文交流群** 是目前国内最友好的 Filecoin 技术交流群，
@@ -1305,7 +1305,7 @@ Filecoin 中文交流-3群（目前还有空位）,
 
 
 
-## 16. [Seal 密封流程](./16_seal_algorithm.md)
+## 16. Seal 密封流程
 
 
 ### 16.1 P1 计算过程简介
@@ -1326,7 +1326,7 @@ P2 分为两个阶段，一个是 `Building column hash`（也叫做 `Building t
 
 
 
-## 17. [其它](./17_others.md)
+## 17. 其它
 
 
 ### 17.1 币单位转换
@@ -1362,7 +1362,7 @@ wallet_addr="t3w7r6dguggp62nbopehewt4amjh2iq2belz2u73q3k3z7zoarw44k6cra3og7yyvuy
 - [Improving connectivity](https://docs.filecoin.io/mine/connectivity/)
 
 
-## 18. [常用的两个查看系统资源的工具](./18_useful_tools.md)
+## 18. 常用的两个查看系统资源的工具
 
 
 ### 18.1 htop 查看 CPU 和内存等信息
@@ -1397,7 +1397,7 @@ sudo make install
 
 
 
-## 19. [推荐技术文章](./19_articles.md)
+## 19. 推荐技术文章
 
 - **星想法**
 	1. [Filecoin - 为什么SDR这么慢？](https://mp.weixin.qq.com/s/8V2r1627R6igtvXlV42mJQ)
