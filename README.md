@@ -1404,6 +1404,20 @@ sudo make install
 	1. [Filecoin - Lotus存储证明了什么？](https://mp.weixin.qq.com/s/LSkuEJl9mYV98jD7bZ8iUQ)
 
 
+## 20. 打赏
+
+如果您觉得此文档对您有帮助，欢迎打赏哦：
+
+### 20.1 Filecoin 钱包：
+
+**【FIL 钱包地址】**：`f1vrpuagiiln7qqgfduph2qse7eo5zhriidekp6fq`
+**【FIL QRCODE】**：
+![TEARS_FILCOIN_QRCODE](./pictures/FIL_QRCODE_OF_TEARS.png)
+
+### 20.2 微信钱包：
+
+![TEARS_WX_QRCODE](./pictures/WX_QRCODE_OF_TEARS.png)
+
 ## **参考文档**
 - [NewMai-CommonLinkForFilecoin](https://github.com/NewMai/CommonLinkForFilecoin)
 - [Lotus Docs](https://docs.lotu.sh/)
