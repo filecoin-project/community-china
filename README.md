@@ -1406,12 +1406,14 @@ sudo make install
 
 ## 20. 打赏
 
-如果您觉得此文档对您有帮助，欢迎打赏哦：
+如果您觉得此文档对您有帮助，欢迎打赏哦 ---- **【Filecoin技术交流群-1/2/3群群主：TEARS】**
 
 ### 20.1 Filecoin 钱包：
 
 **【FIL 钱包地址】**：`f1vrpuagiiln7qqgfduph2qse7eo5zhriidekp6fq`
+
 **【FIL QRCODE】**：
+
 ![TEARS_FILCOIN_QRCODE](./pictures/FIL_QRCODE_OF_TEARS.png)
 
 ### 20.2 微信钱包：
