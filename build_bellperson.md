@@ -537,7 +537,11 @@ ml@ml:~/git/lotus/extern/filecoin-ffi$
 export RUST_LOG=Trace
 gdb ./lotus-bench
 set args sealing --sector-size=2KiB --only-commit2=true --commit2-input=c2-input.data
+
+# 可以直接使用 【这是 lotus 官方提供的方法】
+set args prove c2-input.json
 ```
+
 
 如下所示：
 
@@ -563,140 +567,24 @@ set args sealing --sector-size=2KiB --only-commit2=true --commit2-input=c2-input
 ![查看 Bellperson 库中的变量信息](./pictures/bellperson_info.png)
 
 
-### 4.3 定制化修改 lotus-bench
+### 4.3 只测试 C2 过程
 
-只需要修改 `./cmd/lotus-bench/main.go` 文件即可， `diff` 信息如下所示：
 
-```git diff
-ml@ml:~/git/lotus$ git diff cmd/lotus-bench/main.go
-diff --git a/cmd/lotus-bench/main.go b/cmd/lotus-bench/main.go
-index b246aedbb..57608158a 100644
---- a/cmd/lotus-bench/main.go
-+++ b/cmd/lotus-bench/main.go
-@@ -151,6 +151,14 @@ var sealBenchCmd = &cli.Command{
-                        Name:  "skip-commit2",
-                        Usage: "skip the commit2 (snark) portion of the benchmark",
-                },
-+               &cli.BoolFlag{
-+                       Name:  "only-commit2",
-+                       Usage: "Only bench the commit2 (snark) portion of the benchmark",
-+               },
-+               &cli.StringFlag{
-+                       Name:  "commit2-input",
-+                       Usage: "Commit2 input data",
-+               },
-                &cli.BoolFlag{
-                        Name:  "skip-unseal",
-                        Usage: "skip the unseal portion of the benchmark",
-@@ -264,16 +272,35 @@ var sealBenchCmd = &cli.Command{
-                var sealedSectors []saproof2.SectorInfo
- 
-                if robench == "" {
--                       var err error
--                       parCfg := ParCfg{
--                               PreCommit1: c.Int("parallel"),
--                               PreCommit2: 1,
--                               Commit:     1,
--                       }
--                       sealTimings, sealedSectors, err = runSeals(sb, sbfs, sectorNumber, parCfg, mid, sectorSize, []byte(c.String("ticket-preimage")), c.String("save-commit2-input"), skipc2, c.Bool("skip-unseal"))
--                       if err != nil {
--                               return xerrors.Errorf("failed to run seals: %w", err)
-+
-+                       if !c.Bool("only-commit2") {
-+                               var err error
-+                               parCfg := ParCfg{
-+                                       PreCommit1: c.Int("parallel"),
-+                                       PreCommit2: 1,
-+                                       Commit:     1,
-+                               }
-+                               sealTimings, sealedSectors, err = runSeals(sb, sbfs, sectorNumber, parCfg, mid, sectorSize, []byte(c.String("ticket-preimage")), c.String("save-commit2-input"), skipc2, c.Bool("skip-unseal"))
-+                               if err != nil {
-+                                       return xerrors.Errorf("failed to run seals: %w", err)
-+                               }
-+
-+                       } else {
-+                               // We only run Commit2 phase
-+                               var err error
-+                               parCfg := ParCfg{
-+                                       PreCommit1: c.Int("parallel"),
-+                                       PreCommit2: 1,
-+                                       Commit:     1,
-+                               }
-+                               var c2in = c.String("commit2-input")
-+                               sealTimings, sealedSectors, err = runCommit2(sb, sbfs, c.Int("num-sectors"), parCfg, mid, sectorSize, []byte(c.String("ticket-preimage")), c2in)
-+                               if err != nil {
-+                                       return xerrors.Errorf("failed to run seals: %w", err)
-+                               }
-+                               return nil
-                        }
-+
-                } else {
-                        // TODO: implement sbfs.List() and use that for all cases (preexisting sectorbuilder or not)
- 
-@@ -772,6 +799,39 @@ var proveCmd = &cli.Command{
-        },
- }
- 
-+func runCommit2(sb *ffiwrapper.Sealer, sbfs *basicfs.Provider, numSectors int, par ParCfg, mid abi.ActorID, sectorSize abi.SectorSize, ticketPreimage []byte, saveC2inp string) ([]SealingResult, []saproof2.SectorInfo, error) {
-+
-+       sealTimings := make([]SealingResult, numSectors)
-+       sealedSectors := make([]saproof2.SectorInfo, numSectors)
-+
-+       sid := storage.SectorRef{
-+               ID: abi.SectorID{
-+                       Miner:  mid,
-+                       Number: 0,
-+               },
-+               ProofType: spt(sectorSize),
-+       }
-+
-+       commit2Start := time.Now()
-+
-+       // Reand previously-saved Commit1 output data
-+       b, err := ioutil.ReadFile(saveC2inp)
-+       if err != nil {
-+               log.Warnf("Read precommit1 output failed: %+v", err)
-+       }
-+       var c2in Commit2In
-+       err = json.Unmarshal(b, &c2in)
-+       c1o := c2in.Phase1Out
-+       sb.SealCommit2(context.TODO(), sid, c1o)
-+
-+       commit2End := time.Now()
-+
-+       log.Warnf("MAILONG: start time %+v", commit2Start)
-+       log.Warnf("MAILONG: end   time %+v", commit2End)
-+
-+       return sealTimings, sealedSectors, nil
-+}
-+
- func bps(sectorSize abi.SectorSize, sectorNum int, d time.Duration) string {
-        bdata := new(big.Int).SetUint64(uint64(sectorSize))
-        bdata = bdata.Mul(bdata, big.NewInt(int64(sectorNum)))
-ml@ml:~/git/lotus$ 
-
-```
-
-修改好之后，重新编译，此时的编译不需要编译底层的 rust 代码，只更新了上层的 go 代码，因此编译命令无需 clean，如下所示：
+生成一份 `C2` 的输入数据，保存的文件名称叫做 `c2-input.json`，以后可重复使用：
 
 ```sh
-FFI_BUILD_FROM_SOURCE=1 make debug
+RUST_LOG=Trace ./lotus-bench sealing --sector-size=2KiB --save-commit2-input=c2-input.json
 ```
 
-生成一份 `C2` 的输入数据，以后可重复使用：
+使用前面生成的 `C2` 输入数据进行测试 `C2` 过程：
 
 ```sh
-RUST_LOG=Trace ./lotus-bench sealing --sector-size=2KiB --save-commit2-input=c2-input.data
+RUST_LOG=Trace ./lotus-bench prove c2-input.json
 ```
 
-只测试 `C2` ：
-
-```sh
-RUST_LOG=Trace ./lotus-bench sealing --sector-size=2KiB --only-commit2=true --commit2-input=c2-input.data
-```
 
 ## 5. 结束
 
-如有任何问题，欢迎到 [【Filecoin技术交流群】](./15_weixin_groups.md) 交流。
+如有任何问题，欢迎到 [【Filecoin技术交流群-1/2/3群】](./15_weixin_groups.md) 交流。
 
 
