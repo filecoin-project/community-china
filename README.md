@@ -1397,11 +1397,19 @@ sudo make install
 
 
 
-## 19. 推荐技术文章
+## 19. 推荐
+
+### 19.1 技术文章
 
 - **星想法**
 	1. [Filecoin - 为什么SDR这么慢？](https://mp.weixin.qq.com/s/8V2r1627R6igtvXlV42mJQ)
 	1. [Filecoin - Lotus存储证明了什么？](https://mp.weixin.qq.com/s/LSkuEJl9mYV98jD7bZ8iUQ)
+
+### 19.2 开源
+
+- 1. [【3群 群友 `@呆` 开源的 monitor 】](./files/lotus-worker-monitor.zip)
+- 2. [【2群 群友 `@默然` 开源的调度程序 】](https://github.com/moran666666/lotus-1.4.0.git)
+- 3. [【开源社区 `@jackoelv` 开源的 C2 优化程序 -- 仅 2080Ti 】](https://github.com/jackoelv/bellperson/tree/2080Ti)
 
 
 ## 20. 打赏
