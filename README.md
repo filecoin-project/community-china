@@ -32,8 +32,8 @@
   - []()
 
 - 硬件配置
-  - [石榴矿池Filecoin挖矿方案]()
-  - [社区推荐硬件方案]()
+  - [石榴矿池Filecoin挖矿方案](https://6block.com/files/zh/Filecoin%20mining%20solution%20v8.0.pdf) - 石榴矿池Filecoin挖矿解决方案，包含AMD 3760CPU和EPYC 7542两种方案
+  - [社区推荐Filecoin硬件方案]()
 
 - 挖矿集群搭建
   - [Filecoin挖矿入门教程]()
@@ -41,12 +41,12 @@
   - [推荐硬件配置]()
   - [分布式Miner配置]()
 
-- Daemon操作 - Lotus daemon相关操作
+- Daemon操作
   - [节点连接]()
   - [快照导出、导入，快照裁剪]()
   - [转账]()
 
-- Miner操作 - Lotus Miner相关操作
+- Miner操作
   - [扇区操作]()
   - [存储路径操作]()
   - [提现操作]()
@@ -54,8 +54,8 @@
   - [Miner重启时机选择]()
   - [新矿工节点上线CheckList]()
 
-- Worker操作 - Lotus Worker 配置及使用说明
-  - [Worker环境变量说明及配置]()
+- Worker操作
+  - [Lotus Worker环境变量说明及配置]()
 
 - Deal 操作
   - [Filecoin 订单配置]()
