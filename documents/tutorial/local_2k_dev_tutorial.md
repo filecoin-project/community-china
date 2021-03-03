@@ -921,6 +921,23 @@ sudo apt get install hwloc libhwloc-dev
 
 ![安装 hwloc 相关库](./pictures/install_hwloc_lib.png)
 
+### 10.11 miner 的日志中显示 drand 错误：failed getting beacon entry: 
+
+错误信息（drand：distributed random）：
+
+```sh
+ERROR   miner   miner/miner.go:208      
+ failed getting beacon entry: drand failed Get request: no valid clients - doing request:
+ Get "https://api3.drand.sh/public/643563": context deadline exceeded - doing request: 
+ Get "https://api2.drand.sh/public/643563": context deadline exceeded - doing request: 
+ Get "https://drand.cloudflare.com/public/643563": context deadline exceeded - doing request: 
+ Get "https://api.drand.sh/public/643563": context deadline exceeded
+```
+
+这个错误一般都是你的机器无法联网导致的，或者网络不稳定等，导致 `miner` 无法访问到分布式随机数服务器，而且，如果一直无法访问的话， `miner` 的 log 日志中会不断的输出这个错误信息，如果 `miner` 的 log 日志中已经暂定输出这个错误信息，则说明已经恢复正常（`WaitSeed` 阶段需要正确获得 `drand` 信息才能继续），如下图所示：
+
+![miner 无法访问 drand 的错误信息](./pictures/error_get_drand_failed.png)
+
 
 ## 11. 其它
 
