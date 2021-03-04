@@ -29,22 +29,19 @@
 - Filecoin文档
   - [依赖安装和代码编译](https://docs.filecoin.io/get-started/lotus/installation/#build-and-install-lotus)
   - [挖矿教程](https://docs.filecoin.io/mine/lotus/)
-  - []()
 
 - 硬件配置
   - [石榴矿池Filecoin挖矿方案](https://6block.com/files/zh/Filecoin%20mining%20solution%20v8.0.pdf) - 石榴矿池Filecoin挖矿解决方案，包含AMD 3760CPU和EPYC 7542两种方案
   - [社区推荐Filecoin硬件方案]()
 
 - 挖矿集群搭建
-  - [Filecoin挖矿入门教程]()
-  - [Filecoin挖矿集群搭建]()
   - [推荐硬件配置]()
-  - [分布式Miner配置]()
+  - [Filecoin挖矿集群搭建]()
+  - [分布式Miner集群搭建]()
 
 - Daemon操作
-  - [节点连接]()
-  - [快照导出、导入，快照裁剪]()
-  - [转账]()
+  - [节点启动](https://github.com/filecoin-project/community-china/discussions/2) - Lotus代码编译、节点搭建、配置、启动
+  - [节点操作](https://github.com/filecoin-project/community-china/discussions/8) - Lotus节点常用操作，快照导出、导入，快照裁剪，公网IP配置
 
 - Miner操作
   - [扇区操作]()
@@ -65,11 +62,12 @@
 - 部署运维
   - [Ansible部署工具使用]()
   - [Prometheus + Grafana监控系统搭建]()
+  - [Lotus日常运维巡检做什么](https://github.com/filecoin-project/community-china/discussions/10) - 日常硬件检查、错误扇区处理、钱包检查、消息池疏通...
 
-- 常用环境变量 - Lotus常用环境变量及使用说明
-  - [Lotus Daemon环境变量]()
-  - [Lotus Miner环境变量]()
-  - [Lotus Worker环境变量]()
+- 常用环境变量
+  - [Lotus Daemon环境变量](https://github.com/filecoin-project/community-china/discussions/6)
+  - [Lotus Miner环境变量](https://github.com/filecoin-project/community-china/discussions/6)
+  - [Lotus Worker环境变量](https://github.com/filecoin-project/community-china/discussions/6)
 
 - 常见软件问题 - 挖矿常见问题及解决方法
   - [golang编译环境配置]()
