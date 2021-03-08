@@ -46,7 +46,7 @@
 
 - Miner操作
   - [扇区操作](https://github.com/filecoin-project/community-china/discussions/14) - 扇区生命周期解析、扇区状态更新、扇区删除
-  - [存储路径操作]()
+  - [存储路径操作](https://github.com/filguard/lotus-ops/blob/master/documents/storage-manage.md) - 存储路径操作、存储i/o性能分析、网络分析
   - [Owner、Worker、Control钱包说明](https://github.com/filecoin-project/community-china/discussions/15) - 如何配置时空证明、PreCommit、ProveCommit多钱包地址
   - [Miner重启时机选择](https://docs.filecoin.io/mine/lotus/miner-lifecycle/#ensuring-proofs-for-the-current-deadline-have-been-sent) - 重启Miner前需要检查什么
   - [新矿工节点上线CheckList](https://github.com/filguard/lotus-ops/blob/master/documents/new-miner-checklist.md) - 新矿工节点上线操作系统、基础环境、Daemon、Miner、Worker检查列表
@@ -57,7 +57,7 @@
 - 部署运维
   - [Ansible部署工具使用](https://github.com/filguard/lotus-ops/blob/master/documents/ansible-deploy-tool-usage.md) - 如何使用Ansible批量自动化部署Daemon、Miner、Worker
   - [Prometheus + Grafana监控系统搭建](https://github.com/filguard/lotus-ops/blob/master/documents/monitoring-deployment.md) - 基于Prometheus和Grafana搭建Filecoin监控报警系统
-  - [Lotus日常运维巡检做什么](https://github.com/filecoin-project/community-china/discussions/10) - 日常硬件检查、错误扇区处理、钱包检查、消息池疏通...
+  - [Lotus日常运维巡检做什么](https://github.com/filecoin-project/community-china/discussions/10) - 日常硬件检查、错误扇区处理、钱包检查、消息池疏通等
 
 - 常用环境变量
   - [Lotus Daemon环境变量](https://github.com/filecoin-project/community-china/discussions/6) - Lotus Daemon常用环境变量说明
@@ -65,22 +65,24 @@
   - [Lotus Worker环境变量](https://github.com/filecoin-project/community-china/discussions/6) - Lotus Worker如何开启PreCommit1 SDR加速，如何指定显卡型号等
 
 - 常见软件问题 - 挖矿常见问题及解决方法
-  - [golang编译环境配置]
-  - [rust 和 rustup 编译环境配置（Cargo）]
+  - [Golang编译环境安装配置](./documents/build/build_env_config.md) - Golang编译环境安装、代理设置
+  - [Rust编译环境安装配置](./documents/build/build_env_config.md) - Rust编译环境安装配置，`crate.io` 源国内镜像配置
+  - [代码编译常见错误解决](./documents/build/build_env_config.md) - 国内代理配置、Intel机器编译环境变量配置
   - [解决代码拉取冲突]
-  - [代码编译常见错误解决]
   - [Ulimit 问题：`Too many open files`]
   - [Daemon 无法启动时恢复钱包密钥的方法]
   - [链同步错误：`block was from the future`]
 
 - 常见硬件问题
-  - [显卡掉驱动问题解决]
-  - [内存ECC模式开启]
+  - [CPU开启性能模式](./documents/hardware/cpu_performance.md)
+  - 显卡掉驱动问题解决
 
 - Benchmarks
-  - [AMD EPYC 7302 + 2080Ti]
-  - [AMD EPYC 7542 + 2080Ti]
-  - [AMD EPYC 7542 + 3090]
+  - [AMD EPYC 7542 + RTX 2080Ti]()
+  - [AMD EPYC 7542 + RTX 3080]
+  - [AMD EPYC 7402 + RTX 3080]
+  - [AMD EPYC 7302 + RTX 2080Ti]
+  - [AMD 3970X + RTX 2080Ti]
 
 - 资源消耗统计
   - [磁盘消耗统计]
@@ -93,27 +95,32 @@
 - 技术文章分享
   - [星想法公众号Filecoin系列文章](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU5MzMxNTk2Nw==&action=getalbum&album_id=1458647927098130433)
     - [Filecoin逻辑梳理及源代码导读](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247484751&idx=1&sn=54c2239d9f59c539a1a3c569362da288)
-    - [Snark as a Service数据量分析]()
-    - [Payment Channel介绍]()
+    - [Snark as a Service数据量分析](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487006&idx=1&sn=5c72648790ea19d4151c750b8ce635d7)
+    - [Payment Channel介绍](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487029&idx=1&sn=3770740aeee5317d3e1bba74bf2ba411)
     - [Lotus存储证明了什么？](https://mp.weixin.qq.com/s/LSkuEJl9mYV98jD7bZ8iUQ)
-    - [PoREP电路介绍]()
-    - [PoRep和PoSt算法源代码导读]()
-    - [深入理解NSE算法]()
-    - [winningPoSt逻辑介绍]()
-    - [深入理解WindowPoSt]()
-    - [Sector状态管理逻辑]()
-    - [Precommit2计算介绍]()
+    - [PoREP电路介绍](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247486997&idx=1&sn=f0c024ecb25817040ee89241036f456d)
+    - [PoRep和PoSt算法源代码导读](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247484787&idx=1&sn=643fb732f00f786da561c86239069294)
+    - [深入理解NSE算法](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487062&idx=1&sn=08ac222dfe3a4120922fa07d569bac98)
+    - [winningPoSt逻辑介绍](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487013&idx=1&sn=eb69a171b43ec84e7bcf0eea80e37d50)
+    - [深入理解WindowPoSt](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487037&idx=1&sn=70f36cdabd2723112f7784408f6c6d9d)
+    - [Sector状态管理逻辑](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487121&idx=1&sn=38ae427ba5613d5608448b1e069ed25c)
+    - [Precommit2计算介绍](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487141&idx=1&sn=7b28c4f53d1422ae9e0bbe4526a380e4)
     - [为什么SDR这么慢？](https://mp.weixin.qq.com/s/8V2r1627R6igtvXlV42mJQ)
-    - [深入理解存储管理]()
-    - [C2性能能优化多少？]()
-    - [Lotus Gas计算]()
-    - [SDR性能优化原理分析]()
-    - [一个越界Bug引发升级]()
+    - [深入理解存储管理](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487237&idx=1&sn=d0dda542c79858977954b247fdeb654e)
+    - [C2性能能优化多少？](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487262&idx=1&sn=e143a5329300f8e2a9ff64535b5ffc7a)
+    - [Lotus Gas计算](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487295&idx=1&sn=fc6833df469dfa05fc8f538d05417c88)
+    - [SDR性能优化原理分析](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487317&idx=1&sn=ec5df63004c2d8d3b4816feaaa8a95fd)
+    - [一个越界Bug引发升级](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487403&idx=1&sn=26fe5fc2152f3f50e53065d840474b8a)
+  - [MerkleTree的算法流程](https://github.com/kikakkz/rust-fil-proofs-test/blob/master/apps/data/MerkleTree%E7%9A%84%E7%AE%97%E6%B3%95.txt) - [@kikakkz](https://github.com/kikakkz)分享的MerkleTree算法调用流程
+  - [GDB调试Lotus源码](./documents/build/gdb_debug.md)
+  - Seal密封流程分析
+    - P1计算过程简介
+    - P2计算过程简介
 
 ## Optimized Lotus
 - [熊鹰myScheduler调度]() - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
 - [P2优化版](https://github.com/filguard/rust-fil-proofs) - [@mje](https://github.com/jyma)开源的P2优化版
-- [C2优化版]() - @jacklelv开源的C2优化版
+- [C2优化版](https://github.com/jackoelv/bellperson) - [@jacklelv](https://github.com/jackoelv)开源的C2优化版
 - [分布式Miner](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的分布式Miner
 - [调度优化版](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的调度程序
 
@@ -126,13 +133,6 @@
 - [订单统计](https://storage.fileco) - Filecoin网络订单统计
 - [订单查询工具](https://filecoin.tools/) - Filecoin订单市场查询
 
-## Tutorial Repositories
-- [MerkleTree的算法流程]()
-- [GDB调试Lotus源码]()
-- [Seal密封流程分析]()
-  - P1计算过程简介
-  - P2计算过程简介
-
 ## Community
-- [Slack]()
-- [Twitter]()
+- [Slack](https://filecoinproject.slack.com)
+- [Twitter](https://twitter.com/filecoin)
