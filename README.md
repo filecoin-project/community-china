@@ -64,7 +64,7 @@
   - [Lotus Miner环境变量](https://github.com/filecoin-project/community-china/discussions/6) - Lotus Miner常用环境变量说明
   - [Lotus Worker环境变量](https://github.com/filecoin-project/community-china/discussions/6) - Lotus Worker如何开启PreCommit1 SDR加速，如何指定显卡型号等
 
-- 常见软件问题 - 挖矿常见问题及解决方法
+- 常见软件问题
   - [Golang编译环境安装配置](./documents/build/build_env_config.md) - Golang编译环境安装、代理设置
   - [Rust编译环境安装配置](./documents/build/build_env_config.md) - Rust编译环境安装配置，`crate.io` 源国内镜像配置
   - [代码编译常见错误解决](./documents/build/build_env_config.md) - 国内代理配置、Intel机器编译环境变量配置
