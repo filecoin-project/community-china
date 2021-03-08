@@ -78,11 +78,10 @@
   - 显卡掉驱动问题解决
 
 - Benchmarks
-  - [AMD EPYC 7542 + RTX 2080Ti]()
-  - [AMD EPYC 7542 + RTX 3080]
-  - [AMD EPYC 7402 + RTX 3080]
-  - [AMD EPYC 7302 + RTX 2080Ti]
-  - [AMD 3970X + RTX 2080Ti]
+  - [AMD EPYC 7542 + RTX 2080Ti](https://github.com/filecoin-project/community-china/blob/master/documents/benchmark/bench.md#amd-epyc%E7%B3%BB%E5%88%97cpu)
+  - [AMD EPYC 7542 + RTX 3080](https://github.com/filecoin-project/community-china/blob/master/documents/benchmark/bench.md#amd-epyc%E7%B3%BB%E5%88%97cpu)
+  - [AMD EPYC 7302 + RTX 2080Ti](https://github.com/filecoin-project/community-china/blob/master/documents/benchmark/bench.md#amd-epyc%E7%B3%BB%E5%88%97cpu)
+  - [AMD 3970X + RTX 2080Ti](https://github.com/filecoin-project/community-china/blob/master/documents/benchmark/bench.md#amd-epyc%E7%B3%BB%E5%88%97cpu)
 
 - 资源消耗统计
   - [磁盘消耗统计]
