@@ -6,7 +6,7 @@
 - [Filscan](https://filscan.io) - IPFS原力团队开发的 Filecoin 浏览器
 - [Filscout](https://filscout.io) - 星际联盟团队开发的 Filecoin 浏览器
 - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发 Filecoin 浏览器
-- [Stats](https://stats.testnet.filecoin.io/) - 官方 Filecoin 浏览器（可切换不同的网络）
+- [Stats](https://stats.testnet.filecoin.io/) - 官方 Filecoin 浏览器（按 `ESC` 可查看不同的网络）
 - [Spacegap](https://spacegap.github.io/#/) - 官方 Filecoin 浏览器（总览视图）
 
 #### 代码仓库
@@ -34,7 +34,7 @@
   - [Filecoin中文文档](https://filecoin.filgo.info/) - 社区全栈老吕提供的Filecoin官方文档中文版
 
 - 硬件配置
-  - [石榴矿池Filecoin挖矿方案](https://6block.com/files/zh/Filecoin%20mining%20solution%20v8.0.pdf) - 石榴矿池Filecoin挖矿解决方案，包含AMD 3760CPU和EPYC 7542两种方案
+  - [石榴矿池Filecoin挖矿方案](https://6block.com/files/zh/Filecoin%20mining%20solution%20v8.0.pdf) - 石榴矿池Filecoin挖矿解决方案，包含AMD 3960CPU和EPYC 7542两种方案
   - [社区推荐Filecoin硬件方案](https://github.com/filecoin-project/community-china/discussions/18) - 社区推荐的基于AMD EPYC 7542的Filecoin挖矿硬件方案
 
 - 挖矿集群搭建
