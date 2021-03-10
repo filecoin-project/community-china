@@ -113,7 +113,7 @@
     - [SDR性能优化原理分析](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487317&idx=1&sn=ec5df63004c2d8d3b4816feaaa8a95fd)
     - [一个越界Bug引发升级](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487403&idx=1&sn=26fe5fc2152f3f50e53065d840474b8a)
   - [MerkleTree的算法流程](https://github.com/kikakkz/rust-fil-proofs-test/blob/master/apps/data/MerkleTree%E7%9A%84%E7%AE%97%E6%B3%95.txt) - [@kikakkz](https://github.com/kikakkz)分享的MerkleTree算法调用流程
-  - [GDB调试Lotus源码](./documents/build/gdb_debug.md)
+  - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
   - Seal密封流程分析
     - P1计算过程简介
     - P2计算过程简介
