@@ -115,8 +115,13 @@
   - [MerkleTree的算法流程](https://github.com/kikakkz/rust-fil-proofs-test/blob/master/apps/data/MerkleTree%E7%9A%84%E7%AE%97%E6%B3%95.txt) - [@kikakkz](https://github.com/kikakkz)分享的MerkleTree算法调用流程
   - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
   - Seal密封流程分析
+    - AP计算过程简介（TODO）
     - P1计算过程简介
     - P2计算过程简介
+    - C1计算过程简介（TODO）
+    - C2计算过程简介（TODO）
+    - WindowPoST计算过程简介（TODO）
+    - WinningPoST计算过程简介（TODO）
 
 ## Optimized Lotus
 - [熊鹰myScheduler调度]() - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
