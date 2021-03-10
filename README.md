@@ -86,12 +86,12 @@
   - [AMD 3970X + RTX 2080Ti](https://github.com/filecoin-project/community-china/blob/master/documents/benchmark/bench.md#amd-epyc%E7%B3%BB%E5%88%97cpu)
 
 - 资源消耗统计
-  - [磁盘消耗统计]
-  - [内存消耗统计]
-  - [显卡资源消耗统计]
-  - [查看系统资源工具介绍]
-    - htop
-    - nvtop
+  - [磁盘消耗统计](./documents/resource/resource_usage/resource_usage.md)
+  - [内存消耗统计](./documents/resource/resource_usage/resource_usage.md)
+  - [显卡资源消耗统计]() ： TODO
+  - [查看系统资源工具介绍](./documents/resource/resource_usage/resource_usage.md)
+    - htop （CPU 性能查看工具）
+    - nvtop （GPU 性能查看工具）
 
 - 技术文章分享
   - [星想法公众号Filecoin系列文章](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU5MzMxNTk2Nw==&action=getalbum&album_id=1458647927098130433)
