@@ -116,8 +116,8 @@
   - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
   - Seal密封流程分析
     - AP计算过程简介（TODO）
-    - P1计算过程简介
-    - P2计算过程简介
+    - [P1计算过程简介](./documents/tutorial/lotus_seal_process/seal_process.md)
+    - [P2计算过程简介](./documents/tutorial/lotus_seal_process/seal_process.md)
     - C1计算过程简介（TODO）
     - C2计算过程简介（TODO）
     - WindowPoST计算过程简介（TODO）
