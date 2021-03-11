@@ -6,6 +6,8 @@
 - [Filscan](https://filscan.io) - IPFS原力团队开发的 Filecoin 浏览器
 - [Filscout](https://filscout.io) - 星际联盟团队开发的 Filecoin 浏览器
 - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发 Filecoin 浏览器
+- [Stats](https://stats.testnet.filecoin.io/) - 官方 Filecoin 浏览器（按 `ESC` 可查看不同的网络）
+- [Spacegap](https://spacegap.github.io/#/) - 官方 Filecoin 浏览器（总览视图）
 
 #### 代码仓库
 - [lotus](https://github.com/filecoin-project/lotus) - Filecoin lotus项目源代码地址
@@ -32,7 +34,7 @@
   - [Filecoin中文文档](https://filecoin.filgo.info/) - 社区全栈老吕提供的Filecoin官方文档中文版
 
 - 硬件配置
-  - [石榴矿池Filecoin挖矿方案](https://6block.com/files/zh/Filecoin%20mining%20solution%20v8.0.pdf) - 石榴矿池Filecoin挖矿解决方案，包含AMD 3760CPU和EPYC 7542两种方案
+  - [石榴矿池Filecoin挖矿方案](https://6block.com/files/zh/Filecoin%20mining%20solution%20v8.0.pdf) - 石榴矿池Filecoin挖矿解决方案，包含AMD 3960CPU和EPYC 7542两种方案
   - [社区推荐Filecoin硬件方案](https://github.com/filecoin-project/community-china/discussions/18) - 社区推荐的基于AMD EPYC 7542的Filecoin挖矿硬件方案
 
 - 挖矿集群搭建
@@ -84,12 +86,12 @@
   - [AMD 3970X + RTX 2080Ti](https://github.com/filecoin-project/community-china/blob/master/documents/benchmark/bench.md#amd-3970x%E7%B3%BB%E5%88%97cpu)
 
 - 资源消耗统计
-  - [磁盘消耗统计]
-  - [内存消耗统计]
-  - [显卡资源消耗统计]
-  - [查看系统资源工具介绍]
-    - htop
-    - nvtop
+  - [磁盘消耗统计](./documents/resource/resource_usage/resource_usage.md)
+  - [内存消耗统计](./documents/resource/resource_usage/resource_usage.md)
+  - [显卡资源消耗统计]() ： TODO
+  - [查看系统资源工具介绍](./documents/resource/resource_usage/resource_usage.md)
+    - htop （CPU 性能查看工具）
+    - nvtop （GPU 性能查看工具）
 
 - 技术文章分享
   - [星想法公众号Filecoin系列文章](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU5MzMxNTk2Nw==&action=getalbum&album_id=1458647927098130433)
@@ -111,10 +113,15 @@
     - [SDR性能优化原理分析](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487317&idx=1&sn=ec5df63004c2d8d3b4816feaaa8a95fd)
     - [一个越界Bug引发升级](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487403&idx=1&sn=26fe5fc2152f3f50e53065d840474b8a)
   - [MerkleTree的算法流程](https://github.com/kikakkz/rust-fil-proofs-test/blob/master/apps/data/MerkleTree%E7%9A%84%E7%AE%97%E6%B3%95.txt) - [@kikakkz](https://github.com/kikakkz)分享的MerkleTree算法调用流程
-  - [GDB调试Lotus源码](./documents/build/gdb_debug.md)
+  - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
   - Seal密封流程分析
-    - P1计算过程简介
-    - P2计算过程简介
+    - AP计算过程简介（TODO）
+    - [P1计算过程简介](./documents/tutorial/lotus_seal_process/seal_process.md)
+    - [P2计算过程简介](./documents/tutorial/lotus_seal_process/seal_process.md)
+    - C1计算过程简介（TODO）
+    - C2计算过程简介（TODO）
+    - WindowPoST计算过程简介（TODO）
+    - WinningPoST计算过程简介（TODO）
 
 ## Optimized Lotus
 - [熊鹰myScheduler调度]() - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
