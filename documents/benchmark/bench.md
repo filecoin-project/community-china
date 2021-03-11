@@ -61,6 +61,7 @@ verify window post proof (hot): 17.048318ms
 - GPU： RTX 2080Ti
 - 内存： 256GB (2133MHz)
 - 硬盘： NVMe 1TB * 2
+- 扇区：32GB扇区
 - 时间：2020/11/26
 - 其它： 多线程 P1 + GPU P2
 ```sh
