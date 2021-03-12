@@ -124,7 +124,7 @@
     - WinningPoST计算过程简介（TODO）
 
 ## Optimized Lotus
-- [熊鹰myScheduler调度]() - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
+- [熊鹰myScheduler调度](http://202.74.1.76/myScheduler1.2.2/myScheduler.pdf) - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
 - [P2优化版](https://github.com/filguard/rust-fil-proofs) - [@mje](https://github.com/jyma)开源的P2优化版
 - [C2优化版](https://github.com/jackoelv/bellperson) - [@jacklelv](https://github.com/jackoelv)开源的C2优化版
 - [分布式Miner](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的分布式Miner
