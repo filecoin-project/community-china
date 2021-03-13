@@ -777,7 +777,40 @@ ml@ml:~$ ~/git2/lotus/lotus client get-deal bafyreiaytwpnkrxojl63yew5wwbsfcdngfj
 ml@ml:~$ 
 ```
 
-### 9.4 检索交易
+### 9.4 交易状态转换
+
+一笔交易从发起到完成的整个过程，所需要的时间比较久，并且会经历多个不同的状态转换，主要的状态包括如下所示的 `5` 个：
+
+- `StorageDealClientFunding`
+- `StorageDealCheckForAcceptance`
+- `StorageDealAwaitingPreCommit`
+- `StorageDealSealing`
+- `StorageDealActive`
+
+可通过命令 `~/git2/lotus/lotus client list-deals` 查看交易的状态信息，当交易达到最后一个 `StorageDealActive` 状态的时候，表明这笔交易已经完成。在整个交易的过程中，最耗时的是从 `StorageDealAwaitingPreCommit` 状态到 `StorageDealSealing` 状态，一般需要等待 `5` 个小时以上，其它状态耗时相对比较短。
+
+下面用两个额外的交易（**不是上一节中演示的那笔交易**）示例来讲解这整个过程，首先是发起交易，
+
+![Client 发起交易](./pictures/deal2_client_make_deal_log.png)
+
+然后目标旷工（接收交易方）收到交易信息（如果想看目标旷工收到交易之后所需要做的事情，可以查看这里：[【旷工接收交易的完整日志】](./files/target_miner_accept_deal_log.md)，它记录一个旷工收到一笔交易之后的完整日志信息），
+
+![接收方收到交易](./pictures/deal2_miner_show_log_before_sealing.png)
+
+`client` （发送交易方） 开始提交租金，并发送交易数据给目标旷工，然后等待链上的数据（随机数等，这一步需要很长的等待时间），
+
+![发送方查看交易状态1](./pictures/deal2_client_status_01.png)
+
+等到数据的之后，目标旷工开始进行密封数据，密封完成之后，交易状态变成 `StorageDealActive`，到此，交易完成。
+
+![发送方查看交易状态2](./pictures/deal2_client_status_02.png)
+
+再到接收方查看扇区状态，如下所示：
+
+![接收方查看扇区状态](./pictures/deal2_miner_show_log_after_sealing.png)
+
+
+### 9.5 检索交易
 
 等交易完成之后，就可以在检索市场检索之前的交易信息了，并获取交易文件的具体内容，检索方式如下：
 
