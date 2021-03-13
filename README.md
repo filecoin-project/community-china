@@ -24,7 +24,6 @@
 
 ## Network
 - [MainNet](https://github.com/filecoin-project/lotus/tree/master) - Filecoin主网
-- [Butterfly](https://github.com/filecoin-project/lotus/tree/ntwk-butterfly) - Butterfly 测试网
 - [Calibration](https://github.com/filecoin-project/lotus/tree/ntwk-calibration-10.22.0) - Calibration 校准网
 - [Nerpa](https://github.com/filecoin-project/lotus/tree/ntwk-nerpa) - Nerpa测试网
 
