@@ -135,10 +135,11 @@
 - [Fgas](https://fgas.io/index) - 挖矿成本查询，可实时查看抵押币和Gas消耗
 - [FileStats](https://filstats.com) - Filecoin挖矿成本查询
 - [Spacegap](https://spacegap.github.io/#/) - 主网数据统计概览，显示前50名矿工的算力、账户余额统计
-- [Filkeep]() - Filecoin挖矿监控报警系统
+- [Filkeep](https://console.filkeep.com) - Filecoin挖矿监控报警系统
 - [收益计算器](https://calculator.atpool.com) - 雅典娜矿池收益计算器
 - [订单统计](https://storage.fileco) - Filecoin网络订单统计
 - [订单查询工具](https://filecoin.tools/) - Filecoin订单市场查询
+- [发单、接单工具](https://github.com/nebulaai/swan) - 技术群[@竹风](https://github.com/flyworker)开源的矿工接单、客户发单工具
 
 ## Community
 - [Slack](https://filecoinproject.slack.com)
