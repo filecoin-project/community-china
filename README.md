@@ -145,7 +145,7 @@
 ## 6. Community
 - [Slack](https://filecoinproject.slack.com)
 - [Twitter](https://twitter.com/filecoin)
-- 微信交流群：**Filecoin 技术交流群** 是目前国内最友好，也是全球最大、最活跃的 Filecoin 技术交流社区，欢迎广大 Filecoin 矿工、开发者和爱好者加入我们的技术交流群。进群请加微信：**max-yu-666** 【微信群管理员】。
+- [微信交流群](./README.md)：**Filecoin 技术交流群** 是目前国内最友好，也是全球最大、最活跃的 Filecoin 技术交流社区，欢迎广大 Filecoin 矿工、开发者和爱好者加入我们的技术交流群。进群请加微信：**max-yu-666** 【微信群管理员】。
 
   <img src="https://user-images.githubusercontent.com/1715211/97078045-9c787480-161b-11eb-89ab-54d73fcea9d5.jpg" width="200" height="200" />
 
@@ -156,4 +156,9 @@
 
 ## 7. 杂项
 
+### 7.1 旧版资源大全
+
+目前，该文档是从早期版本中改造过来的，早期维护的一个资源大全，信息依然非常丰富，有些资料在这个文档中没有的，可以去旧版中找找，或许就能找到很多有用的信息，特别是一些基本操作，环境变量等等。
+
+[【旧版资源入口地址】](https://github.com/CoinSummer/filecoin)
 
