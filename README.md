@@ -1,7 +1,8 @@
 # Awesome-filecoin
 
-## Website
-#### 浏览器
+## 1. Website
+
+#### 1.1 浏览器
 - [FilFox](https://filfox.info) - 6Block 团队开发的 Filecoin 浏览器
 - [Filscan](https://filscan.io) - IPFS原力团队开发的 Filecoin 浏览器
 - [Filscout](https://filscout.io) - 星际联盟团队开发的 Filecoin 浏览器
@@ -10,24 +11,24 @@
 - [Spacegap](https://spacegap.github.io/#/) - 官方 Filecoin 浏览器（总览视图）
 - [Atpool](https://explorer.atpool.com/) - 雅典娜浏览器-Filecoin专业矿工数据服务
 
-#### 代码仓库
+#### 1.2 代码仓库
 - [lotus](https://github.com/filecoin-project/lotus) - Filecoin lotus项目源代码地址
 - [filecoin-ffi](https://github.com/filecoin-project/filecoin-ffi)
 - [rust-fil-proofs](https://github.com/filecoin-project/rust-fil-proofs)
 - [bellperson](https://github.com/filecoin-project/bellperson)
 - [neptune](https://github.com/filecoin-project/neptune)
 
-#### Filecoin其他实现
+#### 1.3 Filecoin其他实现
 - [Venus](https://github.com/filecoin-project/venus) - Filecoin Go语言的实现，基于以前的go-filecoin
 - [Fuhon](https://github.com/filecoin-project/cpp-filecoin) - Filecoin C++语言的实现
 - [Forest](https://github.com/ChainSafe/forest) - Rust语言的实现
 
-## Network
+## 2. Network
 - [MainNet](https://github.com/filecoin-project/lotus/tree/master) - Filecoin主网
 - [Calibration](https://github.com/filecoin-project/lotus/tree/ntwk-calibration-10.22.0) - Calibration 校准网
 - [Nerpa](https://github.com/filecoin-project/lotus/tree/ntwk-nerpa) - Nerpa测试网
 
-## Documentation
+## 3. Documentation
 - Filecoin文档
   - [依赖安装和代码编译](https://docs.filecoin.io/get-started/lotus/installation/#build-and-install-lotus) - Filecoin官方依赖安装和代码编译教程
   - [挖矿教程](https://docs.filecoin.io/mine/lotus/) - Filecoin官方的挖矿教程，系统性强、详细完整，建议新手通读
@@ -123,14 +124,14 @@
     - WindowPoST计算过程简介（TODO）
     - WinningPoST计算过程简介（TODO）
 
-## Optimized Lotus
+## 4. Optimized Lotus
 - [熊鹰myScheduler调度](http://202.74.1.76/myScheduler1.2.2/myScheduler.pdf) - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
 - [P2优化版](https://github.com/filguard/rust-fil-proofs) - [@mje](https://github.com/jyma)开源的P2优化版
 - [C2优化版](https://github.com/jackoelv/bellperson) - [@jacklelv](https://github.com/jackoelv)开源的C2优化版
 - [分布式Miner](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的分布式Miner
 - [调度优化版](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的调度程序
 
-## Ecosystem Tools
+## 5. Ecosystem Tools
 - [file.app](https://file.app) - 实时订单，存储费用，存储矿工等查询
 - [Fgas](https://fgas.io/index) - 挖矿成本查询，可实时查看抵押币和Gas消耗
 - [FileStats](https://filstats.com) - Filecoin挖矿成本查询
@@ -141,7 +142,7 @@
 - [订单查询工具](https://filecoin.tools/) - Filecoin订单市场查询
 - [发单、接单工具](https://github.com/nebulaai/swan) - 技术群[@竹风](https://github.com/flyworker)开源的矿工接单、客户发单工具
 
-## Community
+## 6. Community
 - [Slack](https://filecoinproject.slack.com)
 - [Twitter](https://twitter.com/filecoin)
 - 微信交流群：**Filecoin 技术交流群** 是目前国内最友好，也是全球最大、最活跃的 Filecoin 技术交流社区，欢迎广大 Filecoin 矿工、开发者和爱好者加入我们的技术交流群。进群请加微信：**max-yu-666** 【微信群管理员】。
@@ -152,3 +153,7 @@
   Filecoin 中文交流-2群（目前已满）  
   Filecoin 中文交流-3群（目前已满）  
   Filecoin 中文交流-4群（目前还有空位）  
+
+## 7. 杂项
+
+
