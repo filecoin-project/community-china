@@ -114,7 +114,6 @@
     - [SDR性能优化原理分析](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487317&idx=1&sn=ec5df63004c2d8d3b4816feaaa8a95fd)
     - [一个越界Bug引发升级](https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247487403&idx=1&sn=26fe5fc2152f3f50e53065d840474b8a)
   - [MerkleTree的算法流程](https://github.com/kikakkz/rust-fil-proofs-test/blob/master/apps/data/MerkleTree%E7%9A%84%E7%AE%97%E6%B3%95.txt) - [@kikakkz](https://github.com/kikakkz)分享的MerkleTree算法调用流程
-  - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
   - Seal密封流程分析
     - AP计算过程简介（TODO）
     - [P1计算过程简介](./documents/tutorial/lotus_seal_process/seal_process.md)
@@ -123,6 +122,11 @@
     - C2计算过程简介（TODO）
     - WindowPoST计算过程简介（TODO）
     - WinningPoST计算过程简介（TODO）
+- 基础教程
+  - [本地搭建 2K 测试网入门教程](./documents/tutorial/local_2k_dev_tutorial/local_2k_dev_tutorial.md) -- 强烈推荐的新手入门教程
+  - [Calibration 测试网使用教程](./documents/tutorial/use_cali-net_tutorial/use_cali-net_tutorial.md) -- 强烈推荐的新手入门教程
+  - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
+  
 
 ## 4. Optimized Lotus
 - [熊鹰myScheduler调度](http://202.74.1.76/myScheduler1.2.2/myScheduler.pdf) - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
