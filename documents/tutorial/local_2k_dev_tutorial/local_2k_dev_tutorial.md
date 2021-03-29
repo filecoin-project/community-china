@@ -973,6 +973,30 @@ ERROR   miner   miner/miner.go:208
 
 ![miner 无法访问 drand 的错误信息](./pictures/error_get_drand_failed.png)
 
+### 10.12 lotus 的日志中显示错误：block was from the future:
+
+错误信息如下所示：
+
+```sh
+2021-03-29T23:03:52.060+0800	ERROR	chain	chain/sync.go:1500	failed to validate tipset: validating block bafy2bzacedn4somb5xy634kgn56tnmrhs7yg7lje4u2iqpod6d74yvndvwdgu:
+    github.com/filecoin-project/lotus/chain.(*Syncer).ValidateTipSet.func1
+        /home/ml/git2/lotus/chain/sync.go:620
+  - block was from the future (now=1617030232, blk=1617030234):
+    github.com/filecoin-project/lotus/chain.(*Syncer).ValidateBlock
+        /home/ml/git2/lotus/chain/sync.go:743
+  - temporal error
+```
+
+![block was from the future 的错误信息](./pictures/error_block_was_from_the_future.png)
+
+这个错误信息一般会持续的输出，原因是你的机器的时间和其它机器的时间不一致导致的，你可以通过更新机器时间来解决这个问题，具体方式如下：
+
+```sh
+sudo ntpdate  ntp.aliyun.com
+```
+
+同步好时间之后，重启 `daemon` 和 `miner` 一般就可以了。
+
 
 ## 11. 其它
 
