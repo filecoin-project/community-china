@@ -126,6 +126,7 @@
   - [本地搭建 2K 测试网入门教程](./documents/tutorial/local_2k_dev_tutorial/local_2k_dev_tutorial.md) -- 强烈推荐的新手入门教程
   - [Calibration 测试网使用教程](./documents/tutorial/use_cali-net_tutorial/use_cali-net_tutorial.md) -- 强烈推荐的新手入门教程
   - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
+  - [Filecoin最新挖矿集群硬件配置](https://github.com/filecoin-project/community-china/discussions/18)
   
 
 ## 4. Optimized Lotus
