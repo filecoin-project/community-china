@@ -877,10 +877,121 @@ ml@ml:~$
 
 结果显示，使用 `diff` 命令查看，仅仅只是两个文件的权限格式不一样，文件内容完全一样。
 
-## 10. Worker 操作
+## 10. Worker 操作【可选】
 
 `Worker` 并不是必须的，`miner` 自带就有一个 `worker`， `worker` 能做的， `miner` 都能做，`worker` 的唯一作用只是为了分担 `miner` 的任务罢了。
 对于迷你旷工（比如只有一台机器的），就完全不需要启动 `worker` 了，有一个 `miner` 就完全足够了，但对于小集群，或者大集群，`worker` 就是必须的了，因此，这一节讲述如何使用 `worker`。
+
+### 10.1 Worker 参数解析
+
+要启动 `worker` 之前，我们先看一下 `worker` 有哪些功能，如下所示：
+
+```sh
+# 查看 worker 帮助文档
+~/git2/lotus/lotus-worker run --help
+```
+
+![查看 worker 帮助文档](./pictures/worker_help.png)
+
+这里可以看到 `worker` 的各项参数，下面讲解几个主要的参数：
+
+- `--listen`：指定 `worker` 的监听地址和端口（注意：是填写 `worker` 本身的 `IP` 地址），端口可以是任意 4 位数的端口，这个关系不大，不要和系统使用的端口冲突就行。
+- `----addpiece`： 允许 `worker` 执行 `AddPiece` 操作。
+- `--precommit1`：允许 `worker` 执行 `PreCommit1` 操作。
+- `--precommit2`：允许 `worker` 执行 `PreCommit2` 操作。
+- `--commit`：允许 `worker` 执行 `Commit2` 操作。
+- `--unseal`：允许 `worker` 执行 `Unseal` 操作（`Unseal` 操作只有在检索数据的时候使用）。
+- `--parallel-fetch-limit`：限制 `worker` 最多执行 `Fetch` 操作的数量。
+
+看到这里的参数，大家可能会疑惑：为什么没有允许 `worker` 执行 `Commit1` 操作的选项？ 因为 `Commit1` 操作就是执行一些配置步骤，并没有进行真正的计算，因此，它的速度非常快（在秒的级别就可以完成），因此，没必要让它给 `worker` 做。
+
+### 10.2 禁用 Miner 部分功能
+
+`Miner` 想要把一部分计算步骤给 `worker` 做，一般会选择禁用 `miner` 对应的功能，然后让系统把任务分配给 `worker` ，现在假设我们要把所有可以给 `worker` 做的任务都给 `worker` 做，也就是在 `miner` 中禁用所有的可以禁用的功能。
+现在我们禁用 `miner` 的 `AddPiece`、`PreCommit1`、`PreCommit2` 和 `Unseal` 功能，打开 `miner` 的配置文件 `.lotusminer/config.toml`，修改它的 `[API]` 和 `[Storage]` 项，如下所示：
+
+修改前配置文件的部分内容：
+```sh
+# 修改前的内容
+# Default config:
+[API]
+#  ListenAddress = "/ip4/127.0.0.1/tcp/2345/http"
+#  RemoteListenAddress = "127.0.0.1:2345"
+#  Timeout = "30s"
+#
+# ==这里省略中间无关配置==
+[Storage]
+#  ParallelFetchLimit = 10
+#  AllowAddPiece = true
+#  AllowPreCommit1 = true
+#  AllowPreCommit2 = true
+#  AllowCommit = true
+#  AllowUnseal = true
+```
+
+修改后配置文件的部分内容：
+
+```sh
+# 修改后的内容【注意，一定要把前面的 # 注释符去掉，否则修改不生效】
+# Default config:
+[API]
+  ListenAddress = "/ip4/192.168.100.190/tcp/2345/http"
+#  RemoteListenAddress = "127.0.0.1:2345"
+#  Timeout = "30s"
+# ==这里省略中间无关配置==
+[Storage]
+  ParallelFetchLimit = 1
+  AllowAddPiece = false
+  AllowPreCommit1 = false
+  AllowPreCommit2 = false
+  AllowCommit = false
+  AllowUnseal = false
+```
+
+**注意：** `ListenAddress` 修改为 `miner` 自己的 `IP` 地址，修改之后重启 `miner`，一定要重启 `miner`，不重启配置不生效。
+这里是示例，禁用了 `miner` 可以禁用的所有功能，但是实际过程中需要按照不同的需求进行不同的配置。
+
+### 10.3 启动 Worker
+
+假设我们的 `worker` 所在的机器的 `IP` 地址是 `192.168.100.18`，在启动 `worker` 之前，需要把 `miner` 机器中的配置文件中的 `api` 和 `token` 两个文件拷贝到 `worker` 机器上对应的文件中的对应位置（也就是放在 `~/.lotusminer/` 目录下）或者使用 `MINER_API_INFO` 的形式在 `worker` 机器的环境变量中，现在直接在 `worker` 的机器上创建 `~/.lotusminer/` 目录，并把 `miner` 机器上的配置文件中的 `api` 和 `token` 两个文件拷贝过来，如下所示：
+
+```sh
+# 从 miner 机器上拷贝 api 和 token 到 worker 机器中，
+# miner 机器的地址是： 192.168.100.190
+mkdir ~/.lotusminer
+scp ml@192.168.100.190:~/.lotusminer/{api,token} ~/.lotusminer/
+ls -al ~/.lotusminer/
+```
+
+![拷贝 miner 机器上的  api 和 token](./pictures/copy_config_from_miner_to_worker.png)
+
+注意： `miner` 配置文件中的 `api` 文件需要在启动 `miner` 之后才会生成。
+
+有了配置文件，我们现在就可以启动 `worker` 了，启动命令如下所示：
+
+```sh
+# 加上 RUST_LOG=Trace 环境变量可以看到 worker 的详细日志信息
+RUST_LOG=Trace ~/git2/lotus/lotus-worker run --listen=192.168.100.18:2333 -precommit1=true --precommit2=true --commit=true --addpiece=true --parallel-fetch-limit=1 --unseal=true
+```
+
+正常启动 `worker` 之后，就可以看到 `worker` 的日志信息，如下所示：
+
+![拷贝 miner 机器上的  api 和 token](./pictures/start_worker_success.png)
+
+此外，`miner` 中也会有显示关于 `worker` 启动的详细信息，如下所示：
+
+![miner 机器上看到的 worker 启动信息](./pictures/miner_log_after_start_worker.png)
+
+### 10.4 删除无用 Worker
+
+假设我们的 `worker` 已经关了，则  `miner` 中会不断的输出  `worker` 断开连接的信息，这些信息虽然不影响  `miner`，但是也挺烦人了，如下所示：
+
+![woker 关机之后，miner 机不断的检测 worker](./pictures/miner_try_to_connect_to_deal_worker.png)
+
+因此，可以把这个已经关机的 `worker` 从  `miner` 中删除，如下所示：
+
+TODO
+
 
 
 ## 11. 潜在的问题
@@ -902,7 +1013,7 @@ FFI_BUILD_FROM_SOURCE=1 make clean debug
 
 如果在编译 `lotus` 的时候出现如下所示的错误：
 
-![编译 lotus 失败1](./pictures/build_lotus_failed_02.png)
+![编译 lotus 失败2](./pictures/build_lotus_failed_02.png)
 
 则需要设置  `GOPROXY` 这个环境变量，然后重新编译：
 
@@ -915,7 +1026,7 @@ FFI_BUILD_FROM_SOURCE=1 make debug  # 此时不需要执行 clean 操作
 
 如果在编译 `lotus` 的时候出现如下所示的错误：
 
-![编译 lotus 失败1](./pictures/build_lotus_failed_03.png)
+![编译 lotus 失败3](./pictures/build_lotus_failed_03.png)
 
 则，更换代码版本吧，这个版本的代码有问题，目前出现这个问题的代码版本是：`v1.4.2-rc1`。
 
@@ -1044,6 +1155,18 @@ sudo ntpdate  ntp.aliyun.com
 ```
 
 同步好时间之后，重启 `daemon` 和 `miner` 一般就可以了。
+
+### 11.13 Worker 启动失败：API not running (no endpoint)
+
+错误信息如下所示：
+
+```sh
+Connecting to miner API... (could not get API info: could not get api endpoint: API not running (no endpoint))
+```
+![Worker启动失败](./pictures/start_worker_failed_api_not_running.png)
+
+这个错误信息是因为你的 `worker` 机器中没有配置 `miner` 的 `API token`，解决方法是在把 `miner`
+
 
 
 ## 12. 其它
