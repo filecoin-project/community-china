@@ -340,6 +340,48 @@ rm -rf ~/localnet.json
 
 ![查看创世旷工的状态](./pictures/show_miner_info.png)
 
+### 6.7 重启创世旷工
+
+由于本地测试网比较简单，每次使用完之后就删除了，再次使用的时候就重新再启动一个新的创世旷工就可以了，但是，由于某些需求，可能需要复用之前使用的创世旷工，比如，创世旷工不小心掉线了，此时还有其它测试的旷工还在运行，而我们要重新启动它，此时，就需要想办法重新启动创世旷工，重新启动创世旷工的方法如下（假设创世旷工和创世节点现在都挂了）：
+
+首先是重启创世旷工的 `daemon` 节点，启动命令如下：
+
+```sh
+# 注意加上参数 --profile=bootstrapper，并制定 devgen.car 文件
+~/git/lotus/lotus daemon --genesis=devgen.car --profile=bootstrapper
+```
+
+![重启之后的创世节点状态](./pictures/restart_genesis_daemon.png)
+
+重启之后，你会看到它不停的输出 `no peers connected, and no bootstrappers configured` 这个日志，不过没关系。
+接下来就是重启创世旷工，重启命令如下：
+
+```sh
+# 注意加上参数 --nosync
+ ~/git/lotus/lotus-miner run --nosync
+```
+重启之后，你会看到如下所示的日志信息：
+
+![重启之后的创世旷工状态](./pictures/restart_genesis_miner.png)
+
+重启创世旷工之后，你会在创世节点那边看到很多的日志输出，这都是正常的，如下所示：
+
+![重启创世旷工之后创世节点的日志](./pictures/restart_genesis_daemon_log_after_restart_genesis_miner.png)
+
+此时，创世节点和创世旷工都正常启动了，可以查看一下创世旷工的 `info` 信息，如下所示：
+
+![重启之后的创世旷工 info 信息](./pictures/restart_genesis_miner_info.png)
+
+最后，如果你还有其它节点还活着，可以用这个创世旷工连接到其它活着的节点，加入我现在有另一个节点还活着，我需要在 `创世旷工 `这边手动连接到该节点上，让他们实现相互同步，连接示例如下所示：
+
+![重启之后的创世旷工手动连接到其它活着的旷工](./pictures/reconnect_to_other_peers.png)
+
+连接上其它节点之后，创世节点的日志中也会有明显的变化，可以看到日志 `no peers connected, and no bootstrappers configured` 在链接了其它节点之后就消失了，如下所示：
+
+![重启之后的创世旷工手动连接到其它活着的旷工](./pictures/genesis_node_log_after_reconnect_to_others.png)
+
+到此，重启创世节点和创世旷工的工作已完成。
+
 ## 7. 启动其它节点
 
 启动好创世节点和创世旷工之后，就可以去**另一台机器**上启动其它节点了，一般情况下，我们会在其它节点上做测试，而不是直接在创世节点上做测试。
