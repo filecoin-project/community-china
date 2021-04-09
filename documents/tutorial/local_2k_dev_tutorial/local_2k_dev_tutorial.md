@@ -877,10 +877,15 @@ ml@ml:~$
 
 结果显示，使用 `diff` 命令查看，仅仅只是两个文件的权限格式不一样，文件内容完全一样。
 
+## 10. Worker 操作
 
-## 10. 潜在的问题
+`Worker` 并不是必须的，`miner` 自带就有一个 `worker`， `worker` 能做的， `miner` 都能做，`worker` 的唯一作用只是为了分担 `miner` 的任务罢了。
+对于迷你旷工（比如只有一台机器的），就完全不需要启动 `worker` 了，有一个 `miner` 就完全足够了，但对于小集群，或者大集群，`worker` 就是必须的了，因此，这一节讲述如何使用 `worker`。
 
-### 10.1 编译 lotus 失败： *** No rule to make target '.install-filcrypto'.  Stop.
+
+## 11. 潜在的问题
+
+### 11.1 编译 lotus 失败： *** No rule to make target '.install-filcrypto'.  Stop.
 
 如果在编译 `lotus` 的时候出现如下所示的错误：
 
@@ -893,7 +898,7 @@ rm -rf ./extern/
 FFI_BUILD_FROM_SOURCE=1 make clean debug
 ```
 
-### 10.2 编译 lotus 失败：Get "https://proxy.golang.org/github.com/xxxxxx": net/http: TLS handshake timeout
+### 11.2 编译 lotus 失败：Get "https://proxy.golang.org/github.com/xxxxxx": net/http: TLS handshake timeout
 
 如果在编译 `lotus` 的时候出现如下所示的错误：
 
@@ -906,7 +911,7 @@ export GOPROXY=https://goproxy.cn
 FFI_BUILD_FROM_SOURCE=1 make debug  # 此时不需要执行 clean 操作
 ```
 
-### 10.3 编译 lotus 失败：server response: not found: module github.com/filecoin-project/lotus/extern/storage-sealing/sealiface: no matching versions for query "latest"
+### 11.3 编译 lotus 失败：server response: not found: module github.com/filecoin-project/lotus/extern/storage-sealing/sealiface: no matching versions for query "latest"
 
 如果在编译 `lotus` 的时候出现如下所示的错误：
 
@@ -914,7 +919,7 @@ FFI_BUILD_FROM_SOURCE=1 make debug  # 此时不需要执行 clean 操作
 
 则，更换代码版本吧，这个版本的代码有问题，目前出现这个问题的代码版本是：`v1.4.2-rc1`。
 
-### 10.4 运行 lotus 出现崩溃：SIGILL: illegal instruction
+### 11.4 运行 lotus 出现崩溃：SIGILL: illegal instruction
 
 这个一般是老机器才会出现的问题，由于老机器不支持 `adx` 等指令导致的，
 解决方法： 编译的时候加上参数 **CGO_CFLAGS="-D__BLST_PORTABLE__"**：
@@ -923,7 +928,7 @@ FFI_BUILD_FROM_SOURCE=1 make debug  # 此时不需要执行 clean 操作
 FFI_BUILD_FROM_SOURCE=1 CGO_CFLAGS="-D__BLST_PORTABLE__" make clean debug
 ```
 
-### 10.5 启动 daemon 失败：xxxxx: genesis in the repo is not the one expected by this version of Lotus!
+### 11.5 启动 daemon 失败：xxxxx: genesis in the repo is not the one expected by this version of Lotus!
 
 如果启动 daemon 的时候出现如下所示的错误：`xxxxx: genesis in the repo is not the one expected by this version of Lotus!`：
 
@@ -941,7 +946,7 @@ export LOTUS_SKIP_GENESIS_CHECK=_yes_
 
 此时虽然会有一些 `ERROR` 信息，但是已经可以正常启动  `daemon` （但是也不保证后面不会出现什么问题）。
 
-### 10.6 daemon 同步失败：Received block with impossibly large height xxx
+### 11.6 daemon 同步失败：Received block with impossibly large height xxx
 
 在测试本地测试网的时候，如果创世节点的代码编译的时候使用的是 `Debug` 模式，而其它节点的代码编译的时候使用 `Release` 模式，则在启动新节点的时候，运行完 `lotus net connect xxxx` 命令的时候，有可能在 `daemon` 的日志中看到这个错: `ERROR	chain	chain/sync.go:236	Received block with impossibly large height 197`，看到这个错误之后，新节点后续的操作都不会成功（比如同步节点信息，或者从创世节点发送一些 `FIL` 到新旷工的钱包等）。
 
@@ -949,7 +954,7 @@ export LOTUS_SKIP_GENESIS_CHECK=_yes_
 
 解决的方法就是让新节点的代码也是用 `Debug` 模式编译。
 
-### 10.7 启动创世节点失败：VM.Call failure: Allowance 4096 below MinVerifiedDealSize for add verifier f081 (RetCode=16)
+### 11.7 启动创世节点失败：VM.Call failure: Allowance 4096 below MinVerifiedDealSize for add verifier f081 (RetCode=16)
 
 这个错误信息，是因为启动创世节点的时候（搭建本地 `2KiB` 测试网），所使用的代码的编译模式没有使用 `Debug` 模式（大概率是因为使用了 `Release` 模式编译代码）导致的，如下所示：
 
@@ -967,7 +972,7 @@ doExec apply message failed: Allowance 4096 below MinVerifiedDealSize for add ve
 
 解决方法是使用 `Debug` 模式重新编译一次代码，然后重新启动创世节点。
 
-### 10.8 查看钱包列表出现 Warn：error in RPC call to 'Filecoin.WalletDefaultAddress': failed to get default key: xxx key info not found
+### 11.8 查看钱包列表出现 Warn：error in RPC call to 'Filecoin.WalletDefaultAddress': failed to get default key: xxx key info not found
 
 这不是一个 Error，其实可以不用管它，消除这个 `Warn` 的方法也很简单，因为这个警告的意思是指：用户没有设置默认钱包，可能是因为用户在导入创世钱包的时候 `./lotus wallet import xxx` 没有指定 `--as-default` 参数，或者是导入之后没有执行 `./lotus wallet set-default xxx` 设置默认钱包（只要有默认钱包就不会报这个警告了）。
 所以，消除这个警告的方法就是在导入钱包的时候加上 `--as-default` 参数，或者在导入钱包之后执行 `./lotus wallet set-default xxx` 设置默认钱包即可。
@@ -975,7 +980,7 @@ doExec apply message failed: Allowance 4096 below MinVerifiedDealSize for add ve
 ![查看钱包列表出现 Warn](./pictures/show_wallet_list_warning.png)
 
 
-### 10.9 查看Miner 信息：ERROR: could not get API info: could not get api endpoint: API not running (no endpoint)
+### 11.9 查看Miner 信息：ERROR: could not get API info: could not get api endpoint: API not running (no endpoint)
 
 如果是在执行 `./lotus-miner xxx` 的时候看到这个错误，则说明你的 `miner` 还没有启动，或者是 `miner` 的默认目录不是 `~/.lotusminer/`，而你执行名的这边（执行命令所在的终端）没有检测到你的 `miner` 所使用的目录。比如， `miner` 那边运行的时候设置了 `export LOTUS_STORAGE_PATH=/lotusminer`，而执行命令这边没有检测到 `LOTUS_STORAGE_PATH` 这个环境变量。
 
@@ -984,7 +989,7 @@ doExec apply message failed: Allowance 4096 below MinVerifiedDealSize for add ve
 ![API not running 错误信息](./pictures/api_not_running_error.png)
 
 
-### 10.10 lotus 编译错误：/usr/bin/ld: cannot find -lhwloc
+### 11.10 lotus 编译错误：/usr/bin/ld: cannot find -lhwloc
 
 如果在编译过程中遇到这个错误，则说明你的系统中没有安装 `hwloc` 相关的库：
 
@@ -999,7 +1004,7 @@ sudo apt get install hwloc libhwloc-dev
 
 ![安装 hwloc 相关库](./pictures/install_hwloc_lib.png)
 
-### 10.11 miner 的日志中显示 drand 错误：failed getting beacon entry: 
+### 11.11 miner 的日志中显示 drand 错误：failed getting beacon entry:
 
 错误信息（drand：distributed random）：
 
@@ -1016,7 +1021,7 @@ ERROR   miner   miner/miner.go:208
 
 ![miner 无法访问 drand 的错误信息](./pictures/error_get_drand_failed.png)
 
-### 10.12 lotus 的日志中显示错误：block was from the future:
+### 11.12 lotus 的日志中显示错误：block was from the future:
 
 错误信息如下所示：
 
@@ -1041,9 +1046,9 @@ sudo ntpdate  ntp.aliyun.com
 同步好时间之后，重启 `daemon` 和 `miner` 一般就可以了。
 
 
-## 11. 其它
+## 12. 其它
 
-### 11.1 文章来源
+### 12.1 文章来源
 
 本文来自于微信群 `Filecoin技术交流-1/2/3群` 群主（`TEARS`）出品，详细信息请查看 [【Filecoin 资源分享目录】](https://github.com/CoinSummer/filecoin)。
 
