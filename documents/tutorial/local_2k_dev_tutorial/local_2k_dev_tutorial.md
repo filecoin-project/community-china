@@ -254,6 +254,7 @@ rm -rf ~/localnet.json
 ![预密封好的两个扇区](./pictures/pre_seal_output_1.png)
 
 查看 `~/.genesis-sectors/` 目录可以看到预密封好的数据：
+
 ![预密封好的两个扇区](./pictures/pre_seal_output_2.png)
 
 如果代码使用 `Release` 模式，则对应的结果如下图所示（旷工 `ID` 会发生变化）：
