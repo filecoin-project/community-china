@@ -348,7 +348,7 @@ rm -rf ~/localnet.json
 首先是重启创世旷工的 `daemon` 节点，启动命令如下：
 
 ```sh
-# 注意加上参数 --profile=bootstrapper，并制定 devgen.car 文件
+# 注意加上参数 --profile=bootstrapper，并指定 devgen.car 文件
 ~/git/lotus/lotus daemon --genesis=devgen.car --profile=bootstrapper
 ```
 
@@ -373,7 +373,7 @@ rm -rf ~/localnet.json
 
 ![重启之后的创世旷工 info 信息](./pictures/restart_genesis_miner_info.png)
 
-最后，如果你还有其它节点还活着，可以用这个创世旷工连接到其它活着的节点，加入我现在有另一个节点还活着，我需要在 `创世旷工 `这边手动连接到该节点上，让他们实现相互同步，连接示例如下所示：
+最后，如果你还有其它节点还活着，可以用这个创世旷工连接到其它活着的节点，假如我现在有另一个节点还活着，我需要在 `创世旷工` 这边手动连接到该节点上，让它们实现相互同步，连接示例如下所示：
 
 ![重启之后的创世旷工手动连接到其它活着的旷工](./pictures/reconnect_to_other_peers.png)
 
