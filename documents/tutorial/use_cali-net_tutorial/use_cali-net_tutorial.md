@@ -30,7 +30,7 @@
 ```sh
 git clone https://github.com/filecoin-project/lotus.git
 git pull --all
-# 拉去所有的 tag 标签
+# 拉取所有的 tag 标签
 git pull --tags
 # 假设我们现在使用 v1.5.0 版本的代码
 git checkout v1.5.0
@@ -107,6 +107,8 @@ LOTUS_PATH=/home/ml/.lotus_cali ~/git2/lotus_latest/lotus wallet balance t3ukgeg
 大约一分钟左右，你的钱包中就会收到水龙头发过来的代币了，如下图所示：
 
 ![查询钱包余额](./pictures/cali_faucet_got_funds.png)
+
+如果你看到 `Too Many Requests: wallet limit` 表示你请求次数太多了。
 
 
 ### 3.3 初始化旷工
