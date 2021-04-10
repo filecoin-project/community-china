@@ -272,7 +272,7 @@ rm -rf ~/localnet.json
 执行完命令之后，`home` 目录下会多出一个 `localnet.json` 文件：
 ![生成创世块](./pictures/generate_genesis_block.png)
 
-### 6.3 启动创世创世节点（第一个节点）
+### 6.3 启动创世节点（第一个节点）
 
 ```sh
 # --lotus-make-genesis 用于指定 xxx
@@ -323,7 +323,8 @@ rm -rf ~/localnet.json
 
 ```sh
 # 注意加上 --nosync 参数，创世旷工不需要等待链同步的过程
-~/git/lotus/lotus-miner run --nosync
+# RUST_LOG=Trace 这个参数是可选的，如果不需要在创世旷工上做测试，一般不需要在创世旷工上加这个参数
+RUST_LOG=Trace ~/git/lotus/lotus-miner run --nosync
 ```
 
 运行创世旷工，然后你会在短时间内看到它输出大量的信息，并且过了一会之后，它的输出信息就变得比较缓慢了，这一切都是正常的。
@@ -526,7 +527,9 @@ scp ml@192.168.100.19:~/devgen.car ./
 初始化好之后，就可以启动新节点了，启动命令如下所示：
 
 ```sh
-~/git2/lotus/lotus-miner run
+# 加上环境变量 RUST_LOG=Trace 可以让你看到 miner 更多的日志信息，
+# 在排除错误的时候特别有用，建议加上这个环境变量
+RUST_LOG=Trace ~/git2/lotus/lotus-miner run
 ```
 
 ![启动新节点](./pictures/start_new_miner.png)
