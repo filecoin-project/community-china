@@ -30,6 +30,7 @@
 
 ## 3. Documentation
 - Filecoin文档
+  - [官方文档](https://docs.filecoin.io/) - Filecoin Documentation
   - [依赖安装和代码编译](https://docs.filecoin.io/get-started/lotus/installation/#build-and-install-lotus) - Filecoin官方依赖安装和代码编译教程
   - [挖矿教程](https://docs.filecoin.io/mine/lotus/) - Filecoin官方的挖矿教程，系统性强、详细完整，建议新手通读
   - [Filecoin中文文档](https://filecoin.filgo.info/) - 社区全栈老吕提供的Filecoin官方文档中文版
@@ -156,11 +157,11 @@
 
   <img src="https://user-images.githubusercontent.com/1715211/97078045-9c787480-161b-11eb-89ab-54d73fcea9d5.jpg" width="200" height="200" />
 
-  Filecoin 中文交流-1群（目前已满）
-  Filecoin 中文交流-2群（目前已满）
-  Filecoin 中文交流-3群（目前已满）
-  Filecoin 中文交流-4群（目前已满）
-  Filecoin 中文交流-5群（目前还有空位）
+- Filecoin 中文交流-1群（目前已满）
+- Filecoin 中文交流-2群（目前已满）
+- Filecoin 中文交流-3群（目前已满）
+- Filecoin 中文交流-4群（目前已满）
+- Filecoin 中文交流-5群（目前还有空位）
 
 ## 7. 杂项
 
