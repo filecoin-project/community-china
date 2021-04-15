@@ -1,4 +1,4 @@
-# Awesome-filecoin
+# Awesome Filecoin
 
 ## 1. Website
 
