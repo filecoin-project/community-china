@@ -603,6 +603,52 @@ RUST_LOG=Trace ~/git2/lotus/lotus-miner run
 
 ![查看链上消息收费情况](./pictures/message_for_submit_sectors.png)
 
+### 8.4 计算扇区状态中的 Active 何时变为 YES
+
+在前面小节中我们说道，通过命令 `~/git2/lotus/lotus-miner sectors list` 可以查看到该扇区的 `OnChain` 选项已经是 `YES` 了，但是它的 `Active` 选项依然还是 `NO`，需要等一个固定的时间之后才会变成 `YES`，然后在 `~/git2/lotus/lotus-miner info` 中才会看到自己的算力，这些 `Active` 状态为 `YES` 的算力才是参与出块的算力。现在我们就来讲一下，这里的 `Active` 状态从 `NO` 变为 `YES` 需要等待多长时间。
+
+**注：** 本小节与前后其它小节的内容可能不完全一致，因为这一节是后来加进来的（`2021/04/17`）。
+
+首先还是要通过如下命令查看扇区的基本信息，包括扇区 `ID` 和扇区状态等：
+
+```sh
+~/git/lotus/lotus-miner sectors list
+```
+
+![查看扇区基本信息](./pictures/sector_8.3_sector_list.png)
+
+从上图中我们看到三个扇区，第一个扇区的 `ID` 是 `0`，它的 `OnChain` 和 `Active` 状态都是 `YES` 了，说明它已经成功地提交了一次 `WindowPoST` 了，后面两个扇区的 `OnChain` 是 `YES`，但是它的 `Active` 状态还是 `NO`，也就是说，这两个扇区已经密封完成了，但是还没有提交 `WindowPoST`，等它们提交了 `WindowPoST` 之后，它们的 `Active` 状态就会变成 `YES` 了。那它们的 `Active` 状态经过多少时间才会变成 `YES` 呢？ 首先我们可以通过如下命令来查看 `deadline` 信息：
+
+```sh
+~/git/lotus/lotus-miner proving deadlines
+```
+
+![查看扇区 deadline](./pictures/sector_8.3_sector_deadlines.png)
+
+不管是 `2KB` 的本地测试网还是 `32GB` 的主网，`miner` 的 `deadline` 总共只有 `48` 个，一行表示一个 `deadline`，`current` 是一个指针，这个指针表示当前正在执行哪个 `deadline` 中的扇区的 `WindowPoST`（如果当前 `deadline` 中没有扇区，那就不用计算），这个指针会自上而下、顺序的遍历每一个 `deadline`，到了最后一个 `deadline` 执行完之后，又从第一个 `deadline` 开始，永远不会停止。
+
+`current` 指针在每一个 `deadline` 中停留的时间都是固定的：
+- 对于 `2KB` 扇区而言，每个 `deadline` 停留的时间是 `12` 分钟，走过一轮 `48` 个 `deadline` 就需要花费 `9.6` 个小时；
+- 对于 `32GB` 扇区而言，每个 `deadline` 停留的时间是 `30` 分钟， 走过一轮 `48` 个 `deadline` 就需要花费 `24` 个小时，刚好是一天，因此，每个扇区每过 `24` 个小时就需要提交一次 `WindowsPoST`，以证明你（旷工）还存储着这个扇区的数据。
+
+上图中看到的数据，从最左边开始：
+- 第一列 `deadline` 表示  `deadline` 的 `ID`，从 `0` 开始到 `47`，共 `48` 个 `deadline`；
+- 第二列 `partition` 表示分区数量，一个 `deadline` 中可以有多个 `partition`；
+- 第三列 `sectors` 表示扇区数量， 一个 `partition` 中可以包含最多 `2349` 个扇区，在这一列中，外面的数字表示总共的扇区数量（包括出错扇区的数量），括号里面的数字表示出错扇区的数量（如果有出错的扇区，你就需要注意了，可能会被扣钱哦）； 
+
+了解了 `deadline` 之后，我们就可以通过计算来推算出任意一个扇区的下一次 `WindowPoST` 的时间，过了 `WindowPoST`，扇区的 `Active` 状态就会变成 `YES`。
+
+下面就以扇区编号为 `1` 的扇区为例进行说明，在前面用命令 `~/git/lotus/lotus-miner sectors list` 看到这个 `1` 号扇区的 `Active` 状态还是 `NO`，并且用命令 `~/git/lotus/lotus-miner proving deadlines` 看到了目前只在 `0` 号 `deadline` 和 `2` 号 `deadline` 中看到有扇区，下面就用如下的命令查看这两个 `deadline` 中的信息，找到 `1` 号扇区所在的 `deadline`：
+
+```sh
+# 注意这里的命令使用的是 【deadline】，而不是 【deadlines】
+~/git/lotus/lotus-miner proving deadline 0  # 查看 0 号 deadline 中有哪些扇区
+~/git/lotus/lotus-miner proving deadline 2  # 查看 2 号 deadline 中有哪些扇区
+```
+
+![查看扇区 deadline](./pictures/sector_8.3_specify_sector_deadline.png)
+
+从上图中可以看到，`0` 号 `deadline` 中只有一个扇区，扇区编号是 `2`，`2` 号 `deadline` 中有两个扇区，扇区编号分别是 `0` 和 `1`（注意区分扇区编号和 `deadline` 编号，不要混淆），也就是说，我们要找的 `1` 号扇区是在 `2` 号 `deadline` 中，而当前的 `current` 指针指向的是 `4` 号 `deadline`，我们需要等到 `current` 指针遍历完后面的 `deadline` 之后，再回到 `2` 号 `deadline`，此时才会计算 `1` 号扇区的 `WindowPoST`，中间需要经历 `(47-4+1)+(2)=46` 个 `deadline`，而对于 `2KB` 的扇区，每个 `deadline` 是 `12` 分钟，也就是说，我们需要等待 `(46*12)/60=9.2` 个小时，才会等待这个 `1` 号扇区的下一个 `WindowPoST`，到此，等待时间计算完毕，同理，也可以计算其它任意扇区的 `Active` 转为 `YES` 的等待时间。
 
 
 ## 9. 订单操作
