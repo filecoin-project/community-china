@@ -147,9 +147,10 @@
 - [收益计算器](https://calculator.atpool.com) - 雅典娜矿池收益计算器
 - [订单统计](https://storage.fileco) - Filecoin网络订单统计
 - [订单查询工具](https://filecoin.tools/) - Filecoin订单市场查询
-- [发单、接单工具](https://github.com/nebulaai/swan) - 技术群[@竹风](https://github.com/flyworker)开源的矿工接单、客户发单工具
+- [发单、接单工具](https://github.com/nebulaai/swan) - 技术群成员[@竹风](https://github.com/flyworker)开源的矿工接单、客户发单工具
 - [矿机投资收益计算器](http://fil8.top/invest/) - 怪盗FIL收益计算器
 - [矿池统计工具](http://fil8.top/pools) - Filecoin矿池统计器
+- [Slingshot 数据统计](https://slingshot.filecoin.io/) - Filecoin 有效数据存储排名
 
 ## 6. Community
 - [Slack](https://filecoinproject.slack.com)
