@@ -130,6 +130,11 @@
   - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
   - [Filecoin最新挖矿集群硬件配置](https://github.com/filecoin-project/community-china/discussions/18)
   
+- 高级教程
+    - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
+    - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashNeptune/Readme.md) - 高级版（所使用的参数和 lotus 完全相同）
+
+
 
 ## 4. Optimized Lotus
 - [熊鹰myScheduler调度](http://202.74.1.76/myScheduler1.2.2/myScheduler.pdf) - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
