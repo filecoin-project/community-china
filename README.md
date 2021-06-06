@@ -62,6 +62,7 @@
   - [Ansible部署工具使用](https://github.com/filguard/lotus-ops/blob/master/documents/ansible-deploy-tool-usage.md) - 如何使用Ansible批量自动化部署Daemon、Miner、Worker
   - [Prometheus + Grafana监控系统搭建](https://github.com/filguard/lotus-ops/blob/master/documents/monitoring-deployment.md) - 基于Prometheus和Grafana搭建Filecoin监控报警系统
   - [Lotus日常运维巡检做什么](https://github.com/filecoin-project/community-china/discussions/10) - 日常硬件检查、错误扇区处理、钱包检查、消息池疏通等
+  - [Lotus 运维：简单易用的告警系统](https://github.com/filguard/lotus-alert) - 本项目由技术群群友 @mje 提供，可直接发送告警信息到微信
 
 - 常用环境变量
   - [Lotus Daemon环境变量](https://github.com/filecoin-project/community-china/discussions/6) - Lotus Daemon常用环境变量说明
