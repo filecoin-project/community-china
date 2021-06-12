@@ -165,12 +165,12 @@
 
   <img src="https://user-images.githubusercontent.com/1715211/97078045-9c787480-161b-11eb-89ab-54d73fcea9d5.jpg" width="200" height="200" />
 
-- Filecoin 中文交流-1群（目前已满）
-- Filecoin 中文交流-2群（目前已满）
-- Filecoin 中文交流-3群（目前已满）
-- Filecoin 中文交流-4群（目前已满）
-- Filecoin 中文交流-5群（目前已满）
-- Filecoin 中文交流-6群（目前还有空位）
+  - Filecoin 中文交流-1群（目前已满）
+  - Filecoin 中文交流-2群（目前已满）
+  - Filecoin 中文交流-3群（目前已满）
+  - Filecoin 中文交流-4群（目前已满）
+  - Filecoin 中文交流-5群（目前已满）
+  - Filecoin 中文交流-6群（目前还有空位）
 
 ## 7. 杂项
 
