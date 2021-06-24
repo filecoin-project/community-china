@@ -36,6 +36,7 @@
   - [依赖安装和代码编译](https://docs.filecoin.io/get-started/lotus/installation/#build-and-install-lotus) - Filecoin官方依赖安装和代码编译教程
   - [挖矿教程](https://docs.filecoin.io/mine/lotus/) - Filecoin官方的挖矿教程，系统性强、详细完整，建议新手通读
   - [Filecoin中文文档](https://filecoin.filgo.info/) - 社区全栈老吕提供的Filecoin官方文档中文版
+  - [Venus文档](https://venus.filecoin.io/) - Venus Documentation
 
 - 硬件配置
   - [石榴矿池Filecoin挖矿方案](https://6block.com/files/zh/Filecoin%20mining%20solution%20v8.0.pdf) - 石榴矿池Filecoin挖矿解决方案，包含AMD 3960CPU和EPYC 7542两种方案
