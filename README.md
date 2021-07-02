@@ -130,9 +130,10 @@
 - 基础教程
   - [本地搭建 2K 测试网入门教程](./documents/tutorial/local_2k_dev_tutorial/local_2k_dev_tutorial.md) -- 强烈推荐的新手入门教程
   - [Calibration 测试网使用教程](./documents/tutorial/use_cali-net_tutorial/use_cali-net_tutorial.md) -- 强烈推荐的新手入门教程
-  - [链数据导入导出使用教程](./document/../documents/tutorial/lotus_chain_op/lotus_chain_op.md)
+  - [链数据导入导出使用教程](./document/../documents/tutorial/lotus_chain_op/lotus_chain_op.md) -- 文档内包含官方快照网址
   - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
-  - [Filecoin最新挖矿集群硬件配置](https://github.com/filecoin-project/community-china/discussions/18)
+  - [Filecoin 最新挖矿集群硬件配置](https://github.com/filecoin-project/community-china/discussions/18)
+  - [Filecoin 挖矿教程集合](https://www.r9it.com/categories.html#Filecoin-ref) -- 群友 @Rock-Yang 提供的优质文章教程
   
 - 高级教程
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
