@@ -591,6 +591,12 @@ RUST_LOG=Trace ~/git2/lotus/lotus-miner run
 
 使用命令 `~/git2/lotus/lotus-miner sectors list` 可以查看到该扇区的 `OnChain` 选项已经是 `YES` 了，但是它的 `Active` 选项依然还是 `NO`，需要等一个固定的时间之后， `miner` 做完一次 `WindowsPoST` 之后（需要向链上发送一条 `SubmitWindowedPoSt` 消息，目前该消息已经基本不收费了），这个 `Active` 选项才会变成 `YES`。
 
+**注意：** 至少需要4个扇区才会批量submit，如果只有1个，可以手动submit，不然 `OnChain`一直处于 `SubmitCommitAggregate`状态
+
+```bash
+./lotus-miner sectors batching commit --publish-now
+```
+
 等了一段时间之后，所有消息都成功上链，就可以看到这个 `Active` 状态变成 `Yes` 了，如下图所示：
 
 ![提交 SubmitWindowedPoSt 消息之后的状态](./pictures/active_status_change_to_yes.png)
