@@ -134,6 +134,7 @@
   - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
   - [Filecoin 最新挖矿集群硬件配置](https://github.com/filecoin-project/community-china/discussions/18)
   - [Filecoin 挖矿教程集合](https://www.r9it.com/categories.html#Filecoin-ref) -- 群友 @Rock-Yang 提供的优质文章教程
+  - [Calibration 测试网和 Nerpnet 测试网快照下载地址和使用教程](./documents/tutorial/testnet_snapshot/testnet_snapshot.md) - 有效时间从2021/07/15开始到下次测试网重置
   
 - 高级教程
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
