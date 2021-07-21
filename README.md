@@ -173,6 +173,7 @@
   - Filecoin 中文交流-6群（目前还有空位）  
 
   进群请加微信：**max-yu-666**
+  
   <img src="./images/wechat-group.jpeg" width="200" />
 
 - [Slack](https://filecoinproject.slack.com)
