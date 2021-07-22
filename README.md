@@ -148,6 +148,7 @@
 - [C2优化版](https://github.com/jackoelv/bellperson) - [@jacklelv](https://github.com/jackoelv)开源的C2优化版
 - [分布式Miner](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的分布式Miner
 - [调度优化版](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的调度程序
+- [lotus-bee优化版](https://github.com/beelant/lotus-bee) 
 
 ## 5. Ecosystem Tools
 - [file.app](https://file.app) - 实时订单，存储费用，存储矿工等查询
