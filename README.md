@@ -38,6 +38,11 @@
   - [Filecoin中文文档](https://filecoin.filgo.info/) - 社区全栈老吕提供的Filecoin官方文档中文版
   - [Venus文档](https://venus.filecoin.io/) - Venus Documentation
 
+- Filecoin经济模型
+  - [Filecoin经济模型白皮书中文版](https://filecoin.io/zh-cn/2020-engineering-filecoins-economy-zh-cn.pdf)
+  - [Filecoin经济模型白皮书英文版](https://filecoin.io/2020-engineering-filecoins-economy-en.pdf)
+  - [Filecoin的流通供应机制](https://filecoin.io/zh-cn/blog/posts/%E4%BA%86%E8%A7%A3filecoin%E6%B5%81%E9%80%9A%E4%BE%9B%E5%BA%94%E6%9C%BA%E5%88%B6/)
+
 - 硬件配置
   - [石榴矿池Filecoin挖矿方案](https://6block.com/files/zh/Filecoin%20mining%20solution%20v8.0.pdf) - 石榴矿池Filecoin挖矿解决方案，包含AMD 3960CPU和EPYC 7542两种方案
   - [社区推荐Filecoin硬件方案](https://github.com/filecoin-project/community-china/discussions/18) - 社区推荐的基于AMD EPYC 7542的Filecoin挖矿硬件方案
