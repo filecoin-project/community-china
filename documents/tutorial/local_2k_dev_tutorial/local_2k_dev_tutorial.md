@@ -35,6 +35,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # rust 编译工具链默认安装到 ~/.cargo/bin 目录下，安装好之后，你需要设置它的环境变量，或者写入到 ~/.bashrc 中
 export PATH=$PATH:$HOME/.cargo/bin
 # 或者在  ~/.bashrc 的末尾加入如下代码：
+# 建议写入  ~/.bashrc，否则在其它控制台窗口中你需要手动 export 之后才会生效
 source "$HOME/.cargo/env"
 ```
 
@@ -81,7 +82,8 @@ rustup self uninstall
 ```sh
 # 千万别使用 sudo apt install xxx 安装
 # 如果嫌弃安装的慢，可以挂上代理在安装，参考 【3.2 高级操作--使用代理下载：】
-wget -c https://golang.org/dl/go1.15.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+# 教程中的go版本不一定是罪行的，请到go官方地址 https://golang.org/dl/ 中下载最新的进行安装
+wget -c https://golang.org/dl/go1.16.7.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 # 上述命令会将 golang 安装到 /usr/local/go 目录下，你需要手动设置一下环境变量，或者把它写入到 ~/.bashrc 中
 export PATH=$PATH:/usr/local/go/bin
 ```
@@ -89,7 +91,7 @@ export PATH=$PATH:/usr/local/go/bin
 参考：
 - [1]. https://golang.org/doc/install
 
-`go` 的版本至少需要 `1.15.5`，低于这个版本的 `go` 将无法编译 `lotus`，安装好 `go` 之后，你可以在终端输入 `go version` 查看：
+`go` 的版本至少需要 `1.16`，低于这个版本的 `go` 将无法编译 `lotus`，安装好 `go` 之后，你可以在终端输入 `go version` 查看：
 
 ![查看 go 安装情况](./pictures/go_env_install.png)
 
