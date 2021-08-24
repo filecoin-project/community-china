@@ -135,7 +135,7 @@ git clone https://github.com/filecoin-project/lotus.git
 
 目前（`2021/02/07`），`lotus` 这个 `repo` 的大小是 `76MB` 左右，如果没有代理，你可以自己估算一下你下载这个 `repo` 所需的时间。此外，后续编译过程也还需要下载各种依赖库，也需要非常漫长的时间等待，甚至还会编译失败（比如编译过程中下载依赖项代码库的时候，可能由于网络不稳定，导致下载失败等）。
 
-### 3.2 高级操作--使用代理下载：
+### 3.2 高级操作【可选】--使用代理下载：
 
 要想快速下载好代码，最简单的方法就是设置代理，假如你的 `Ubuntu 机器`和你的笔记本在同一个局域网，并且你的笔记本电脑正在使用 `ssr` 或者 `v2ray` 等代理工具上网，你可以共享笔记本的代理给你的 `Ubuntu 机器`，假设你笔记本上使用的是 `v2ray`，你可以开启 `允许来自局域网的连接` ：
 
@@ -179,6 +179,10 @@ git clone https://github.com/filecoin-project/lotus.git
 执行如下的编译命令进行编译（编译 `debug` 版本比较方便）：
 
 ```sh
+# 首先需要把最新代码拉取下来
+git fetch --all
+# 然后再切换到最新的版本（示例中使用 v1.4.1 已经不是最新版）
+# 最新版代码，请参考：https://github.com/filecoin-project/lotus
 git checkout v1.4.1
 # 我们默认使用 Debug 版本
 FFI_BUILD_FROM_SOURCE=1 make clean debug
@@ -187,6 +191,7 @@ FFI_BUILD_FROM_SOURCE=1 make clean debug
 当然，也可以编译 `Release` 版本（`v1.4.1` 这个版本的代码，编译 `Release` 模式的时候，后续生成的旷工 `ID` 会和 `Debug` 版本不一样，`Release` 生成的旷工 `ID` 叫做 `f01xxx`， `Debug` 生成的旷工 `ID` 叫做 `t01xxx`），但是需要加上 `lotus-seed`（生成创世节点时需要使用到这个工f具），如下所示：
 
 ```sh
+# 注意：Release 模式可能无法运行本地 2K 测试网
 git checkout v1.4.1
 FFI_BUILD_FROM_SOURCE=1 make clean all lotus-seed
 ```
@@ -213,7 +218,7 @@ FFI_BUILD_FROM_SOURCE=1 make clean all lotus-seed
 
 ```sh
 # 2KiB 表示我们要下载的证明参数是 2KiB 大小的扇区所需要的证明参数
-# 主网上使用的是 32GB 的证明参数，或者是 64GB 的证明参数
+# 主网上使用的是 32GiB 的证明参数，或者是 64GiB 的证明参数
 ~/git/lotus/lotus fetch-params 2KiB
 ```
 
@@ -243,6 +248,8 @@ rm -rf ~/.genesis-sectors/
 rm -rf ~/devgen.car
 rm -rf ~/localnet.json
 ```
+
+注意：只有本地自己创建的网络需要启动 `创世节点`，跑主网的时候不需要你来启动创世节点，因为创世节点已经由官方启动了。
 
 ### 6.1 预密封两个 2KiB 大小的扇区
 
@@ -344,7 +351,7 @@ RUST_LOG=Trace ~/git/lotus/lotus-miner run --nosync
 
 ![查看创世旷工的状态](./pictures/show_miner_info.png)
 
-### 6.7 重启创世旷工
+### 6.7 重启创世旷工【可选】
 
 由于本地测试网比较简单，每次使用完之后就删除了，再次使用的时候就重新再启动一个新的创世旷工就可以了，但是，由于某些需求，可能需要复用之前使用的创世旷工，比如，创世旷工不小心掉线了，此时还有其它测试的旷工还在运行，而我们要重新启动它，此时，就需要想办法重新启动创世旷工，重新启动创世旷工的方法如下（假设创世旷工和创世节点现在都挂了）：
 
