@@ -1015,36 +1015,51 @@ ml@ml:~$
 **注意：** `ListenAddress` 修改为 `miner` 自己的 `IP` 地址，修改之后重启 `miner`，一定要重启 `miner`，不重启配置不生效。
 这里是示例，禁用了 `miner` 可以禁用的所有功能，但是实际过程中需要按照不同的需求进行不同的配置。
 
-### 10.3 启动 Worker
+### 10.3 启动 Worker【可选】
 
-假设我们的 `worker` 所在的机器的 `IP` 地址是 `192.168.100.18`，在启动 `worker` 之前，需要把 `miner` 机器中的配置文件中的 `api` 和 `token` 两个文件拷贝到 `worker` 机器上对应的文件中的对应位置（也就是放在 `~/.lotusminer/` 目录下）或者使用 `MINER_API_INFO` 的形式在 `worker` 机器的环境变量中，现在直接在 `worker` 的机器上创建 `~/.lotusminer/` 目录，并把 `miner` 机器上的配置文件中的 `api` 和 `token` 两个文件拷贝过来，如下所示：
+假设我们的 `worker` 所在的机器的 `IP` 地址是 `192.168.100.18`，在启动 `worker` 之前，需要获取 `miner` 机器中的配置文件夹 `~/.lotusminer/` 中的 `api` 和 `token` 两个文件的内容，用来构造环境变量 `MINER_API_INFO` 的值，在 `worker` 机器中使用，`MINER_API_INFO` 的值就是 `token` 和 `api` 使用符号 `:` 连接起来的值。
 
 ```sh
-# 从 miner 机器上拷贝 api 和 token 到 worker 机器中，
+# 从 miner 机器上获取 MINER_API_INFO：
 # miner 机器的地址是： 192.168.100.190
-mkdir ~/.lotusminer
-scp ml@192.168.100.190:~/.lotusminer/{api,token} ~/.lotusminer/
-ls -al ~/.lotusminer/
+# 这条命令在 miner 机器上运行
+~/git/lotus/lotus-miner auth api-info --perm admin
 ```
 
-![拷贝 miner 机器上的  api 和 token](./pictures/copy_config_from_miner_to_worker.png)
+![获取 miner 机器上的 MINER_API_INFO](./pictures/getting_miner_api_info.png)
 
-注意： `miner` 配置文件中的 `api` 文件需要在启动 `miner` 之后才会生成。
+注意： `miner` 配置文件中的 `api` 文件需要在启动 `miner` 之后才会生成，并且 `api` 中显示的地址，是在修改了 `miner` 配置文件 `~/.lotusminer/config.toml` 中的 `ListenAddress` 值之后，再重启 `miner` 之后才会生效。
 
-有了配置文件，我们现在就可以启动 `worker` 了，启动命令如下所示：
+有了 `MINER_API_INFO` ，我们现在就可以启动 `worker` 了，启动命令如下所示：
 
 ```sh
 # 加上 RUST_LOG=Trace 环境变量可以看到 worker 的详细日志信息
-RUST_LOG=Trace ~/git2/lotus/lotus-worker run --listen=192.168.100.18:2333 -precommit1=true --precommit2=true --commit=true --addpiece=true --parallel-fetch-limit=1 --unseal=true
+# BELLMAN_NO_GPU=1 表示我的这个 worker 机器现在暂时没有显卡
+BELLMAN_NO_GPU=1 RUST_LOG=Trace ~/git2/lotus/lotus-worker run --listen=192.168.100.18:2333 -precommit1=true --precommit2=true --commit=true --addpiece=true --parallel-fetch-limit=1 --unseal=true
 ```
 
 正常启动 `worker` 之后，就可以看到 `worker` 的日志信息，如下所示：
 
-![拷贝 miner 机器上的  api 和 token](./pictures/start_worker_success.png)
+![正常启动的 worker](./pictures/start_worker_by_setting_env.png)
 
 此外，`miner` 中也会有显示关于 `worker` 启动的详细信息，如下所示：
 
 ![miner 机器上看到的 worker 启动信息](./pictures/miner_log_after_start_worker.png)
+
+注意：如果启动 `worker` 的时候没有正确设置 `MINER_API_INFO` 的值，则会导致 `worker` 启动失败，通常的表现就是导致终端卡住无法动弹，或者不断输出 `Connecting to miner API... (could not get API info: could not get api endpoint: API not running (no endpoint))` 等字样，如下图所示：
+
+![未设置 miner api 导致不正常启动的 worker](./pictures/start_worker_failed_api_not_running.png)
+
+如果 `MINER_API_INFO` 的端口设置错误（示例中，我的 `miner
+` 实际开放端口是 `2345`，但是我设置 `worker` 的时候错误的设置成了 `2346`），则会出现如下所示的错误信息：
+`RPC client error: sendRequest failed: Post "http://192.168.100.191:2345/rpc/v0"`
+![miner api 端口错误导致不正常启动的 worker](./pictures/port_not_correct_for_starting_worker.png)
+
+同理，如果 `MINER_API_INFO` 的 `IP` 地址写错，也会出现以上这个错误。
+
+如果把 `MINER_API_INFO` 的 `token` 字段写错，则会出现另一种错误，如下所示：
+
+![miner api 端口错误导致不正常启动的 worker](./pictures/token_not_correct_lead_to_start_worker_failed.png)
 
 ### 10.4 删除无用 Worker
 
