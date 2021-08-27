@@ -1,4 +1,4 @@
-# 如何正确删除扇区
+## 如何正确删除扇区
 在你删除扇区之前请确保已经采取了必要的抢救措施，例如遇到存储故障，网络故障，调度故障等等，都要经过一系列的调试，故障诊断 ,最后再考虑删除扇区，谨慎删除扇区，别忘了，该命令有个选项--really-do-it
  
 ## 1:　如何删除packing,PreCommitFailed和SealPreCommit1Failed状态的扇区？
@@ -9,7 +9,7 @@
  $ lotus-miner sectors remove --really-do-it <sectorId>
 ```
 ## 2：如果删除状态为PreCommit1，PreCommit2，并且一直卡顿在这些状态的扇区？
-### 1:首先应尝试如下命令删除
+##### 1:首先应尝试如下命令删除
 ```sh
 lotus-miner sealing abort <JobId>
 ```
@@ -17,7 +17,7 @@ lotus-miner sealing abort <JobId>
 lotus-miner sectors remove <SectorId>
 ```
 如果以上两个命令无法删除，可以执行下面的步骤
-### 2.找一个空闲的Worker（如果所有worker工作满状态，则可以通过执行
+##### 2.找一个空闲的Worker（如果所有worker工作满状态，则可以通过执行
 ```sh
 lotus-worker tasks disable [command options] [UNS|C2|PC2|PC1|AP]
 ```
@@ -30,9 +30,9 @@ lotus-worker tasks enable [command options] [UNS|C2|PC2|PC1|AP]
 ```sh
 touch s-t0xxxxxx-100# 其中t0xxxxxx是矿工ID
 ```
-### 3.重启该Worker，注意观察Worker的日志中，该扇区会不会开始封装，如果没有开始封装，可以再重启一下Miner。
+##### 3.重启该Worker，注意观察Worker的日志中，该扇区会不会开始封装，如果没有开始封装，可以再重启一下Miner。
  
-### 4. 待该扇区开始封装，在lotus-miner sealing jobs列表中能看到以后，就可以执行命令先终止掉任务。
+##### 4. 待该扇区开始封装，在lotus-miner sealing jobs列表中能看到以后，就可以执行命令先终止掉任务。
 
 
 ```sh 
@@ -40,7 +40,7 @@ lotus-miner sealing abort <JobId>
 ```
  
 
-### 5：执行
+##### 5：执行
 
 
 ```sh 
@@ -51,9 +51,9 @@ lotus-miner sectors remove <SectorId>
 ## 3：如果删除状态为Committing，并且一直卡顿在这些状态的扇区？
 > 注意删除任何precommit已经完成的扇区将导致prcommit阶段的抵押罚没，[参考文档](https://spec.filecoin.io/#section-systems.filecoin_mining.sector.adding_storage)  
 >PreCommitting a Sector: A Miner publishes a Sector’s SealedCID, through miner.PreCommitSector of miner.PreCommitSectorBatch, and makes a deposit. The Sector is now registered to the Miner, and the Miner must ProveCommit the Sector or lose their deposit.
-### 1: 同样执行2.1 2.2 2.3
+##### 1: 同样执行2.1 2.2 2.3
  
-### 2:创建并重启Worker以后，该扇区并不会出现在lotus-miner sealing jobs列表中，而是直接变为CommitFailed，这个时候，执行以下命令删除扇区即可
+##### 2:创建并重启Worker以后，该扇区并不会出现在lotus-miner sealing jobs列表中，而是直接变为CommitFailed，这个时候，执行以下命令删除扇区即可
 ```shell 
 lotus-miner sectors remove <SectorId>
 ```
@@ -64,7 +64,7 @@ lotus-miner sectors remove <SectorId>
 ## 5：如何删除因为存储故障，无法恢复的扇区
 删除扇区一定要先链上删除再本地删除，这样能最大程度的减少损失，请记住执行顺序，这个相当重要
  
-### 1：执行
+##### 1：执行
 
 删除扇区一定要先链上删除再本地删除，这样能最大程度的减少损失，请记住执行顺序，这个相当重要
  
@@ -72,9 +72,9 @@ lotus-miner sectors remove <SectorId>
 lotus-miner sectors terminate --really-do-it <sectorNum>
 ```
 这一步的主要作用为清除链上数据，最大限度减少处罚
-### 2: 等到扇区状态变为terminalfinality
+##### 2: 等到扇区状态变为terminalfinality
  
-### 3：执行
+##### 3：执行
 
 ```shell 
 lotus-miner sectors remove --really-do-it <sectorNum>
