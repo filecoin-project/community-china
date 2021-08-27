@@ -1,14 +1,14 @@
 # 如何正确删除扇区
 在你删除扇区之前请确保已经采取了必要的抢救措施，例如遇到存储故障，网络故障，调度故障等等，都要经过一系列的调试，故障诊断 ,最后再考虑删除扇区，谨慎删除扇区，别忘了，该命令有个选项--really-do-it
  
-## 一:　如何删除packing,PreCommitFailed和SealPreCommit1Failed状态的扇区？
+## 1:　如何删除packing,PreCommitFailed和SealPreCommit1Failed状态的扇区？
 
 这几种状态因为还没有质押，可通过下面的命令直接删除。所有precommit阶段完成之前的扇区，都可以通过此方法删除。
 
 ```sh
  $ lotus-miner sectors remove --really-do-it <sectorId>
 ```
-## 二：如果删除状态为PreCommit1，PreCommit2，并且一直卡顿在这些状态的扇区？
+## 2：如果删除状态为PreCommit1，PreCommit2，并且一直卡顿在这些状态的扇区？
 ### 1:首先应尝试如下命令删除
 ```sh
 lotus-miner sealing abort <JobId>
@@ -48,7 +48,7 @@ lotus-miner sectors remove <SectorId>
 ```
  
 
-## 三：如果删除状态为Committing，并且一直卡顿在这些状态的扇区？
+## 3：如果删除状态为Committing，并且一直卡顿在这些状态的扇区？
 > 注意删除任何precommit已经完成的扇区将导致prcommit阶段的抵押罚没，[参考文档](https://spec.filecoin.io/#section-systems.filecoin_mining.sector.adding_storage)  
 >PreCommitting a Sector: A Miner publishes a Sector’s SealedCID, through miner.PreCommitSector of miner.PreCommitSectorBatch, and makes a deposit. The Sector is now registered to the Miner, and the Miner must ProveCommit the Sector or lose their deposit.
 ### 1: 同样执行二.1 二.2 二.3
@@ -58,10 +58,10 @@ lotus-miner sectors remove <SectorId>
 lotus-miner sectors remove <SectorId>
 ```
 
-## 四：不建议删除commitfaied. finalizedfailed　以及所有完成precommit或者完成provcommit的扇区
+## 4：不建议删除commitfaied. finalizedfailed　以及所有完成precommit或者完成provcommit的扇区
 建议把错误扇区恢复成出错之前的状态，重新做出错的这个步骤
 - 例：扇区commitfailed.此时precommit已经完成，重置扇区状态至commit1
-## 五：如何删除因为存储故障，无法恢复的扇区
+## 5：如何删除因为存储故障，无法恢复的扇区
 删除扇区一定要先链上删除再本地删除，这样能最大程度的减少损失，请记住执行顺序，这个相当重要
  
 ### 1：执行
@@ -82,7 +82,7 @@ lotus-miner sectors remove --really-do-it <sectorNum>
 这一步的主要作用为清除存储
  
 
-## 六：删除扇区中最常范的错误
+## 6：删除扇区中最常范的错误
 
 
 很多人会直接执行：lotus-miner sectors remove --really-do-it <sectorNum>,这是错误的。然后找不到扇区编号，也无法terminate. 这样的情况，可以通过
