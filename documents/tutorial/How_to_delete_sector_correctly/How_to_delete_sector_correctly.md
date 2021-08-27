@@ -51,7 +51,7 @@ lotus-miner sectors remove <SectorId>
 ## 3：如果删除状态为Committing，并且一直卡顿在这些状态的扇区？
 > 注意删除任何precommit已经完成的扇区将导致prcommit阶段的抵押罚没，[参考文档](https://spec.filecoin.io/#section-systems.filecoin_mining.sector.adding_storage)  
 >PreCommitting a Sector: A Miner publishes a Sector’s SealedCID, through miner.PreCommitSector of miner.PreCommitSectorBatch, and makes a deposit. The Sector is now registered to the Miner, and the Miner must ProveCommit the Sector or lose their deposit.
-### 1: 同样执行二.1 二.2 二.3
+### 1: 同样执行2.1 2.2 2.3
  
 ### 2:创建并重启Worker以后，该扇区并不会出现在lotus-miner sealing jobs列表中，而是直接变为CommitFailed，这个时候，执行以下命令删除扇区即可
 ```shell 
