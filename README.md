@@ -153,6 +153,7 @@
 - [矿机投资收益计算器](http://fil8.top/invest/) - 怪盗FIL收益计算器
 - [矿池统计工具](http://fil8.top/pools) - Filecoin矿池统计器
 - [Slingshot 数据统计](https://slingshot.filecoin.io/) - Filecoin 有效数据存储排名
+- [FIL 主网数据统计图表](http://fil8.top/) - 群友 @怪盗Kid 提供的 FIL 主网数据统计图表
 
 ## 6. Community
 - [微信交流群](./README.md)：**Filecoin 技术交流群** 是目前国内最友好，也是全球最大、最活跃的 Filecoin 技术交流社区，欢迎广大 Filecoin 矿工、开发者和爱好者加入我们的技术交流群。
