@@ -1244,9 +1244,34 @@ Connecting to miner API... (could not get API info: could not get api endpoint: 
 ```
 ![Worker启动失败](./pictures/start_worker_failed_api_not_running.png)
 
-这个错误信息是因为你的 `worker` 机器中没有配置 `miner` 的 `API token`，解决方法是在把 `miner`
+这个错误信息是因为你的 `worker` 机器中没有配置 `miner` 的 `API token`，解决方法是在把 `miner` 的 `API token` 在 `worker` 中导出，获取 `API token` 的方法是在 `miner` 的机器中执行：
 
+```sh
+# 注意，在执行该命令之前，你需要更新 miner 的 config.toml 文件中的 ListenAddress，
+# 否则，获得的 MINER_API_INFO 在 worker 中是无效的【Worker 访问不到】
+~/git2/lotus/lotus-miner auth api-info --perm admin
+```
 
+正常情况下的结果应该是这样的：
+
+```sh
+MINER_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.mQZZSTWYVlQdRcjK2iutL9zNNlwovf2Ou_nA7SdPZl4:/ip4/192.168.1.9/tcp/2345/http
+```
+
+而不正常的情况下的结果一般是这样的：
+
+```sh
+# 注意IP地址的变化，这个是没有修改配置文件时默认生成的IP地址，别人是访问不到的
+MINER_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.mQZZSTWYVlQdRcjK2iutL9zNNlwovf2Ou_nA7SdPZl4:/ip4/127.0.1/tcp/2345/http
+```
+
+有了 `miner` 的 `MINER_API_INFO` 之后，就在 `worker` 中启动 `worker` 进程之前执行一下一下命令即可：
+
+```sh
+export MINER_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.mQZZSTWYVlQdRcjK2iutL9zNNlwovf2Ou_nA7SdPZl4:/ip4/192.168.1.9/tcp/2345/http
+```
+
+**注意：** 上述示例中的 `API token` 和你的是不一样的，你需要使用你自己的。
 
 ## 12. 其它
 
