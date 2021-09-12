@@ -1,7 +1,7 @@
 
 # 修改 daemon 节点
 
-假设 `miner` 节点所使用的 `daemon` 节点不在同一台机器上，并且 `daemon` 节点不止一个（有一个备用的 `daemon` 节点），本教程将告诉你如何切换 `miner` 的 `daemon` 节点。
+假设 `miner` 节点和 `daemon` 节点不在同一台机器上，并且 `daemon` 节点不止一个（有一个备用的 `daemon` 节点），本教程将告诉你如何切换 `miner` 的 `daemon` 节点。同时，本教程中还提供了诸多的脚本，可以方便的启动和重启创世旷工、创世 `daemon` 节点、普通旷工、普通 `daemon` 节点，以及 `worker` 节点等，请注意，本教程中的脚本都是基于笔者的机器环境，如果你需要使用，请务必认真过一遍脚本，并修正脚本中涉及的主机名称、`IP` 地址和 `lotus` 路径等信息。
 
 
 ## 1. 实验环境介绍
@@ -66,7 +66,7 @@ logfile /tmp/screenlog_%t.log
 
 ## 4. 启动副 Daemon（DaeMB）
 
-启动 `副 Daemon`（`DaeMB`） 节点的的方法和启动 `主 Daemon` 节点的方法基本一致，唯一不同的地方就是使用脚本 [【start_miner.sh】](./scripts/start_miner.sh) 连接创世节点的时候，只需要执行它的前两步就行了，不需要创建钱包地址，以及发送 `FIL` 到 `副 Daemon` 节点中，如下图所示：
+启动 `副 Daemon`（`DaeMB`） 节点的的方法和启动 `主 Daemon` 节点的方法基本一致，唯一不同的地方就是使用脚本 [【start_miner.sh】](./scripts/start_miner.sh) 连接创世节点的时候，只需要执行它的前 **两步** 就行了，不需要创建钱包地址，以及发送 `FIL` 到 `副 Daemon` 节点中，如下图所示：
 
 ![副节点连接到创世节点](./pictures/minor_daemon_connect_to_genesis_daemon.png)
 
@@ -87,8 +87,8 @@ logfile /tmp/screenlog_%t.log
 
 - 更新 `~/.lotus/config.toml` 文件中的 `ListenAddress` 为本机自己的 `IP` 地址，如果有的话
 - 更新 `~/.lotusminer/config.toml` 文件中的 `ListenAddress` 为本机自己的 `IP` 地址，方便远程 `worker` 连接
-- 更新 `~/.lotusminer/config.toml` 文件中的 `MaxPreCommitBatch` 为 `4`，达到 4 个扇区就开始提交
-- 更新 `~/.lotusminer/config.toml` 文件中的 `PreCommitBatchWait` 为 `0h4m0s`，
+- 更新 `~/.lotusminer/config.toml` 文件中的 `MaxPreCommitBatch` 为 `4`
+- 更新 `~/.lotusminer/config.toml` 文件中的 `PreCommitBatchWait` 为 `0h4m0s`
 - 更新 `~/.lotusminer/config.toml` 文件中的 `PreCommitBatchSlack` 为 `0h8m0s`
 - 更新 `~/.lotusminer/config.toml` 文件中的 `MaxCommitBatch` 为 `5`
 - 更新 `~/.lotusminer/config.toml` 文件中的 `CommitBatchWait` 为 `0h4m0s`
@@ -121,7 +121,19 @@ logfile /tmp/screenlog_%t.log
 
 ![修改 miner 节点的远程 Daemon](./pictures/change_remote_daemon.png)
 
-该脚本在修改完远程 `Daemon` 进程之后会自动启动 `miner` 旷工。
+**注意：** 该脚本在修改完远程 `Daemon` 进程之后会自动启动 `miner` 旷工。
+
+**脚本说明：**
+
+该脚本主要完成一下几个步骤：
+
+- 1. 从旧的 `DaeMA` 机器上获取钱包默认地址： `wallet_addr`
+- 2. 从旧的 `DaeMA` 机器上导出默认钱包的密钥： `wallet_key`
+- 3. 把旧的 `DaeMA` 机器上导出的钱包密钥 `wallet_key` 导入到新的机器 `DaeMB` 中，并设置它为默认钱包
+- 4. 显示新的机器 `DaeMB` 中的钱包列表
+- 5. 获取并显示新的 `DaeMB` 机器上的 `FULLNODE_API_INFO`
+- 6. 在 `miner` 本机上导出 `FULLNODE_API_INFO`
+- 7. 启动 `miner`
 
 
 ## 7. 其它

@@ -130,6 +130,7 @@
   - [Calibration 测试网和 Nerpnet 测试网快照下载地址和使用教程](./documents/tutorial/testnet_snapshot/testnet_snapshot.md) - 有效时间从2021/07/15开始到下次测试网重置
   - [如何正确删除扇区](./documents/tutorial/How_to_delete_sector_correctly/How_to_delete_sector_correctly.md) 
   - [如何迁移矿工节点](./documents/tutorial/How_to_migrate_miner_nodes/How_to_migrate_miner_nodes.md) 
+  - [快速切换 Daemon 节点](./documents/tutorial/change_lotus_daemon/change_lotus_daemon.md) -- 该文档将告诉你如何切换旷工的 `Daemon` 节点，同时提供大量关于本地测试网的相关脚本
 - 高级教程
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashNeptune/Readme.md) - 高级版（所使用的参数和 lotus 完全相同）
