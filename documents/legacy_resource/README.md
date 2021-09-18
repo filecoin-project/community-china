@@ -75,7 +75,7 @@
   - [Testnet3(V25)](https://github.com/CoinSummer/benchmarks/tree/master/benchmarks)
   - [V26/V27 测试结果见文末](./README.md)
 - Proof 证明文件国内下载
-  - [导出 JDCloud 环境变量](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/`
+  - [~~导出 JDCloud 环境变量~~](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - `export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/` 【已失效】
   - [最新版Proofs发布地址](https://proofs.filecoin.io/) - 最新发布 Proof 参数的地方【官方】
 - [Filecoin经济模型](https://filecoin.io/blog/filecoin-cryptoeconomic-constructions/)
 - [甘特图](https://app.instagantt.com/shared/s/1152992274307505/latest)
@@ -162,6 +162,7 @@
 
 ```
 # v28 版本的参数
+# 这个地址下载的参数有问题，请不要再设置这个环境变量，直接下载即可
 export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/
 ./lotus fetch-params 32GiB
 ```
@@ -210,6 +211,7 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 
 ### 4.3 手动下载 proof 参数
 ```sh
+# 这个地址下载的参数有问题，请不要再设置这个环境变量，直接下载即可
 # export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 ./lotus fetch-params --proving-params 2KiB     # 例如下载 2KiB 扇区对应的 Proof 参数
 ./lotus fetch-params --proving-params 16MiB    # 下载 16MiB 扇区对应的 Proof 参数
@@ -218,6 +220,7 @@ lotus net connect /ip4/47.240.110.221/tcp/44845/p2p/12D3KooWRgxLL84TSkYSjhvhCy5Z
 # v27 版本参数【目前在 next 分支: 2020/06/15】
 git fetch
 git checkout origin/next
+# 这个地址下载的参数有问题，请不要再设置这个环境变量，直接下载即可
 export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 ./lotus fetch-params 32GiB
 ```
@@ -627,6 +630,7 @@ BELLMAN_CUSTOM_GPU
 
 # 下载证明参数代理：
 IPFS_GATEWAY
+# 这个地址下载的参数有问题，请不要再设置这个环境变量，直接下载即可
 # 例如： export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"
 
 # Parent cache 参数

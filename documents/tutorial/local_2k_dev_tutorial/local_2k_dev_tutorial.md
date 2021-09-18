@@ -226,6 +226,7 @@ FFI_BUILD_FROM_SOURCE=1 make clean all lotus-seed
 此外，也可以从 `JDCloud` 上面下载，你需要做的事情就是在执行上述命令之前设置一下 `JDCloud` 的代理：
 
 ```sh
+# 这个地址下载的参数有问题，请不要再设置这个环境变量，直接下载即可
 export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/
 ```
 
