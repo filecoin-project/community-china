@@ -554,6 +554,42 @@ RUST_LOG=Trace ~/git2/lotus/lotus-miner run
 
 自此，新节点启动成功，当然，你可以启动任意多个新节点。新旷工启动之后，还没有任何有效算力，因此，还不会参与出块的过程，需要有算力之后才会参与出块，详细内容请看下一节。
 
+### 7.11 使用远程 Daemon
+
+前面的介绍都是基于 `Deamon` 节点和 `Miner` 节点处于同一台机器上运行，但如果 `Deamon` 节点和 `Miner` 节点不在同一台机器上，则我们称之为远程 `Deamon`。
+
+使用远程 `Deamon` 的方法，首先需要修改远程 `Deamon` 的监听地址，也就是在远程 `Deamon` 的配置文件 `~/.lotus/config.toml` 中，把它 `[API]` 这个 Section 下的 `ListenAddress` 地址更新为 `Deamon` 机器的具体地址，如下所示：
+
+```sh
+# 默认的 ListenAddress 一般是这样的【# 表示注释】
+  #ListenAddress = "/ip4/127.0.0.1/tcp/2345/http"
+
+# 假如 Deamon 机器的 IP 地址为： 192.168.100.18，则应该把 ListenAddress 修改成如下所示的形式
+# 注意把注释符 【#】 去掉
+  ListenAddress = "/ip4/192.168.100.18/tcp/2345/http"
+```
+
+修改完远程 `Deamon` 的配置文件之后，需要重启远程 `Deamon` 进程，使得刚才的修改生效，重启之后，在远程 `Deamon` 机器上执行如下命令来获取它的 `FULLNODE_API_INFO`：
+
+```sh
+~/git2/lotus/lotus auth api-info --perm admin
+
+# 执行上述命令之后，你会获得一个类似这样的值：
+FULLNODE_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.g_0fXFdAEomKG1JJTVJ-1Hcl8WHZVRhg7nCVBHuK6y4:/ip4/192.168.100.18/tcp/1236/http
+```
+
+注意 `FULLNODE_API_INFO` 的值，里面的 `IP` 地址必须是远程 `Deamon` 机器的 `IP` 地址，如果在 `FULLNODE_API_INFO`  里面看到的地址还是 `127.0.0.1`，否则说明刚才的修改无效。
+
+现在你已经获得了远程 `Daemon` 机器的 `FULLNODE_API_INFO` 值，你需要把它拷贝到你的 `Miner` 机器上，然后把它写入到环境标量中，你可以在你的 `Miner` 机器上执行 `export` 命令，把这个 `FULLNODE_API_INFO` 存到 `Miner` 机器上，如下所示：
+
+```sh
+# 在你的 Miner 机器上执行任何命令之前，先指向一下这个命令
+export FULLNODE_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.g_0fXFdAEomKG1JJTVJ-1Hcl8WHZVRhg7nCVBHuK6y4:/ip4/192.168.100.18/tcp/1236/http
+```
+
+执行了上述命令之后，你就可以在你的 `Miner` 上执行其它命令了，比如，初始化旷工，启动旷工，查看旷工信息等等。
+
+
 ## 8. 质押扇区（增加节点算力）
 
 增加算力的其中一个方式就是质押扇区（当然也可以通过接收订单来增加算力），旷工只有拥有算力，才能出块，才能获得奖励，目前，在 `2KiB` 测试网中，从质押第一个扇区开始，直到该扇区的状态变成 `Proving`，并且完成第一次 `WindowPoST`，之后，再过 `1` 个小时，就可以开始出块获取奖励了。
