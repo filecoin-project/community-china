@@ -349,7 +349,9 @@ lotus-miner storage list
 ListenAddress = "/ip4/192.168.1.100/tcp/1234/http"
 ```
 2. 修改好配置文件之后，**需要重启 `daemon` 进程**，才能使得 `API` 生效。
-3. 将远程 `daemon` (`192.168.1.100`) 上 `~/.lotus` 目录下的 `api` 和 `token` 拷贝到 `miner` 机器 (`192.168.1.101`) 的 `~/.lotus` 目录下，`miner` 机器上没有这个目录就新建一个，让它和 `daemon` 机器上保持一致；
+3. 在远程 `daemon` (`192.168.1.100`) 上执行 `./lotus auth api-info --perm admin`，得到 `daemon` 机器的 `FULLNODE_API_INFO` 的值，类似如下的形式：
+   `FULLNODE_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.g_0fXFdAEomKG1JJTVJ-1Hcl8WHZVRhg7nCVBHuK6y4:/ip4/192.168.1.100/tcp/1236/http` 
+4. 把这个 `FULLNODE_API_INFO` 值拷贝到 `miner` 机器上，并使用 `export` 把它添加到环境变量中，例如： `export FULLNODE_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.g_0fXFdAEomKG1JJTVJ-1Hcl8WHZVRhg7nCVBHuK6y4:/ip4/192.168.1.100/tcp/1236/http`
 4. 此时，在 `miner` 机器上已经可以正常使用远程的 `daemon`，初始化 `miner`和运行 `miner` 等操作都已经可以正常执行。
 
 ### 5.7 启动 miner 参考命令
