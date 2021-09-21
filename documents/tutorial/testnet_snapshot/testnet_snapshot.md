@@ -33,15 +33,18 @@
 
 快照数据已经使用 `xz` 工具压缩，下载之后需要解压方可使用：
 
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_08_16_high_168764.car.tar.x】](https://www.mediafire.com/file/w95nwo3cu9elotu/lotus_cali_snapshot_2021_08_16_high_168764.car.tar.xz/file)，
+- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_09_21_high_271614.car.tar.xz】](https://www.mediafire.com/file/jscwd3d1p2lbjfi/lotus_cali_snapshot_2021_09_21_high_271614.car.tar.xz/file)，
 
 ``` shell
-# Calibration 测试网快照的 SHA256 值： a0dc232b57ebe1cfb6550a6d77d505cf622c65432dc7b8d1523cac4fa6fcac48
-ml@ml:~/disk$ sha256sum lotus_cali_snapshot_2021_08_16_high_168764.car.tar.xz
-a0dc232b57ebe1cfb6550a6d77d505cf622c65432dc7b8d1523cac4fa6fcac48  lotus_cali_snapshot_2021_08_16_high_168764.car.tar.xz
+# Calibration 测试网快照的 SHA256 值： 0b162c5b8139e3fcc984193368c8631457aac556fa2cadaf6aa726a3732c9c2e
+ml@ml:~/disk$ sha256sum ./lotus_cali_snapshot_2021_09_21_high_271614.car
+0b162c5b8139e3fcc984193368c8631457aac556fa2cadaf6aa726a3732c9c2e  ./lotus_cali_snapshot_2021_09_21_high_271614.car
+ml@ml:~/disk$ 
+ml@ml:~/disk$ sha256sum ./lotus_cali_snapshot_2021_09_21_high_271614.car.tar.xz 
+2d1ab4efff15e325b9160845e0a49d3f2e27f4366aca78d9c70403a5de682b93  ./lotus_cali_snapshot_2021_09_21_high_271614.car.tar.xz
 
 # 解压命令
-tar -Jxf ./lotus_cali_snapshot_2021_08_16_high_168764.car.tar.xz
+tar -Jxf ./lotus_cali_snapshot_2021_09_21_high_271614.car.tar.xz
 ```
 
 - Nerpnet 测试网的快照下载地址：[【无】]()
