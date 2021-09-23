@@ -68,6 +68,8 @@ EnableMining = false
 EnableSealing = false 
 EnableSectorStorage = false  
 EnableMarkets = true 
+SealerApiInfo = "eyXXXXXXXX:/ip4/192.168.0.XXX/tcp/2345/http"
+SectorIndexApiInfo = "eyXXXXXXXX:/ip4/192.168.0.XXX/tcp/2345/http"
 ```
 
 ### step2. 导入环境变量
@@ -79,7 +81,7 @@ EnableMarkets = true
 lotus auth api-info --perm admin  
 ```  
 
-APISEALER，APISECTORINDEX用于markets节点接受到订单后，发送封装信息至lotus-miner.  
+APISEALER，APISECTORINDEX用于markets节点接受到订单后，发送封装信息至lotus-miner.　1.11.2版本以后，可以在配置文件中配置这两项，保险起见，建议还是配置这两个环境变量  
 MINER_API_INFO用于lotus-miner客户端与mining/sealing/proving交互  
 FULLNODE_API_INFO用于链上交互  
 这是我的例子  
