@@ -164,12 +164,8 @@
   - Filecoin 中文交流-6群（目前已满）
   - Filecoin 中文交流-7群（目前还有空位）
 
-  进群请加微信：**max-yu-666**
-  
-  <img src="./images/wechat-group.jpeg" width="200" />
-
-- [Slack](https://filecoinproject.slack.com)
-- [Twitter](https://twitter.com/filecoin)
+- [Telegram交流群](https://t.me/joinchat/TGfSFhrWdrMwYjk9)
+- [Discord交流群](https://discord.gg/4f3DjmDk7j)
 
 ## 7. 杂项
 
