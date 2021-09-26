@@ -86,14 +86,9 @@
   - [Golang编译环境安装配置](./documents/build/build_env_config.md) - Golang编译环境安装、代理设置
   - [Rust编译环境安装配置](./documents/build/build_env_config.md) - Rust编译环境安装配置，`crate.io` 源国内镜像配置
   - [代码编译常见错误解决](./documents/build/build_env_config.md) - 国内代理配置、Intel机器编译环境变量配置
-  - [解决代码拉取冲突]
-  - [Ulimit 问题：`Too many open files`]
-  - [Daemon 无法启动时恢复钱包密钥的方法]
-  - [链同步错误：`block was from the future`]
 
 - 常见硬件问题
   - [CPU开启性能模式](./documents/hardware/cpu_performance.md)
-  - 显卡掉驱动问题解决
 
 - Benchmarks
   - [AMD EPYC 7542 + RTX 2080Ti](https://github.com/filecoin-project/community-china/blob/master/documents/benchmark/bench.md#amd-epyc%E7%B3%BB%E5%88%97cpu)
@@ -121,24 +116,23 @@
     - WindowPoST计算过程简介（TODO）
     - WinningPoST计算过程简介（TODO）
 - 基础教程
-  - [本地搭建 2K 测试网入门教程](./documents/tutorial/local_2k_dev_tutorial/local_2k_dev_tutorial.md) -- 强烈推荐的新手入门教程
-  - [Calibration 测试网使用教程](./documents/tutorial/use_cali-net_tutorial/use_cali-net_tutorial.md) -- 强烈推荐的新手入门教程
-  - [链数据导入导出使用教程](./document/../documents/tutorial/lotus_chain_op/lotus_chain_op.md) -- 文档内包含官方快照网址
+  - [本地搭建 2K 测试网入门教程](./documents/tutorial/local_2k_dev_tutorial/local_2k_dev_tutorial.md) - 强烈推荐的新手入门教程
+  - [Calibration 测试网使用教程](./documents/tutorial/use_cali-net_tutorial/use_cali-net_tutorial.md) - 强烈推荐的新手入门教程
+  - [链数据导入导出使用教程](./document/../documents/tutorial/lotus_chain_op/lotus_chain_op.md) - 文档内包含官方快照网址
   - [GDB调试Lotus源码](./documents/tutorial/gdb_debug_lotus/gdb_debug.md)
   - [Filecoin 最新挖矿集群硬件配置](https://github.com/filecoin-project/community-china/discussions/18)
-  - [Filecoin 挖矿教程集合](https://www.r9it.com/categories.html#Filecoin-ref) -- 群友 @Rock-Yang 提供的优质文章教程
+  - [Filecoin 挖矿教程集合](https://www.r9it.com/categories.html#Filecoin-ref) - 群友 @Rock-Yang 提供的优质文章教程
   - [Calibration 测试网和 Nerpnet 测试网快照下载地址和使用教程](./documents/tutorial/testnet_snapshot/testnet_snapshot.md) - 有效时间从2021/07/15开始到下次测试网重置
   - [如何正确删除扇区](./documents/tutorial/How_to_delete_sector_correctly/How_to_delete_sector_correctly.md) 
   - [如何迁移矿工节点](./documents/tutorial/How_to_migrate_miner_nodes/How_to_migrate_miner_nodes.md) 
-  - [快速切换 Daemon 节点](./documents/tutorial/change_lotus_daemon/change_lotus_daemon.md) -- 该文档将告诉你如何切换旷工的 `Daemon` 节点，同时提供大量关于本地测试网的相关脚本
-  - [分离存储市场到不同的节点](./documents/tutorial/split_markets_node/split_markets_node.md)　-- 解释分离存储市场到不同节点的必要性和步骤。
+  - [快速切换 Daemon 节点](./documents/tutorial/change_lotus_daemon/change_lotus_daemon.md) - 该文档将告诉你如何切换旷工的 `Daemon` 节点，同时提供大量关于本地测试网的相关脚本
+  - [分离存储市场到不同的节点](./documents/tutorial/split_markets_node/split_markets_node.md)　- 解释分离存储市场到不同节点的必要性和步骤。
 - 高级教程
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashNeptune/Readme.md) - 高级版（所使用的参数和 lotus 完全相同）
 
 ## 4. Optimized Lotus
 - [熊鹰myScheduler调度](http://202.74.1.76/myScheduler1.2.2/myScheduler.pdf) - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
-- ~~[P2优化版](https://github.com/filguard/rust-fil-proofs) - [@mje](https://github.com/jyma)开源的P2优化版（已失效）~~
 - [C2优化版](https://github.com/jackoelv/bellperson) - [@jacklelv](https://github.com/jackoelv)开源的C2优化版
 - [分布式Miner](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的分布式Miner
 - [调度优化版](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的调度程序
@@ -158,6 +152,7 @@
 - [矿池统计工具](http://fil8.top/pools) - Filecoin矿池统计器
 - [Slingshot 数据统计](https://slingshot.filecoin.io/) - Filecoin 有效数据存储排名
 - [FIL 主网数据统计图表](http://fil8.top/) - 群友 @怪盗Kid 提供的 FIL 主网数据统计图表
+- [Filecoin扇区修复工具](https://github.com/froghub-io/filecoin-sealer-recover) - 群友@Chen开源的Filecoin扇区修复工具
 
 ## 6. Community
 - [微信交流群](./README.md)：**Filecoin 技术交流群** 是目前国内最友好，也是全球最大、最活跃的 Filecoin 技术交流社区，欢迎广大 Filecoin 矿工、开发者和爱好者加入我们的技术交流群。
