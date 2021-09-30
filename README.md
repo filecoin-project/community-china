@@ -164,6 +164,9 @@
   - Filecoin 技术交流-6群（目前已满）
   - Filecoin 技术交流-7群（目前还有空位）
   - **Filecoin 技术交流群**（唯一与微信群同步的 Telegram 群） 
+  - 入群请联系群主【**TEARS**】，并做好备注，否则可能会被拒绝。
+  - ![TEARS](./images/tears_wchart.png)
+
 
 - [Telegram交流群](https://t.me/joinchat/TOGYnsZ2itA0NGZl)
 - [Discord交流群](https://discord.gg/4f3DjmDk7j)
