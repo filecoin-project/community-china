@@ -134,8 +134,7 @@
 ## 4. Optimized Lotus
 - [熊鹰myScheduler调度](http://202.74.1.76/myScheduler1.2.2/myScheduler.pdf) - [@熊鹰](https://github.com/KevinXiong2018)提供的lotus自定义调度程序myScheduler，参数使用与实测案例分享
 - [C2优化版](https://github.com/jackoelv/bellperson) - [@jacklelv](https://github.com/jackoelv)开源的C2优化版
-- [分布式Miner](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的分布式Miner
-- [调度优化版](https://github.com/moran666666/lotus-1.5.0) - [@默然](https://github.com/moran666666)开源的调度程序
+- [调度优化版 & 分布式 Miner 备份: 【lotus-1.10.0-1.10.0.zip】](./ref_src/anonymouse_lotus/lotus-1.10.0-1.10.0.zip) - 某匿名大佬开源的分布式 Miner
 - [lotus-bee优化版](https://github.com/beelant/lotus-bee) 由蜂灯科技提供的全方位优化的lotus软件免费使用
 
 ## 5. Ecosystem Tools
