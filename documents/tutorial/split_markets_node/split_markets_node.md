@@ -182,12 +182,16 @@ lotus-miner --call-on-markets  auth api-info --perm admin
 
 如果你配置了`DealPublishControl`，在所有子系统都要配置。
 
+### 问题反馈与交流
+
+已经创建了关于分离存储市场的讨论话题，可以在[**这里**](https://github.com/filecoin-project/community-china/discussions/149)互相交流，解决分离子系统中遇到的问题
+
 ### version info
 
 lotus-miner version 1.11.1-rc2+git.40449f1cc.dirty  
 Linux nerpa-miner 5.11.0-25-generic #27-Ubuntu SMP Fri Jul 9 23:06:29 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux.
 
-## 　真实数据项目文档
+### 真实数据项目文档
 
 以下是部分文档：
 Filplus文档地址：[链接](https://docs.filecoin.io/store/filecoin-plus/)　　
