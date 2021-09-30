@@ -132,6 +132,7 @@
   - [如何迁移矿工节点](./documents/tutorial/How_to_migrate_miner_nodes/How_to_migrate_miner_nodes.md) 
   - [快速切换 Daemon 节点](./documents/tutorial/change_lotus_daemon/change_lotus_daemon.md) -- 该文档将告诉你如何切换旷工的 `Daemon` 节点，同时提供大量关于本地测试网的相关脚本
   - [分离存储市场到不同的节点](./documents/tutorial/split_markets_node/split_markets_node.md)　-- 解释分离存储市场到不同节点的必要性和步骤。
+  - [孤块产生的原因推测与解决思路](./documents/tutorial/about_orphan_block/about_orphan_block.md)　-- 基于现像与部分代码推测的孤块产生逻辑与解决思路。
 - 高级教程
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashNeptune/Readme.md) - 高级版（所使用的参数和 lotus 完全相同）
