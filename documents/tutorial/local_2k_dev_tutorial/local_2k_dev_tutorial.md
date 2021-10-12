@@ -1070,6 +1070,9 @@ ml@ml:~$
 有了 `MINER_API_INFO` ，我们现在就可以启动 `worker` 了，启动命令如下所示：
 
 ```sh
+# 在 worker 上先导出环境变量 MINER_API_INFO 的值
+export MINER_API_INFO=xxxxxxx
+
 # 加上 RUST_LOG=Trace 环境变量可以看到 worker 的详细日志信息
 # BELLMAN_NO_GPU=1 表示我的这个 worker 机器现在暂时没有显卡
 BELLMAN_NO_GPU=1 RUST_LOG=Trace ~/git2/lotus/lotus-worker run --listen=192.168.100.18:2333 -precommit1=true --precommit2=true --commit=true --addpiece=true --parallel-fetch-limit=1 --unseal=true
