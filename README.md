@@ -131,6 +131,7 @@
 - 真实数据文档
    
   - [关于公证人](./documents/real_data/fil_plus/about_notary.md) - 翻译自官方文档，解释公证人的作用及运行机制
+  - [Filecoin +](./documents/real_data/fil_plus/file_coin_plus.md) - 翻译自官方文档，关于filecoin plus的概念及参予方式
 - 高级教程
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashNeptune/Readme.md) - 高级版（所使用的参数和 lotus 完全相同）
