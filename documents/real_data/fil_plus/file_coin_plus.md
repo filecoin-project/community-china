@@ -1,3 +1,5 @@
+本文翻译自https://docs.filecoin.io/store/filecoin-plus/
+
 # Filecoin Plus
 
 Filecoin Plus旨在为Filecoin网络增加一层社会信任，并引入一种称为DataCap的新资源，从而实现Filecoin网络的需求端，并最大限度地增加Filecoin上的有用存储。希望将存储载入网络的客户端向社区选择的公证人申请获得DataCap，用来激励存储供应商接受存储交易。
