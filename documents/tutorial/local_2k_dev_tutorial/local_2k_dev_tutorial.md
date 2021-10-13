@@ -556,20 +556,20 @@ RUST_LOG=Trace ~/git2/lotus/lotus-miner run
 
 ### 7.11 使用远程 Daemon
 
-前面的介绍都是基于 `Deamon` 节点和 `Miner` 节点处于同一台机器上运行，但如果 `Deamon` 节点和 `Miner` 节点不在同一台机器上，则我们称之为远程 `Deamon`。
+前面的介绍都是基于 `Daemon` 节点和 `Miner` 节点处于同一台机器上运行，但如果 `Daemon` 节点和 `Miner` 节点不在同一台机器上，则我们称之为远程 `Daemon`。
 
-使用远程 `Deamon` 的方法，首先需要修改远程 `Deamon` 的监听地址，也就是在远程 `Deamon` 的配置文件 `~/.lotus/config.toml` 中，把它 `[API]` 这个 Section 下的 `ListenAddress` 地址更新为 `Deamon` 机器的具体地址，如下所示：
+使用远程 `Daemon` 的方法，首先需要修改远程 `Daemon` 的监听地址，也就是在远程 `Daemon` 的配置文件 `~/.lotus/config.toml` 中，把它 `[API]` 这个 Section 下的 `ListenAddress` 地址更新为 `Daemon` 机器的具体地址，如下所示：
 
 ```sh
 # 默认的 ListenAddress 一般是这样的【# 表示注释】
   #ListenAddress = "/ip4/127.0.0.1/tcp/2345/http"
 
-# 假如 Deamon 机器的 IP 地址为： 192.168.100.18，则应该把 ListenAddress 修改成如下所示的形式
+# 假如 Daemon 机器的 IP 地址为： 192.168.100.18，则应该把 ListenAddress 修改成如下所示的形式
 # 注意把注释符 【#】 去掉
   ListenAddress = "/ip4/192.168.100.18/tcp/2345/http"
 ```
 
-修改完远程 `Deamon` 的配置文件之后，需要重启远程 `Deamon` 进程，使得刚才的修改生效，重启之后，在远程 `Deamon` 机器上执行如下命令来获取它的 `FULLNODE_API_INFO`：
+修改完远程 `Daemon` 的配置文件之后，需要重启远程 `Daemon` 进程，使得刚才的修改生效，重启之后，在远程 `Daemon` 机器上执行如下命令来获取它的 `FULLNODE_API_INFO`：
 
 ```sh
 ~/git2/lotus/lotus auth api-info --perm admin
@@ -578,7 +578,7 @@ RUST_LOG=Trace ~/git2/lotus/lotus-miner run
 FULLNODE_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.g_0fXFdAEomKG1JJTVJ-1Hcl8WHZVRhg7nCVBHuK6y4:/ip4/192.168.100.18/tcp/1236/http
 ```
 
-注意 `FULLNODE_API_INFO` 的值，里面的 `IP` 地址必须是远程 `Deamon` 机器的 `IP` 地址，如果在 `FULLNODE_API_INFO`  里面看到的地址还是 `127.0.0.1`，否则说明刚才的修改无效。
+注意 `FULLNODE_API_INFO` 的值，里面的 `IP` 地址必须是远程 `Daemon` 机器的 `IP` 地址，如果在 `FULLNODE_API_INFO`  里面看到的地址还是 `127.0.0.1`，否则说明刚才的修改无效。
 
 现在你已经获得了远程 `Daemon` 机器的 `FULLNODE_API_INFO` 值，你需要把它拷贝到你的 `Miner` 机器上，然后把它写入到环境标量中，你可以在你的 `Miner` 机器上执行 `export` 命令，把这个 `FULLNODE_API_INFO` 存到 `Miner` 机器上，如下所示：
 
