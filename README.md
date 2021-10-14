@@ -35,9 +35,9 @@
 - Filecoin文档
   - [FIPs 文档入口](https://github.com/filecoin-project/FIPs) - FIPs
   - [官方文档](https://docs.filecoin.io/) - Filecoin Documentation
+  - [官方文档-中文版](https://filecoin-docs.froghub.io/)
   - [依赖安装和代码编译](https://docs.filecoin.io/get-started/lotus/installation/#build-and-install-lotus) - Filecoin官方依赖安装和代码编译教程
   - [挖矿教程](https://docs.filecoin.io/mine/lotus/) - Filecoin官方的挖矿教程，系统性强、详细完整，建议新手通读
-  - [Filecoin中文文档](https://filecoin.filgo.info/) - 社区全栈老吕提供的Filecoin官方文档中文版【已关闭】
   - [Venus文档](https://venus.filecoin.io/) - Venus Documentation
 
 - Filecoin经济模型
