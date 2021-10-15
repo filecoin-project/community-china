@@ -130,8 +130,11 @@
   
 - 真实数据文档
    
-  - [关于公证人](./documents/real_data/fil_plus/about_notary.md) - 翻译自官方文档，解释公证人的作用及运行机制
-  - [Filecoin +](./documents/real_data/fil_plus/file_coin_plus.md) - 翻译自官方文档，关于filecoin plus的概念及参予方式
+  - [关于公证人](./documents/real_data/fil_plus/about_notary.md) - 翻译自官方文档，解释公证人的作用及运行机制 
+  - [Filecoin +](./documents/real_data/fil_plus/file_coin_plus.md) - 翻译自官方文档，关于filecoin plus的概念及参予方式 
+  - [如何获取真实交易订单](./documents/real_data/where_do_find_verified_deal/where_do_find_verified_deal.md) 当下获取真实数据的主要方式
+  - [真实数据专题讨论](https://github.com/filecoin-project/community-china/discussions/166) 这里讨论关于真实数据问题
+  
 - 高级教程
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
     - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashNeptune/Readme.md) - 高级版（所使用的参数和 lotus 完全相同）
