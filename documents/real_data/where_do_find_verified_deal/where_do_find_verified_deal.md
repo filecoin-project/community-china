@@ -28,7 +28,7 @@ estuary跟textile有明显的不同，它的设计主要是面向**在线订单*
 
 ## 疑问解答
 
-- 可以在这个讨论里交流真实数据相关的问题<https://github.com/filecoin-project/community-china/discussions/166>
+- 可以在这个讨论里交流真实数据相关的问题: <https://github.com/filecoin-project/community-china/discussions/166>
 
 - 你可以随时在slack频道里交流相关的问题。
 
