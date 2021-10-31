@@ -119,7 +119,7 @@ carFilePath "是 "bidbot "下载交易数据后生成的CAR文件。*dealCid*是
 
 ### OK，我已经运行了，我应该看到什么？
 
-首先，祝贺你已经连接上了! 当启动你的`bidbot'守护程序时，你应该看到控制台中出现以下几行。
+首先，祝贺你已经连接上了! 当启动你的`bidbot`守护程序时，你应该看到控制台中出现以下几行。
 
 ```go
 2021-05-28T17:33:30.814-0300    INFO    mpeer   marketpeer/marketpeer.go:148    marketpeer 12D3KooWPX8uutGrghEYLt1i9EPmLmwSUYtYD3BN1tvARK5YXDXV is online
@@ -130,7 +130,7 @@ carFilePath "是 "bidbot "下载交易数据后生成的CAR文件。*dealCid*是
 2021-05-28T17:33:31.876-0300    INFO    bidbot/service  service/service.go:191  subscribed to the deal auction feed
 ```
 
-检查你是否在日志输出中看到最后一行（"subscribed to the deal auction feed"）很重要。这意味着你已经成功连接到Auctioneer。
+检查你是否在日志输出中看到最后一行（"subscribed to the deal auction feed"）很重要。这意味着你已经成功连接到存储拍卖系统r。
 
 一段时间后，你会在日志输出中看到一些活动，例如。
 
@@ -203,7 +203,7 @@ Bidbot的交易来自Textile的地址，`f144zep4gitj73rrujd3jw6iprljicx6vl4wbea
         - 获取你的矿工同行的ID - `lotus-miner net id`。
         - 尝试找到你自己的ID - `lotus net findpeer YOUR_MINER_PEER_ID`。
         - 用Bidbot使用的Glif节点尝试几次 - `FULLNODE_API_INFO="https://api.node.glif.io" lotus net findpeer YOUR_MINER_PEER_ID`。
-    - 或者你设置的`--deal-start-window'太小。你会在你的矿工日志中看到类似 "deal rejected: cannot seal a sector before ..."的内容。将你的 "deal-start-window"设置为比你的矿工配置中的 "ExpectedSealDuration"长几个小时。
+    - 或者你设置的`--deal-start-window`太小。你会在你的矿工日志中看到类似 "deal rejected: cannot seal a sector before ..."的内容。将你的 "deal-start-window"设置为比你的矿工配置中的 "ExpectedSealDuration"长几个小时。
 
 2. 交易太多，超过了你的密封能力。有两种方法可以节制。
     - `--running-bytes-limit`，限制bidbot在一段时间内处理的总字节数。
