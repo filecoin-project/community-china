@@ -5,10 +5,10 @@
 ## 1. Website
 
 #### 1.1 浏览器
-- [FilFox](https://filfox.info) - 6Block 团队开发的 Filecoin 浏览器
+- [FilFox](https://filfox.info/en) - 6Block 团队开发的 Filecoin 浏览器
 - [Filscan](https://filscan.io) - IPFS原力团队开发的 Filecoin 浏览器
 - [Filscout](https://filscout.io) - 星际联盟团队开发的 Filecoin 浏览器
-- [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发 Filecoin 浏览器
+- [1475ipfs](https://1475ipfs.com/#/blockBrowser) - ~~1475 团队开发 Filecoin 浏览器~~【已关闭】
 - [Stats](https://stats.testnet.filecoin.io/) - 官方 Filecoin 浏览器（按 `ESC` 可查看不同的网络）
 - [Spacegap](https://spacegap.github.io/#/) - 官方 Filecoin 浏览器（总览视图）
 - [Atpool](https://explorer.atpool.com/) - 雅典娜浏览器-Filecoin专业矿工数据服务
