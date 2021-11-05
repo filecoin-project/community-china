@@ -127,6 +127,7 @@
   - [如何迁移矿工节点](./documents/tutorial/How_to_migrate_miner_nodes/How_to_migrate_miner_nodes.md) 
   - [快速切换 Daemon 节点](./documents/tutorial/change_lotus_daemon/change_lotus_daemon.md) - 该文档将告诉你如何切换旷工的 `Daemon` 节点，同时提供大量关于本地测试网的相关脚本
   - [分离存储市场到不同的节点](./documents/tutorial/split_markets_node/split_markets_node.md)　- 解释分离存储市场到不同节点的必要性和步骤。
+  - [过低的幸运值的排查方法](./documents/tutorial/low_lucky_value/low_lucky_value.md) - 当你的幸运值一直很低，该如何排查原因
   
 - 真实数据文档
    
