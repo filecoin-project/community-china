@@ -26,10 +26,10 @@ git clone https://github.com/filecoin-project/rust-filecoin-proofs-api.git
 
 本教程所使用的代码版本信息如下所示：
 
-- **lotus** ： `lotus version 1.13.0+git.7a55e8e89`
-- **lotus 分支**： `tag: v1.13.0`
-- **rust-filecoin-proofs-api** ： `master:ddb562e22def`
-- **rust-fil-proofs** ： `master:e55ae0b2e1185`
+- **lotus 可执行文件版本** ： `lotus version 1.13.0+debug+git.7a55e8e89.dirty`
+- **lotus**： `tag: v1.13.0`
+- **rust-filecoin-proofs-api** ： `tag: v10.0.0`
+- **rust-fil-proofs** ： `tag: filecoin-proofs-v10.0.0`
 - **修改时间** ：`2021/11/12`
 
 代码版本不是很重要，不同的代码版本都是可以调试的，只是下断点的时候需要注意一下，其它没有什么需要特别注意的。
@@ -37,14 +37,14 @@ git clone https://github.com/filecoin-project/rust-filecoin-proofs-api.git
 
 ### (2). 配置源代码
 
-下载好源代码之后， `~/git/` 目录中就有这三个项目的代码，而 `lotus` 本身默认使用的底层代码库不是我们放在 `~/git/` 目录下的代码，为了让它使用我们 `~/git/` 目录下底层库的代码（方便后续修改代码和重新编译），我们需要对这项目中的配置文件做一些修改（改它们的 **Cargo.toml** 配置文件）。
+下载好源代码之后， `/home/ml/disk/git3/` 目录中就有这三个项目的代码，而 `lotus` 本身默认使用的底层代码库不是我们放在 `/home/ml/disk/git3/` 目录下的代码，为了让它使用我们 `/home/ml/disk/git3/` 目录下底层库的代码（方便后续修改代码和重新编译），我们需要对这项目中的配置文件做一些修改（改它们的 **Cargo.toml** 配置文件）。
 
 **注意：**
 待修改配置文件的项目有两个：`lotus` 和  `rust-filecoin-proofs-api` ，而 `rust-fil-proofs` **无需修改配置文件**，此外， 在修改 `rust-filecoin-proofs-api` 和 `rust-fil-proofs` 项目之前，需要先把它们的代码版本切换到对应的版本号，详细信息见下文。
 
 #### A. 修改 lotus 中的配置文件
 
-首先修改 `lotus` 目录中的 **Cargo.toml** 配置文件，让它直接使用本地的 `rust-filecoin-proofs-api` 代码。这个配置文件的路径在：`./lotus/extern/filecoin-ffi/rust/` 目录下，但是由于第一次使用这份代码，这个目录还不存在，因此，可以先编译一遍这个 `lotus` 的源码，让它先生成这个对应的目录，以及其中的相关代码，编译命令如下（**FFI_BUILD_FROM_SOURCE=1** 这个环境变量是必须的，表示自己编译底层的 Rust 库，而不是使用官方预编译好的底层 Rust 库）：
+首先修改 `lotus` 目录中的 **Cargo.toml** 配置文件，让它直接使用本地的 `rust-filecoin-proofs-api` 和 `storage-proofs-porep` 中的代码。这个配置文件的路径在：`./lotus/extern/filecoin-ffi/rust/` 目录下，但是由于第一次使用这份代码，这个目录还不存在，因此，可以先编译一遍这个 `lotus` 的源码，让它先生成这个对应的目录，以及其中的相关代码，编译命令如下（**FFI_BUILD_FROM_SOURCE=1** 这个环境变量是必须的，表示自己编译底层的 Rust 库，而不是使用官方预编译好的底层 Rust 库）：
 
 ```sh
 FFI_BUILD_FROM_SOURCE=1 make clean debug
@@ -55,7 +55,7 @@ FFI_BUILD_FROM_SOURCE=1 make clean debug
 ![预编译](./pictures/precompile.png)
 
 **注意：**
-预编译完成之后，可以看到 `rust-filecoin-proofs-api` 的版本是 `v10.0.0` ，而 `rust-fil-proofs` 的版本是 `v10.0.0`，因此，我们还需要把这两个库的代码切换到对应的版本。
+预编译完成之后，可以看到 `rust-filecoin-proofs-api` 和 `rust-fil-proofs` 的版本都是 `v10.0.0`，因此，我们还需要把这两个库的代码切换到对应的版本。
 
 修改 `./lotus/extern/filecoin-ffi/rust/` 目录下对应的 **Cargo.toml** 文件：
 
@@ -71,11 +71,11 @@ FFI_BUILD_FROM_SOURCE=1 make clean debug
 
 ```sh
 # 两个关键的修改路径如下所示
-storage-proofs-porep = { path = "../../../../rust-fil-proofs/storage-proofs-porep", version = "10.0.0", default-features = false }
+storage-proofs-porep = { path = "../../../../rust-fil-proofs/storage-proofs-porep", default-features = false }
 path = "../../../../rust-filecoin-proofs-api"
 ```
 
-注意，上述修改中，原来用 `package` 关键字的，现在用的是 `path` 关键字，并把内容改为：`path = "../../../../rust-filecoin-proofs-api"`，表示这个库存在本地指定的位置；同时由于这里直接引用了 `storage-proofs-porep` 这个库，因此，也需要把它的路径改成本地的路径。
+注意：上述修改中，原来用 `package` 关键字的，现在用的是 `path` 关键字，并把内容改为：`path = "../../../../rust-filecoin-proofs-api"`，表示这个库存在本地指定的位置；同时由于这里直接引用了 `storage-proofs-porep` 这个库，因此，也需要把它的路径改成本地的路径，并把两个库的 `version = "xxx"` 去掉。
 
 
 #### B. 修改 rust-filecoin-proofs-api 库
@@ -103,13 +103,15 @@ git checkout v10.0.0
 ![修改后](./pictures/after_change_api.png)
 
 ```sh
-# 三个关键的修改路径如下所示
-filecoin-proofs-v1 = { path = "../rust-fil-proofs/filecoin-proofs", package = "filecoin-proofs", version = "10.0", default-features = false }
-storage-proofs-core = { path = "../rust-fil-proofs/storage-proofs-core", version = "10.0", default-features = false }
-storage-proofs-porep = { path = "../rust-fil-proofs/storage-proofs-porep", version = "10.0", default-features = false }
+# 五个关键的修改路径如下所示
+filecoin-proofs-v1 = { path = "../rust-fil-proofs/filecoin-proofs", package = "filecoin-proofs", default-features = false }
+filecoin-hashers = { path = "../rust-fil-proofs/filecoin-hashers",  default-features = false, features = ["poseidon", "sha256"] }
+fr32 = { path = "../rust-fil-proofs/fr32", default-features = false }
+storage-proofs-core = { path = "../rust-fil-proofs/storage-proofs-core",  default-features = false }
+storage-proofs-porep = { path = "../rust-fil-proofs/storage-proofs-porep",  default-features = false }
 ```
 
-修改的方法也很简单，只要添加 `path = "../rust-fil-proofs/filecoin-proofs"` 到 `filecoin-proofs-v1` 这个依赖项中即可。
+修改的方法也很简单，只要把以上的五个库的来源改成本地的即可（包括 `filecoin-proofs-v1`、 `filecoin-hashers`、 `fr32`、 `storage-proofs-core` 和 `storage-proofs-porep`），并去掉这几个库的 `version = "xxx"` 即可。
 
 
 #### C. 修改 rust-fil-proofs 库
@@ -137,13 +139,13 @@ git checkout filecoin-proofs-v10.0.0
 
 要把底层的 rust 库和上层的 go 实现的代码编译成 Debug 版本，需要修改以下三个配置文件：
 
-- `~/git/lotus/Makefile`
-- `~/git/lotus/extern/filecoin-ffi/install-filcrypto`
-- `~/git/lotus/extern/filecoin-ffi/rust/scripts/build-release.sh`
+- `/home/ml/disk/git3/lotus/Makefile`
+- `/home/ml/disk/git3/lotus/extern/filecoin-ffi/install-filcrypto`
+- `/home/ml/disk/git3/lotus/extern/filecoin-ffi/rust/scripts/build-release.sh`
 
 #### A. 修改 Makefile 文件
 
-Makefile 中要把 `lotus-bench` 模块加入到 `Debug` 组和 `2k` 组，这样的话，我们执行 `FFI_BUILD_FROM_SOURCE=1 make clean debug` 或者 `FFI_BUILD_FROM_SOURCE=1 make clean 2k` 命令的时候就能够把 `lotus-bench` 程序的 `Debug` 版本也编译出来（默认 `lotus-bench` 程序没有 `Debug` 版本的）；同时，还需要把 `-gcflags "-N -l"` 加到 `GOFLAGS`，使得调试 go 层面的代码的时候更方便，修改结果如下：
+在 `Makefile` 中要把 `lotus-bench` 模块加入到 `Debug` 组和 `2k` 组（现在可以直接加到 `build-devnets` 这个组中即可，因为  `Debug` 组和 `2k` 组都依赖 `build-devnets` 这个组），这样的话，我们执行 `FFI_BUILD_FROM_SOURCE=1 make clean debug` 或者 `FFI_BUILD_FROM_SOURCE=1 make clean 2k` 命令的时候就能够把 `lotus-bench` 程序的 `Debug` 版本也编译出来（默认 `lotus-bench` 程序没有 `Debug` 版本的）；同时，还需要把 `-gcflags "-N -l"` 加到 `GOFLAGS`，使得调试 go 层面的代码的时候更方便，修改结果如下：
 
 ![修改 Makefile 文件](./pictures/change_makefile.png)
 
@@ -154,6 +156,8 @@ Makefile 中要把 `lotus-bench` 模块加入到 `Debug` 组和 `2k` 组，这�
 这个 `./extern/filecoin-ffi/install-filcrypto` 文件是用来安装底层 rust 库的时候用到的，因此，也需要修改它，让它指向 Debug 版本中的内容，使用 Debug 版本中的底层库来构建上层的 lotus，修改部分如下：
 
 ![修改 install-filcrypto 文件](./pictures/change_install_filecrypto.png)
+
+注意：如果你使用的是 `Mac OS`，那你修改的应该是 `if` 语句里面的那个位置，现在修改的位置默认你使用的系统是 `Linux`。
 
 #### C. 修改 build-release.sh 文件
 
@@ -185,7 +189,7 @@ echo source "~/.gdbinit-gef.py" >> ~/.gdbinit
 FFI_BUILD_FROM_SOURCE=1 make clean debug
 ```
 
-编译过程中，你就可以看到它使用的是本地 rust 库中的代码，如下图所示：
+编译过程中，你就可以看到它使用的是本地 rust 库中的代码（编译过程中会有一些警告，不过可以忽略），如下图所示：
 
 ![编译过程1](./pictures/compile_1.png)
 ![编译过程2](./pictures/compile_2.png)
@@ -195,7 +199,11 @@ FFI_BUILD_FROM_SOURCE=1 make clean debug
 
 ![编译结果](./pictures/result_binary.png)
 
-### (2). 调试 lotus
+### (2). 调试 lotus 【本次更新中未更新该节及其之后的内容】
+
+- ==================================================================================
+- 虽然没有更新后面的内容，但是后面的内容基本一样，只是下断点的位置不一样罢了（因为源码变了）
+- ==================================================================================
 
 编译好之后，我们就开始可以调试了，在这里主要演示的是调试 `lotus-bench` 程序，并在 go 语言和 rust 语言里面下断点，观察中间结果，单步调试程序运行过程。
 
