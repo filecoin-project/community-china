@@ -159,6 +159,6 @@ LOTUS_PATH=/home/ml/.lotus_cali ~/git2/lotus_latest/lotus wallet balance t3ukgeg
 
 ### 4.2 文章来源
 
-本文来自于微信群 `Filecoin技术交流-1/2/3/4群` 群主（`TEARS`）出品，详细信息请查看 [【Filecoin 资源分享目录】](https://github.com/CoinSummer/filecoin)。
+本文来自于微信群 `Filecoin技术交流-1/2/3/4群` 群主（`TEARS`）出品，详细信息请查看 [【Filecoin 资源分享目录】](./documents/legacy_resource/README.md)。
 
 如有任何问题，请在微信群 `Filecoin技术交流-1/2/3/4群` 中讨论。

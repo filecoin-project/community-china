@@ -707,7 +707,7 @@ export FULLNODE_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZW
 
 在主网，如果旷工不想开启接单功能（接单会有很多坑，谨慎开启），只是单纯的挖矿（靠质押扇区增加算力，然后靠出块获取收益），则不需要配备 `公网 IP 地址`。运行本地测试网也不需要有公网 IP 地址（包括本地测试网的接单功能）。
 
-订单操作可以是在线的，也可以是离线的（参考：[【官方文档：Offline storage deals】](https://docs.filecoin.io/mine/lotus/manage-storage-deals/#offline-storage-deals) 和 [【5.13 离线进行Deal数据传输】](https://github.com/CoinSummer/filecoin)），现在演示在线订单操作（通过网络把订单发送给目标旷工）。
+订单操作可以是在线的，也可以是离线的（参考：[【官方文档：Offline storage deals】](https://docs.filecoin.io/mine/lotus/manage-storage-deals/#offline-storage-deals) 和 [【5.13 离线进行Deal数据传输】](./documents/legacy_resource/README.md)），现在演示在线订单操作（通过网络把订单发送给目标旷工）。
 
 ### 9.1 旷工默认配置信息：
 
@@ -831,7 +831,7 @@ ConsiderOnlineStorageDeals = false
 
 `duration` 是持续时间，以 `45秒` 为单位（1 duration=45s）（`duration` 最小是 `518400` （`270` 天），如果输入不正常，命令会提示给你），执行成功之后返回交易 `ID`，示例中的交易 `ID` 是 `bafyreiaytwpnkrxojl63yew5wwbsfcdngfj3uyehp5eprf5o7bk3ovho3u`，交易 `ID` 可用于检索该文件。
 
-这是在线交易的方式，当然，还可以使用离线交易，具体方法可参考： [【5.13 离线进行Deal数据传输】](https://github.com/CoinSummer/filecoin)
+这是在线交易的方式，当然，还可以使用离线交易，具体方法可参考： [【5.13 离线进行Deal数据传输】](./documents/legacy_resource/README.md)
 
 ### 9.3 交易记录查看
 
@@ -1317,7 +1317,7 @@ export MINER_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkI
 
 ### 12.1 文章来源
 
-本文来自于微信群 `Filecoin技术交流-1/2/3群` 群主（`TEARS`）出品，详细信息请查看 [【Filecoin 资源分享目录】](https://github.com/CoinSummer/filecoin)。
+本文来自于微信群 `Filecoin技术交流-1/2/3群` 群主（`TEARS`）出品，详细信息请查看 [【Filecoin 资源分享目录】](./documents/legacy_resource/README.md)。
 
 如有任何问题，请在微信群 `Filecoin技术交流-1/2/3群` 中讨论。
 
