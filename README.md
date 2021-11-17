@@ -129,6 +129,7 @@
   - [分离存储市场到不同的节点](./documents/tutorial/split_markets_node/split_markets_node.md)　- 解释分离存储市场到不同节点的必要性和步骤。
   - [过低的幸运值的排查方法](./documents/tutorial/low_lucky_value/low_lucky_value.md) - 当你的幸运值一直很低，该如何排查原因
   - [从密封文件生成扇区缓存文件](./documents/tutorial/Generate_cache_files_from_sealed/Generate_cache_files_from_sealed.md) -从密封文件生成扇区缓存文件的中文翻译版本
+  - [手动将扇区文件转移至永久存储](./documents/tutorial/finalize_sector_manually/finalize_sector_manually.md) - 当扇区落盘失败时手动转移扇区至永久存储
 ### 真实数据文档
    
   - [关于公证人](./documents/real_data/fil_plus/about_notary.md) - 翻译自官方文档，解释公证人的作用及运行机制 
