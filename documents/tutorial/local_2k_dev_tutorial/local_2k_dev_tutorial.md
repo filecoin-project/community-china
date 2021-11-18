@@ -680,7 +680,8 @@ export FULLNODE_API_INFO=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZW
 不管是 `2KB` 的本地测试网还是 `32GB` 的主网，`miner` 的 `deadline` 总共只有 `48` 个，一行表示一个 `deadline`，`current` 是一个指针，这个指针表示当前正在执行哪个 `deadline` 中的扇区的 `WindowPoST`（如果当前 `deadline` 中没有扇区，那就不用计算），这个指针会自上而下、顺序的遍历每一个 `deadline`，到了最后一个 `deadline` 执行完之后，又从第一个 `deadline` 开始，永远不会停止。
 
 `current` 指针在每一个 `deadline` 中停留的时间都是固定的：
-- 对于 `2KB` 扇区而言，每个 `deadline` 停留的时间是 `12` 分钟，走过一轮 `48` 个 `deadline` 就需要花费 `9.6` 个小时；
+
+- 对于 `2KB` 扇区而言，每个 `deadline` 停留的时间是 `12` 分钟，走过一轮 `48` 个 `deadline` 就需要花费 `9.6` 个小时（目前的 `2K` 测试网更新了，一轮下来好像只要 `3` 个多小时）；
 - 对于 `32GB` 扇区而言，每个 `deadline` 停留的时间是 `30` 分钟， 走过一轮 `48` 个 `deadline` 就需要花费 `24` 个小时，刚好是一天，因此，每个扇区每过 `24` 个小时就需要提交一次 `WindowsPoST`，以证明你（旷工）还存储着这个扇区的数据。
 
 上图中看到的数据，从最左边开始：
