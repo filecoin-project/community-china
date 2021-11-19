@@ -165,7 +165,7 @@ git clone https://github.com/filecoin-project/lotus.git
 
 ![Ubuntu 代理检查](./pictures/curl_test_google.png)
 
-如果代理没有起作用，或者代理没有配置好，在终端中输入 `curl www.google.com` 命令后，你会一直处于等待状态，也没有输出信息，等待几分钟之后，才会输出**连接超时**的信息，如下图所示：
+如果代理没有起作用，或者代理没有配置好，在终端中输入 `curl www.google.com` 命令后，你会一直处于等待状态，也没有输出信息，等待几分钟之后，才会输出 **连接超时** 的信息，如下图所示：
 
 ![Ubuntu 代理未配置好](./pictures/proxy_dose_not_properly_config.png)
 
@@ -175,7 +175,7 @@ git clone https://github.com/filecoin-project/lotus.git
 
 ## 4. 编译
 
-有了代理，编译就不是什么问题了，直接进入 `~/git/lotus` 目录，然后切换到 `v1.4.1` 这个 tag（踩坑： ~~`v1.5.0-pre3`~~ 这个 tag 可以正常启动创世节点，但是无法正常启动其它节点，因此不使用这个版本的代码），
+有了代理，编译就不是什么问题了，直接进入 `~/git/lotus` 目录，然后切换到 `v1.4.1` 这个 tag（踩坑： ~~`v1.5.0-pre3`~~ 这个 tag 可以正常启动创世节点，但是无法正常启动其它节点，因此不使用这个版本的代码），当然也可以直接使用 `master` 分支，不需要切换都某个 Tag，目前由于代码的不断更新，`v1.4.1` 这个 tag 已经是比较老的，现在推荐使用 `v1.13.0` （`2021/11/19`）。
 执行如下的编译命令进行编译（编译 `debug` 版本比较方便）：
 
 ```sh
@@ -188,12 +188,14 @@ git checkout v1.4.1
 FFI_BUILD_FROM_SOURCE=1 make clean debug
 ```
 
-当然，也可以编译 `Release` 版本（`v1.4.1` 这个版本的代码，编译 `Release` 模式的时候，后续生成的旷工 `ID` 会和 `Debug` 版本不一样，`Release` 生成的旷工 `ID` 叫做 `f01xxx`， `Debug` 生成的旷工 `ID` 叫做 `t01xxx`），但是需要加上 `lotus-seed`（生成创世节点时需要使用到这个工f具），如下所示：
+当然，也可以编译 `Release` 版本（`v1.4.1` 这个版本的代码，编译 `Release` 模式的时候，后续生成的旷工 `ID` 会和 `Debug` 版本不一样，`Release` 生成的旷工 `ID` 叫做 `f01xxx`， `Debug` 生成的旷工 `ID` 叫做 `t01xxx`），但是需要加上 `lotus-seed`（生成创世节点时需要使用到这个工f具），对于创世节点和创世旷工，不需要编译 `Debug` 版本，如下所示：
 
 ```sh
 # 注意：Release 模式可能无法运行本地 2K 测试网
 git checkout v1.4.1
 FFI_BUILD_FROM_SOURCE=1 make clean all lotus-seed
+# 创世旷工和创世节点需要使用 Debug 模式
+FFI_BUILD_FROM_SOURCE=1 make clean debug
 ```
 
 ![编译 lotus 并下载依赖](./pictures/build_lotus_download_dep.png)
@@ -214,7 +216,7 @@ FFI_BUILD_FROM_SOURCE=1 make clean all lotus-seed
 
 ## 5. 下载证明参数
 
-要想玩转 `lotus`，还有一个很重要的问题要解决，那就是下载证明参数，没有证明参数， `lotus` 是启动不了的（如果没有，则在启动过程中它也会自动下载，只是很慢），下载证明参数的方法如下：
+要想玩转 `lotus`，还有一个很重要的问题要解决，那就是下载证明参数，没有证明参数， `lotus` 是启动不了的（如果没有，则在启动过程中它也会自动下载，只是很慢），并且所有要运行 `lotus` 程序（包括 `lotus-miner` 和 `lotus-worker` 等）的机器上都必须有证明参数，你可以在一台机器上下载好之后直接拷贝到其它机器上使用（默认位置是在 `/var/tmp/filecoin-proof-parameters/` 目录下），这样可以避免重复下载证明参数（证明参数是可以共用的），下载证明参数的方法如下：
 
 ```sh
 # 2KiB 表示我们要下载的证明参数是 2KiB 大小的扇区所需要的证明参数
@@ -227,6 +229,7 @@ FFI_BUILD_FROM_SOURCE=1 make clean all lotus-seed
 
 ```sh
 # 这个地址下载的参数有问题，请不要再设置这个环境变量，直接下载即可
+# 最好挂上代理，因为这个证明参数是放在国外服务器上，国内下载相对较慢，晚上下载会快些
 export IPFS_GATEWAY=https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/
 ```
 
