@@ -37,14 +37,16 @@
 - Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_10_10_high_326612.car.tar.xz】](https://www.mediafire.com/file/g2y25ice1f9awu8/lotus_cali_snapshot_2021_10_10_high_326612.car.tar.xz/file)
 - Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_11_8_high_410012.car.gz】](https://www.mediafire.com/file/zm4zdk9attigl9l/lotus_cali_snapshot_2021_11_8_high_410012.car.gz/file)
 - Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz】](https://www.mediafire.com/file/1ns1llyifq3gdxg/lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz/file)
+- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz】](https://www.mediafire.com/file/i2h3uiaqq7tflk5/lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz/file)
+
 
 ``` shell
 # Calibration 测试网快照的 SHA256 值： e84c8efddd9515b3c3305a5db9eeb3b8e69951762f431a7f3fa3feb4b84ad59c
-ml@ml:~/disk$ sha256sum ./lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz
-e84c8efddd9515b3c3305a5db9eeb3b8e69951762f431a7f3fa3feb4b84ad59c  ./lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz
+➜  ~ sha256sum ./lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz 
+bad7fc29315f2df951c36828761f511e05fc1be9845ab357cd71457a2f6c8232  ./lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz
 
 # 解压命令
-tar -Jxf ./lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz
+tar -Jxf ./lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz
 ```
 
 注意： 自从 `2021/10/5` 之后，由于网络升级，需要升级最新代码才能同步网络（至少需要 `1.12.0-rc1` 版本及以上），详情请看 [【网络面板】](https://status.filecoin.io/)和升级公告 [【在高度 312746 处开始升级】](https://github.com/filecoin-project/community/discussions/74#discussioncomment-1423664)。
