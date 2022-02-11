@@ -25,6 +25,10 @@
 - [Fuhon](https://github.com/filecoin-project/cpp-filecoin) - Filecoin C++语言的实现
 - [Forest](https://github.com/ChainSafe/forest) - Rust语言的实现
 
+#### 1.4 资源下载
+- [证明参数国内镜像](https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/) - 京东云镜像
+- [社区证明参数镜像](https://gateway.yeaosound.com/ipns/filecoin-proofs.ipns.network/) - 社区@Ego Lee 分享的证明参数国内镜像
+
 ## 2. Network
 - [网络概览](https://network.filecoin.io/) - 包括主网和测试网等各个网络的详细信息
 - [MainNet](https://github.com/filecoin-project/lotus/tree/master) - Filecoin主网
