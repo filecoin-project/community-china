@@ -32,13 +32,12 @@
 ## 2. Network
 - [网络概览](https://network.filecoin.io/) - 包括主网和测试网等各个网络的详细信息
 - [MainNet](https://github.com/filecoin-project/lotus/tree/master) - Filecoin主网
-- [Calibration](https://github.com/filecoin-project/lotus/tree/ntwk-calibration-10.22.0) - Calibration 校准网
-- [Nerpa](https://github.com/filecoin-project/lotus/tree/ntwk-nerpa) - ~~Nerpa测试网，已经不再维护~~
-
+- [Calibration](https://github.com/filecoin-project/community/discussions/74#discussioncomment-1922550) - Calibration 校准网
+- [Spacegap](https://spacegap.github.io/#/) - 实时算力概览
 ## 3. Documentation
 ### Filecoin文档
   - [FIPs 文档入口](https://github.com/filecoin-project/FIPs) - FIPs
-  - [官方文档](https://docs.filecoin.io/) - Filecoin Documentation
+  - [官方文档](https://docs.filecoin.io/) - Filecoin Documentation, [【New document】](https://lotus.filecoin.io/docs/set-up/about/)
   - [官方文档-中文版](https://filecoin-docs.froghub.io/)
   - [依赖安装和代码编译](https://docs.filecoin.io/get-started/lotus/installation/#build-and-install-lotus) - Filecoin官方依赖安装和代码编译教程
   - [挖矿教程](https://docs.filecoin.io/mine/lotus/) - Filecoin官方的挖矿教程，系统性强、详细完整，建议新手通读

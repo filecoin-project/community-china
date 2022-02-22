@@ -99,8 +99,14 @@ LOTUS_PATH=/home/ml/.lotus_cali_new ~/git2/lotus_latest/lotus daemon --import-sn
 
 **注意：**
 - 可能会由于新导入的 `lotus` 的 `token` 发生改变，导致 `miner` 无法连接，此时你需要更新 `miner` 中的 `token` 信息。
-- 如果你用的是主网，并且没有快照的话，则可以下载官方提供的 [【链数据快照】](https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car)，然后进行导入，以加快你的同步过程（官方提供的快照数据会经常更新，如果你的网速不够快，可能在你下载到一半的时候官方就更新了这个快照文件，导致你下载下来的文件是不正确的）。
-
+- 如果你用的是主网，并且没有快照的话，则可以下载官方提供的 [~~【链数据快照~~】](https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car)，然后进行导入，以加快你的同步过程（官方提供的快照数据会经常更新，如果你的网速不够快，可能在你下载到一半的时候官方就更新了这个快照文件，导致你下载下来的文件是不正确的）。
+- 下载主网快照：
+   ```
+   # 下载完成之后记得使用 sha256sum ./minimal_finality_stateroots_xxxx.car 计算一下哈希，
+   # 并和下载文件中的 minimal_finality_stateroots_xxxx.sha256sum 哈希比较，相同则没有问题，不同则需要重新下载
+   curl -sI https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car | perl -ne '/x-amz-website-redirect-location:\s(.+)\.car/ && print "$1.sha256sum\n$1.car"' | xargs wget
+   ```
+   请不要直接使用 `https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car` 这个链接进行下载，否则下载下来可能也用不了。
 
 ## 3. 常见问题
 
