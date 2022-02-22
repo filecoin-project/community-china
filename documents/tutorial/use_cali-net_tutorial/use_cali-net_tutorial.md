@@ -8,7 +8,7 @@
 
 **重要信息：**
 
-- 水龙头地址【官方】：https://faucet.butterfly.fildev.network/funds.html
+- 水龙头地址【官方】【临时失效】：https://faucet.calibration.fildev.network
 - 网络面板【官方】：https://stats.calibration.fildev.network
 - 备用面板【第三方】：https://calibration.filscan.io/#/home
 
