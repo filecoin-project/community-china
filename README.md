@@ -168,6 +168,7 @@
 - [Slingshot 数据统计](https://slingshot.filecoin.io/) - Filecoin 有效数据存储排名
 - [FIL 主网数据统计图表](http://fil8.top/) - 群友 @怪盗Kid 提供的 FIL 主网数据统计图表
 - [Filecoin扇区修复工具](https://github.com/froghub-io/filecoin-sealer-recover) - 群友@Chen开源的Filecoin扇区修复工具
+- [Filecoin-Storage-Tool](https://github.com/VshareCloud-Project/Filecoin-Storage-Tool) - VshareCloud团队开源的FileCoin交易发起/数据备份组件
 
 ## 6. Community
 - [微信交流群](./README.md)：**Filecoin 技术交流群** 是目前国内最友好，也是全球最大、最活跃的 Filecoin 技术交流社区，欢迎广大 Filecoin 矿工、开发者和爱好者加入我们的技术交流群。
