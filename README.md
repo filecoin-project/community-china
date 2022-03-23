@@ -184,8 +184,8 @@
   - ![TEARS](./images/tears_wchart.png)
 
 
-- [Telegram交流群](https://t.me/joinchat/TOGYnsZ2itA0NGZl)
-- [Discord交流群](https://discord.gg/4f3DjmDk7j)
+- [Telegram交流群](https://t.me/+TOGYnsZ2itA0NGZl)   
+- [Discord交流群](https://discord.gg/Qqn3VtC4)
 
 ## 7. 杂项
 
