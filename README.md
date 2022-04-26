@@ -129,8 +129,8 @@
   - [Calibration 测试网和 Nerpnet 测试网快照下载地址和使用教程](./documents/tutorial/testnet_snapshot/testnet_snapshot.md) - 有效时间从2021/07/15开始到下次测试网重置
   - [如何正确删除扇区](./documents/tutorial/How_to_delete_sector_correctly/How_to_delete_sector_correctly.md) 
   - [如何迁移矿工节点](./documents/tutorial/How_to_migrate_miner_nodes/How_to_migrate_miner_nodes.md) 
-  - [快速切换 Daemon 节点](./documents/tutorial/change_lotus_daemon/change_lotus_daemon.md) - 该文档将告诉你如何切换旷工的 `Daemon` 节点，同时提供大量关于本地测试网的相关脚本
-  - [分离存储市场到不同的节点](./documents/tutorial/split_markets_node/split_markets_node.md)　- 解释分离存储市场到不同节点的必要性和步骤。
+  - [快速切换 Daemon 节点](./documents/tutorial/change_lotus_daemon/change_lotus_daemon.md) - 如何切换矿工的 `Daemon` 节点，同时提供大量关于本地测试网的相关脚本
+  - [分离存储市场到不同的节点](./documents/tutorial/split_markets_node/split_markets_node.md)　- 解释分离存储市场到不同节点的必要性和步骤
   - [过低的幸运值的排查方法](./documents/tutorial/low_lucky_value/low_lucky_value.md) - 当你的幸运值一直很低，该如何排查原因
   - [从密封文件生成扇区缓存文件](./documents/tutorial/Generate_cache_files_from_sealed/Generate_cache_files_from_sealed.md) -从密封文件生成扇区缓存文件的中文翻译版本
   - [手动将扇区文件转移至永久存储](./documents/tutorial/finalize_sector_manually/finalize_sector_manually.md) - 当扇区落盘失败时手动转移扇区至永久存储
