@@ -54,7 +54,7 @@
 
 ### 挖矿集群搭建
   - [Filecoin挖矿集群搭建](https://github.com/filecoin-project/community-china/discussions/4) - 如何从零开始搭建一个挖矿集群
-  - [分布式Miner集群搭建](https://github.com/filguard/lotus-ops/blob/master/documents/distributed-miner-configuration.md) - 社区分布式Miner架构详解
+  - [分布式Miner集群搭建](https://github.com/minerdao/posts/blob/master/posts/filecoin/distributed-miner-configuration.md) - 社区分布式Miner架构详解
 
 ### Daemon操作
   - [节点启动](https://github.com/filecoin-project/community-china/discussions/2) - Lotus代码编译、节点搭建、配置、启动
@@ -63,10 +63,10 @@
 
 ### Miner操作
   - [扇区操作](https://github.com/filecoin-project/community-china/discussions/14) - 扇区生命周期解析、扇区状态更新、扇区删除
-  - [存储路径操作](https://github.com/filguard/lotus-ops/blob/master/documents/storage-manage.md) - 存储路径操作、存储i/o性能分析、网络分析
+  - [存储路径操作](https://github.com/minerdao/posts/blob/master/posts/filecoin/storage-manage.md) - 存储路径操作、存储i/o性能分析、网络分析
   - [Owner、Worker、Control钱包说明](https://github.com/filecoin-project/community-china/discussions/15) - 如何配置时空证明、PreCommit、ProveCommit多钱包地址
   - [Miner重启时机选择](https://docs.filecoin.io/mine/lotus/miner-lifecycle/#ensuring-proofs-for-the-current-deadline-have-been-sent) - 重启Miner前需要检查什么
-  - [新矿工节点上线CheckList](https://github.com/filguard/lotus-ops/blob/master/documents/new-miner-checklist.md) - 新矿工节点上线操作系统、基础环境、Daemon、Miner、Worker检查列表
+  - [新矿工节点上线CheckList](https://github.com/minerdao/posts/blob/master/posts/filecoin/new-miner-checklist.md) - 新矿工节点上线操作系统、基础环境、Daemon、Miner、Worker检查列表
   - [如何迁移矿工节点](./documents/tutorial/How_to_migrate_miner_nodes/How_to_migrate_miner_nodes.md) - 如何迁移矿工节点至新的机器上，需要做哪些配置和操作
   - [如何正确删除扇区](./documents/tutorial/How_to_delete_sector_correctly/How_to_delete_sector_correctly.md) - 教你删除扇区的正确姿势，以及残留扇区如何处理
 
@@ -74,9 +74,9 @@
   - [Filecoin 订单配置及订单操作](https://github.com/filecoin-project/community-china/discussions/5) - 存储矿工如何接订单，订单常见操作
 
 ### 部署运维
-  - [Lotus-ops部署运维工具](https://github.com/filguard/lotus-ops) - [FilGuard](https://github.com/filguard)团队开源的Lotus部署运维工具和运维操作手册
-  - [Ansible部署工具使用](https://github.com/filguard/lotus-ops/blob/master/documents/ansible-deploy-tool-usage.md) - 如何使用Ansible批量自动化部署Daemon、Miner、Worker
-  - [Prometheus + Grafana监控系统搭建](https://github.com/filguard/lotus-ops/blob/master/documents/monitoring-deployment.md) - 基于Prometheus和Grafana搭建Filecoin监控报警系统
+  - [Lotus-ops部署运维工具](https://github.com/minerdao/lotus-ops) - [MinerDAO](https://github.com/minerdao)开源的Lotus部署运维工具和运维操作手册
+  - [Ansible部署工具使用](https://github.com/minerdao/posts/blob/master/posts/filecoin/ansible-deploy-tool-usage.md) - 如何使用Ansible批量自动化部署Daemon、Miner、Worker
+  - [Prometheus + Grafana监控系统搭建](https://github.com/minerdao/posts/blob/master/posts/filecoin/monitoring-deployment.md) - 基于Prometheus和Grafana搭建Filecoin监控报警系统
   - [Lotus日常运维巡检做什么](https://github.com/filecoin-project/community-china/discussions/10) - 日常硬件检查、错误扇区处理、钱包检查、消息池疏通等
   - [Lotus-alert简单易用的Lotus告警系统](https://github.com/jyma/lotus-alert) - 本项目由技术群群友 @mje 提供，可直接发送告警信息到微信
   - [中国大陆地区FileCoin证明参数的下载](https://ipns.tech/2.FileCoin/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BAFileCoin%E8%AF%81%E6%98%8E%E5%8F%82%E6%95%B0%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%BC%98%E5%8C%96) - 社区@Ego Lee分享的中国大陆地区FileCoin证明参数的下载优化
