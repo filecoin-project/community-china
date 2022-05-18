@@ -70,6 +70,10 @@
   - [如何迁移矿工节点](./documents/tutorial/How_to_migrate_miner_nodes/How_to_migrate_miner_nodes.md) - 如何迁移矿工节点至新的机器上，需要做哪些配置和操作
   - [如何正确删除扇区](./documents/tutorial/How_to_delete_sector_correctly/How_to_delete_sector_correctly.md) - 教你删除扇区的正确姿势，以及残留扇区如何处理
 
+  - [Filecoin：扇区到期续期/过期扇区删除流程详解](https://medium.com/@brf_alpha/filecoin-%E6%89%87%E5%8C%BA%E5%88%B0%E6%9C%9F%E7%BB%AD%E6%9C%9F-%E5%88%A0%E9%99%A4%E6%B5%81%E7%A8%8B%E8%AF%A6%E6%83%85-b0fdb86cf797) - 删除过期扇区或者续期的教程，访问此教程可能需要科学上网
+
+  - [多签地址作为Owner操作教程](https://medium.com/@brf_alpha/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E4%BD%9C%E4%B8%BAowner%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B-31fc19a1d433) - 近期 owner 私钥被盗的事情时有发生，就提高安全性来讲，使用多签是最有效的手段之一，访问此教程可能需要科学上网
+
 ### Deal 操作
   - [Filecoin 订单配置及订单操作](https://github.com/filecoin-project/community-china/discussions/5) - 存储矿工如何接订单，订单常见操作
 
