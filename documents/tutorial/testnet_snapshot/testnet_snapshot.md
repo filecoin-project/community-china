@@ -39,6 +39,9 @@
 - Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz】](https://www.mediafire.com/file/1ns1llyifq3gdxg/lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz/file)
 - Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz】](https://www.mediafire.com/file/i2h3uiaqq7tflk5/lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz/file)
 - Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_02_11_high_683040.car.tar.xz】](https://www.mediafire.com/file/dytpkmtsbr9abdg/lotus_cali_snapshot_2022_02_11_high_683040.car.tar.xz/file)
+
+- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_05_18_high_959844.car.tar.gz】](https://www.mediafire.com/file/gquphc7qw0ffzdk/lotus_cali_snapshot_2022_05_18_high_959844.car.tar.gz/file)
+
   
 
 ``` shell
