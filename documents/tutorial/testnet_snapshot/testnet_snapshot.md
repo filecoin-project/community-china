@@ -33,23 +33,18 @@
 
 快照数据已经使用 `xz` 工具压缩，下载之后需要解压方可使用：
 
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_09_21_high_271614.car.tar.xz】](https://www.mediafire.com/file/jscwd3d1p2lbjfi/lotus_cali_snapshot_2021_09_21_high_271614.car.tar.xz/file)
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_10_10_high_326612.car.tar.xz】](https://www.mediafire.com/file/g2y25ice1f9awu8/lotus_cali_snapshot_2021_10_10_high_326612.car.tar.xz/file)
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_11_8_high_410012.car.gz】](https://www.mediafire.com/file/zm4zdk9attigl9l/lotus_cali_snapshot_2021_11_8_high_410012.car.gz/file)
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz】](https://www.mediafire.com/file/1ns1llyifq3gdxg/lotus_cali_snapshot_2021_12_20_high_530736.car.tar.xz/file)
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz】](https://www.mediafire.com/file/i2h3uiaqq7tflk5/lotus_cali_snapshot_2022_01_26_high_636820.car.tar.xz/file)
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_02_11_high_683040.car.tar.xz】](https://www.mediafire.com/file/dytpkmtsbr9abdg/lotus_cali_snapshot_2022_02_11_high_683040.car.tar.xz/file)
 - Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_06_09_high_1023476.car.tar.xz】](https://www.mediafire.com/file/uhseh6rk2hq0ipi/lotus_cali_snapshot_2022_06_09_high_1023476.car.tar.xz/file)
 - Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_07_01_high_1086060.car.tar.xz】](https://www.mediafire.com/file/6d6ngyku9baidv0/lotus_cali_snapshot_2022_07_01_high_1086060.car.tar.xz/file)
+- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz 】](https://www.mediafire.com/file/o6jl8ubpbz2vzow/lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz/file)
 
 
 ``` shell
 # Calibration 测试网快照的 SHA256 值： 
-sha256sum ./lotus_cali_snapshot_2022_07_01_high_1086060.car.tar.xz 
-b1392d32fbb068c64b9b90b93cecc27b9ba076f442418003e756f8dfad1cedb5  ./lotus_cali_snapshot_2022_07_01_high_1086060.car.tar.xz
+sha256sum ./lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz 
+a83e475b6ccf96020fda2d9d6199cb6a3afe08480c7a71271592feab71b5ffc6  ./lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz
 
 # 解压命令
-tar -Jxf ./lotus_cali_snapshot_2022_07_01_high_1086060.car.tar.xz
+tar -Jxf ./lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz
 ```
 
 注意： 自从 `2021/10/5` 之后，由于网络升级，需要升级最新代码才能同步网络（至少需要 `1.12.0-rc1` 版本及以上），详情请看 [【网络面板】](https://status.filecoin.io/)和升级公告 [【在高度 312746 处开始升级】](https://github.com/filecoin-project/community/discussions/74#discussioncomment-1423664)。
