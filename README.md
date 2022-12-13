@@ -102,7 +102,6 @@
 ### 资源消耗统计
   - [磁盘消耗统计](./documents/resource/resource_usage/resource_usage.md)
   - [内存消耗统计](./documents/resource/resource_usage/resource_usage.md)
-  - [显卡资源消耗统计]() ： TODO
   - [查看系统资源工具介绍](./documents/resource/resource_usage/resource_usage.md)
     - htop （CPU 性能查看工具）
     - nvtop （GPU 性能查看工具）
@@ -111,13 +110,8 @@
   - [星想法公众号Filecoin系列文章](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU5MzMxNTk2Nw==&action=getalbum&album_id=1458647927098130433)
   - [MerkleTree的算法流程](https://github.com/kikakkz/rust-fil-proofs-test/blob/master/apps/data/MerkleTree%E7%9A%84%E7%AE%97%E6%B3%95.txt) - [@kikakkz](https://github.com/kikakkz)分享的MerkleTree算法调用流程
   - Seal密封流程分析
-    - AP计算过程简介（TODO）
     - [P1计算过程简介](./documents/tutorial/lotus_seal_process/seal_process.md)
     - [P2计算过程简介](./documents/tutorial/lotus_seal_process/seal_process.md)
-    - C1计算过程简介（TODO）
-    - C2计算过程简介（TODO）
-    - WindowPoST计算过程简介（TODO）
-    - WinningPoST计算过程简介（TODO）
 ### 基础教程
   - [本地搭建 2K 测试网入门教程](./documents/tutorial/local_2k_dev_tutorial/local_2k_dev_tutorial.md) - 强烈推荐的新手入门教程
   - [Calibration 测试网使用教程](./documents/tutorial/use_cali-net_tutorial/use_cali-net_tutorial.md) - 强烈推荐的新手入门教程
@@ -144,8 +138,8 @@
   - [真实数据专题讨论](https://github.com/filecoin-project/community-china/discussions/166) 这里讨论关于真实数据问题
   
 ### 高级教程
-    - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
-    - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashNeptune/Readme.md) - 高级版（所使用的参数和 lotus 完全相同）
+  - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashOriginal/Readme.md) - 基础版（所使用的参数和 lotus 有所不同）
+  - [Poseidon 哈希算法 C 语言实现](./ref_src/poseidon/PoseidonHashNeptune/Readme.md) - 高级版（所使用的参数和 lotus 完全相同）
 
 ## 4. Optimized Lotus
 - [C2优化版](https://github.com/jackoelv/bellperson) - [@jacklelv](https://github.com/jackoelv)开源的C2优化版
@@ -153,7 +147,9 @@
 - [lotus-bee优化版](https://github.com/beelant/lotus-bee) 由蜂灯科技提供的全方位优化的lotus软件免费使用
 
 ## 5. Ecosystem Tools
-- [file.app](https://file.app) - 实时订单，存储费用，存储矿工等查询
+- [Singularity](https://github.com/tech-greedy/singularity) - 用于将PB级数据载入Filecoin网络的客户端工具
+- [Go-generate-car](https://github.com/tech-greedy/go-generate-car) - 打包生成.car文件的工具
+- [File.app](https://file.app) - 实时订单，存储费用，存储矿工等查询
 - [Fgas](https://fgas.io/index) - 挖矿成本查询，可实时查看抵押币和Gas消耗
 - [FileStats](https://filstats.com) - Filecoin挖矿成本查询
 - [Spacegap](https://spacegap.github.io/#/) - 主网数据统计概览，显示前50名矿工的算力、账户余额统计
@@ -185,7 +181,7 @@
 
 
 - [Telegram交流群](https://t.me/+TOGYnsZ2itA0NGZl)   
-- [Discord交流群](https://discord.gg/Qqn3VtC4)
+- [Discord交流群](https://discord.gg/zA7smFQd)
 
 ## 7. 杂项
 
