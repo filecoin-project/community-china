@@ -143,7 +143,8 @@ LOTUS_PATH=/home/ml/.lotus_cali_new ~/git2/lotus_latest/lotus daemon
 ### 4.1 参考信息
 
 - [【官方主网快照操作手册】](https://docs.filecoin.io/get-started/lotus/chain/#lightweight-snapshot)： https://docs.filecoin.io/get-started/lotus/chain/#lightweight-snapshot
-- [【官方主网快照下载地址】](https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car)： https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
+- [【官方主网快照下载地址】](https://snapshots.mainnet.filops.net/minimal/latest.zst)： https://snapshots.mainnet.filops.net/minimal/latest.zst
+- [【官方主网快照推荐下载方法】]()：aria2c -x5 https://snapshots.mainnet.filops.net/minimal/latest.zst
 
 ### 4.2 文章来源
 

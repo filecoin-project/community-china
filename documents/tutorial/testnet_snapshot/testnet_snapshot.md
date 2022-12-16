@@ -157,7 +157,10 @@ LOTUS_PATH=/home/ml/.lotus_cali ~/git2/lotus_latest/lotus sync wait
 ### 3.1 参考信息
 
 - [【官方主网快照操作手册】](https://docs.filecoin.io/get-started/lotus/chain/#lightweight-snapshot)： https://docs.filecoin.io/get-started/lotus/chain/#lightweight-snapshot
-- [【官方主网快照下载地址】](https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car)： https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
+- [【官方主网快照下载地址】](https://snapshots.mainnet.filops.net/minimal/latest.zst)： https://snapshots.mainnet.filops.net/minimal/latest.zst
+- [【官方主网快照推荐下载方法】]()：aria2c -x5 https://snapshots.mainnet.filops.net/minimal/latest.zst
+
+
 - [【链数据/快照导入导出操作流程请查看这里】](../lotus_chain_op/lotus_chain_op.md)
 - [【2K 本地测试网使用教程请看这里】](../local_2k_dev_tutorial/local_2k_dev_tutorial.md)
 
