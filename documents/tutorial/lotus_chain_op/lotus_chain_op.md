@@ -145,6 +145,9 @@ LOTUS_PATH=/home/ml/.lotus_cali_new ~/git2/lotus_latest/lotus daemon
 - [【官方主网快照操作手册】](https://docs.filecoin.io/get-started/lotus/chain/#lightweight-snapshot)： https://docs.filecoin.io/get-started/lotus/chain/#lightweight-snapshot
 - [【官方主网快照下载地址】](https://snapshots.mainnet.filops.net/minimal/latest.zst)： https://snapshots.mainnet.filops.net/minimal/latest.zst
 - [【官方主网快照推荐下载方法】]()：aria2c -x5 https://snapshots.mainnet.filops.net/minimal/latest.zst
+- 【官方主网快照大小：2022-12-16】：`55.4GB`
+- [【主网快照的另一个下载地址：（2022-12-16: 大小约为 102GB）】](https://snapshots.mainnet.filops.net/minimal/latest)：https://snapshots.mainnet.filops.net/minimal/latest
+
 
 ### 4.2 文章来源
 

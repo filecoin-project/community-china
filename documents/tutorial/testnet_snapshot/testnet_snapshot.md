@@ -39,6 +39,7 @@
 
 ``` shell
 # 官方测试网快照下载方法： 
+# 目前测试网快照的大小约为（2022-12-16）： 279MB
 aria2c -x5 https://snapshots.calibrationnet.filops.net/minimal/latest.zst
 ```
 
