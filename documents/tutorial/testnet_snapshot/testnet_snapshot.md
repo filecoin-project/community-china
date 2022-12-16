@@ -31,29 +31,25 @@
 
 ### 2.3 下载快照
 
-快照数据已经使用 `xz` 工具压缩，下载之后需要解压方可使用：
+官方已提供测试网快照下载地址：
 
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_06_09_high_1023476.car.tar.xz】](https://www.mediafire.com/file/uhseh6rk2hq0ipi/lotus_cali_snapshot_2022_06_09_high_1023476.car.tar.xz/file)
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_07_01_high_1086060.car.tar.xz】](https://www.mediafire.com/file/6d6ngyku9baidv0/lotus_cali_snapshot_2022_07_01_high_1086060.car.tar.xz/file)
-- Calibration 测试网的快照下载地址：[【lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz 】](https://www.mediafire.com/file/o6jl8ubpbz2vzow/lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz/file)
+- 测试网的快照下载地址：https://snapshots.calibrationnet.filops.net/minimal/latest.zst
+- [【参考链接】](https://lotus.filecoin.io/lotus/manage/chain-management/)：https://lotus.filecoin.io/lotus/manage/chain-management/
 
 
 ``` shell
-# Calibration 测试网快照的 SHA256 值： 
-sha256sum ./lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz 
-a83e475b6ccf96020fda2d9d6199cb6a3afe08480c7a71271592feab71b5ffc6  ./lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz
-
-# 解压命令
-tar -Jxf ./lotus_cali_snapshot_2022_08_11_high_1204606.car.tar.xz
+# 官方测试网快照下载方法： 
+aria2c -x5 https://snapshots.calibrationnet.filops.net/minimal/latest.zst
 ```
 
-注意： 自从 `2021/10/5` 之后，由于网络升级，需要升级最新代码才能同步网络（至少需要 `1.12.0-rc1` 版本及以上），详情请看 [【网络面板】](https://status.filecoin.io/)和升级公告 [【在高度 312746 处开始升级】](https://github.com/filecoin-project/community/discussions/74#discussioncomment-1423664)。
+官方测试网重置时间：`2022-10-31`
 
-- Nerpnet 测试网的快照下载地址：[【无】]()
-
-``` shell
-# Nerpnet 测试网快照的 SHA256 值： 
-# 由于多次同步网络失败，目前已经放弃这个网络
+```shell
+重置相关信息可参考 Slack：
+build: https://lotus.filecoin.io/lotus/manage/switch-networks/
+stats: https://stats.calibration.fildev.network
+faucet: https://faucet.calibration.fildev.network
+snapshot: https://snapshots.calibrationnet.filops.net/minimal/latest
 ```
 
 
@@ -159,6 +155,8 @@ LOTUS_PATH=/home/ml/.lotus_cali ~/git2/lotus_latest/lotus sync wait
 - [【官方主网快照操作手册】](https://docs.filecoin.io/get-started/lotus/chain/#lightweight-snapshot)： https://docs.filecoin.io/get-started/lotus/chain/#lightweight-snapshot
 - [【官方主网快照下载地址】](https://snapshots.mainnet.filops.net/minimal/latest.zst)： https://snapshots.mainnet.filops.net/minimal/latest.zst
 - [【官方主网快照推荐下载方法】]()：aria2c -x5 https://snapshots.mainnet.filops.net/minimal/latest.zst
+- [【官方测试网快照下载地址】](https://snapshots.calibrationnet.filops.net/minimal/latest.zst)：https://snapshots.calibrationnet.filops.net/minimal/latest.zst
+- [【官方测试网快照推荐下载方法】]()：aria2c -x5 https://snapshots.calibrationnet.filops.net/minimal/latest.zst
 
 
 - [【链数据/快照导入导出操作流程请查看这里】](../lotus_chain_op/lotus_chain_op.md)
