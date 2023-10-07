@@ -56,6 +56,7 @@
 - 浏览器
   - [官方浏览器 stats](https://stats.testnet.filecoin.io/) - **官方**
   - [Filscout](https://filscout.io/en/) - 星际联盟团队开发
+  - [Filutils](https://www.filutils.com/en/)
   - [官方 Filscan](https://filscan.io/)
   - [1475ipfs](https://1475ipfs.com/#/blockBrowser) - 1475 团队开发
   - [FilFox](https://filfox.info/zh) - 6Block 团队
